@@ -1,16 +1,17 @@
-<!-- Início do Arquivo -->
-<!DOCTYPE html><!-- Documento -->
-<html lang="pt-br"><!-- Html -->
-<head><!-- Cabeça -->
-    <meta charset="UTF-8"><!-- Linguagem -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Compatibilidade -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Janela -->
+<!--Início do Arquivo-->
+<!DOCTYPE html><!--Documento-->
+<html lang="pt-br"><!--Html-->
+<head><!--Cabeça-->
+    <meta charset="UTF-8"><!--Linguagem-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><!--Compatibilidade-->
+    <meta http-equiv="refresh" content="100; url="><!--Atualiza a Página-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--Janela-->
     <title>Título</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><!-- Favicon -->
-    <link rel="stylesheet" href="style.css"><!-- CSS -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><!--Favicon-->
+    <link rel="stylesheet" href="style.css"><!--CSS-->
     <style>/*CSS*/</style>
 </head>
-<body><!-- Corpo -->
+<body><!--Corpo-->
     <header>Cabeçalho</header>
     <nav>Navegação</nav>
     <menu>Menu</menu>
@@ -19,11 +20,13 @@
         <summary>Sumário</summary>
         Detalhes
     </details>
+    <main>Principal</main>
     <section>Sessão</section>
     <article>Artigo
         <h1>Título 1</h1>
             <div>Divisão Geral</div>
             <span>Divisão na Linha</span>
+            <p>Parágrafo</p>
         <h2>Título 2</h2>
             <abbr title="Significado">Palavra</abbr>
             <var>Variável</var>
@@ -39,6 +42,7 @@
             <small>Miúdas</small>
             <kbd>Tecla</kbd>
             <samp>Programa</samp>
+            <code>Código</code>
             <pre>Formatado</pre>
             <sub>Subescrito</sub>
             <sup>Superescrito</sup>
@@ -47,12 +51,16 @@
                 <rt>Som</rt>
                 <rp>Depois</rp>
             </ruby>
+            <bdi>Reposiciona Símbolos Invertidos</bdi>
+            <bdo dir="rtl">Inverte a Escrita</bdo>
             <cite>Citação Externa</cite>
             <q>Citação Curta</q>
             <blockquote>Citação Longa</blockquote>
         <h3>Título 3</h3>
             <ul type="square"><!--Lista Desordenada-->
-                <li>Item</li>
+                <li>
+                    <data value="12345678">Item</data><!--Associa o dado a um valor legível por máquina, tipo código de barras. Para hora ou data deve ser usado <time>-->
+                </li>
             </ul>
             <ol type="I" start="3"><!--Lista Ordenada-->
                 <li>Item</li>
@@ -62,6 +70,9 @@
             <dt>Significado</dt></dl>
             <table><!--Tabela-->
                 <caption>Título</caption>
+                <colgroup>
+                    <col span="2" class="Colunas 1 e 2"><!--Aplica estilo à Coluna-->
+                </colgroup>
                 <thead><!--Cabeça-->
                     <tr><!--Grupo-->
                         <td>Item</td>
@@ -69,6 +80,7 @@
                 </thead>
                 <tbody><!--Corpo-->
                     <tr>
+                        <td>Item</td>
                         <td>Item</td>
                     </tr>
                 </tbody>
@@ -78,48 +90,56 @@
                     </tr>
                 </tfoot>
             </table>
-            <form action=""><!--Formulário-->
-                <fieldset><!--Grupo-->
-                    <legend>Título</legend>
-                    <label for="id01">Informação</label>
-                    <input type="text" id="id01"><!--Texto-->
-                    <input type="button" value="Enviar"><!--Botão-->
-                    <input type="checkbox" name="" id=""><!--Caixa de Seleção-->
-                    <input type="color" name="" id=""><!--Cor-->
-                    <input type="date" name="" id=""><!--Data-->
-                    <input type="datetime" name="" id=""><!--Data e Hora com Fuso Horário-->
-                    <input type="datetime-local" name="" id=""><!--Data e Hora sem Fuso Horário-->
-                    <input type="email" name="" id=""><!--E-mail-->
-                    <input type="file" name="" id=""><!--Arquivo-->
-                    <input type="hidden" name=""><!--Escondido-->
-                    <input type="image" src="h.png" alt="" height="100px" width="100"><!--Botão com Imagem-->
-                    <input type="month" name="" id=""><!--Mês-->
-                    <input type="number" name="" id=""><!--Número-->
-                    <input type="password" name="" id=""><!--Senha-->
-                    <input type="radio" name="" id=""><!--Opção-->
-                    <input type="range" name="" id=""><!--Barra-->
-                    <input type="reset" value="Reset"><!--Reset-->
-                    <input type="search" name="" id=""><!--Busca-->
-                    <input type="submit" value="Enviar"><!--Botão de Enviar-->
-                    <input type="tel" name="" id=""><!--Telefone-->
-                    <input type="time" name="" id=""><!--Hora-->
-                    <input type="url" name="" id=""><!--URL-->
-                    <input type="week" name="" id=""><!--Semana do Ano-->
-                    <select name="" id="">
-                        <optgroup label="Grupo">
-                            <option value="">Opção</option>
-                        </optgroup>
-                    </select>
-                    <textarea name="" id="" cols="30" rows="10"></textarea><!--Caixa de Texto-->
-                </fieldset>
-            </form>
-            <button>Botão</button>
-            <button disabled="disabled">Botão Desativado</button>
-            <button type="reset">Botão de Reset</button>
-            <button type="submit">Botão de Enviar</button>
+            <dialog open><!--Caixa de Diálogo-->
+                <form action="" method="dialog"><!--Formulário--><!--Método Define como funciona tem "get" também-->
+                    <fieldset><!--Grupo-->
+                        <legend>Título</legend>
+                        <label for="id01">Informação</label>
+                        <input type="text" id="id01"><!--Texto-->
+                        <input type="button" value="Enviar"><!--Botão-->
+                        <input type="checkbox" name="" id=""><!--Caixa de Seleção-->
+                        <input type="color" name="" id=""><!--Cor-->
+                        <input type="date" name="" id=""><!--Data-->
+                        <input type="datetime" name="" id=""><!--Data e Hora com Fuso Horário-->
+                        <input type="datetime-local" name="" id=""><!--Data e Hora sem Fuso Horário-->
+                        <input type="email" name="" id=""><!--E-mail-->
+                        <input type="file" name="" id=""><!--Arquivo-->
+                        <input type="hidden" name=""><!--Escondido-->
+                        <input type="image" src="h.png" alt="" height="100px" width="100"><!--Botão com Imagem-->
+                        <input type="month" name="" id=""><!--Mês-->
+                        <input type="number" name="" id=""><!--Número-->
+                        <input type="password" name="" id=""><!--Senha-->
+                        <input type="radio" name="" id=""><!--Opção-->
+                        <input type="range" name="" id=""><!--Barra-->
+                        <input type="reset" value="Reset"><!--Reset-->
+                        <input type="search" name="" id=""><!--Busca-->
+                        <input type="submit" value="Enviar"><!--Botão de Enviar-->
+                        <input type="tel" name="" id=""><!--Telefone-->
+                        <input type="time" name="" id=""><!--Hora-->
+                        <input type="url" name="" id=""><!--URL-->
+                        <input type="week" name="" id=""><!--Semana do Ano-->
+                        <input list="lista"><!--Lista de Preenchimento-->
+                        <meter id="" min="0" max="100"low="33" high="66" optimum="80"value="50">Valor do total: 50/100</meter><!--Medidor-->
+                        <datalist id="lista">
+                            <option value="Item 01">
+                        </datalist>
+                        <select name="" id=""><!--Lista de Seleção-->
+                            <optgroup label="Grupo">
+                                <option value="">Opção</option>
+                            </optgroup>
+                        </select>
+                        <textarea name="" id="" cols="30" rows="10"></textarea><!--Caixa de Texto-->
+                    </fieldset>
+                    <button>Botão</button>
+                    <button disabled="disabled">Botão Desativado</button>
+                    <button type="reset">Botão de Reset</button>
+                    <button type="submit">Botão de Enviar</button>
+                </form>
+            </dialog>
+
         <h4>Título 4</h4>
         <h5>Título 5</h5>
-            <br><!-- Qebra de Linha -->
+            <br><!--Qebra de Linha-->
             <wbr><!--Lugar em que pode quebrar a Linha-->
             <hr><!--Quebra de Sessão-->
         <h6>Título 6</h6>
@@ -127,18 +147,28 @@
         <object data="h.pdf" type="application/pdf">Mensagem de erro.</object><!--Plug-In-->
         <embed src="h.pdf" type="application/pdf"><!--Plug-In-->
         <iframe src="https://www.youtube.com/embed/-OkdMkwpOI0" frameborder="0"></iframe><!--Plug-In-->
+        <map name="mapa"><!--Configura Área Clicavel para Imagens-->
+            <area shape="circle" coords="25,25,25" href="https://www.youtube.com/embed/-OkdMkwpOI0" target="_blank" alt="Youtube">
+        </map>
         <figure><!--Figura-->
             <picture><!--Conjunto da Figura-->
                 <source src="h.png" type="image/png"><!--Recurso-->
-                <img src="h.png" alt="Texto" height="100px" width="100">
+                <img usemap="#mapa" src="h.png" alt="Texto" height="100px" width="100">
                 <figcaption>Descrição</figcaption>
             </picture>
         </figure>
         <audio src="h.mp3" controls>Áudio</audio>
-        <p>Parágrafo</p>
+        <canvas id="canvas" width="100" height="100">Mensagem de erro.</canvas><!--Container para Gráficos-->
     </article>
     <address>Endereço</address>
     <footer>Rodapé</footer>
+    <script>/* pro canvas */
+        var canvas = document.getElementById("canvas");
+        var elemento = canvas.getContext("2d");
+        elemento.fillStyle = "#FF0000";
+        elemento.fillRect(0, 0, 100, 100);
+    </script>
+    <noscript>JavaScript desabilitado.</noscript>
 </body>
 </html>
 <!-- Fim do Arquivo -->
