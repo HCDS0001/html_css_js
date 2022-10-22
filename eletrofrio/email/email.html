@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-mails Padrão</title>
+    <link rel="stylesheet" href="email.css">
+</head>
+<body>
+    <header>Gerador de E-mails Padrão</header>
+    <main>
+        <section>
+            <article>
+                <h1>Instruções</h1>
+                <p>Para gerar o e-mail desejado selecione as opções e em seguida clique em gerar.</p>
+            </article>
+            <article>
+                <fieldset>
+                    <legend>Tipo de E-mail</legend>
+                    <form action="">
+                        <!--Seleção de Função-->
+                        <label for="idfunction">Função</label>
+                        <select name="" id="idfunction" autofocus onchange="selectfunction()">
+                            <option value="(SELECIONE A FUNÇÃO)" class="optionfunction">(SELECIONE A FUNÇÃO)</option>
+                            <optgroup label="Comercial">
+                                <option value="Analista" class="optionfunction">Analista</option>
+                                <option value="Ajuste" class="optionfunction">Ajuste</option>
+                            </optgroup>
+                            <optgroup label="Continnum">
+                                <option value="Planilhamento" class="optionfunction">Planilhamento</option>
+                                <option value="Projeto Executivo" class="optionfunction">Projeto Executivo</option>
+                            </optgroup>
+                        </select>
+                        <!--Analista-->
+                        <label for="idanalista" class="classanalista">Tipo</label>
+                        <select name="" id="idanalista" class="classanalista" onchange="selectanalista()">
+                            <option value="(SELECIONE O TIPO)" class="optionanalista">(SELECIONE O TIPO)</option>
+                            <optgroup label="Analista">
+                                <option value="Liberação Parcial" class="optionanalista">Liberação Parcial</option>
+                                <option value="Liberação Total" class="optionanalista">Liberação Total</option>
+                                <option value="Linhas Atualizadas" class="optionanalista">Linhas Atualizadas</option>
+                                <option value="Feito" class="optionanalista">Feito</option>
+                                <option value="Atualizar" class="optionanalista">Atualizar</option>
+                        </select>
+                        <!--Ajuste-->
+                        <label for="idajuste" class="classajuste">Tipo</label>
+                        <select name="" id="idajuste" class="classajuste"onchange="selectajuste()">
+                            <option value="(SELECIONE O TIPO)" class="optionajuste">(SELECIONE O TIPO)</option>
+                            <optgroup label="Ajuste">
+                                <option value="Dúvidas" class="optionajuste">Dúvidas</option>
+                                <option value="Aguardando Dúvidas" class="optionajuste">Aguardando Dúvidas</option>
+                                <option value="Arquivos de Ajuste" class="optionajuste">Arquivos de Ajuste</option>
+                                <option value="Aguardando Conferência" class="optionajuste">Aguardando Conferência</option>
+                                <option value="Alteração" class="optionajuste">Alteração</option>
+                        </select>
+                        <!--Planilhamento-->
+                        <label for="idplanilhamento" class="classplanilhamento">Tipo</label>
+                        <select name="" id="idplanilhamento" class="classplanilhamento" onchange="selectplanilhamento()">
+                            <option value="(SELECIONE O TIPO)" class="optionplanilhamento">(SELECIONE O TIPO)</option>
+                            <optgroup label="Planilhamento">
+                                <option value="Planilhamento Total" class="optionplanilhamento">Planilhamento Total</option>
+                                <option value="Planilhamento Parcial" class="optionplanilhamento">Planilhamento Parcial</option>
+                                <option value="Planilhamento Alteração" class="optionplanilhamento">Planilhamento Alteração</option>
+                            </optgroup>
+                            <optgroup label="Dúvida">
+                                <option value="Dúvida Geral" class="optionplanilhamento">Dúvida Geral</option>
+                                <option value="Dúvida de Porta Seccional" class="optionplanilhamento">Dúvida de Porta Seccional</option>
+                                <option value="Aguardando Dúvida" class="optionplanilhamento">Aguardando Dúvida</option>
+                            </optgroup>
+                            <optgroup label="Cotação">
+                                <option value="Cotação de Porta Walk-In" class="optionplanilhamento">Cotação de Porta Walk-In</option>
+                                <option value="Cotação de Porta Seccional" class="optionplanilhamento">Cotação de Porta Seccional</option>
+                                <option value="Cotação de Portal de Selamento" class="optionplanilhamento">Cotação de Portal de Selamento</option>
+                                <option value="Cotação de Niveladora de Doca" class="optionplanilhamento">Cotação de Niveladora de Doca</option>
+                                <option value="Cotação de Porta Rápida" class="optionplanilhamento">Cotação de Porta Rápida</option>
+                                <option value="Cotação de Porta Automática" class="optionplanilhamento">Cotação de Porta Automática</option>
+                                <option value="Cotação de Porta Beer Cave" class="optionplanilhamento">Cotação de Porta Beer Cave</option>
+                                <option value="Cotação de Visor Corrediço" class="optionplanilhamento">Cotação de Visor Corrediço</option>
+                                <option value="Cotação de Porta Vai e Vem Isolada" class="optionplanilhamento">Cotação de Porta Vai e Vem Isolada</option>
+                                <option value="Cotação de Porta Vai e Vem de Tamanho Especial" class="optionplanilhamento">Cotação de Porta Vai e Vem de Tamanho Especial</option>
+                                <option value="Cotação de Resistência" class="optionplanilhamento">Cotação de Resistência</option>
+                                <option value="Cotação de Termostato" class="optionplanilhamento">Cotação de Termostato</option>
+                            </optgroup>
+                            <optgroup label="Compra">
+                                <option value="Compra de Porta Walk-In" class="optionplanilhamento">Compra de Porta Walk-In</option>
+                                <option value="Compra de Porta Seccional" class="optionplanilhamento">Compra de Porta Seccional</option>
+                                <option value="Compra de Portal de Selamento" class="optionplanilhamento">Compra de Portal de Selamento</option>
+                                <option value="Compra de Niveladora de Doca" class="optionplanilhamento">Compra de Niveladora de Doca</option>
+                                <option value="Compra de Porta Rápida" class="optionplanilhamento">Compra de Porta Rápida</option>
+                                <option value="Compra de Porta Automática" class="optionplanilhamento">Compra de Porta Automática</option>
+                                <option value="Compra de Porta Beer Cave" class="optionplanilhamento">Compra de Porta Beer Cave</option>
+                                <option value="Compra de Visor Corrediço" class="optionplanilhamento">Compra de Visor Corrediço</option>
+                                <option value="Compra de Porta Vai e Vem Isolada" class="optionplanilhamento">Compra de Porta Vai e Vem Isolada</option>
+                                <option value="Compra de Porta Vai e Vem de Tamanho Especial" class="optionplanilhamento">Compra de Porta Vai e Vem de Tamanho Especial</option>
+                                <option value="Compra de Resistência" class="optionplanilhamento">Compra de Resistência</option>
+                                <option value="Compra de Termostato" class="optionplanilhamento">Compra de Termostato</option>
+                            </optgroup>
+                            <optgroup label="Suporte TI">
+                                <option value="Geral" class="optionplanilhamento">Geral</option>
+                                <option value="Baan - Geral" class="optionplanilhamento">Baan - Geral</option>
+                                <option value="Baan - Inclusão de Item" class="optionplanilhamento">Baan - Inclusão de Item</option>
+                                <option value="Baan - Exclusão de Item" class="optionplanilhamento">Baan - Exclusão de Item</option>
+                                <option value="Baan - Troca de Item" class="optionplanilhamento">Baan - Troca de Item</option>
+                                <option value="Baan - Exclusão de Alfa" class="optionplanilhamento">Baan - Exclusão de Alfa</option>
+                                <option value="Baan - Remoção de Alfa" class="optionplanilhamento">Baan - Remoção de Alfa</option>
+                                <option value="Baan - Estorno de Alfa" class="optionplanilhamento">Baan - Estorno de Alfa</option>
+                                <option value="Baan - Derrubar Usuário" class="optionplanilhamento">Baan - Derrubar Usuário</option>
+                                <option value="Baan - Liberação de Tela" class="optionplanilhamento sempedido">Baan - Liberação de Tela</option>
+                                <option value="SIP - Geral" class="optionplanilhamento sempedido">SIP - Geral</option>
+                                <option value="SIP - Liberação para Edição de Painéis Altos" class="optionplanilhamento sempedido">SIP - Liberação para Edição de Painéis Altos</option>
+                            </optgroup>
+                            <optgroup label="Encaminhar">
+                                <option value="Encaminhar" class="optionplanilhamento">Encaminhar</option>
+                            </optgroup>
+                        </select>
+                        <!--Executivo-->
+                        <label for="idexecutivo" class="classexecutivo">Tipo</label>
+                        <select name="" id="idexecutivo" class="classexecutivo" onchange="selectexecutivo()">
+                            <option value="(SELECIONE O TIPO)" class="optionexecutivo">(SELECIONE O TIPO)</option>
+                            <optgroup label="Executivo">
+                                <option value="Pré Projeto" class="optionexecutivo">Pré Projeto</option>
+                                <option value="Projeto Executivo" class="optionexecutivo">Projeto Executivo</option>
+                        </select>
+                    </form>
+                </fieldset>
+                <fieldset id="iddadosdopedido">
+                    <legend>Dados do Pedido</legend>
+                    <form action="">
+                        <label for="idnumerorepresentante" class="classnumerorepresentante">Número do Representante</label>
+                        <select name="" id="idnumerorepresentante" class="classnumerorepresentante" onchange="selectrepresentante()">
+                            <option value="001" class="optionnumerorepresentante">001</option>
+                            <option value="004" class="optionnumerorepresentante">004</option>
+                            <option value="011" class="optionnumerorepresentante">011</option>
+                            <option value="016" class="optionnumerorepresentante">016</option>
+                            <option value="018" class="optionnumerorepresentante">018</option>
+                            <option value="024" class="optionnumerorepresentante">024</option>
+                            <option value="035" class="optionnumerorepresentante">035</option>
+                            <option value="057" class="optionnumerorepresentante">057</option>
+                            <option value="062" class="optionnumerorepresentante">062</option>
+                            <option value="067" class="optionnumerorepresentante">067</option>
+                            <option value="070" class="optionnumerorepresentante">070</option>
+                            <option value="077" class="optionnumerorepresentante">077</option>
+                            <option value="082" class="optionnumerorepresentante">082</option>
+                            <option value="087" class="optionnumerorepresentante">087</option>
+                            <option value="093" class="optionnumerorepresentante">093</option>
+                            <option value="094" class="optionnumerorepresentante">094</option>
+                            <option value="096" class="optionnumerorepresentante">096</option>
+                            <option value="097" class="optionnumerorepresentante">097</option>
+                            <option value="101" class="optionnumerorepresentante">101</option>
+                            <option value="102" class="optionnumerorepresentante">102</option>
+                            <option value="106" class="optionnumerorepresentante">106</option>
+                            <option value="112" class="optionnumerorepresentante">112</option>
+                            <option value="114" class="optionnumerorepresentante">114</option>
+                            <option value="115" class="optionnumerorepresentante">115</option>
+                            <option value="118" class="optionnumerorepresentante">118</option>
+                            <option value="120" class="optionnumerorepresentante">120</option>
+                            <option value="121" class="optionnumerorepresentante">121</option>
+                            <option value="182" class="optionnumerorepresentante">182</option>
+                            <option value="187" class="optionnumerorepresentante">187</option>
+                            <option value="189" class="optionnumerorepresentante">189</option>
+                            <option value="190" class="optionnumerorepresentante">190</option>
+                            <option value="191" class="optionnumerorepresentante">191</option>
+                            <option value="193" class="optionnumerorepresentante">193</option>
+                            <option value="195" class="optionnumerorepresentante">195</option>
+                            <option value="196" class="optionnumerorepresentante">196</option>
+                            <option value="198" class="optionnumerorepresentante">198</option>
+                            <option value="199" class="optionnumerorepresentante">199</option>
+                            <option value="202" class="optionnumerorepresentante">202</option>
+                            <option value="203" class="optionnumerorepresentante">203</option>
+                            <option value="207" class="optionnumerorepresentante">207</option>
+                            <option value="213" class="optionnumerorepresentante">213</option>
+                            <option value="217" class="optionnumerorepresentante">217</option>
+                            <option value="218" class="optionnumerorepresentante">218</option>
+                            <option value="223" class="optionnumerorepresentante">223</option>
+                            <option value="226" class="optionnumerorepresentante">226</option>
+                            <option value="227" class="optionnumerorepresentante">227</option>
+                            <option value="228" class="optionnumerorepresentante">228</option>
+                            <option value="229" class="optionnumerorepresentante">229</option>
+                            <option value="230" class="optionnumerorepresentante">230</option>
+                            <option value="231" class="optionnumerorepresentante">231</option>
+                            <option value="232" class="optionnumerorepresentante">232</option>
+                            <option value="233" class="optionnumerorepresentante">233</option>
+                            <option value="234" class="optionnumerorepresentante">234</option>
+                            <option value="236" class="optionnumerorepresentante">236</option>
+                            <option value="237" class="optionnumerorepresentante">237</option>
+                            <option value="238" class="optionnumerorepresentante">238</option>
+                            <option value="239" class="optionnumerorepresentante">239</option>
+                        </select>
+                        <label for="idnumeropedido">Pedido</label>
+                        <input type="text" name="" id="idnumeropedido" size="3" minlength="3" maxlength="3" pattern="[0-9]{3}" placeholder="001" required>
+                        <label for="idanopedido">Ano</label>
+                        <input type="text" name="" id="idanopedido" size="2" minlength="2" maxlength="2" pattern="[0-9]{2}" min="08" max="29" placeholder="22" value="22" required>
+                        <select name="" id="" hidden>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                        </select>
+                        <label for="idov">Ordem de Venda</label>
+                        <input type="text" name="" id="idov" size="6" minlength="6" maxlength="6" pattern="[0-9]{6}" min="000001" max="999999" placeholder="609123" required>
+                        <label for="idnomedocliente">Nome do Cliente</label>
+                        <input type="text" name="" id="idnomedocliente" size="15" minlength="1" placeholder="Nome do Cliente" required>
+                        <label for="idnomefantasia">Nome Fantasia</label>
+                        <input type="text" name="" id="idnomefantasia" size="15" minlength="1" placeholder="Nome Fantasia">
+                        <label for="idmesdecadastro">Mês de Cadastro</label>
+                        <select name="" id="idmesdecadastro">
+                            <option value="Janeiro">Janeiro</option>
+                            <option value="Fevereiro">Fevereiro</option>
+                            <option value="Março">Março</option>
+                            <option value="Abril">Abril</option>
+                            <option value="Maio">Maio</option>
+                            <option value="Junho">Junho</option>
+                            <option value="Julho">Julho</option>
+                            <option value="Agosto">Agosto</option>
+                            <option value="Setembro">Setembro</option>
+                            <option value="Outubro">Outubro</option>
+                            <option value="Novembro">Novembro</option>
+                            <option value="Dezembro">Dezembro</option>
+                        </select>
+                        <label for="idrepresentante">Representante</label>
+                        <input type="text" name="" id="idrepresentante" size="15" placeholder="Representante" value="Venda Direta Curitiba" disabled>
+                        <select name="" id="idnomerepresentante" hidden>
+                            <option value="Venda Direta Curitiba" class="optionnomerepresentante">Venda Direta Curitiba</option>
+                            <option value="Tecnimet" class="optionnomerepresentante">Tecnimet</option>
+                            <option value="FG" class="optionnomerepresentante">FG</option>
+                            <option value="Lobo" class="optionnomerepresentante">Lobo</option>
+                            <option value="Silva Filho" class="optionnomerepresentante">Silva Filho</option>
+                            <option value="Mallet" class="optionnomerepresentante">Mallet</option>
+                            <option value="Clecio" class="optionnomerepresentante">Clecio</option>
+                            <option value="Refripan" class="optionnomerepresentante">Refripan</option>
+                            <option value="M Weidner" class="optionnomerepresentante">M Weidner</option>
+                            <option value="Tortelli" class="optionnomerepresentante">Tortelli</option>
+                            <option value="Venda Direta São Paulo" class="optionnomerepresentante">Venda Direta São Paulo</option>
+                            <option value="Llampe Frio PR" class="optionnomerepresentante">Llampe Frio PR</option>
+                            <option value="HB" class="optionnomerepresentante">HB</option>
+                            <option value="Baldissera" class="optionnomerepresentante">Baldissera</option>
+                            <option value="Gurgel" class="optionnomerepresentante">Gurgel</option>
+                            <option value="Luiz Nachbar" class="optionnomerepresentante">Luiz Nachbar</option>
+                            <option value="Kalliel" class="optionnomerepresentante">Kalliel</option>
+                            <option value="DE" class="optionnomerepresentante">DE</option>
+                            <option value="Da Roz" class="optionnomerepresentante">Da Roz</option>
+                            <option value="Superbrasil" class="optionnomerepresentante">Superbrasil</option>
+                            <option value="Vitoria" class="optionnomerepresentante">Vitoria</option>
+                            <option value="Ronald" class="optionnomerepresentante">Ronald</option>
+                            <option value="Scallet" class="optionnomerepresentante">Scallet</option>
+                            <option value="Guide" class="optionnomerepresentante">Guide</option>
+                            <option value="Fast Sul" class="optionnomerepresentante">Fast Sul</option>
+                            <option value="Rio Fast" class="optionnomerepresentante">Rio Fast</option>
+                            <option value="Eletrofast" class="optionnomerepresentante">Eletrofast</option>
+                            <option value="Afonso Araujo" class="optionnomerepresentante">Afonso Araujo</option>
+                            <option value="ETCO" class="optionnomerepresentante">ETCO</option>
+                            <option value="Refriged" class="optionnomerepresentante">Refriged</option>
+                            <option value="A&F" class="optionnomerepresentante">A&F</option>
+                            <option value="Produtiva" class="optionnomerepresentante">Produtiva</option>
+                            <option value="Llampe Frio SC" class="optionnomerepresentante">Llampe Frio SC</option>
+                            <option value="DNC Dealer" class="optionnomerepresentante">DNC Dealer</option>
+                            <option value="Brites" class="optionnomerepresentante">Brites</option>
+                            <option value="Euro" class="optionnomerepresentante">Euro</option>
+                            <option value="Erco" class="optionnomerepresentante">Erco</option>
+                            <option value="Eder Mathias" class="optionnomerepresentante">Eder Mathias</option>
+                            <option value="HCM" class="optionnomerepresentante">HCM</option>
+                            <option value="Brava" class="optionnomerepresentante">Brava</option>
+                            <option value="Mercato" class="optionnomerepresentante">Mercato</option>
+                            <option value="Cold Import" class="optionnomerepresentante">Cold Import</option>
+                            <option value="Cencosud" class="optionnomerepresentante">Cencosud</option>
+                            <option value="Hercold" class="optionnomerepresentante">Hercold</option>
+                            <option value="EC" class="optionnomerepresentante">EC</option>
+                            <option value="Edeval" class="optionnomerepresentante">Edeval</option>
+                            <option value="JPC" class="optionnomerepresentante">JPC</option>
+                            <option value="Wesley Dal Pozzo" class="optionnomerepresentante">Wesley Dal Pozzo</option>
+                            <option value="Ergosystem" class="optionnomerepresentante">Ergosystem</option>
+                            <option value="SM" class="optionnomerepresentante">SM</option>
+                            <option value="S&I" class="optionnomerepresentante">S&I</option>
+                            <option value="Control y Sostenibilidad" class="optionnomerepresentante">Control y Sostenibilidad</option>
+                            <option value="Aarci" class="optionnomerepresentante">Aarci</option>
+                            <option value="T&G" class="optionnomerepresentante">T&G</option>
+                            <option value="Rematec" class="optionnomerepresentante">Rematec</option>
+                            <option value="FMG" class="optionnomerepresentante">FMG</option>
+                            <option value="PSK" class="optionnomerepresentante">PSK</option>
+                        </select>
+                    </form>
+                </fieldset>
+                <!--Botão-->
+                <button type="reset" onclick="limpar()">Limpar</button>
+                <button type="button" onclick="gerar()">Gerar</button>
+            </article>
+        </section>
+        <section>
+            <article>
+                Resultado:<br>
+                <label for="idpara">Para:</label>
+                <output id="idpara">(SELECIONE A FUNÇÃO)</output><br>
+                <label for="idcc">Cc:</label>
+                <output id="idcc">(SELECIONE A FUNÇÃO)</output><br>
+                <label for="idassunto">Assunto:</label>
+                <output id="idassunto">(SELECIONE A FUNÇÃO)</output><br>
+                <label for="idcorpo">Corpo do E-mail:</label>
+                <output id="idcorpo">(SELECIONE A FUNÇÃO)</output><br>
+            </article>
+        </section>
+    </main>
+    <footer>Desenvolvido por Henrique</footer>
+    <script src="email.js"></script>
+</body>
+</html>
