@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+@media screen and (orientation: landscape) {
+    body {
+        background-color: blue;
+    }
+}
+
+
+
+p{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;/*Define a orientação a ser truncada*/
+    -webkit-line-clamp: 3;/*Trunca após a linha numerada*/
+    overflow: hidden;/*Esconde o Está truncado ou além da caixa*/
+}
+

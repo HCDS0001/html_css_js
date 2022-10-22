@@ -6,11 +6,12 @@ Alt + Z -> Quebra de linha.
 Ctrl + Clique do botão esquerdo do mouse -> Abrir arquivo, caso não exista ele sugere criar.
 Alt + Clique do botão esquerdo do mouse -> Cria um novo ponto de seleção.
 Clique do botão direito do mouse (sobre a aba do arquivo) -> Opções para abrir a pasta ou copiar o caminho do arquivo.
-/.. -> Pasta anterior do arquivo.
+../ -> Pasta anterior do arquivo.
+./ -> Arquivo na mesma pasta
 /Pasta -> Pasta deve ser o nome da pasta seguinte.
 Ctrl + ; -> Transforma a linha em comentário.
 Shift + Alt + A -> Transforma bloco em comentário.
-
+li*5 -> Cria 5 vezes a tag <li>
 
 usar <em> para itálico
 usar <strong> para negrito

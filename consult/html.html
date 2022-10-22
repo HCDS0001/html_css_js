@@ -1,14 +1,23 @@
 <!--Início do Arquivo-->
-<!DOCTYPE html><!--Documento-->
+<!DOCTYPE html><!-- Documento HTML 5-->
 <html lang="pt-br"><!--Html-->
 <head><!--Cabeça-->
     <meta charset="UTF-8"><!--Linguagem-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge"><!--Compatibilidade-->
     <meta http-equiv="refresh" content="100; url="><!--Atualiza a Página-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--Janela-->
+    <meta name="author" content="Henrique"><!--Autor-->
+    <meta name="description" content="Uma descrição para os buscadores."><!--Descrição na página de Busca-->
+    <meta name="robots" content="index, follow"><!--Informação para os Robots-->
+    <!--Open Graph: facebook-->
+        <meta property="og:image" content="h.png"><!--Imagem na página do facebook-->
+        <meta property="og:description" content="Uma descrição para o facebook."><!--Descrição na página do facebook-->
+        <meta property="og:title" content="Um título para o facebook."><!--Título na página do facebook-->
+    <!--Twitter-->
+        <meta name="twitter:title" content="Um título para o twitter."><!--Título na página do twitter-->
     <title>Título</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"><!--Favicon-->
-    <link rel="stylesheet" href="style.css"><!--CSS-->
+    <link rel="stylesheet" href="css.css" media="screen and (orientation: portrait)"><!--CSS--><!--media type - screen, print e all--> <!--media features - portrait, landscape-->
     <style>/*CSS*/</style>
 </head>
 <body><!--Corpo-->
@@ -26,7 +35,9 @@
         <h1>Título 1</h1>
             <div>Divisão Geral</div>
             <span>Divisão na Linha</span>
-            <p>Parágrafo</p>
+            <p class="paragrafo" contenteditable="true" data-id="" id="paragrafo01" hidden style="background-color: green" tabindex="1" title="título">Parágrafo
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus et mollitia reprehenderit laborum pariatur consequatur eos dolor quisquam nostrum quidem earum, est, asperiores harum dicta excepturi, cupiditate impedit maxime laboriosam?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, cum sunt similique odit ut et libero id dolores iusto accusamus eveniet cumque voluptas, magnam earum. Eligendi rem id magnam debitis! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam asperiores architecto perspiciatis voluptatum maxime, ducimus repellat blanditiis totam nobis animi eligendi. Iusto laborum architecto eligendi asperiores ducimus voluptatum rerum sequi.
+            </p>
             <slot>Não entendi pra que serve.</slot><!--Não entendi pra que serve-->
         <h2>Título 2</h2>
             <abbr title="Significado">Palavra</abbr>
@@ -77,7 +88,7 @@
                 </colgroup>
                 <thead><!--Cabeça-->
                     <tr><!--Grupo-->
-                        <th scope="col">Título da Linha ou Coluna</th>
+                        <th colspan="2" scope="col">Título da Linha ou Coluna</th>
                         <td>Item</td>
                     </tr>
                 </thead>
@@ -94,23 +105,23 @@
                 </tfoot>
             </table>
             <dialog open><!--Caixa de Diálogo-->
-                <form action="" method="dialog"><!--Formulário--><!--Método Define como funciona tem "get" também-->
+                <form action="" method="dialog" autocomplete="off"><!--Formulário--><!--Método Define como funciona tem "get" também-->
                     <fieldset><!--Grupo-->
                         <legend>Título</legend>
                         <label for="id01">Informação</label>
-                        <input type="text" id="id01"><!--Texto-->
+                        <input type="text" id="id01" required minlength="6" maxlength="10" size="10" placeholder="123456" autocomplete="name"><!--Texto-->
                         <input type="button" value="Enviar"><!--Botão-->
                         <input type="checkbox" name="" id=""><!--Caixa de Seleção-->
                         <input type="color" name="" id=""><!--Cor-->
-                        <input type="date" name="" id=""><!--Data-->
+                        <input type="date" name="" id="" value="2022-10-09"><!--Data-->
                         <input type="datetime" name="" id=""><!--Data e Hora com Fuso Horário-->
                         <input type="datetime-local" name="" id=""><!--Data e Hora sem Fuso Horário-->
-                        <input type="email" name="" id=""><!--E-mail-->
+                        <input type="email" name="" id="" pattern="^[a-z]{6,10}@gmail.com$" value="hcshcs@gmail.com"><!--E-mail-->
                         <input type="file" name="" id=""><!--Arquivo-->
                         <input type="hidden" name=""><!--Escondido-->
                         <input type="image" src="h.png" alt="" height="100px" width="100"><!--Botão com Imagem-->
                         <input type="month" name="" id=""><!--Mês-->
-                        <input type="number" name="" id=""><!--Número-->
+                        <input type="number" name="" id="" min="0" max="10" step="0.5" value="5"><!--Número-->
                         <input type="password" name="" id=""><!--Senha-->
                         <input type="radio" name="" id=""><!--Opção-->
                         <input type="range" name="" id=""><!--Barra-->
@@ -143,15 +154,21 @@
             </dialog>
 
         <h4>Título 4</h4>
+            &nbsp;<!--Espaço-->
+            &lt;<!--Sinal de <-->
+            &gt;<!--Sinal de >-->
+            &amp;<!--Sinal de &-->
+            &quot;<!--Sinal de "-->
+            &apos;<!--Sinal de '-->
         <h5>Título 5</h5>
             <br><!--Qebra de Linha-->
             <wbr><!--Lugar em que pode quebrar a Linha-->
             <hr><!--Quebra de Sessão-->
         <h6>Título 6</h6>
-        <a href="https://www.youtube.com/embed/-OkdMkwpOI0" target="_blank">Link</a>
+        <a href="https://www.youtube.com/embed/-OkdMkwpOI0" target="frame">Link</a>
         <object data="h.pdf" type="application/pdf">Mensagem de erro.</object><!--Plug-In-->
         <embed src="h.pdf" type="application/pdf"><!--Plug-In-->
-        <iframe src="https://www.youtube.com/embed/-OkdMkwpOI0" frameborder="0"></iframe><!--Plug-In-->
+        <iframe srcdoc="Informações Internas <a href='https://www.youtube.com/embed/-OkdMkwpOI0' target='_blank'>Link</a>" frameborder="0" height="200" scolling="no" name="frame" sandbox="sandbox" referrerpolicy="no-referrer-whendowngrade">Mensagem de erro.</iframe><!--Plug-In-->
         <map name="mapa"><!--Configura Área Clicavel para Imagens-->
             <area shape="circle" coords="25,25,25" href="https://www.youtube.com/embed/-OkdMkwpOI0" target="_blank" alt="Youtube">
         </map>
@@ -168,6 +185,7 @@
         </figure>
         <audio src="h.mp3" controls>Áudio</audio>
         <canvas id="canvas" width="100" height="100">Mensagem de erro.</canvas><!--Container para Gráficos-->
+        <svg><circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow"/></svg>
         <template>Conteúdo escondido.</template><!--Usado para exibir o conteúdo após o uso de JS-->
     </article>
     <address>Endereço</address>
