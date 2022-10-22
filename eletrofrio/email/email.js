@@ -18,6 +18,7 @@ let optionnumerorepresentante = document.getElementsByClassName('optionnumerorep
 let idrepresentante = document.getElementById('idrepresentante')
 let optionnomerepresentante = document.getElementsByClassName('optionnomerepresentante')
 let iddadosdopedido = document.getElementById('iddadosdopedido')
+let classemail = document.getElementsByClassName('classemail')
 let idpara = document.getElementById('idpara')
 let idcc = document.getElementById('idcc')
 let idassunto = document.getElementById('idassunto')
@@ -30,6 +31,11 @@ let displaynone = "none"
 let cliquegerar = "(CLIQUE EM GERAR)"
 let problem = "(PROBLEMA)"
 let vazio = "(VAZIO)"
+
+
+
+/* alert(`${classemail[0].value}`)
+ */
 
 function selectfunction() {
     let selectidfunction = idfunction.value
