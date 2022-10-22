@@ -121,7 +121,8 @@
                             <optgroup label="Executivo">
                                 <option value="Pré Projeto" class="optionexecutivo">Pré Projeto</option>
                                 <option value="Projeto Executivo" class="optionexecutivo">Projeto Executivo</option>
-                        </select>
+                        </select><br>
+                        <button type="button" onclick="limpartipodeemail()">Limpar Tipo de E-mail</button>
                     </form>
                 </fieldset>
                 <fieldset id="iddadosdopedido">
@@ -238,7 +239,7 @@
                         </select>
                         <label for="idrepresentante">Representante</label>
                         <input type="text" name="" id="idrepresentante" size="15" placeholder="Representante" value="Venda Direta Curitiba" disabled>
-                        <select name="" id="idnomerepresentante" hidden>
+                        <select name="" id="idnomerepresentante">
                             <option value="Venda Direta Curitiba" class="optionnomerepresentante">Venda Direta Curitiba</option>
                             <option value="Tecnimet" class="optionnomerepresentante">Tecnimet</option>
                             <option value="FG" class="optionnomerepresentante">FG</option>
@@ -296,11 +297,13 @@
                             <option value="Rematec" class="optionnomerepresentante">Rematec</option>
                             <option value="FMG" class="optionnomerepresentante">FMG</option>
                             <option value="PSK" class="optionnomerepresentante">PSK</option>
-                        </select>
+                        </select><br>
+                        <button type="reset" onclick="limpardadosdopedido()">Limpar Dados do Pedido</button>
                     </form>
+
                 </fieldset>
                 <!--Botão-->
-                <button type="reset" onclick="limpar()">Limpar</button>
+                <button type="button" onclick="limparemail()">Limpar E-mail</button>
                 <button type="button" onclick="gerar()">Gerar</button>
             </article>
         </section>
