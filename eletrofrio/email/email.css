@@ -24,11 +24,11 @@
     display: none;
 }
 
-#idrepresentante{
+#idnomerepresentante{
     color: black;
 }
 
-#idnomerepresentante{
+#idoptionnomerepresentante{
     display: none;
 }
 

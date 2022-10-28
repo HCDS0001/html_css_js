@@ -34,7 +34,7 @@
                         </select>
                         <!--Analista-->
                         <label for="idanalista" class="classanalista">Tipo</label>
-                        <select name="" id="idanalista" class="classanalista" onchange="selectanalista()">
+                        <select name="" id="idanalista" class="classanalista" onchange="selecttipo(classanalista, 5, optionanalista)">
                             <option value="(SELECIONE O TIPO)" class="optionanalista">(SELECIONE O TIPO)</option>
                             <optgroup label="Analista">
                                 <option value="Liberação Parcial" class="optionanalista">Liberação Parcial</option>
@@ -45,7 +45,7 @@
                         </select>
                         <!--Ajuste-->
                         <label for="idajuste" class="classajuste">Tipo</label>
-                        <select name="" id="idajuste" class="classajuste"onchange="selectajuste()">
+                        <select name="" id="idajuste" class="classajuste"onchange="selecttipo(classajuste, 5, optionajuste)">
                             <option value="(SELECIONE O TIPO)" class="optionajuste">(SELECIONE O TIPO)</option>
                             <optgroup label="Ajuste">
                                 <option value="Dúvidas" class="optionajuste">Dúvidas</option>
@@ -56,7 +56,7 @@
                         </select>
                         <!--Planilhamento-->
                         <label for="idplanilhamento" class="classplanilhamento">Tipo</label>
-                        <select name="" id="idplanilhamento" class="classplanilhamento" onchange="selectplanilhamento()">
+                        <select name="" id="idplanilhamento" class="classplanilhamento" onchange="selecttipo(classplanilhamento, 43, optionplanilhamento)">
                             <option value="(SELECIONE O TIPO)" class="optionplanilhamento">(SELECIONE O TIPO)</option>
                             <optgroup label="Planilhamento">
                                 <option value="Planilhamento Total" class="optionplanilhamento">Planilhamento Total</option>
@@ -116,7 +116,7 @@
                         </select>
                         <!--Executivo-->
                         <label for="idexecutivo" class="classexecutivo">Tipo</label>
-                        <select name="" id="idexecutivo" class="classexecutivo" onchange="selectexecutivo()">
+                        <select name="" id="idexecutivo" class="classexecutivo" onchange="selecttipo(classexecutivo, 2, optionexecutivo)">
                             <option value="(SELECIONE O TIPO)" class="optionexecutivo">(SELECIONE O TIPO)</option>
                             <optgroup label="Executivo">
                                 <option value="Pré Projeto" class="optionexecutivo">Pré Projeto</option>
@@ -128,66 +128,8 @@
                 <fieldset id="iddadosdopedido">
                     <legend>Dados do Pedido</legend>
                     <form action="">
-                        <label for="idnumerorepresentante" class="classnumerorepresentante">Número do Representante</label>
-                        <select name="" id="idnumerorepresentante" class="classnumerorepresentante" onchange="selectrepresentante()">
-                            <option value="001" class="optionnumerorepresentante">001</option>
-                            <option value="004" class="optionnumerorepresentante">004</option>
-                            <option value="011" class="optionnumerorepresentante">011</option>
-                            <option value="016" class="optionnumerorepresentante">016</option>
-                            <option value="018" class="optionnumerorepresentante">018</option>
-                            <option value="024" class="optionnumerorepresentante">024</option>
-                            <option value="035" class="optionnumerorepresentante">035</option>
-                            <option value="057" class="optionnumerorepresentante">057</option>
-                            <option value="062" class="optionnumerorepresentante">062</option>
-                            <option value="067" class="optionnumerorepresentante">067</option>
-                            <option value="070" class="optionnumerorepresentante">070</option>
-                            <option value="077" class="optionnumerorepresentante">077</option>
-                            <option value="082" class="optionnumerorepresentante">082</option>
-                            <option value="087" class="optionnumerorepresentante">087</option>
-                            <option value="093" class="optionnumerorepresentante">093</option>
-                            <option value="094" class="optionnumerorepresentante">094</option>
-                            <option value="096" class="optionnumerorepresentante">096</option>
-                            <option value="097" class="optionnumerorepresentante">097</option>
-                            <option value="101" class="optionnumerorepresentante">101</option>
-                            <option value="102" class="optionnumerorepresentante">102</option>
-                            <option value="106" class="optionnumerorepresentante">106</option>
-                            <option value="112" class="optionnumerorepresentante">112</option>
-                            <option value="114" class="optionnumerorepresentante">114</option>
-                            <option value="115" class="optionnumerorepresentante">115</option>
-                            <option value="118" class="optionnumerorepresentante">118</option>
-                            <option value="120" class="optionnumerorepresentante">120</option>
-                            <option value="121" class="optionnumerorepresentante">121</option>
-                            <option value="182" class="optionnumerorepresentante">182</option>
-                            <option value="187" class="optionnumerorepresentante">187</option>
-                            <option value="189" class="optionnumerorepresentante">189</option>
-                            <option value="190" class="optionnumerorepresentante">190</option>
-                            <option value="191" class="optionnumerorepresentante">191</option>
-                            <option value="193" class="optionnumerorepresentante">193</option>
-                            <option value="195" class="optionnumerorepresentante">195</option>
-                            <option value="196" class="optionnumerorepresentante">196</option>
-                            <option value="198" class="optionnumerorepresentante">198</option>
-                            <option value="199" class="optionnumerorepresentante">199</option>
-                            <option value="202" class="optionnumerorepresentante">202</option>
-                            <option value="203" class="optionnumerorepresentante">203</option>
-                            <option value="207" class="optionnumerorepresentante">207</option>
-                            <option value="213" class="optionnumerorepresentante">213</option>
-                            <option value="217" class="optionnumerorepresentante">217</option>
-                            <option value="218" class="optionnumerorepresentante">218</option>
-                            <option value="223" class="optionnumerorepresentante">223</option>
-                            <option value="226" class="optionnumerorepresentante">226</option>
-                            <option value="227" class="optionnumerorepresentante">227</option>
-                            <option value="228" class="optionnumerorepresentante">228</option>
-                            <option value="229" class="optionnumerorepresentante">229</option>
-                            <option value="230" class="optionnumerorepresentante">230</option>
-                            <option value="231" class="optionnumerorepresentante">231</option>
-                            <option value="232" class="optionnumerorepresentante">232</option>
-                            <option value="233" class="optionnumerorepresentante">233</option>
-                            <option value="234" class="optionnumerorepresentante">234</option>
-                            <option value="236" class="optionnumerorepresentante">236</option>
-                            <option value="237" class="optionnumerorepresentante">237</option>
-                            <option value="238" class="optionnumerorepresentante">238</option>
-                            <option value="239" class="optionnumerorepresentante">239</option>
-                        </select>
+                        <label for="idnumerorepresentante">Número do Representante</label>
+                        <select name="" id="idnumerorepresentante" onchange="nomerepresentante()"></select>
                         <label for="idnumeropedido">Pedido</label>
                         <input type="text" name="" id="idnumeropedido" size="3" minlength="3" maxlength="3" pattern="[0-9]{3}" placeholder="001" required>
                         <label for="idanopedido">Ano</label>
@@ -237,68 +179,9 @@
                             <option value="Novembro">Novembro</option>
                             <option value="Dezembro">Dezembro</option>
                         </select>
-                        <label for="idrepresentante">Representante</label>
-                        <input type="text" name="" id="idrepresentante" size="15" placeholder="Representante" value="Venda Direta Curitiba" disabled>
-                        <select name="" id="idnomerepresentante">
-                            <option value="Venda Direta Curitiba" class="optionnomerepresentante">Venda Direta Curitiba</option>
-                            <option value="Tecnimet" class="optionnomerepresentante">Tecnimet</option>
-                            <option value="FG" class="optionnomerepresentante">FG</option>
-                            <option value="Lobo" class="optionnomerepresentante">Lobo</option>
-                            <option value="Silva Filho" class="optionnomerepresentante">Silva Filho</option>
-                            <option value="Mallet" class="optionnomerepresentante">Mallet</option>
-                            <option value="Clecio" class="optionnomerepresentante">Clecio</option>
-                            <option value="Refripan" class="optionnomerepresentante">Refripan</option>
-                            <option value="M Weidner" class="optionnomerepresentante">M Weidner</option>
-                            <option value="Tortelli" class="optionnomerepresentante">Tortelli</option>
-                            <option value="Venda Direta São Paulo" class="optionnomerepresentante">Venda Direta São Paulo</option>
-                            <option value="Llampe Frio PR" class="optionnomerepresentante">Llampe Frio PR</option>
-                            <option value="HB" class="optionnomerepresentante">HB</option>
-                            <option value="Baldissera" class="optionnomerepresentante">Baldissera</option>
-                            <option value="Gurgel" class="optionnomerepresentante">Gurgel</option>
-                            <option value="Luiz Nachbar" class="optionnomerepresentante">Luiz Nachbar</option>
-                            <option value="Kalliel" class="optionnomerepresentante">Kalliel</option>
-                            <option value="DE" class="optionnomerepresentante">DE</option>
-                            <option value="Da Roz" class="optionnomerepresentante">Da Roz</option>
-                            <option value="Superbrasil" class="optionnomerepresentante">Superbrasil</option>
-                            <option value="Vitoria" class="optionnomerepresentante">Vitoria</option>
-                            <option value="Ronald" class="optionnomerepresentante">Ronald</option>
-                            <option value="Scallet" class="optionnomerepresentante">Scallet</option>
-                            <option value="Guide" class="optionnomerepresentante">Guide</option>
-                            <option value="Fast Sul" class="optionnomerepresentante">Fast Sul</option>
-                            <option value="Rio Fast" class="optionnomerepresentante">Rio Fast</option>
-                            <option value="Eletrofast" class="optionnomerepresentante">Eletrofast</option>
-                            <option value="Afonso Araujo" class="optionnomerepresentante">Afonso Araujo</option>
-                            <option value="ETCO" class="optionnomerepresentante">ETCO</option>
-                            <option value="Refriged" class="optionnomerepresentante">Refriged</option>
-                            <option value="A&F" class="optionnomerepresentante">A&F</option>
-                            <option value="Produtiva" class="optionnomerepresentante">Produtiva</option>
-                            <option value="Llampe Frio SC" class="optionnomerepresentante">Llampe Frio SC</option>
-                            <option value="DNC Dealer" class="optionnomerepresentante">DNC Dealer</option>
-                            <option value="Brites" class="optionnomerepresentante">Brites</option>
-                            <option value="Euro" class="optionnomerepresentante">Euro</option>
-                            <option value="Erco" class="optionnomerepresentante">Erco</option>
-                            <option value="Eder Mathias" class="optionnomerepresentante">Eder Mathias</option>
-                            <option value="HCM" class="optionnomerepresentante">HCM</option>
-                            <option value="Brava" class="optionnomerepresentante">Brava</option>
-                            <option value="Mercato" class="optionnomerepresentante">Mercato</option>
-                            <option value="Cold Import" class="optionnomerepresentante">Cold Import</option>
-                            <option value="Cencosud" class="optionnomerepresentante">Cencosud</option>
-                            <option value="Hercold" class="optionnomerepresentante">Hercold</option>
-                            <option value="EC" class="optionnomerepresentante">EC</option>
-                            <option value="Edeval" class="optionnomerepresentante">Edeval</option>
-                            <option value="JPC" class="optionnomerepresentante">JPC</option>
-                            <option value="Wesley Dal Pozzo" class="optionnomerepresentante">Wesley Dal Pozzo</option>
-                            <option value="Ergosystem" class="optionnomerepresentante">Ergosystem</option>
-                            <option value="SM" class="optionnomerepresentante">SM</option>
-                            <option value="S&I" class="optionnomerepresentante">S&I</option>
-                            <option value="Control y Sostenibilidad" class="optionnomerepresentante">Control y Sostenibilidad</option>
-                            <option value="Aarci" class="optionnomerepresentante">Aarci</option>
-                            <option value="T&G" class="optionnomerepresentante">T&G</option>
-                            <option value="Rematec" class="optionnomerepresentante">Rematec</option>
-                            <option value="FMG" class="optionnomerepresentante">FMG</option>
-                            <option value="PSK" class="optionnomerepresentante">PSK</option>
-                        </select><br>
-                        <button type="reset" onclick="limpardadosdopedido()">Limpar Dados do Pedido</button>
+                        <label for="idnomerepresentante">Representante</label>
+                        <input type="text" name="" id="idnomerepresentante" size="15" placeholder="Representante" value="Venda Direta Curitiba" disabled><br>
+                         <button type="reset" id="clique" onclick="limpardadosdopedido()">Limpar Dados do Pedido</button>
                     </form>
                 </fieldset>
                 <fieldset>
@@ -307,6 +190,15 @@
                         <details>
                             <summary>E-mails Para:</summary>
                             <details open>
+                                <summary>Grupos</summary>
+                                <input type="checkbox" name="" id="idplanicf" class="classemail" value="PLANIC.F@uhygb1yu6fxo7a.onmicrosoft.com">
+                                <label for="idplanicf">PLANI C.F</label><br>
+                                <input type="checkbox" name="" id="idplanilhamento" class="classemail" value="planilhamento@continuum.ind.br">
+                                <label for="idplanilhamento">Planilhamento</label><br>
+                                <input type="checkbox" name="" id="idprojetos" class="classemail" value="projetos@continuum.ind.br">
+                                <label for="idprojetos">Projetos</label><br>
+                            </details>
+                            <details>
                                 <summary>Analista</summary>
                                 <input type="checkbox" name="" id="idalexandreribeiro" class="classemail" value="alexandre.ribeiro@eletrofrio.com.br">
                                 <label for="idalexandreribeiro">Alexandre Ribeiro</label><br>
@@ -319,88 +211,177 @@
                                 <input type="checkbox" name="" id="idsuelen" class="classemail" value="suelen.assis@eletrofrio.com.br">
                                 <label for="idsuelen">Suelen</label><br>
                             </details>
-                            <details open>
+                            <details>
                                 <summary>Ajuste</summary>
-                                <input type="checkbox" name="" id="idclaudia" class="classemail" value="@eletrofrio.com.br">
+                                <input type="checkbox" name="" id="idclaudia" class="classemail" value="claudia.carvalho@eletrofrio.com.br">
                                 <label for="idclaudia">Cláudia</label><br>
-                                <input type="checkbox" name="" id="idcleber" class="classemail" value="@eletrofrio.com.br">
+                                <input type="checkbox" name="" id="idcleber" class="classemail" value="cleber.medeiros@eletrofrio.com.br">
                                 <label for="idcleber">Cleber</label><br>
-                                <input type="checkbox" name="" id="idellen" class="classemail" value="@eletrofrio.com.br">
+                                <input type="checkbox" name="" id="idellen" class="classemail" value="ellen@eletrofrio.com.br">
                                 <label for="idellen">Ellen</label><br>
-                                <input type="checkbox" name="" id="idleticia" class="classemail" value="@eletrofrio.com.br">
+                                <input type="checkbox" name="" id="idleticia" class="classemail" value="leticia.karoline@eletrofrio.com.br">
                                 <label for="idleticia">Letícia</label><br>
-                                <input type="checkbox" name="" id="idluizfernandogonçalvez" class="classemail" value="@eletrofrio.com.br">
+                                <input type="checkbox" name="" id="idluizfernandogonçalvez" class="classemail" value="luiz.goncalves@eletrofrio.com.br">
                                 <label for="idluizfernandogonçalvez">Luiz Fernando Gonsalvez</label><br>
                             </details>
-                            <details open>
+                            <details>
+                                <summary>Liderança Comercial</summary>
+                                <input type="checkbox" name="" id="idcarla" class="classemail" value="carlaadriana@eletrofrio.com.br">
+                                <label for="idcarla">Carla</label><br>
+                                <input type="checkbox" name="" id="idroney" class="classemail" value="roney@eletrofrio.com.br">
+                                <label for="idroney">Roney</label><br>
+                            </details>
+                            <details>
                                 <summary>Planilhamento</summary>
-                                <input type="checkbox" name="" id="idamarildo" class="classemail" value="@eletrofrio.com.br">
+                                <input type="checkbox" name="" id="idamarildo" class="classemail" value="amarildo.cruz@eletrofrio.com.br">
                                 <label for="idamarildo">Amarildo</label><br>
-                                <input type="checkbox" name="" id="idgabriel" class="classemail" value="@eletrofrio.com.br">
+                                <input type="checkbox" name="" id="idgabriel" class="classemail" value="gabriel.aguiar@eletrofrio.com.br">
                                 <label for="idgabriel">Gabriel</label><br>
                                 <input type="checkbox" name="" id="idhenrique" class="classemail" value="henrique.souza@eletrofrio.com.br" checked>
                                 <label for="idhenrique">Henrique</label><br>
                             </details>
-                            <details open>
+                            <details>
                                 <summary>Executivo</summary>
-                                <input type="checkbox" name="" id="idbruno" class="classemail" value="@eletrofrio.com.br">
+                                <input type="checkbox" name="" id="idbruno" class="classemail" value="bruno.garcia@eletrofrio.com.br">
                                 <label for="idbruno">Bruno</label><br>
-                                <input type="checkbox" name="" id="idcarlos" class="classemail" value="@eletrofrio.com.br">
+                                <input type="checkbox" name="" id="idcarlos" class="classemail" value="carlos.margon@eletrofrio.com.br">
                                 <label for="idcarlos">Carlos</label><br>
-                                <input type="checkbox" name="" id="idrubens" class="classemail" value="@eletrofrio.com.br">
+                                <input type="checkbox" name="" id="idrubens" class="classemail" value="rubens@eletrofrio.com.br">
                                 <label for="idrubens">Rubens</label><br>
-                                <input type="checkbox" name="" id="idsusan" class="classemail" value="@eletrofrio.com.br">
+                                <input type="checkbox" name="" id="idsusan" class="classemail" value="susan.colsani@eletrofrio.com.br">
                                 <label for="idsusan">Susan</label><br>
+                            </details>
+                            <details>
+                                <summary>Liderança Continuum</summary>
+                                <input type="checkbox" name="" id="idalexandrecavagnoli" class="classemail" value="alexandre.cavagnoli@eletrofrio.com.br">
+                                <label for="idalexandrecavagnoli">Alexandre Cavagnoli</label><br>
+                                <input type="checkbox" name="" id="idleandrovianna" class="classemail" value="leandro.vianna@eletrofrio.com.br">
+                                <label for="idleandrovianna">Leandro Vianna</label><br>
+                                <input type="checkbox" name="" id="idsimone" class="classemail" value="simone@eletrofrio.com.br">
+                                <label for="idsimone">Simone</label><br>
+                            </details>
+                            <details>
+                                <summary>Representante</summary>
+                                <input type="checkbox" name="" id="001" class="classemail" value="@eletrofrio.com.br">
+                                <label for="001">Venda Direta Curitiba</label><br>
+                                <input type="checkbox" name="" id="004" class="classemail" value="">
+                                <label for="004">Tecnimet</label><br>
+                                <input type="checkbox" name="" id="011" class="classemail" value="">
+                                <label for="011">FG</label><br>
+                                <input type="checkbox" name="" id="016" class="classemail" value="">
+                                <label for="016">Lobo</label><br>
+                                <input type="checkbox" name="" id="018" class="classemail" value="">
+                                <label for="018">Silva Filho</label><br>
+                                <input type="checkbox" name="" id="024" class="classemail" value="">
+                                <label for="024">Mallet</label><br>
+                                <input type="checkbox" name="" id="035" class="classemail" value="">
+                                <label for="035">Clecio</label><br>
+                                <input type="checkbox" name="" id="057" class="classemail" value="">
+                                <label for="057">Refripan</label><br>
+                                <input type="checkbox" name="" id="062" class="classemail" value="">
+                                <label for="062">M Weidner</label><br>
+                                <input type="checkbox" name="" id="067" class="classemail" value="">
+                                <label for="067">Tortelli</label><br>
+                                <input type="checkbox" name="" id="070" class="classemail" value="">
+                                <label for="070">Venda Direta São Paulo</label><br>
+                                <input type="checkbox" name="" id="077" class="classemail" value="">
+                                <label for="077">Llampe Frio PR</label><br>
+                                <input type="checkbox" name="" id="082" class="classemail" value="">
+                                <label for="082">HB</label><br>
+                                <input type="checkbox" name="" id="087" class="classemail" value="">
+                                <label for="087">Baldissera</label><br>
+                                <input type="checkbox" name="" id="093" class="classemail" value="">
+                                <label for="093">Gurgel</label><br>
+                                <input type="checkbox" name="" id="094" class="classemail" value="">
+                                <label for="094">Luiz Nachbar</label><br>
+                                <input type="checkbox" name="" id="096" class="classemail" value="">
+                                <label for="096">Kalliel</label><br>
+                                <input type="checkbox" name="" id="097" class="classemail" value="">
+                                <label for="097">DE</label><br>
+                                <input type="checkbox" name="" id="101" class="classemail" value="">
+                                <label for="101">Da Roz</label><br>
+                                <input type="checkbox" name="" id="102" class="classemail" value="">
+                                <label for="102">Superbrasil</label><br>
+                                <input type="checkbox" name="" id="106" class="classemail" value="">
+                                <label for="106">Vitoria</label><br>
+                                <input type="checkbox" name="" id="112" class="classemail" value="">
+                                <label for="112">Ronald</label><br>
+                                <input type="checkbox" name="" id="114" class="classemail" value="">
+                                <label for="114">Scallet</label><br>
+                                <input type="checkbox" name="" id="115" class="classemail" value="">
+                                <label for="115">Guide</label><br>
+                                <input type="checkbox" name="" id="118" class="classemail" value="">
+                                <label for="118">Fast Sul</label><br>
+                                <input type="checkbox" name="" id="120" class="classemail" value="">
+                                <label for="120">Rio Fast</label><br>
+                                <input type="checkbox" name="" id="121" class="classemail" value="">
+                                <label for="121">Eletrofast</label><br>
+                                <input type="checkbox" name="" id="182" class="classemail" value="">
+                                <label for="182">Afonso Araujo</label><br>
+                                <input type="checkbox" name="" id="187" class="classemail" value="">
+                                <label for="187">ETCO</label><br>
+                                <input type="checkbox" name="" id="189" class="classemail" value="">
+                                <label for="189">Refriged</label><br>
+                                <input type="checkbox" name="" id="190" class="classemail" value="">
+                                <label for="190">A&F</label><br>
+                                <input type="checkbox" name="" id="191" class="classemail" value="">
+                                <label for="191">Produtiva</label><br>
+                                <input type="checkbox" name="" id="193" class="classemail" value="">
+                                <label for="193">Llampe Frio SC</label><br>
+                                <input type="checkbox" name="" id="195" class="classemail" value="">
+                                <label for="195">DNC Dealer</label><br>
+                                <input type="checkbox" name="" id="196" class="classemail" value="">
+                                <label for="196">Brites</label><br>
+                                <input type="checkbox" name="" id="198" class="classemail" value="">
+                                <label for="198">Euro</label><br>
+                                <input type="checkbox" name="" id="199" class="classemail" value="">
+                                <label for="199">Erco</label><br>
+                                <input type="checkbox" name="" id="202" class="classemail" value="">
+                                <label for="202">Eder Mathias</label><br>
+                                <input type="checkbox" name="" id="203" class="classemail" value="">
+                                <label for="203">HCM</label><br>
+                                <input type="checkbox" name="" id="207" class="classemail" value="">
+                                <label for="207">Brava</label><br>
+                                <input type="checkbox" name="" id="213" class="classemail" value="">
+                                <label for="213">Mercato</label><br>
+                                <input type="checkbox" name="" id="217" class="classemail" value="">
+                                <label for="217">Cold Import</label><br>
+                                <input type="checkbox" name="" id="218" class="classemail" value="">
+                                <label for="218">Cencosud</label><br>
+                                <input type="checkbox" name="" id="223" class="classemail" value="">
+                                <label for="223">Hercold</label><br>
+                                <input type="checkbox" name="" id="226" class="classemail" value="">
+                                <label for="226">EC</label><br>
+                                <input type="checkbox" name="" id="227" class="classemail" value="">
+                                <label for="227">Edeval</label><br>
+                                <input type="checkbox" name="" id="228" class="classemail" value="">
+                                <label for="228">JPC</label><br>
+                                <input type="checkbox" name="" id="229" class="classemail" value="">
+                                <label for="229">Wesley Dal Pozzo</label><br>
+                                <input type="checkbox" name="" id="230" class="classemail" value="">
+                                <label for="230">Ergosystem</label><br>
+                                <input type="checkbox" name="" id="231" class="classemail" value="">
+                                <label for="231">SM</label><br>
+                                <input type="checkbox" name="" id="232" class="classemail" value="">
+                                <label for="232">S&I</label><br>
+                                <input type="checkbox" name="" id="233" class="classemail" value="">
+                                <label for="233">Control y Sostenibilidad</label><br>
+                                <input type="checkbox" name="" id="234" class="classemail" value="">
+                                <label for="234">Aarci</label><br>
+                                <input type="checkbox" name="" id="236" class="classemail" value="">
+                                <label for="236">T&G</label><br>
+                                <input type="checkbox" name="" id="237" class="classemail" value="">
+                                <label for="237">Rematec</label><br>
+                                <input type="checkbox" name="" id="238" class="classemail" value="">
+                                <label for="238">FMG</label><br>
+                                <input type="checkbox" name="" id="239" class="classemail" value="">
+                                <label for="239">PSK</label><br>
+
                             </details>
                         </details>
                         <details>
                             <summary>E-mails Cc:</summary>
-                            <details open>
-                                <summary>Analista</summary>
-                                <input type="checkbox" name="" id="idalexandreribeiro" class="classemail" value="alexandre.ribeiro@eletrofrio.com.br">
-                                <label for="idalexandreribeiro">Alexandre Ribeiro</label><br>
-                                <input type="checkbox" name="" id="idjoaoclaudio" class="classemail" value="jclaudio@eletrofrio.com.br">
-                                <label for="idjoaoclaudio">João Cláudio</label><br>
-                                <input type="checkbox" name="" id="idluizeduardo" class="classemail" value="luiz.eduardo@eletrofrio.com.br">
-                                <label for="idluizeduardo">Luiz Eduardo</label><br>
-                                <input type="checkbox" name="" id="idnilson" class="classemail" value="nilson@eletrofrio.com.br">
-                                <label for="idnilson">Nilson</label><br>
-                                <input type="checkbox" name="" id="idsuelen" class="classemail" value="suelen.assis@eletrofrio.com.br">
-                                <label for="idsuelen">Suelen</label><br>
-                            </details>
-                            <details open>
-                                <summary>Ajuste</summary>
-                                <input type="checkbox" name="" id="idclaudia" class="classemail" value="@eletrofrio.com.br">
-                                <label for="idclaudia">Cláudia</label><br>
-                                <input type="checkbox" name="" id="idcleber" class="classemail" value="@eletrofrio.com.br">
-                                <label for="idcleber">Cleber</label><br>
-                                <input type="checkbox" name="" id="idellen" class="classemail" value="@eletrofrio.com.br">
-                                <label for="idellen">Ellen</label><br>
-                                <input type="checkbox" name="" id="idleticia" class="classemail" value="@eletrofrio.com.br">
-                                <label for="idleticia">Letícia</label><br>
-                                <input type="checkbox" name="" id="idluizfernandogonçalvez" class="classemail" value="@eletrofrio.com.br">
-                                <label for="idluizfernandogonçalvez">Luiz Fernando Gonsalvez</label><br>
-                            </details>
-                            <details open>
-                                <summary>Planilhamento</summary>
-                                <input type="checkbox" name="" id="idamarildo" class="classemail" value="@eletrofrio.com.br">
-                                <label for="idamarildo">Amarildo</label><br>
-                                <input type="checkbox" name="" id="idgabriel" class="classemail" value="@eletrofrio.com.br">
-                                <label for="idgabriel">Gabriel</label><br>
-                                <input type="checkbox" name="" id="idhenrique" class="classemail" value="henrique.souza@eletrofrio.com.br" checked>
-                                <label for="idhenrique">Henrique</label><br>
-                            </details>
-                            <details open>
-                                <summary>Executivo</summary>
-                                <input type="checkbox" name="" id="idbruno" class="classemail" value="@eletrofrio.com.br">
-                                <label for="idbruno">Bruno</label><br>
-                                <input type="checkbox" name="" id="idcarlos" class="classemail" value="@eletrofrio.com.br">
-                                <label for="idcarlos">Carlos</label><br>
-                                <input type="checkbox" name="" id="idrubens" class="classemail" value="@eletrofrio.com.br">
-                                <label for="idrubens">Rubens</label><br>
-                                <input type="checkbox" name="" id="idsusan" class="classemail" value="@eletrofrio.com.br">
-                                <label for="idsusan">Susan</label><br>
-                            </details>
+
                         </details>
                     </form>
                 </fieldset>
