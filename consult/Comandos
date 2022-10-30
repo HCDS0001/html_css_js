@@ -12,22 +12,8 @@ Clique do botão direito do mouse (sobre a aba do arquivo) -> Opções para abri
 Ctrl + ; -> Transforma a linha em comentário.
 Shift + Alt + A -> Transforma bloco em comentário.
 li*5 -> Cria 5 vezes a tag <li>
+Ctrl + D -> Seleciona palavras similares na ordem.
 
-usar <em> para itálico
-usar <strong> para negrito
-usar <mark> para marca texto
-usar <small> para letras miúdas
-usar <ins> para texto inserido
-usar <del> para texto deletado
-usar <sub> para coisas abaixo
-usar <sup> para coisas acima
-usar <code> para fontes mono espaçadas
-usar <pre> para texto ja com espaçamentos
-usar <q> para citações entre aspas
-usar <blockquote> para citações de parágrafos -> tem o atributo cite para colocar um endereço
-usar <abbr> para significado da palavra
-usar <bdo> para inverter texto
-são semânticos
 
 &lt;p&gt; -> <p>
 

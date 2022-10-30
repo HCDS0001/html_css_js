@@ -21,7 +21,7 @@
                     <form action="">
                         <!--Seleção de Função-->
                         <label for="idfunction">Função</label>
-                        <select name="" id="idfunction" autofocus onchange="selectfunction()">
+                        <select name="" id="idfunction" autofocus onchange="selectfunction()" title="Selecione uma das opções para saber quais tipos de e-mail é possível gerar para a sua função.">
                             <option value="(SELECIONE A FUNÇÃO)" class="optionfunction">(SELECIONE A FUNÇÃO)</option>
                             <optgroup label="Comercial">
                                 <option value="Analista" class="optionfunction">Analista</option>
@@ -159,7 +159,7 @@
                             <option value="29">29</option>
                         </datalist>
                         <label for="idov">Ordem de Venda</label>
-                        <input type="text" name="" id="idov" size="6" minlength="6" maxlength="6" pattern="[0-9]{6}" min="000001" max="999999" placeholder="609123" required>
+                        <input type="text" name="" id="idov" size="6" minlength="6" maxlength="6" pattern="[0-9]{6}" min="000001" max="999999" placeholder="609123" required title="Preencha com o número da ordem de venda, precisa ter 6 digitos numéricos." inputmode="numeric">
                         <label for="idnomedocliente">Nome do Cliente</label>
                         <input type="text" name="" id="idnomedocliente" size="15" minlength="1" placeholder="Nome do Cliente" required>
                         <label for="idnomefantasia">Nome Fantasia</label>
@@ -180,7 +180,7 @@
                             <option value="Dezembro">Dezembro</option>
                         </select>
                         <label for="idnomerepresentante">Representante</label>
-                        <input type="text" name="" id="idnomerepresentante" size="15" placeholder="Representante" value="Venda Direta Curitiba" disabled><br>
+                        <input type="text" name="" id="idnomerepresentante" size="15" placeholder="Representante" value="Venda Direta Curitiba" readonly><br>
                          <button type="reset" id="clique" onclick="limpardadosdopedido()">Limpar Dados do Pedido</button>
                     </form>
                 </fieldset>
