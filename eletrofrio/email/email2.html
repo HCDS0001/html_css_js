@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de E-mails Padrão</title>
+    <link rel="stylesheet" href="email2.css">
+</head>
+<body>
+    <header>Gerador de E-mails Padrão</header>
+    <main>
+        <section>
+            <article>
+                <h1>Instruções</h1>
+                <p>Para gerar o e-mail desejado selecione as opções, preencha as informações necessárias e em seguida clique em gerar.</p>
+            </article>
+            <article>
+                <fieldset>
+                    <legend>Tipo de E-mail</legend>
+                    <label for="">Função</label>
+                    <select name="" id=""></select><br>
+                    <label for="">Tipo</label>
+                    <select name="" id=""></select><br>
+                    <button type="button" onclick="">Limpar</button><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Dados do Pedido</legend>
+                    <label for="">Nome do Representante</label>
+                    <input type="text" name="" id="" size="15" placeholder="Representante" value="" readonly><br>
+                    <label for="">Número do Representante</label>
+                    <select name="" id="" onchange=""></select><br>
+                    <label for="">Pedido</label>
+                    <input type="text" name="" id="" size="3" minlength="3" maxlength="3" pattern="[0-9]{3}" placeholder="001" required><br>
+                    <label for="">Ano</label>
+                    <input list="" name="" id="" size="2" minlength="2" maxlength="2" pattern="[0-9]{2}" min="08" max="29" placeholder="22" value="" required>
+                    <datalist></datalist><br>
+                    <label for="">Ordem de Venda</label>
+                    <input type="text" name="" id="" size="6" minlength="6" maxlength="6" pattern="[0-9]{6}" min="000001" max="999999" placeholder="609000" required title="Preencha com o número da ordem de venda, precisa ter 6 digitos numéricos." inputmode="numeric"><br>
+                    <label for="">Nome do Cliente</label>
+                    <input type="text" name="" id="" size="15" minlength="1" placeholder="Nome do Cliente" required><br>
+                    <label for="">Nome Fantasia</label>
+                    <input type="text" name="" id="" size="15" minlength="1" placeholder="Nome Fantasia"><br>
+                    <label for="">Mês de Cadastro</label>
+                    <select name="" id=""></select><br>
+                    <button type="button" onclick="">Limpar</button><br>
+                </fieldset>
+                <fieldset>
+                    <legend>E-mails Selecionados</legend>
+                    <details>
+                        <summary>E-mails Para:</summary>
+                    </details>
+                    <details>
+                        <summary>E-mails Cc:</summary>
+                    </details>
+                    <button type="button" onclick="">Limpar</button><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Opções Extras</legend>
+                    <button type="button" onclick="">Limpar</button><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Controles</legend>
+                    <button type="button" onclick="">Gerar</button>
+                    <button type="button" onclick="">Limpar E-mail</button>
+                </fieldset>
+            </article>
+        </section>
+        <section>
+            <h1>Resultado</h1>
+        </section>
+    </main>
+    <footer>Desenvolvido por Henrique</footer>
+    <script src="email2.js"></script>
+</body>
+</html>
