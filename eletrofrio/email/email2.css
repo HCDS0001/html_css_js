@@ -1,0 +1,7 @@
+input:invalid{
+    background-color: rgba(255, 255, 0, 1);
+}
+
+.classtipo, .classAnalista, .classAjuste, .classPlanilhamento, .classExecutivo, .classRepresentante{
+    display: none;
+}
