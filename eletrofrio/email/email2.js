@@ -2,12 +2,9 @@ let idfunçao = document.querySelector("#idfunçao")
 let idtipo = document.querySelector("#idtipo")
 let classtipo = document.querySelectorAll(".classtipo")
 
-let classAnalista = document.querySelectorAll(".classAnalista")
-let classAjuste = document.querySelectorAll(".classAjuste")
-let classPlanilhamento = document.querySelectorAll(".classPlanilhamento")
-let classExecutivo = document.querySelectorAll(".classExecutivo")
-let classRepresentante = document.querySelectorAll(".classRepresentante")
-
+let valueattribute = "value"
+let classattribute = "class"
+let displayinline_block = "inline-block"
 
 let email = [
     {area:"Comercial", funçao:"Analista", grupo:"Analista", tipo:"Liberação Parcial"},
@@ -201,10 +198,6 @@ let resultado = [
 
 let quantidadeemail = email.length
 
-let valueattribute = "value"
-let classattribute = "class"
-
-
 for (let number = 0; number < quantidadeemail; number++) {
     if (number == 0) {
         let optionfunçao = document.createElement("option")
@@ -241,20 +234,39 @@ for (let number = 0; number < quantidadeemail; number++) {
     }
 }
 
-let quantidadeanalista = 0
-for (let number = 0; number < quantidadeemail; number++) {
-    if (email[number].funçao == "Analista") {
-        quantidadeanalista++
+let classAnalista = document.querySelectorAll(".classAnalista")
+let classAjuste = document.querySelectorAll(".classAjuste")
+let classPlanilhamento = document.querySelectorAll(".classPlanilhamento")
+let classExecutivo = document.querySelectorAll(".classExecutivo")
+let classRepresentante = document.querySelectorAll(".classRepresentante")
+
+
+
+function quantidadestipos(tipo) {
+    let quantidadeinicial = 0
+    for (let number = 0; number < quantidadeemail; number++) {
+        if (email[number].funçao == tipo) {quantidadeinicial++}
+    } return quantidadeinicial
+}
+
+
+
+
+
+
+
+
+function exibetipos(tipo, classe) {
+    for (let number = 0; number < quantidadestipos(tipo); number++) {
+        classe[number].style.display = displayinline_block
+
     }
 }
 
-for (let number = 0; number < quantidadeanalista; number++) {
-    classAjuste[number].setAttribute("value","inline-block")
-    alert(number)
-}
 
+/* idfunçao.addEventListener("change", exibetipos("Analista", classAnalista)) */ /* Assim funciona */
 
-
+idfunçao.addEventListener("change", exibetipos(idfunçao.value, classAnalista))   /* Assim não funciona */
 
 
 classtipo[0].style.display = "inline-block"
@@ -265,7 +277,7 @@ document.body.style.color = 'blue'
 
 
 
-
+/* classAnalista[0].setAttribute('value', valueattribute) */
 
 
 
