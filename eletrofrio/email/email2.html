@@ -13,27 +13,23 @@
         <section>
             <article>
                 <h1>Instruções</h1>
-                <p>Para gerar o e-mail desejado selecione as opções, preencha as informações necessárias e em seguida clique em gerar.</p>
+                <p>Para gerar o e-mail desejado selecione o tip ode e-mail, preencha as informações necessárias e em seguida clique em gerar.</p>
             </article>
             <article>
                 <fieldset>
                     <legend>Tipo de E-mail</legend>
                     <label for="idfunçao">Função</label>
-                    <select name="" id="idfunçao">
-                        <option value="(SELECIONE UMA OPÇÃO)">(SELECIONE UMA OPÇÃO)</option>
-                    </select><br>
+                    <select name="" id="idfunçao"></select><br>
                     <label for="idtipo" class="classtipo">Tipo</label>
-                    <select name="" id="idtipo" class="classtipo">
-                        <option value="(SELECIONE UMA OPÇÃO)">(SELECIONE UMA OPÇÃO)</option>
-                    </select><br>
-                    <button type="button" onclick="teste()">Limpar</button><br>
+                    <select name="" id="idtipo" class="classtipo"></select><br>
+                    <button type="reset" id="idlimpatipodeemail">Limpar</button><br>
                 </fieldset>
                 <fieldset>
                     <legend>Dados do Pedido</legend>
-                    <label for="">Nome do Representante</label>
-                    <input type="text" name="" id="" size="15" placeholder="Representante" value="" readonly><br>
-                    <label for="">Número do Representante</label>
-                    <select name="" id="" onchange=""></select><br>
+                    <label for="idnomerepresentante">Nome do Representante</label>
+                    <input type="text" name="" id="idnomerepresentante" size="15" placeholder="Representante" readonly><br>
+                    <label for="idnumerorepresentante">Número do Representante</label>
+                    <select name="" id="idnumerorepresentante" onchange=""></select><br>
                     <label for="">Pedido</label>
                     <input type="text" name="" id="" size="3" minlength="3" maxlength="3" pattern="[0-9]{3}" placeholder="001" required><br>
                     <label for="">Ano</label>
