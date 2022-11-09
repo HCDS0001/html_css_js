@@ -1,75 +1,83 @@
 let idfunçao = document.querySelector("#idfunçao")
 let idtipo = document.querySelector("#idtipo")
 let classtipo = document.querySelectorAll(".classtipo")
+let idnomerepresentante = document.querySelector("#idnomerepresentante")
 let idnumerorepresentante = document.querySelector("#idnumerorepresentante")
 let idlimpatipodeemail = document.querySelector("#idlimpatipodeemail")
+let idoptionano = document.querySelector("#idoptionano")
+let idoptionmes = document.querySelector("#idoptionmes")
+let idemailspara = document.querySelector("#idemailspara")
 
-
+let optiontag = "option"
+let inputtag = "input"
 let valueattribute = "value"
 let classattribute = "class"
 let displaynone = "none"
 let displayinline_block = "inline-block"
+let displayblock = "block"
 let selectoption = "(SELECIONE UMA OPÇÃO)"
 let problem = "problem"
+let sim = "sim"
+let nao = "não"
 
 let email = [
-    {funçao:selectoption, tipo:selectoption},
-    {area:"Comercial", funçao:"Analista", grupo:"Analista", tipo:"Liberação Parcial"},
-    {area:"Comercial", funçao:"Analista", grupo:"Analista", tipo:"Liberação Total"},
-    {area:"Comercial", funçao:"Analista", grupo:"Analista", tipo:"Linhas Atualizadas"},
-    {area:"Comercial", funçao:"Analista", grupo:"Analista", tipo:"Feito"},
-    {area:"Comercial", funçao:"Analista", grupo:"Analista", tipo:"Atualizar"},
-    {area:"Comercial", funçao:"Ajuste", grupo:"Ajuste", tipo:"Dúvidas"},
-    {area:"Comercial", funçao:"Ajuste", grupo:"Ajuste", tipo:"Aguardando Dúvidas"},
-    {area:"Comercial", funçao:"Ajuste", grupo:"Ajuste", tipo:"Arquivos de Ajuste"},
-    {area:"Comercial", funçao:"Ajuste", grupo:"Ajuste", tipo:"Aguardando Conferência"},
-    {area:"Comercial", funçao:"Ajuste", grupo:"Ajuste", tipo:"Alteração"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Planilhamento", tipo:"Planilhamento Total"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Planilhamento", tipo:"Planilhamento Parcial"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Planilhamento", tipo:"Planilhamento Alteração"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Dúvida", tipo:"Dúvida Geral"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Dúvida", tipo:"Dúvida de Porta Seccional"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Dúvida", tipo:"Aguardando Dúvida"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Porta Walk-In"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Porta Seccional"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Portal de Selamento"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Niveladora de Doca"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Porta Rápida"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Porta Automática"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Porta Beer Cave"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Visor Corrediço"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Porta Vai e Vem Isolada"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Porta Vai e Vem de Tamanho Especial"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Resistência"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Termostato"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Porta Walk-In"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Porta Seccional"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Portal de Selamento"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Niveladora de Doca"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Porta Rápida"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Porta Automática"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Porta Beer Cave"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Visor Corrediço"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Porta Vai e Vem Isolada"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Porta Vai e Vem de Tamanho Especial"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Resistência"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Termostato"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Geral"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Geral"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Inclusão de Item"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Exclusão de Item"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Troca de Item"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Exclusão de Alfa"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Remoção de Alfa"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Estorno de Alfa"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Derrubar Usuário"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Liberação de Tela"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"SIP - Geral"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"SIP - Liberação para Edição de Painéis Altos"},
-    {area:"Continnum", funçao:"Planilhamento", grupo:"Encaminhar", tipo:"Encaminhar"},
-    {area:"Continnum", funçao:"Executivo", grupo:"Executivo", tipo:"Pré Projeto"},
-    {area:"Continnum", funçao:"Executivo", grupo:"Executivo", tipo:"Projeto Executivo"},
-    {area:"Externo", funçao:"Representante", grupo:"Representante", tipo:"Representante"}
+    {funçao:selectoption, tipo:selectoption, dadosdopedido:nao},
+    {area:"Comercial", funçao:"Analista", grupo:"Analista", tipo:"Liberação Parcial", dadosdopedido:sim},
+    {area:"Comercial", funçao:"Analista", grupo:"Analista", tipo:"Liberação Total", dadosdopedido:sim},
+    {area:"Comercial", funçao:"Analista", grupo:"Analista", tipo:"Linhas Atualizadas", dadosdopedido:sim},
+    {area:"Comercial", funçao:"Analista", grupo:"Analista", tipo:"Feito", dadosdopedido:sim},
+    {area:"Comercial", funçao:"Analista", grupo:"Analista", tipo:"Atualizar", dadosdopedido:sim},
+    {area:"Comercial", funçao:"Ajuste", grupo:"Ajuste", tipo:"Dúvidas", dadosdopedido:sim},
+    {area:"Comercial", funçao:"Ajuste", grupo:"Ajuste", tipo:"Aguardando Dúvidas", dadosdopedido:sim},
+    {area:"Comercial", funçao:"Ajuste", grupo:"Ajuste", tipo:"Arquivos de Ajuste", dadosdopedido:sim},
+    {area:"Comercial", funçao:"Ajuste", grupo:"Ajuste", tipo:"Aguardando Conferência", dadosdopedido:sim},
+    {area:"Comercial", funçao:"Ajuste", grupo:"Ajuste", tipo:"Alteração", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Planilhamento", tipo:"Planilhamento Total", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Planilhamento", tipo:"Planilhamento Parcial", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Planilhamento", tipo:"Planilhamento Alteração", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Dúvida", tipo:"Dúvida Geral", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Dúvida", tipo:"Dúvida de Porta Seccional", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Dúvida", tipo:"Aguardando Dúvida", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Porta Walk-In", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Porta Seccional", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Portal de Selamento", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Niveladora de Doca", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Porta Rápida", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Porta Automática", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Porta Beer Cave", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Visor Corrediço", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Porta Vai e Vem Isolada", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Porta Vai e Vem de Tamanho Especial", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Resistência", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Cotação", tipo:"Cotação de Termostato", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Porta Walk-In", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Porta Seccional", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Portal de Selamento", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Niveladora de Doca", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Porta Rápida", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Porta Automática", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Porta Beer Cave", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Visor Corrediço", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Porta Vai e Vem Isolada", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Porta Vai e Vem de Tamanho Especial", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Resistência", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Compra", tipo:"Compra de Termostato", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Geral", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Geral", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Inclusão de Item", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Exclusão de Item", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Troca de Item", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Exclusão de Alfa", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Remoção de Alfa", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Estorno de Alfa", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Derrubar Usuário", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"Baan - Liberação de Tela", dadosdopedido:nao},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"SIP - Geral", dadosdopedido:nao},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Suporte TI", tipo:"SIP - Liberação para Edição de Painéis Altos", dadosdopedido:nao},
+    {area:"Continnum", funçao:"Planilhamento", grupo:"Encaminhar", tipo:"Encaminhar", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Executivo", grupo:"Executivo", tipo:"Pré Projeto", dadosdopedido:sim},
+    {area:"Continnum", funçao:"Executivo", grupo:"Executivo", tipo:"Projeto Executivo", dadosdopedido:sim},
+    {area:"Externo", funçao:"Representante", grupo:"Representante", tipo:"Representante", dadosdopedido:sim}
 ]
 
 let representante = [
@@ -223,7 +231,7 @@ for (let number = 0; number < quantidadeemail; number++) {
 }
 
 funçao.map((el)=>{
-    let optionfunçao = document.createElement("option")
+    let optionfunçao = document.createElement(optiontag)
     let textofunçao = document.createTextNode(el.funçao)
     optionfunçao.appendChild(textofunçao)
     optionfunçao.setAttribute(valueattribute, el.funçao)
@@ -240,23 +248,45 @@ function tipo() {
     while (idtipo.hasChildNodes()) {idtipo.removeChild(idtipo.firstChild)}
     let emailtipo = email.filter((el)=>el.funçao == idfunçao.value || el.funçao == selectoption)
     emailtipo.map((el)=>{
-        let optiontipo = document.createElement("option")
+        let optiontipo = document.createElement(optiontag)
         let textotipo = document.createTextNode(el.tipo)
         optiontipo.appendChild(textotipo)
-        optiontipo.setAttribute(classattribute, "classoptiontipo")
+        if (el.dadosdopedido == nao) {
+            optiontipo.setAttribute(classattribute, "classsempedido")
+        }
         idtipo.insertAdjacentElement("beforeend",optiontipo)
     })
 }
 
 idfunçao.addEventListener("change", tipo)
 
+function limpatipodeemail() {
+    idfunçao.value = selectoption
+    idtipo.value = selectoption
+    hidetipo()
+    iddadosdopedido.style.display = displaynone
+    while (idtipo.hasChildNodes()) {idtipo.removeChild(idtipo.firstChild)}
+}
+
+idlimpatipodeemail.addEventListener("click", limpatipodeemail)
+
 /* Dados do Pedido */
+
+function sempedido() {
+    if (idtipo.selectedOptions[0].className == "classsempedido") {
+        iddadosdopedido.style.display = displaynone
+    } else {
+        iddadosdopedido.style.display = displayblock
+    }
+}
+
+idtipo.addEventListener("change", sempedido)
 
 for (let number = 0; number < quantidadeoptionrepresentante; number++) {
     let optionrepresentante = document.createElement('option')
     let textoptionrepresentante = document.createTextNode(representante[number].numero)
     optionrepresentante.appendChild(textoptionrepresentante)
-    optionrepresentante.setAttribute('value',representante[number].numero)
+    optionrepresentante.setAttribute(valueattribute,representante[number].numero)
     idnumerorepresentante.insertAdjacentElement('beforeend',optionrepresentante)
 }
 
@@ -278,14 +308,28 @@ function nomerepresentante() {
 idnumerorepresentante.addEventListener("change", nomerepresentante)
 
 
+ano.map((el)=>{
+    let optionano = document.createElement(optiontag)
+    let textoano = document.createTextNode(el)
+    optionano.appendChild(textoano)
+    optionano.setAttribute(valueattribute, el)
+    idoptionano.insertAdjacentElement("beforeend",optionano)}
+)
 
+mes.map((el)=>{
+    let optionmes = document.createElement(optiontag)
+    let textomes = document.createTextNode(el)
+    optionmes.appendChild(textomes)
+    optionmes.setAttribute(valueattribute, el)
+    idoptionmes.insertAdjacentElement("beforeend",optionmes)}
+)
 
+/* E-mails Selecionados */
 
-function limpatipodeemail() {
-    idfunçao.value = selectoption
-    idtipo.value = selectoption
-    hidetipo()
-    while (idtipo.hasChildNodes()) {idtipo.removeChild(idtipo.firstChild)}
-}
-
-idlimpatipodeemail.addEventListener("click", limpatipodeemail)
+representante.map((el)=>{
+    let optionemailrepresentante = document.createElement(inputtag)
+    let textoano = document.createTextNode(el)
+    optionano.appendChild(textoano)
+    optionano.setAttribute(valueattribute, el)
+    idemailspara.insertAdjacentElement("beforeend",optionano)}
+)

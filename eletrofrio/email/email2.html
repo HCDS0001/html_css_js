@@ -24,7 +24,7 @@
                     <select name="" id="idtipo" class="classtipo"></select><br>
                     <button type="reset" id="idlimpatipodeemail">Limpar</button><br>
                 </fieldset>
-                <fieldset>
+                <fieldset id="iddadosdopedido">
                     <legend>Dados do Pedido</legend>
                     <label for="idnomerepresentante">Nome do Representante</label>
                     <input type="text" name="" id="idnomerepresentante" size="15" placeholder="Representante" readonly><br>
@@ -33,21 +33,21 @@
                     <label for="">Pedido</label>
                     <input type="text" name="" id="" size="3" minlength="3" maxlength="3" pattern="[0-9]{3}" placeholder="001" required><br>
                     <label for="">Ano</label>
-                    <input list="" name="" id="" size="2" minlength="2" maxlength="2" pattern="[0-9]{2}" min="08" max="29" placeholder="22" value="" required>
-                    <datalist></datalist><br>
+                    <input list="idoptionano" name="" id="" size="2" minlength="2" maxlength="2" pattern="[0-9]{2}" min="08" max="29" placeholder="22" value="" required>
+                    <datalist id="idoptionano"></datalist><br>
                     <label for="">Ordem de Venda</label>
                     <input type="text" name="" id="" size="6" minlength="6" maxlength="6" pattern="[0-9]{6}" min="000001" max="999999" placeholder="609000" required title="Preencha com o número da ordem de venda, precisa ter 6 digitos numéricos." inputmode="numeric"><br>
                     <label for="">Nome do Cliente</label>
                     <input type="text" name="" id="" size="15" minlength="1" placeholder="Nome do Cliente" required><br>
                     <label for="">Nome Fantasia</label>
                     <input type="text" name="" id="" size="15" minlength="1" placeholder="Nome Fantasia"><br>
-                    <label for="">Mês de Cadastro</label>
-                    <select name="" id=""></select><br>
+                    <label for="idoptionmes">Mês de Cadastro</label>
+                    <select name="" id="idoptionmes"></select><br>
                     <button type="button" onclick="">Limpar</button><br>
                 </fieldset>
                 <fieldset>
                     <legend>E-mails Selecionados</legend>
-                    <details>
+                    <details id="idemailspara">
                         <summary>E-mails Para:</summary>
                     </details>
                     <details>
