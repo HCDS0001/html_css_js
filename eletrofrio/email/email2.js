@@ -1,17 +1,27 @@
 let idfunçao = document.querySelector("#idfunçao")
 let idtipo = document.querySelector("#idtipo")
 let classtipo = document.querySelectorAll(".classtipo")
+let iddadosdopedido = document.querySelector("#iddadosdopedido")
 let idnomerepresentante = document.querySelector("#idnomerepresentante")
 let idnumerorepresentante = document.querySelector("#idnumerorepresentante")
 let idlimpatipodeemail = document.querySelector("#idlimpatipodeemail")
 let idoptionano = document.querySelector("#idoptionano")
 let idoptionmes = document.querySelector("#idoptionmes")
+let idlimpadadosdepedido = document.querySelector("#idlimpadadosdepedido")
 let idemailspara = document.querySelector("#idemailspara")
+let idemailscc = document.querySelector("#idemailscc")
 
 let optiontag = "option"
 let inputtag = "input"
+let labeltag = "label"
+let brtag = "br"
+let summarytag = "summary"
 let valueattribute = "value"
+let idattribute = "id"
 let classattribute = "class"
+let typeattribute = "type"
+let checkboxattribute = "checkbox"
+let forattribute = "for"
 let displaynone = "none"
 let displayinline_block = "inline-block"
 let displayblock = "block"
@@ -261,8 +271,6 @@ function tipo() {
 idfunçao.addEventListener("change", tipo)
 
 function limpatipodeemail() {
-    idfunçao.value = selectoption
-    idtipo.value = selectoption
     hidetipo()
     iddadosdopedido.style.display = displaynone
     while (idtipo.hasChildNodes()) {idtipo.removeChild(idtipo.firstChild)}
@@ -294,13 +302,9 @@ idnomerepresentante.setAttribute(valueattribute,representante[0].nome)
 
 function nomerepresentante() {
     for (let number = 0; number < quantidadeoptionrepresentante; number++) {
-        switch (idnumerorepresentante.value) {
-            case representante[number].numero:
-                idnomerepresentante.setAttribute(valueattribute,representante[number].nome)
-                number = quantidadeoptionrepresentante
-                break;
-            default:
-                break;
+        if (idnumerorepresentante.value == representante[number].numero) {
+            idnomerepresentante.setAttribute(valueattribute,representante[number].nome)
+            number = quantidadeoptionrepresentante
         }
     }
 }
@@ -324,12 +328,59 @@ mes.map((el)=>{
     idoptionmes.insertAdjacentElement("beforeend",optionmes)}
 )
 
+function limpadadosdopedido() {
+/*     hidetipo()
+    idlimpadadosdepedido.style.display = displaynone
+    while (idtipo.hasChildNodes()) {idtipo.removeChild(idtipo.firstChild)} */
+}
+
+idlimpadadosdepedido.addEventListener("click", limpadadosdopedido)
+
 /* E-mails Selecionados */
 
 representante.map((el)=>{
+    let sumaryemailrepresentante = document.createElement(summarytag)
+    let summarytextoemailrepresentante = document.createTextNode(el.nome)
+    sumaryemailrepresentante.appendChild(summarytextoemailrepresentante)
+    idemailspara.insertAdjacentElement("beforeend",sumaryemailrepresentante)
+
+    let capitalizenomepara = `idpara${(el.nome.replace(/ /g, "")).charAt(0).toLowerCase() + (el.nome.replace(/ /g, "")).slice(1)}`
     let optionemailrepresentante = document.createElement(inputtag)
-    let textoano = document.createTextNode(el)
-    optionano.appendChild(textoano)
-    optionano.setAttribute(valueattribute, el)
-    idemailspara.insertAdjacentElement("beforeend",optionano)}
+    let textoemailrepresentante = document.createTextNode(el.nome)
+    optionemailrepresentante.appendChild(textoemailrepresentante)
+    optionemailrepresentante.setAttribute(typeattribute, checkboxattribute)
+    optionemailrepresentante.setAttribute(idattribute, capitalizenomepara)
+    optionemailrepresentante.setAttribute(classattribute, "classparaemailrepresentante")
+    optionemailrepresentante.setAttribute(valueattribute, el.emailcliente)
+    idemailspara.insertAdjacentElement("beforeend",optionemailrepresentante)
+
+    let labelemailrepresentante = document.createElement(labeltag)
+    let textolabelemailrepresentante = document.createTextNode(el.nome)
+    labelemailrepresentante.appendChild(textolabelemailrepresentante)
+    labelemailrepresentante.setAttribute(forattribute, capitalizenomepara)
+    idemailspara.insertAdjacentElement("beforeend",labelemailrepresentante)
+
+    let bremailrepresentante = document.createElement(brtag)
+    idemailspara.insertAdjacentElement("beforeend",bremailrepresentante)}
+)
+
+representante.map((el)=>{
+    let capitalizenomecc = `idcc${(el.nome.replace(/ /g, "")).charAt(0).toLowerCase() + (el.nome.replace(/ /g, "")).slice(1)}`
+    let optionemailrepresentante = document.createElement(inputtag)
+    let textoemailrepresentante = document.createTextNode(el.nome)
+    optionemailrepresentante.appendChild(textoemailrepresentante)
+    optionemailrepresentante.setAttribute(typeattribute, checkboxattribute)
+    optionemailrepresentante.setAttribute(idattribute, capitalizenomecc)
+    optionemailrepresentante.setAttribute(classattribute, "classccemailrepresentante")
+    optionemailrepresentante.setAttribute(valueattribute, el.emailcliente)
+    idemailscc.insertAdjacentElement("beforeend",optionemailrepresentante)
+
+    let labelemailrepresentante = document.createElement(labeltag)
+    let textolabelemailrepresentante = document.createTextNode(el.nome)
+    labelemailrepresentante.appendChild(textolabelemailrepresentante)
+    labelemailrepresentante.setAttribute(forattribute, capitalizenomecc)
+    idemailscc.insertAdjacentElement("beforeend",labelemailrepresentante)
+
+    let bremailrepresentante = document.createElement(brtag)
+    idemailscc.insertAdjacentElement("beforeend",bremailrepresentante)}
 )
