@@ -236,13 +236,7 @@ function hidetipo() {
 
 let email2 = email.slice()
 email2.unshift(0)
-
-
 let funçao = []
-
-
-
-
 
 for (let number = 0; number < quantidadeemail; number++) {
     if (email[number].funçao != email2[number].funçao) {funçao.push(email[number])}
@@ -255,11 +249,6 @@ funçao.map((el)=>{
     optionfunçao.setAttribute(valueattribute, el.funçao)
     idfunçao.insertAdjacentElement("beforeend",optionfunçao)}
 )
-
-
-
-
-
 
 function tipo() {
     if (idfunçao.value == selectoption) {
@@ -274,20 +263,21 @@ function tipo() {
 
 
 
-
-
-
-    alert(idfunçao.value)
-
+/* teste */
         
-    
     let subgrupo = []
     for (let number = 0; number < quantidadeemail; number++) {
 
-        if (email[number].subgrupo != email2[number].subgrupo && email[number].funçao == idfunçao.value || email[number].funçao == selectoption) {subgrupo.push(email[number])}
+        if (email[number].funçao == idfunçao.value && email[number].subgrupo != email2[number].subgrupo) {subgrupo.push(email[number])}
     }
     
-
+    let emailtiposelectoption = email.filter((el)=>el.funçao == selectoption)
+    emailtiposelectoption.map((el)=>{
+        let optiontipo = document.createElement(optiontag)
+        let textotipo = document.createTextNode(el.tipo)
+        optiontipo.appendChild(textotipo)
+        idtipo.insertAdjacentElement("beforeend",optiontipo)
+    })
     
     subgrupo.map((el)=>{
         let capitalizenomepara = `idpara${(el.subgrupo.replace(/ /g, "")).charAt(0).toLowerCase() + (el.subgrupo.replace(/ /g, "")).slice(1)}`
@@ -302,24 +292,22 @@ function tipo() {
 
 
 
-
-
-
-
     
 
 
-    let emailtipo = email.filter((el)=>el.funçao == idfunçao.value || el.funçao == selectoption)
+
+
+
+
+/* teste */
+
+    let emailtipo = email.filter((el)=>el.funçao == idfunçao.value/*  || el.funçao == selectoption */)
     emailtipo.map((el)=>{
         let optiontipo = document.createElement(optiontag)
         let textotipo = document.createTextNode(el.tipo)
         optiontipo.appendChild(textotipo)
         if (el.dadosdopedido == nao) {
             optiontipo.setAttribute(classattribute, "classsempedido")
-        }
-        for (let number = 0; number < emailtipo.length; number++) {
-            const element = array[number];
-            
         }
         idtipo.insertAdjacentElement("beforeend",optiontipo)
     })
