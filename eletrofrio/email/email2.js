@@ -234,6 +234,8 @@ function hidetipo() {
     classtipo[1].style.display = displaynone 
 }
 
+/* - Cria Função */
+
 let email2 = email.slice()
 email2.unshift(0)
 let funçao = []
@@ -250,6 +252,8 @@ funçao.map((el)=>{
     idfunçao.insertAdjacentElement("beforeend",optionfunçao)}
 )
 
+/* - Cria Tipo e Subgrupo */
+
 function tipo() {
     if (idfunçao.value == selectoption) {
         hidetipo()
@@ -259,18 +263,14 @@ function tipo() {
     }
     while (idtipo.hasChildNodes()) {idtipo.removeChild(idtipo.firstChild)}
 
-
-
-
-
-/* teste */
-        
     let subgrupo = []
     for (let number = 0; number < quantidadeemail; number++) {
 
         if (email[number].funçao == idfunçao.value && email[number].subgrupo != email2[number].subgrupo) {subgrupo.push(email[number])}
     }
     
+/* -- Cria Tipo Selection */
+
     let emailtiposelectoption = email.filter((el)=>el.funçao == selectoption)
     emailtiposelectoption.map((el)=>{
         let optiontipo = document.createElement(optiontag)
@@ -279,6 +279,8 @@ function tipo() {
         idtipo.insertAdjacentElement("beforeend",optiontipo)
     })
     
+/* -- Cria Subgrupo */
+
     subgrupo.map((el)=>{
         let capitalizenomepara = `idpara${(el.subgrupo.replace(/ /g, "")).charAt(0).toLowerCase() + (el.subgrupo.replace(/ /g, "")).slice(1)}`
         let optionsubgrupo = document.createElement("optgroup")
@@ -289,19 +291,9 @@ function tipo() {
         idtipo.insertAdjacentElement("beforeend",optionsubgrupo)}
     )
 
+/* -- Cria Tipo Todos */
 
-
-
-    
-
-
-
-
-
-
-/* teste */
-
-    let emailtipo = email.filter((el)=>el.funçao == idfunçao.value/*  || el.funçao == selectoption */)
+    let emailtipo = email.filter((el)=>el.funçao == idfunçao.value)
     emailtipo.map((el)=>{
         let optiontipo = document.createElement(optiontag)
         let textotipo = document.createTextNode(el.tipo)
@@ -309,7 +301,9 @@ function tipo() {
         if (el.dadosdopedido == nao) {
             optiontipo.setAttribute(classattribute, "classsempedido")
         }
-        idtipo.insertAdjacentElement("beforeend",optiontipo)
+        let capitalizesubgrupo = `idpara${(el.subgrupo.replace(/ /g, "")).charAt(0).toLowerCase() + (el.subgrupo.replace(/ /g, "")).slice(1)}`
+        let importar = document.querySelector(`#${capitalizesubgrupo}`)
+        importar.insertAdjacentElement("beforeend",optiontipo)
     })
 }
 
@@ -335,6 +329,8 @@ function sempedido() {
 
 idtipo.addEventListener("change", sempedido)
 
+/* - Cria Número do Representante */
+
 for (let number = 0; number < quantidadeoptionrepresentante; number++) {
     let optionrepresentante = document.createElement('option')
     let textoptionrepresentante = document.createTextNode(representante[number].numero)
@@ -344,6 +340,8 @@ for (let number = 0; number < quantidadeoptionrepresentante; number++) {
 }
 
 idnomerepresentante.setAttribute(valueattribute,representante[0].nome)
+
+/* - Cria Nome do Representante */
 
 function nomerepresentante() {
     for (let number = 0; number < quantidadeoptionrepresentante; number++) {
@@ -356,6 +354,7 @@ function nomerepresentante() {
 
 idnumerorepresentante.addEventListener("change", nomerepresentante)
 
+/* - Cria Opções de Ano */
 
 ano.map((el)=>{
     let optionano = document.createElement(optiontag)
@@ -364,6 +363,8 @@ ano.map((el)=>{
     optionano.setAttribute(valueattribute, el)
     idoptionano.insertAdjacentElement("beforeend",optionano)}
 )
+
+/* - Cria Opções de Mês */
 
 mes.map((el)=>{
     let optionmes = document.createElement(optiontag)
@@ -380,6 +381,8 @@ function limpadadosdopedido() {
 idlimpadadosdepedido.addEventListener("click", limpadadosdopedido)
 
 /* E-mails Selecionados */
+
+/* - Cria e-mails para */
 
 let sumaryparaemailrepresentante = document.createElement(summarytag)
 let summaryparatextoemailrepresentante = document.createTextNode("Representante")
@@ -427,6 +430,8 @@ function selectallpara() {
         }
     }
 }
+
+/* - Cria e-mails cc */
 
 let sumaryccemailrepresentante = document.createElement(summarytag)
 let summarycctextoemailrepresentante = document.createTextNode("Representante")
@@ -480,3 +485,5 @@ function limpaemailsselecionados() {
 }
 
 idlimpaemailsselecionados.addEventListener("click", limpaemailsselecionados)
+
+/* FIM */
