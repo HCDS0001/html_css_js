@@ -1,3 +1,6 @@
+
+/* Chamada de dados do HTML */
+
 let idfunçao = document.querySelector("#idfunçao")
 let idtipo = document.querySelector("#idtipo")
 let classtipo = document.querySelectorAll(".classtipo")
@@ -12,10 +15,13 @@ let idemailspara = document.querySelector("#idemailspara")
 let idemailscc = document.querySelector("#idemailscc")
 let idlimpaemailsselecionados = document.querySelector("#idlimpaemailsselecionados")
 
+/* Variáveis para facilitar a escrita de funções  */
+
 let optiontag = "option"
 let inputtag = "input"
 let labeltag = "label"
 let brtag = "br"
+let detailstag = "details"
 let summarytag = "summary"
 let valueattribute = "value"
 let idattribute = "id"
@@ -27,10 +33,14 @@ let displaynone = "none"
 let displayinline_block = "inline-block"
 let displayblock = "block"
 
+/* Variáveis para facilitar a troca de textos repetitivos  */
+
 let selectoption = "(SELECIONE UMA OPÇÃO)"
 let sim = "sim"
 let nao = "não"
 let classsempedido = "classsempedido"
+
+/* Arrays com dados a serem inseridos */
 
 let email = [
     {funçao:selectoption, tipo:selectoption, dadosdopedido:nao},
@@ -92,64 +102,89 @@ let email = [
     {area:"Externo", funçao:"Representante", subgrupo:"Representante", tipo:"Representante", dadosdopedido:sim}
 ]
 
-let representante = [
-    {numero:"001", nome:"Venda Direta Curitiba", emailcliente:"indefinido", emailcomercial:"email"},
-    {numero:"004", nome:"Tecnimet", emailcliente:"marcosm@tecnimet.com; div.comercial@tecnimet.com", emailcomercial:"email"},
-    {numero:"011", nome:"FG", emailcliente:"nathan@fgrefrigeracao.com.br", emailcomercial:"email"},
-    {numero:"016", nome:"Lobo", emailcliente:"loboinstalacoescomerciais@yahoo.com.br", emailcomercial:"email"},
-    {numero:"018", nome:"Silva Filho", emailcliente:"silva.filho@ymail.com", emailcomercial:"email"},
-    {numero:"024", nome:"Mallet", emailcliente:"helcio@mallet.net.br", emailcomercial:"email"},
-    {numero:"035", nome:"Clecio", emailcliente:"indefinido", emailcomercial:"email"},
-    {numero:"057", nome:"Refripan", emailcliente:"nidia.roza@hotmail.com", emailcomercial:"email"},
-    {numero:"062", nome:"M Weidner", emailcliente:"marceloweidner@globo.com", emailcomercial:"email"},
-    {numero:"067", nome:"Tortelli", emailcliente:"torteli@torteli.com.br", emailcomercial:"email"},
-    {numero:"070", nome:"Venda Direta São Paulo", emailcliente:"oswaldocassan@gmail.com", emailcomercial:"email"},
-    {numero:"077", nome:"Llampe Frio PR", emailcliente:"llampefrio@llampefrio.com.br", emailcomercial:"email"},
-    {numero:"082", nome:"HB", emailcliente:"hb-bene@uol.com.br", emailcomercial:"email"},
-    {numero:"087", nome:"Baldissera", emailcliente:"baldissera@redesul.com.br", emailcomercial:"email"},
-    {numero:"093", nome:"Gurgel", emailcliente:"gurgel61@terra.com.br", emailcomercial:"email"},
-    {numero:"094", nome:"Luiz Nachbar", emailcliente:"indefinido", emailcomercial:"email"},
-    {numero:"096", nome:"Kalliel", emailcliente:"kallielprojetos@gmail.com", emailcomercial:"email"},
-    {numero:"097", nome:"DE", emailcliente:"daniel@deequipamentos.com.br; vendas@deequipamentos.com.br", emailcomercial:"email"},
-    {numero:"101", nome:"Da Roz", emailcliente:"douglas@darozrepresentacoes.com.br; darozrep@gmail.com", emailcomercial:"email"},
-    {numero:"102", nome:"Superbrasil", emailcliente:"luiz@superb.com.br", emailcomercial:"email"},
-    {numero:"106", nome:"Vitoria", emailcliente:"jeffersondsrf@uol.com.br; jucelito@msn.com", emailcomercial:"email"},
-    {numero:"112", nome:"Ronald", emailcliente:"ronaldioliveira@ronaldmaquinas.com.br", emailcomercial:"email"},
-    {numero:"114", nome:"Scallet", emailcliente:"indefinido", emailcomercial:"email"},
-    {numero:"115", nome:"Guide", emailcliente:"guidi@guidisc.com.br; rinaldo@guidisc.com.br", emailcomercial:"email"},
-    {numero:"118", nome:"Fast Sul", emailcliente:"mbariano@fastsul.com", emailcomercial:"email"},
-    {numero:"120", nome:"Rio Fast", emailcliente:"riofasteletro@yahoo.com.br", emailcomercial:"email"},
-    {numero:"121", nome:"Eletrofast", emailcliente:"eletrofast@yahoo.com.br; luizamorimp@yahoo.com.br", emailcomercial:"email"},
-    {numero:"182", nome:"Afonso Araujo", emailcliente:"afonsovargasaraujo@gmail.com"},
-    {numero:"187", nome:"ETCO", emailcliente:"etcorep@terra.com.br", emailcomercial:"email"},
-    {numero:"189", nome:"Refriged", emailcliente:"ednilson.eletrofrio@gmail.com", emailcomercial:"email"},
-    {numero:"190", nome:"A&F", emailcliente:"fernando@aefbolsadenegocios.com.br", emailcomercial:"email"},
-    {numero:"191", nome:"Produtiva", emailcliente:"michel@produtivarepresentacoes.com.br", emailcomercial:"email"},
-    {numero:"193", nome:"Llampe Frio SC", emailcliente:"llampefrio@llampefrio.com.br", emailcomercial:"email"},
-    {numero:"195", nome:"DNC Dealer", emailcliente:"dinar@dealerrs.com.br", emailcomercial:"email"},
-    {numero:"196", nome:"Brites", emailcliente:"vendas@brites.srv.br", emailcomercial:"email"},
-    {numero:"198", nome:"Euro", emailcliente:"equipamentoseuro@gmail.com; jacksonkiatkoski@gmail.com", emailcomercial:"email"},
-    {numero:"199", nome:"Erco", emailcliente:"mario.erco1@gmail.com", emailcomercial:"email"},
-    {numero:"202", nome:"Eder Mathias", emailcliente:"eder.mathias@uol.com.br", emailcomercial:"email"},
-    {numero:"203", nome:"HCM", emailcliente:"hamilton@hcm.com.br", emailcomercial:"email"},
-    {numero:"207", nome:"Brava", emailcliente:"eac_cunha@yahoo.com.br", emailcomercial:"email"},
-    {numero:"213", nome:"Mercato", emailcliente:"denis@mercatorepresentacoes.com.br", emailcomercial:"email"},
-    {numero:"217", nome:"Cold Import", emailcliente:"jlescano@coldimport.com.pe", emailcomercial:"email"},
-    {numero:"218", nome:"Cencosud", emailcliente:"indefinido", emailcomercial:"email"},
-    {numero:"223", nome:"Hercold", emailcliente:"fastlest@uol.com.br", emailcomercial:"email"},
-    {numero:"226", nome:"EC", emailcliente:"leonardomoura@record-maq.com.br", emailcomercial:"email"},
-    {numero:"227", nome:"Edeval (MIL)", emailcliente:"edevalvendas@gmail.com", emailcomercial:"email"},
-    {numero:"228", nome:"JPC", emailcliente:"alexandre@pontodarefrigeracao.com.br", emailcomercial:"email"},
-    {numero:"229", nome:"Wesley Dal Pozzo", emailcliente:"dlpz@onda.com.br", emailcomercial:"email"},
-    {numero:"230", nome:"Ergosystem", emailcliente:"ergosystem.comercial@outlook.com", emailcomercial:"email"},
-    {numero:"231", nome:"SM", emailcliente:"indefinido", emailcomercial:"email"},
-    {numero:"232", nome:"S&I", emailcliente:"geraldo@siautomacao.com.br; carol@siautomacao.com.br; alexandre@siautomacao.com.br", emailcomercial:"email"},
-    {numero:"233", nome:"Control y Sostenibilidad", emailcliente:"indefinido", emailcomercial:"email"},
-    {numero:"234", nome:"Aarci", emailcliente:"juan.avila@aarci.co; info@aarci.co", emailcomercial:"email"},
-    {numero:"236", nome:"T&G", emailcliente:"ed_wanderson@yahoo.com.br", emailcomercial:"email"},
-    {numero:"237", nome:"Rematec", emailcliente:"alessandra@remaqbh.com.br", emailcomercial:"email"},
-    {numero:"238", nome:"FMG", emailcliente:" fmg_representacoes@hotmail.com", emailcomercial:"email"},
-    {numero:"239", nome:"PSK", emailcliente:"indefinido", emailcomercial:"email"},
+let cadastro = [
+    {funçao:"Ajuste", numero:"nnn", nome:"Cláudia", emailcomercial:"claudia.carvalho@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Ajuste", numero:"nnn", nome:"Cleber", emailcomercial:"cleber.medeiros@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Ajuste", numero:"nnn", nome:"Ellen", emailcomercial:"ellen@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Ajuste", numero:"nnn", nome:"Letícia", emailcomercial:"leticia.karoline@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Ajuste", numero:"nnn", nome:"Luiz Fernando Gonsalvez", emailcomercial:"luiz.goncalves@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Analista", numero:"nnn", nome:"Alexandre Ribeiro", emailcomercial:"alexandre.ribeiro@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Analista", numero:"nnn", nome:"João Cláudio", emailcomercial:"jclaudio@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Analista", numero:"nnn", nome:"Luiz Eduardo", emailcomercial:"luiz.eduardo@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Analista", numero:"nnn", nome:"Nilson", emailcomercial:"nilson@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Analista", numero:"nnn", nome:"Suelen", emailcomercial:"suelen.assis@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Executivo", numero:"nnn", nome:"Bruno", emailcomercial:"bruno.garcia@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Executivo", numero:"nnn", nome:"Carlos", emailcomercial:"carlos.margon@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Executivo", numero:"nnn", nome:"Rubens", emailcomercial:"rubens@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Executivo", numero:"nnn", nome:"Susan", emailcomercial:"susan.colsani@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Grupo", numero:"nnn", nome:"Continuum - Planilhamento para Produção", emailcomercial:"PLANIC.F@uhygb1yu6fxo7a.onmicrosoft.com", emailopcional:"email"},
+    {funçao:"Grupo", numero:"nnn", nome:"Continuum - Planilhamento", emailcomercial:"planilhamento@continuum.ind.br", emailopcional:"email"},
+    {funçao:"Grupo", numero:"nnn", nome:"Continuum - Projeto Executivo", emailcomercial:"projetos@continuum.ind.br", emailopcional:"email"},
+    {funçao:"Liderança", numero:"nnn", nome:"Carla", emailcomercial:"carlaadriana@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Liderança", numero:"nnn", nome:"Roney", emailcomercial:"roney@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Liderança", numero:"nnn", nome:"Alexandre Cavagnoli", emailcomercial:"alexandre.cavagnoli@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Liderança", numero:"nnn", nome:"Leandro Vianna", emailcomercial:"leandro.vianna@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Liderança", numero:"nnn", nome:"Simone", emailcomercial:"simone@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Planilhamento", numero:"nnn", nome:"Amarildo", emailcomercial:"amarildo.cruz@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Planilhamento", numero:"nnn", nome:"Gabriel", emailcomercial:"gabriel.aguiar@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Planilhamento", numero:"500016", nome:"Henrique", emailcomercial:"henrique.souza@eletrofrio.com.br", emailopcional:"email"},
+    {funçao:"Representante", numero:"001", nome:"Venda Direta Curitiba", emailcomercial:"email", emailopcional:"indefinido"},
+    {funçao:"Representante", numero:"004", nome:"Tecnimet", emailcomercial:"email", emailopcional:"marcosm@tecnimet.com; div.comercial@tecnimet.com"},
+    {funçao:"Representante", numero:"011", nome:"FG", emailcomercial:"email", emailopcional:"nathan@fgrefrigeracao.com.br"},
+    {funçao:"Representante", numero:"016", nome:"Lobo", emailcomercial:"email", emailopcional:"loboinstalacoescomerciais@yahoo.com.br"},
+    {funçao:"Representante", numero:"018", nome:"Silva Filho", emailcomercial:"email", emailopcional:"silva.filho@ymail.com"},
+    {funçao:"Representante", numero:"024", nome:"Mallet", emailcomercial:"email", emailopcional:"helcio@mallet.net.br"},
+    {funçao:"Representante", numero:"035", nome:"Clecio", emailcomercial:"email", emailopcional:"indefinido"},
+    {funçao:"Representante", numero:"057", nome:"Refripan", emailcomercial:"email", emailopcional:"nidia.roza@hotmail.com"},
+    {funçao:"Representante", numero:"062", nome:"M Weidner", emailcomercial:"email", emailopcional:"marceloweidner@globo.com"},
+    {funçao:"Representante", numero:"067", nome:"Tortelli", emailcomercial:"email", emailopcional:"torteli@torteli.com.br"},
+    {funçao:"Representante", numero:"070", nome:"Venda Direta São Paulo", emailcomercial:"email", emailopcional:"oswaldocassan@gmail.com"},
+    {funçao:"Representante", numero:"077", nome:"Llampe Frio PR", emailcomercial:"email", emailopcional:"llampefrio@llampefrio.com.br"},
+    {funçao:"Representante", numero:"082", nome:"HB", emailcomercial:"email", emailopcional:"hb-bene@uol.com.br"},
+    {funçao:"Representante", numero:"087", nome:"Baldissera", emailcomercial:"email", emailopcional:"baldissera@redesul.com.br"},
+    {funçao:"Representante", numero:"093", nome:"Gurgel", emailcomercial:"email", emailopcional:"gurgel61@terra.com.br"},
+    {funçao:"Representante", numero:"094", nome:"Luiz Nachbar", emailcomercial:"email", emailopcional:"indefinido"},
+    {funçao:"Representante", numero:"096", nome:"Kalliel", emailcomercial:"email", emailopcional:"kallielprojetos@gmail.com"},
+    {funçao:"Representante", numero:"097", nome:"DE", emailcomercial:"email", emailopcional:"daniel@deequipamentos.com.br; vendas@deequipamentos.com.br"},
+    {funçao:"Representante", numero:"101", nome:"Da Roz", emailcomercial:"email", emailopcional:"douglas@darozrepresentacoes.com.br; darozrep@gmail.com"},
+    {funçao:"Representante", numero:"102", nome:"Superbrasil", emailcomercial:"email", emailopcional:"luiz@superb.com.br"},
+    {funçao:"Representante", numero:"106", nome:"Vitoria", emailcomercial:"email", emailopcional:"jeffersondsrf@uol.com.br; jucelito@msn.com"},
+    {funçao:"Representante", numero:"112", nome:"Ronald", emailcomercial:"email", emailopcional:"ronaldioliveira@ronaldmaquinas.com.br"},
+    {funçao:"Representante", numero:"114", nome:"Scallet", emailcomercial:"email", emailopcional:"indefinido"},
+    {funçao:"Representante", numero:"115", nome:"Guide", emailcomercial:"email", emailopcional:"guidi@guidisc.com.br; rinaldo@guidisc.com.br"},
+    {funçao:"Representante", numero:"118", nome:"Fast Sul", emailcomercial:"email", emailopcional:"mbariano@fastsul.com"},
+    {funçao:"Representante", numero:"120", nome:"Rio Fast", emailcomercial:"email", emailopcional:"riofasteletro@yahoo.com.br"},
+    {funçao:"Representante", numero:"121", nome:"Eletrofast", emailcomercial:"email", emailopcional:"eletrofast@yahoo.com.br; luizamorimp@yahoo.com.br"},
+    {funçao:"Representante", numero:"182", nome:"Afonso Araujo", emailcomercial:"email", emailopcional:"afonsovargasaraujo@gmail.com"},
+    {funçao:"Representante", numero:"187", nome:"ETCO", emailcomercial:"email", emailopcional:"etcorep@terra.com.br"},
+    {funçao:"Representante", numero:"189", nome:"Refriged", emailcomercial:"email", emailopcional:"ednilson.eletrofrio@gmail.com"},
+    {funçao:"Representante", numero:"190", nome:"A&F", emailcomercial:"email", emailopcional:"fernando@aefbolsadenegocios.com.br"},
+    {funçao:"Representante", numero:"191", nome:"Produtiva", emailcomercial:"email", emailopcional:"michel@produtivarepresentacoes.com.br"},
+    {funçao:"Representante", numero:"193", nome:"Llampe Frio SC", emailcomercial:"email", emailopcional:"llampefrio@llampefrio.com.br"},
+    {funçao:"Representante", numero:"195", nome:"DNC Dealer", emailcomercial:"email", emailopcional:"dinar@dealerrs.com.br"},
+    {funçao:"Representante", numero:"196", nome:"Brites", emailcomercial:"email", emailopcional:"vendas@brites.srv.br"},
+    {funçao:"Representante", numero:"198", nome:"Euro", emailcomercial:"email", emailopcional:"equipamentoseuro@gmail.com; jacksonkiatkoski@gmail.com"},
+    {funçao:"Representante", numero:"199", nome:"Erco", emailcomercial:"email", emailopcional:"mario.erco1@gmail.com"},
+    {funçao:"Representante", numero:"202", nome:"Eder Mathias", emailcomercial:"email", emailopcional:"eder.mathias@uol.com.br"},
+    {funçao:"Representante", numero:"203", nome:"HCM", emailcomercial:"email", emailopcional:"hamilton@hcm.com.br"},
+    {funçao:"Representante", numero:"207", nome:"Brava", emailcomercial:"email", emailopcional:"eac_cunha@yahoo.com.br"},
+    {funçao:"Representante", numero:"213", nome:"Mercato", emailcomercial:"email", emailopcional:"denis@mercatorepresentacoes.com.br"},
+    {funçao:"Representante", numero:"217", nome:"Cold Import", emailcomercial:"email", emailopcional:"jlescano@coldimport.com.pe"},
+    {funçao:"Representante", numero:"218", nome:"Cencosud", emailcomercial:"email", emailopcional:"indefinido"},
+    {funçao:"Representante", numero:"223", nome:"Hercold", emailcomercial:"email", emailopcional:"fastlest@uol.com.br"},
+    {funçao:"Representante", numero:"226", nome:"EC", emailcomercial:"email", emailopcional:"leonardomoura@record-maq.com.br"},
+    {funçao:"Representante", numero:"227", nome:"Edeval (MIL)", emailcomercial:"email", emailopcional:"edevalvendas@gmail.com"},
+    {funçao:"Representante", numero:"228", nome:"JPC", emailcomercial:"email", emailopcional:"alexandre@pontodarefrigeracao.com.br"},
+    {funçao:"Representante", numero:"229", nome:"Wesley Dal Pozzo", emailcomercial:"email", emailopcional:"dlpz@onda.com.br"},
+    {funçao:"Representante", numero:"230", nome:"Ergosystem", emailcomercial:"email", emailopcional:"ergosystem.comercial@outlook.com"},
+    {funçao:"Representante", numero:"231", nome:"SM", emailcomercial:"email", emailopcional:"indefinido"},
+    {funçao:"Representante", numero:"232", nome:"S&I", emailcomercial:"email", emailopcional:"geraldo@siautomacao.com.br; carol@siautomacao.com.br; alexandre@siautomacao.com.br"},
+    {funçao:"Representante", numero:"233", nome:"Control y Sostenibilidad", emailcomercial:"email", emailopcional:"indefinido"},
+    {funçao:"Representante", numero:"234", nome:"Aarci", emailcomercial:"email", emailopcional:"juan.avila@aarci.co; info@aarci.co"},
+    {funçao:"Representante", numero:"236", nome:"T&G", emailcomercial:"email", emailopcional:"ed_wanderson@yahoo.com.br"},
+    {funçao:"Representante", numero:"237", nome:"Rematec", emailcomercial:"email", emailopcional:"alessandra@remaqbh.com.br"},
+    {funçao:"Representante", numero:"238", nome:"FMG", emailcomercial:"email", emailopcional:" fmg_representacoes@hotmail.com"},
+    {funçao:"Representante", numero:"239", nome:"PSK", emailcomercial:"email", emailopcional:"indefinido"},
 ]
 
 let ano = [
@@ -171,49 +206,18 @@ let ano = [
 ]
 
 let mes = [
-    "Janeiro",
-    "Fevereiro",
-    "Março",
-    "Abril",
-    "Maio",
-    "Junho",
-    "Julho",
-    "Agosto",
-    "Setembro",
-    "Outubro",
-    "Novembro",
-    "Dezembro"
-]
-
-let grupo = [
-    {grupo:"Continuum", nome:"Planilhamento para Produção", email:"PLANIC.F@uhygb1yu6fxo7a.onmicrosoft.com"},
-    {grupo:"Continuum", nome:"Planilhamento", email:"planilhamento@continuum.ind.br"},
-    {grupo:"Continuum", nome:"Projeto Executivo", email:"projetos@continuum.ind.br"},
-]
-
-let funcionario = [
-    {funçao:"Analista", nome:"Alexandre Ribeiro", email:"alexandre.ribeiro@eletrofrio.com.br"},
-    {funçao:"Analista", nome:"João Cláudio", email:"jclaudio@eletrofrio.com.br"},
-    {funçao:"Analista", nome:"Luiz Eduardo", email:"luiz.eduardo@eletrofrio.com.br"},
-    {funçao:"Analista", nome:"Nilson", email:"nilson@eletrofrio.com.br"},
-    {funçao:"Analista", nome:"Suelen", email:"suelen.assis@eletrofrio.com.br"},
-    {funçao:"Ajuste", nome:"Cláudia", email:"claudia.carvalho@eletrofrio.com.br"},
-    {funçao:"Ajuste", nome:"Cleber", email:"cleber.medeiros@eletrofrio.com.br"},
-    {funçao:"Ajuste", nome:"Ellen", email:"ellen@eletrofrio.com.br"},
-    {funçao:"Ajuste", nome:"Letícia", email:"leticia.karoline@eletrofrio.com.br"},
-    {funçao:"Ajuste", nome:"Luiz Fernando Gonsalvez", email:"luiz.goncalves@eletrofrio.com.br"},
-    {funçao:"Planilhamento", nome:"Amarildo", email:"amarildo.cruz@eletrofrio.com.br"},
-    {funçao:"Planilhamento", nome:"Gabriel", email:"gabriel.aguiar@eletrofrio.com.br"},
-    {funçao:"Planilhamento", nome:"Henrique", email:"henrique.souza@eletrofrio.com.br"},
-    {funçao:"Executivo", nome:"Bruno", email:"bruno.garcia@eletrofrio.com.br"},
-    {funçao:"Executivo", nome:"Carlos", email:"carlos.margon@eletrofrio.com.br"},
-    {funçao:"Executivo", nome:"Rubens", email:"rubens@eletrofrio.com.br"},
-    {funçao:"Executivo", nome:"Susan", email:"susan.colsani@eletrofrio.com.br"},
-    {funçao:"Liderança", nome:"Carla", email:"carlaadriana@eletrofrio.com.br"},
-    {funçao:"Liderança", nome:"Roney", email:"roney@eletrofrio.com.br"},
-    {funçao:"Liderança", nome:"Alexandre Cavagnoli", email:"alexandre.cavagnoli@eletrofrio.com.br"},
-    {funçao:"Liderança", nome:"Leandro Vianna", email:"leandro.vianna@eletrofrio.com.br"},
-    {funçao:"Liderança", nome:"Simone", email:"simone@eletrofrio.com.br"},
+    {numero:01, nome:"Janeiro"},
+    {numero:02, nome:"Fevereiro"},
+    {numero:03, nome:"Março"},
+    {numero:04, nome:"Abril"},
+    {numero:05, nome:"Maio"},
+    {numero:06, nome:"Junho"},
+    {numero:07, nome:"Julho"},
+    {numero:08, nome:"Agosto"},
+    {numero:09, nome:"Setembro"},
+    {numero:10, nome:"Outubro"},
+    {numero:11, nome:"Novembro"},
+    {numero:12, nome:"Dezembro"}
 ]
 
 let resultado = [
@@ -222,6 +226,8 @@ let resultado = [
     {descriçao: "Assunto"},
     {descriçao: "Corpo do E-mail"}
 ]
+
+/* Organização dos Arrays */
 
 email.sort((el1,el2) => {
     if (el1.area < el2.area) {return -1}
@@ -235,11 +241,61 @@ email.sort((el1,el2) => {
     return 0
 })
 
-let quantidadeemail = email.length
-let quantidadeoptionrepresentante = representante.length
-let quantidadefuncionario = funcionario.length
+cadastro.sort((el1,el2) => {
+    if (el1.funçao < el2.funçao) {return -1}
+    if (el1.funçao > el2.funçao) {return 1}
+    if (el1.numero < el2.numero) {return -1}
+    if (el1.numero > el2.numero) {return 1}
+    return 0
+})
 
-/* Tipo de E-mail */
+ano.sort((el1,el2) => {
+    if (el1 < el2) {return -1}
+    if (el1 > el2) {return 1}
+    return 0
+})
+
+mes.sort((el1,el2) => {
+    if (el1.numero < el2.numero) {return -1}
+    if (el1.numero > el2.numero) {return 1}
+    return 0
+})
+
+/* Filtra os Arrays */
+
+let cadastrorepresentante = cadastro.filter((el)=>el.funçao == "Representante")
+
+let cadastroemail = cadastro.filter((el)=>el)
+
+/* Organização dos arrays filtrados diferente do array original */
+
+cadastroemail.sort((el1,el2) => {
+    if (el1.funçao < el2.funçao) {return -1}
+    if (el1.funçao > el2.funçao) {return 1}
+    if (el1.nome < el2.nome) {return -1}
+    if (el1.nome > el2.nome) {return 1}
+    return 0
+})
+
+/* Criação de array para comparar com ele mesmo */
+
+let email2 = email.slice()
+email2.unshift(0)
+let funçaoemail = []
+
+for (let index = 0; index < email.length; index++) {
+    if (email[index].funçao != email2[index].funçao) {funçaoemail.push(email[index])}
+}
+
+let cadastro2 = cadastro.slice()
+cadastro2.unshift(0)
+let funçaocadastro = []
+
+for (let index = 0; index < cadastro.length; index++) {
+    if (cadastro[index].funçao != cadastro2[index].funçao) {funçaocadastro.push(cadastro[index])}
+}
+
+/* Função que oculta a seleção de tipo e os dados do pedido */
 
 function hidetipo() {
     classtipo[0].style.display = displaynone
@@ -247,17 +303,11 @@ function hidetipo() {
     iddadosdopedido.style.display = displaynone
 }
 
-/* - Cria Função */
+/* Tipo de E-mail */
 
-let email2 = email.slice()
-email2.unshift(0)
-let funçao = []
+/* - Cria as opções de função */
 
-for (let number = 0; number < quantidadeemail; number++) {
-    if (email[number].funçao != email2[number].funçao) {funçao.push(email[number])}
-}
-
-funçao.map((el)=>{
+funçaoemail.map((el)=>{
     let optionfunçao = document.createElement(optiontag)
     let textofunçao = document.createTextNode(el.funçao)
     optionfunçao.appendChild(textofunçao)
@@ -265,7 +315,9 @@ funçao.map((el)=>{
     idfunçao.insertAdjacentElement("beforeend",optionfunçao)}
 )
 
-/* - Cria Tipo e Subgrupo */
+/* - Cria os subgrupos e as opções de tipo */
+
+/* -- Controla a visualização de seleções e limpa seleções anteriores */
 
 function tipo() {
     if (idfunçao.value == selectoption) {
@@ -273,14 +325,18 @@ function tipo() {
     } else {
         classtipo[0].style.display = displayinline_block
         classtipo[1].style.display = displayinline_block
+        iddadosdopedido.style.display = displaynone
     }
     while (idtipo.hasChildNodes()) {idtipo.removeChild(idtipo.firstChild)}
+
+/* -- Filtra as opções de subgrupos de acordo com a função */
+    
     let subgrupo = []
-    for (let number = 0; number < quantidadeemail; number++) {
-        if (email[number].funçao == idfunçao.value && email[number].subgrupo != email2[number].subgrupo) {subgrupo.push(email[number])}
+    for (let index = 0; index < email.length; index++) {
+        if (email[index].funçao == idfunçao.value && email[index].subgrupo != email2[index].subgrupo) {subgrupo.push(email[index])}
     }
     
-/* -- Cria Tipo Selection */
+/* -- Cria a opção Selection para a seleção de tipos */
 
     let emailtiposelectoption = email.filter((el)=>el.funçao == selectoption)
     emailtiposelectoption.map((el)=>{
@@ -291,7 +347,7 @@ function tipo() {
         idtipo.insertAdjacentElement("beforeend",optiontipo)
     })
     
-/* -- Cria Subgrupo */
+/* -- Cria os subgrupos */
 
     subgrupo.map((el)=>{
         let capitalizenomepara = `idpara${(el.subgrupo.replace(/ /g, "")).charAt(0).toLowerCase() + (el.subgrupo.replace(/ /g, "")).slice(1)}`
@@ -301,7 +357,7 @@ function tipo() {
         idtipo.insertAdjacentElement("beforeend",optionsubgrupo)}
     )
 
-/* -- Cria Tipo Todos */
+/* -- Cria os tipos de acordo com a função */
 
     let emailtipo = email.filter((el)=>el.funçao == idfunçao.value && idfunçao.value != selectoption)
     emailtipo.map((el)=>{
@@ -315,7 +371,7 @@ function tipo() {
     })
 }
 
-idfunçao.addEventListener("change", tipo)
+/* -- Limpa as informações de tipo de e-mail */
 
 function limpatipodeemail() {
     hidetipo()
@@ -323,9 +379,9 @@ function limpatipodeemail() {
     while (idtipo.hasChildNodes()) {idtipo.removeChild(idtipo.firstChild)}
 }
 
-idlimpatipodeemail.addEventListener("click", limpatipodeemail)
-
 /* Dados do Pedido */
+
+/* - Oculta os dados do pedido caso seja da classe sem pedido */
 
 function sempedido() {
     if (idtipo.selectedOptions[0].className == classsempedido) {
@@ -335,33 +391,29 @@ function sempedido() {
     }
 }
 
-idtipo.addEventListener("change", sempedido)
+/* - Cria as opções de números dos representantes */
 
-/* - Cria Número do Representante */
-
-idnomerepresentante.setAttribute(valueattribute,representante[0].nome)
-for (let number = 0; number < quantidadeoptionrepresentante; number++) {
+idnomerepresentante.setAttribute(valueattribute,cadastrorepresentante[0].nome)
+for (let index = 0; index < cadastrorepresentante.length; index++) {
     let optionrepresentante = document.createElement('option')
-    let textoptionrepresentante = document.createTextNode(representante[number].numero)
+    let textoptionrepresentante = document.createTextNode(cadastrorepresentante[index].numero)
     optionrepresentante.appendChild(textoptionrepresentante)
-    optionrepresentante.setAttribute(valueattribute,representante[number].numero)
+    optionrepresentante.setAttribute(valueattribute,cadastrorepresentante[index].numero)
     idnumerorepresentante.insertAdjacentElement('beforeend',optionrepresentante)
 }
 
-/* - Cria Nome do Representante */
+/* - Cria as opções de nomes dos representantes */
 
 function nomerepresentante() {
-    for (let number = 0; number < quantidadeoptionrepresentante; number++) {
-        if (idnumerorepresentante.value == representante[number].numero) {
-            idnomerepresentante.setAttribute(valueattribute,representante[number].nome)
-            number = quantidadeoptionrepresentante
+    for (let index = 0; index < cadastrorepresentante.length; index++) {
+        if (idnumerorepresentante.value == cadastrorepresentante[index].numero) {
+            idnomerepresentante.setAttribute(valueattribute,cadastrorepresentante[index].nome)
+            index = cadastrorepresentante.length
         }
     }
 }
 
-idnumerorepresentante.addEventListener("change", nomerepresentante)
-
-/* - Cria Opções de Ano */
+/* - Cria as opções de ano do pedido */
 
 ano.map((el)=>{
     let optionano = document.createElement(optiontag)
@@ -371,200 +423,224 @@ ano.map((el)=>{
     idoptionano.insertAdjacentElement("beforeend",optionano)}
 )
 
-/* - Cria Opções de Mês */
+/* - Cria as opções de mês do pedido */
 
 mes.map((el)=>{
     let optionmes = document.createElement(optiontag)
-    let textomes = document.createTextNode(el)
+    let textomes = document.createTextNode(el.nome)
     optionmes.appendChild(textomes)
-    optionmes.setAttribute(valueattribute, el)
+    optionmes.setAttribute(valueattribute, el.nome)
     idoptionmes.insertAdjacentElement("beforeend",optionmes)}
 )
 
-function limpadadosdopedido() {
-    idnomerepresentante.setAttribute(valueattribute,representante[0].nome)
-}
+/* -- Limpa as informações dos dados do pedido */
 
-idlimpadadosdepedido.addEventListener("click", limpadadosdopedido)
+function limpadadosdopedido() {
+    idnomerepresentante.setAttribute(valueattribute,cadastro[0].nome)
+}
 
 /* E-mails Selecionados */
 
 /* - Cria e-mails para */
 
-let sumaryparaemailrepresentante = document.createElement(summarytag)
-let summaryparatextoemailrepresentante = document.createTextNode("Representante")
-sumaryparaemailrepresentante.appendChild(summaryparatextoemailrepresentante)
-sumaryparaemailrepresentante.setAttribute(idattribute, "idsummarypararepresentante")
-idemailspara.insertAdjacentElement("beforeend",sumaryparaemailrepresentante)
+for (let index = 0; index < funçaocadastro.length; index++) {
 
-representante.map((el)=>{
+/* -- Cria details para as funções para */
+
+    let capitalizenomefunçaocadastro = `${(funçaocadastro[index].funçao.replace(/ /g, "")).charAt(0).toLowerCase() + (funçaocadastro[index].funçao.replace(/ /g, "")).slice(1)}`
+    let detailsparaemail = document.createElement(detailstag)
+    detailsparaemail.setAttribute(idattribute, `iddetailspara${capitalizenomefunçaocadastro}`)
+    idemailspara.insertAdjacentElement("beforeend",detailsparaemail)
+
+/* -- Cria summary para as funções para */
+
+    let iddetailspara = document.querySelector(`#iddetailspara${capitalizenomefunçaocadastro}`)
+
+    let summaryparaemail = document.createElement(summarytag)
+    let summaryparatextoemail = document.createTextNode(funçaocadastro[index].funçao)
+    summaryparaemail.appendChild(summaryparatextoemail)
+    summaryparaemail.setAttribute(idattribute, `idsummarypara${capitalizenomefunçaocadastro}`)
+    iddetailspara.insertAdjacentElement("beforeend",summaryparaemail)
+
+/* -- Cria label para selecionar todas as checkbox das funções para */
+
+    let labelemail = document.createElement(labeltag)
+    let textolabelemail = document.createTextNode(`Selecionar todos do grupo ${funçaocadastro[index].funçao}`)
+    labelemail.appendChild(textolabelemail)
+    labelemail.setAttribute(idattribute, `idselecionartodospara${capitalizenomefunçaocadastro}`)
+    labelemail.setAttribute(forattribute, `idselecionartodospara${capitalizenomefunçaocadastro}`)
+    iddetailspara.insertAdjacentElement("beforeend",labelemail)
+
+/* -- Cria espaçamento entre o label (função) e a checkbox seguinte das funções para */
+
+    let bremail = document.createElement(brtag)
+    iddetailspara.insertAdjacentElement("beforeend",bremail)
+
+/* -- Cria os inputs das checkbox das funções para */
+
+    let funçaocadastrooptionfunçao = cadastroemail.filter((el)=>el.funçao == funçaocadastro[index].funçao)
+
+    funçaocadastrooptionfunçao.map((el)=>{
     let capitalizenomepara = `idpara${(el.nome.replace(/ /g, "")).charAt(0).toLowerCase() + (el.nome.replace(/ /g, "")).slice(1)}`
-    let optionemailrepresentante = document.createElement(inputtag)
-    let textoemailrepresentante = document.createTextNode(el.nome)
-    optionemailrepresentante.appendChild(textoemailrepresentante)
-    optionemailrepresentante.setAttribute(typeattribute, checkboxattribute)
-    optionemailrepresentante.setAttribute(idattribute, capitalizenomepara)
-    optionemailrepresentante.setAttribute(classattribute, "classparaemailrepresentante")
-    optionemailrepresentante.setAttribute(valueattribute, el.emailcliente)
-    idemailspara.insertAdjacentElement("beforeend",optionemailrepresentante)
+    let optionemailcadastro = document.createElement(inputtag)
+    let textoemailcadastro = document.createTextNode(el.nome)
+    optionemailcadastro.appendChild(textoemailcadastro)
+    optionemailcadastro.setAttribute(typeattribute, checkboxattribute)
+    optionemailcadastro.setAttribute(idattribute, capitalizenomepara)
+    optionemailcadastro.setAttribute(classattribute, `classparaemailcadastro${capitalizenomefunçaocadastro}`)
+    optionemailcadastro.setAttribute(valueattribute, el.email)
+    iddetailspara.insertAdjacentElement("beforeend",optionemailcadastro)
 
-    let labelemailrepresentante = document.createElement(labeltag)
-    let textolabelemailrepresentante = document.createTextNode(el.nome)
-    labelemailrepresentante.appendChild(textolabelemailrepresentante)
-    labelemailrepresentante.setAttribute(forattribute, capitalizenomepara)
-    idemailspara.insertAdjacentElement("beforeend",labelemailrepresentante)
+/* -- Cria os labels das checkbox das funções para */
 
-    let bremailrepresentante = document.createElement(brtag)
-    idemailspara.insertAdjacentElement("beforeend",bremailrepresentante)}
-)
+    let labelemailcadastro = document.createElement(labeltag)
+    let textolabelemailcadastro = document.createTextNode(el.nome)
+    labelemailcadastro.appendChild(textolabelemailcadastro)
+    labelemailcadastro.setAttribute(forattribute, capitalizenomepara)
+    iddetailspara.insertAdjacentElement("beforeend",labelemailcadastro)
 
-let checkedpara = 0
-let idsummarypararepresentante = document.querySelector("#idsummarypararepresentante")
-function selectallpara() {
-    if (checkedpara == 0) {
-        for (let number = 0; number < quantidadeoptionrepresentante; number++) {
-            let classparaemailrepresentante = document.querySelectorAll(".classparaemailrepresentante")
-            classparaemailrepresentante[number].checked = true
-            checkedpara = 1
-        }
-    } else {
-        for (let number = 0; number < quantidadeoptionrepresentante; number++) {
-            let classparaemailrepresentante = document.querySelectorAll(".classparaemailrepresentante")
-            classparaemailrepresentante[number].checked = false
-            checkedpara = 0
+/* -- Cria espaçamento entre o label (option) e a checkbox seguinte das funções para */
+
+    let bremail = document.createElement(brtag)
+    iddetailspara.insertAdjacentElement("beforeend",bremail)}
+    )
+
+/* -- Controla a visualização de seleção das checkbox das funções para */
+
+    let checkedpara = 0
+    let idselecionartodospara = document.querySelector(`#idselecionartodospara${capitalizenomefunçaocadastro}`)
+    function selectallpara() {
+        if (checkedpara == 0) {
+            for (let index = 0; index < funçaocadastrooptionfunçao.length; index++) {
+                let classparaemail = document.querySelectorAll(`.classparaemailcadastro${capitalizenomefunçaocadastro}`)
+                classparaemail[index].checked = true
+                checkedpara = 1
+            }
+        } else {
+            for (let index = 0; index < funçaocadastrooptionfunçao.length; index++) {
+                let classparaemail = document.querySelectorAll(`.classparaemailcadastro${capitalizenomefunçaocadastro}`)
+                classparaemail[index].checked = false
+                checkedpara = 0
+            }
         }
     }
-}
 
-idsummarypararepresentante.addEventListener("click", selectallpara)
+/* -- Limpa as checkbox das funções para */
 
-/* teste */
+    function limpaemailsselecionados() {
+        checkedpara = 0
+    }
 
-let funcionario2 = funcionario.slice()
-funcionario2.unshift(0)
-let funçaofuncionario = []
+/* Eventos das funções para*/
 
-for (let number = 0; number < quantidadefuncionario; number++) {
-    if (funcionario[number].funçao != funcionario2[number].funçao) {funçaofuncionario.push(funcionario[number])}
-}
-
-for (let number = 0; number < funçaofuncionario.length; number++) {
-    let capitalizenomefunçaofuncionario = `idcc${(funçaofuncionario[number].funçao.replace(/ /g, "")).charAt(0).toLowerCase() + (funçaofuncionario[number].funçao.replace(/ /g, "")).slice(1)}`
-    let sumaryemailfuncionario = document.createElement(summarytag)
-    let sumarytextoemailfuncionario = document.createTextNode(`${funçaofuncionario[number].funçao}`)
-    sumaryemailfuncionario.appendChild(sumarytextoemailfuncionario)
-    sumaryemailfuncionario.setAttribute(idattribute, `idsummary${capitalizenomefunçaofuncionario}`)
-    idemailspara.insertAdjacentElement("beforeend",sumaryemailfuncionario)
-
-    /* teste */
-
-    let funçaofuncionariooptionfunçao = funcionario.filter((el)=>el.funçao == funçaofuncionario[number].funçao)
-
-    funçaofuncionariooptionfunçao.map((el)=>{
-    let capitalizenomepara = `idpara${(el.nome.replace(/ /g, "")).charAt(0).toLowerCase() + (el.nome.replace(/ /g, "")).slice(1)}`
-    let optionemailfuncionario = document.createElement(inputtag)
-    let textoemailfuncionario = document.createTextNode(el.nome)
-    optionemailfuncionario.appendChild(textoemailfuncionario)
-    optionemailfuncionario.setAttribute(typeattribute, checkboxattribute)
-    optionemailfuncionario.setAttribute(idattribute, capitalizenomepara)
-    optionemailfuncionario.setAttribute(classattribute, "classparaemailfuncionario")
-    optionemailfuncionario.setAttribute(valueattribute, el.email)
-    idemailspara.insertAdjacentElement("beforeend",optionemailfuncionario)
-
-    let labelemailfuncionario = document.createElement(labeltag)
-    let textolabelemailfuncionario = document.createTextNode(el.nome)
-    labelemailfuncionario.appendChild(textolabelemailfuncionario)
-    labelemailfuncionario.setAttribute(forattribute, capitalizenomepara)
-    idemailspara.insertAdjacentElement("beforeend",labelemailfuncionario)
-
-    let bremailrepresentante = document.createElement(brtag)
-    idemailspara.insertAdjacentElement("beforeend",bremailrepresentante)}
+    idselecionartodospara.addEventListener("click", selectallpara)
     
-)
+    idlimpaemailsselecionados.addEventListener("click", limpaemailsselecionados)
 }
-
-
-
-/* alert(funçaofuncionario[0].funçao) */
-
-
-
-
-/* let checkedpara = 0
-let idsummarypararepresentante = document.querySelector("#idsummarypararepresentante")
-idsummarypararepresentante.addEventListener("click", selectallpara)
-function selectallpara() {
-    if (checkedpara == 0) {
-        for (let number = 0; number < quantidadeoptionrepresentante; number++) {
-            let classparaemailrepresentante = document.querySelectorAll(".classparaemailfuncionario")
-            classparaemailrepresentante[number].checked = true
-            checkedpara = 1
-        }
-    } else {
-        for (let number = 0; number < quantidadeoptionrepresentante; number++) {
-            let classparaemailrepresentante = document.querySelectorAll(".classparaemailfuncionario")
-            classparaemailrepresentante[number].checked = false
-            checkedpara = 0
-        }
-    }
-} */
-
-/* teste */
 
 /* - Cria e-mails cc */
 
-let sumaryccemailrepresentante = document.createElement(summarytag)
-let summarycctextoemailrepresentante = document.createTextNode("Representante")
-sumaryccemailrepresentante.appendChild(summarycctextoemailrepresentante)
-sumaryccemailrepresentante.setAttribute(idattribute, "idsummaryccrepresentante")
-idemailscc.insertAdjacentElement("beforeend",sumaryccemailrepresentante)
+for (let index = 0; index < funçaocadastro.length; index++) {
 
-representante.map((el)=>{
+/* -- Cria details para as funções cc */
+
+    let capitalizenomefunçaocadastro = `${(funçaocadastro[index].funçao.replace(/ /g, "")).charAt(0).toLowerCase() + (funçaocadastro[index].funçao.replace(/ /g, "")).slice(1)}`
+    let detailsccemail = document.createElement(detailstag)
+    detailsccemail.setAttribute(idattribute, `iddetailscc${capitalizenomefunçaocadastro}`)
+    idemailscc.insertAdjacentElement("beforeend",detailsccemail)
+
+/* -- Cria summary para as funções cc */
+
+    let iddetailscc = document.querySelector(`#iddetailscc${capitalizenomefunçaocadastro}`)
+
+    let summaryccemail = document.createElement(summarytag)
+    let summarycctextoemail = document.createTextNode(funçaocadastro[index].funçao)
+    summaryccemail.appendChild(summarycctextoemail)
+    summaryccemail.setAttribute(idattribute, `idsummarycc${capitalizenomefunçaocadastro}`)
+    iddetailscc.insertAdjacentElement("beforeend",summaryccemail)
+
+/* -- Cria label para selecionar todas as checkbox das funções cc */
+
+    let labelemail = document.createElement(labeltag)
+    let textolabelemail = document.createTextNode(`Selecionar todos do grupo ${funçaocadastro[index].funçao}`)
+    labelemail.appendChild(textolabelemail)
+    labelemail.setAttribute(idattribute, `idselecionartodoscc${capitalizenomefunçaocadastro}`)
+    labelemail.setAttribute(forattribute, `idselecionartodoscc${capitalizenomefunçaocadastro}`)
+    iddetailscc.insertAdjacentElement("beforeend",labelemail)
+
+/* -- Cria espaçamento entre o label (função) e a checkbox seguinte das funções cc */
+
+    let bremail = document.createElement(brtag)
+    iddetailscc.insertAdjacentElement("beforeend",bremail)
+
+/* -- Cria os inputs das checkbox das funções cc */
+
+    let funçaocadastrooptionfunçao = cadastroemail.filter((el)=>el.funçao == funçaocadastro[index].funçao)
+
+    funçaocadastrooptionfunçao.map((el)=>{
     let capitalizenomecc = `idcc${(el.nome.replace(/ /g, "")).charAt(0).toLowerCase() + (el.nome.replace(/ /g, "")).slice(1)}`
-    let optionemailrepresentante = document.createElement(inputtag)
-    let textoemailrepresentante = document.createTextNode(el.nome)
-    optionemailrepresentante.appendChild(textoemailrepresentante)
-    optionemailrepresentante.setAttribute(typeattribute, checkboxattribute)
-    optionemailrepresentante.setAttribute(idattribute, capitalizenomecc)
-    optionemailrepresentante.setAttribute(classattribute, "classccemailrepresentante")
-    optionemailrepresentante.setAttribute(valueattribute, el.emailcliente)
-    idemailscc.insertAdjacentElement("beforeend",optionemailrepresentante)
+    let optionemailcadastro = document.createElement(inputtag)
+    let textoemailcadastro = document.createTextNode(el.nome)
+    optionemailcadastro.appendChild(textoemailcadastro)
+    optionemailcadastro.setAttribute(typeattribute, checkboxattribute)
+    optionemailcadastro.setAttribute(idattribute, capitalizenomecc)
+    optionemailcadastro.setAttribute(classattribute, `classccemailcadastro${capitalizenomefunçaocadastro}`)
+    optionemailcadastro.setAttribute(valueattribute, el.email)
+    iddetailscc.insertAdjacentElement("beforeend",optionemailcadastro)
 
-    let labelemailrepresentante = document.createElement(labeltag)
-    let textolabelemailrepresentante = document.createTextNode(el.nome)
-    labelemailrepresentante.appendChild(textolabelemailrepresentante)
-    labelemailrepresentante.setAttribute(forattribute, capitalizenomecc)
-    idemailscc.insertAdjacentElement("beforeend",labelemailrepresentante)
+/* -- Cria os labels das checkbox das funções cc */
 
-    let bremailrepresentante = document.createElement(brtag)
-    idemailscc.insertAdjacentElement("beforeend",bremailrepresentante)}
-)
+    let labelemailcadastro = document.createElement(labeltag)
+    let textolabelemailcadastro = document.createTextNode(el.nome)
+    labelemailcadastro.appendChild(textolabelemailcadastro)
+    labelemailcadastro.setAttribute(forattribute, capitalizenomecc)
+    iddetailscc.insertAdjacentElement("beforeend",labelemailcadastro)
 
-let checkedcc = 0
-let idsummaryccrepresentante = document.querySelector("#idsummaryccrepresentante")
-function selectallcc() {
-    if (checkedcc == 0) {
-        for (let number = 0; number < quantidadeoptionrepresentante; number++) {
-            let classccemailrepresentante = document.querySelectorAll(".classccemailrepresentante")
-            classccemailrepresentante[number].checked = true
-            checkedcc = 1
-        }
-    } else {
-        for (let number = 0; number < quantidadeoptionrepresentante; number++) {
-            let classccemailrepresentante = document.querySelectorAll(".classccemailrepresentante")
-            classccemailrepresentante[number].checked = false
-            checkedcc = 0
+/* -- Cria espaçamento entre o label (option) e a checkbox seguinte das funções cc */
+
+    let bremail = document.createElement(brtag)
+    iddetailscc.insertAdjacentElement("beforeend",bremail)}
+    )
+
+/* -- Controla a visualização de seleção das checkbox das funções cc */
+
+    let checkedcc = 0
+    let idselecionartodoscc = document.querySelector(`#idselecionartodoscc${capitalizenomefunçaocadastro}`)
+    function selectallcc() {
+        if (checkedcc == 0) {
+            for (let index = 0; index < funçaocadastrooptionfunçao.length; index++) {
+                let classccemail = document.querySelectorAll(`.classccemailcadastro${capitalizenomefunçaocadastro}`)
+                classccemail[index].checked = true
+                checkedcc = 1
+            }
+        } else {
+            for (let index = 0; index < funçaocadastrooptionfunçao.length; index++) {
+                let classccemail = document.querySelectorAll(`.classccemailcadastro${capitalizenomefunçaocadastro}`)
+                classccemail[index].checked = false
+                checkedcc = 0
+            }
         }
     }
+
+/* -- Limpa as checkbox das funções cc */
+
+    function limpaemailsselecionados() {
+        checkedcc = 0
+    }
+
+/* Eventos das funções cc*/
+
+    idselecionartodoscc.addEventListener("click", selectallcc)
+    
+    idlimpaemailsselecionados.addEventListener("click", limpaemailsselecionados)
 }
 
-idsummaryccrepresentante.addEventListener("click", selectallcc)
+/* Eventos do HTML*/
 
-function limpaemailsselecionados() {
-    checkedpara = 0
-    checkedcc = 0
-}
-
-idlimpaemailsselecionados.addEventListener("click", limpaemailsselecionados)
+idfunçao.addEventListener("change", tipo)
+idlimpatipodeemail.addEventListener("click", limpatipodeemail)
+idtipo.addEventListener("change", sempedido)
+idnumerorepresentante.addEventListener("change", nomerepresentante)
+idlimpadadosdepedido.addEventListener("click", limpadadosdopedido)
 
 /* FIM */
