@@ -4,21 +4,35 @@
 let idfunçao = document.querySelector("#idfunçao")
 let idtipo = document.querySelector("#idtipo")
 let classtipo = document.querySelectorAll(".classtipo")
+let idlimpatipodeemail = document.querySelector("#idlimpatipodeemail")
 let iddadosdopedido = document.querySelector("#iddadosdopedido")
 let idnomerepresentante = document.querySelector("#idnomerepresentante")
 let idnumerorepresentante = document.querySelector("#idnumerorepresentante")
-let idlimpatipodeemail = document.querySelector("#idlimpatipodeemail")
-let idoptionano = document.querySelector("#idoptionano")
+let idpedido = document.querySelector("#idpedido")
+let idano = document.querySelector("#idano")
+let idordemdevenda = document.querySelector("#idordemdevenda")
+let idnomedocliente = document.querySelector("#idnomedocliente")
+let idnomefantasia = document.querySelector("#idnomefantasia")
 let idoptionmes = document.querySelector("#idoptionmes")
+let idarquivo = document.querySelector("#idarquivo")
+let idrevisao = document.querySelector("#idrevisao")
 let idlimpadadosdepedido = document.querySelector("#idlimpadadosdepedido")
 let idemailspara = document.querySelector("#idemailspara")
 let idemailscc = document.querySelector("#idemailscc")
-let idlimpaemailsselecionados = document.querySelector("#idlimpaemailsselecionados")
+let idlimpaemailsselecionado = document.querySelector("#idlimpaemailsselecionado")
+let idresultadopara = document.querySelector("#idresultadopara")
+let idresultadocc = document.querySelector("#idresultadocc")
+let idresultadoassunto = document.querySelector("#idresultadoassunto")
+let idgerar = document.querySelector("#idgerar")
+let idresultadocorpodoemail = document.querySelector("#idresultadocorpodoemail")
+let idlimparesultado = document.querySelector("#idlimparesultado")
+let idimagem = document.querySelector("#idimagem")
 
 /* Variáveis para facilitar a escrita de funções  */
 
 let optiontag = "option"
 let inputtag = "input"
+let outputtag = "output"
 let labeltag = "label"
 let brtag = "br"
 let detailstag = "details"
@@ -188,6 +202,14 @@ let cadastro = [
 ]
 
 let ano = [
+    "00",
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
     "08",
     "09",
     "10",
@@ -202,7 +224,9 @@ let ano = [
     "19",
     "20",
     "21",
-    "22"
+    "22",
+    "23",
+    "24"
 ]
 
 let mes = [
@@ -420,8 +444,12 @@ ano.map((el)=>{
     let textoano = document.createTextNode(el)
     optionano.appendChild(textoano)
     optionano.setAttribute(valueattribute, el)
-    idoptionano.insertAdjacentElement("beforeend",optionano)}
+    idano.insertAdjacentElement("beforeend",optionano)}
 )
+
+/* - Define o ano selecionado padrão */
+
+idano.value = 22
 
 /* - Cria as opções de mês do pedido */
 
@@ -487,8 +515,8 @@ for (let index = 0; index < funçaocadastro.length; index++) {
     optionemailcadastro.appendChild(textoemailcadastro)
     optionemailcadastro.setAttribute(typeattribute, checkboxattribute)
     optionemailcadastro.setAttribute(idattribute, capitalizenomepara)
-    optionemailcadastro.setAttribute(classattribute, `classparaemailcadastro${capitalizenomefunçaocadastro}`)
-    optionemailcadastro.setAttribute(valueattribute, el.email)
+    optionemailcadastro.setAttribute(classattribute, `classparaemailcadastro${capitalizenomefunçaocadastro} classparaemail`)
+    optionemailcadastro.setAttribute(valueattribute, el.emailcomercial)
     iddetailspara.insertAdjacentElement("beforeend",optionemailcadastro)
 
 /* -- Cria os labels das checkbox das funções para */
@@ -534,8 +562,7 @@ for (let index = 0; index < funçaocadastro.length; index++) {
 /* Eventos das funções para*/
 
     idselecionartodospara.addEventListener("click", selectallpara)
-    
-    idlimpaemailsselecionados.addEventListener("click", limpaemailsselecionados)
+    idlimpaemailsselecionado.addEventListener("click", limpaemailsselecionados)
 }
 
 /* - Cria e-mails cc */
@@ -584,8 +611,8 @@ for (let index = 0; index < funçaocadastro.length; index++) {
     optionemailcadastro.appendChild(textoemailcadastro)
     optionemailcadastro.setAttribute(typeattribute, checkboxattribute)
     optionemailcadastro.setAttribute(idattribute, capitalizenomecc)
-    optionemailcadastro.setAttribute(classattribute, `classccemailcadastro${capitalizenomefunçaocadastro}`)
-    optionemailcadastro.setAttribute(valueattribute, el.email)
+    optionemailcadastro.setAttribute(classattribute, `classccemailcadastro${capitalizenomefunçaocadastro} classccemail`)
+    optionemailcadastro.setAttribute(valueattribute, el.emailcomercial)
     iddetailscc.insertAdjacentElement("beforeend",optionemailcadastro)
 
 /* -- Cria os labels das checkbox das funções cc */
@@ -631,8 +658,123 @@ for (let index = 0; index < funçaocadastro.length; index++) {
 /* Eventos das funções cc*/
 
     idselecionartodoscc.addEventListener("click", selectallcc)
-    
-    idlimpaemailsselecionados.addEventListener("click", limpaemailsselecionados)
+    idlimpaemailsselecionado.addEventListener("click", limpaemailsselecionados)
+}
+
+/* Gera resultados */
+
+function gerar() {
+
+/* - Gera e-mails para */
+
+    idresultadopara.innerHTML = ""
+    let classparaemail = document.querySelectorAll(".classparaemail")
+    for (let index = 0; index < cadastro.length; index++) {
+        if (classparaemail[index].checked == true) {
+            idresultadopara.innerHTML += `${classparaemail[index].value}; `
+        }
+    }
+
+/* - Gera e-mails cc */
+
+    idresultadocc.innerHTML = ""
+    let classccemail = document.querySelectorAll(".classccemail")
+    for (let index = 0; index < cadastro.length; index++) {
+        if (classccemail[index].checked == true) {
+            idresultadocc.innerHTML += `${classccemail[index].value}; `
+        }
+    }
+
+/* - Gera assunto */
+    let verificanumerorepresentante = ""
+    let verificatipo = `${idtipo.value}`
+    let verificanomedocliente = ""
+    let verificanomefantasia = ""
+
+    if (idpedido.value != "") {verificanumerorepresentante = `PED ${idnumerorepresentante.value}-${idpedido.value}/${idano.value}`}
+    if (idtipo.value != "" && idpedido.value != "") {verificatipo = ` - ${idtipo.value}`}
+    if (idnomedocliente.value != "" && idtipo.value != "" && idpedido.value != "") {verificanomedocliente = ` - ${idnomedocliente.value}`}
+    if (idnomefantasia.value != "") {verificanomefantasia = ` - ${idnomefantasia.value}`}
+
+    idresultadoassunto.innerHTML = `${verificanumerorepresentante}${verificatipo}${verificanomedocliente}${verificanomefantasia}`
+
+/* - Gera corpor do e-mail */
+
+/* -- Verifica periodo do dia */
+
+let hora = new Date().getHours()
+let periodo = ""
+if (hora < 6 || hora > 18) {
+    periodo = "Boa noite"
+} if (hora >= 6 && hora < 12) {
+    periodo = "Bom dia"
+} if (hora >= 12 && hora < 18) {
+    periodo = "Boa tarde"
+}
+let br1 = "<br>".repeat(1)
+let br2 = "<br>".repeat(2)
+let br3 = "<br>".repeat(3)
+
+/* -- Gera a imagem carregada */
+
+let image = document.createElement('img')
+image.src = URL.createObjectURL(idimagem.files[0])
+image.height = 100
+
+/* -- Gera modelos de e-mails de acordo com o tipo */
+
+    switch (idtipo.value) {
+        case "Planilhamento Total":
+            idresultadocorpodoemail.innerHTML = `
+            ${periodo},${br2}
+
+            ${idtipo.value}${br2}
+
+            ${verificanumerorepresentante}${verificanomedocliente}${verificanomefantasia}${br1}
+            OV: ${idordemdevenda.value}${br1}
+            LOCALIZAÇÃO: ${idoptionmes.value} / ${idnomerepresentante.value}${br1}
+            ARQUIVO: ${idarquivo.value}${idrevisao.value}${br2}
+
+            <mark>Informação especial.</mark>${br1}
+
+            Grato,${br3}
+
+
+            `
+            idresultadocorpodoemail.insertAdjacentElement("beforeend", image)
+            break;
+        case "Planilhamento Parcial":
+            idresultadocorpodoemail.innerHTML = `
+            ${periodo},${br2}
+
+            ${idtipo.value}${br2}
+
+            ${verificanumerorepresentante}${verificanomedocliente}${verificanomefantasia}${br1}
+            OV: ${idordemdevenda.value}${br1}
+            LOCALIZAÇÃO: ${idoptionmes.value} / ${idnomerepresentante.value}${br1}
+            ARQUIVO: ${idarquivo.value}${idrevisao.value}${br2}
+
+            <mark>Informação especial.</mark>${br1}
+
+            Grato,${br3}
+
+
+            `
+            idresultadocorpodoemail.insertAdjacentElement("beforeend", image)
+            break;
+        default:
+            idresultadocorpodoemail.innerHTML = "PROBLEMA"
+            break;
+    }
+}
+
+/* - Limpa os resultados gerados */
+
+function limparesultado() {
+    idresultadopara.innerHTML = ""
+    idresultadocc.innerHTML = ""
+    idresultadoassunto.innerHTML = ""
+    idresultadocorpodoemail.innerHTML = ""
 }
 
 /* Eventos do HTML*/
@@ -642,5 +784,7 @@ idlimpatipodeemail.addEventListener("click", limpatipodeemail)
 idtipo.addEventListener("change", sempedido)
 idnumerorepresentante.addEventListener("change", nomerepresentante)
 idlimpadadosdepedido.addEventListener("click", limpadadosdopedido)
+idgerar.addEventListener("click", gerar)
+idlimparesultado.addEventListener("click", limparesultado)
 
 /* FIM */
