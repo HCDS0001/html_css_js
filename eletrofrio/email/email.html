@@ -22,8 +22,8 @@
                         <label for="idfunçao">Função</label>
                         <select name="idfunçao" id="idfunçao" title="Selecione a sua função."></select><br>
                         <label for="idtipo" class="classtipo">Tipo</label>
-                        <select name="idtipo" id="idtipo" class="classtipo" title="Selecione o tipo de e-mail que deseja gerar."></select><br>
-                        <button type="reset" id="idlimpatipodeemail" title="Limpa as seleções de função e de tipo.">Limpar Tipo de E-mail</button><br>
+                        <select name="idtipo" id="idtipo" class="classtipo" title="Selecione o tipo de e-mail que deseja gerar."></select><hr>
+                        <button type="reset" id="idlimpatipodeemail" title="Limpa as seleções de função e de tipo.">Limpar Tipo de E-mail</button>
                     </fieldset>
                 </form>
                 <form action="" id="idformdadosdopedido">
@@ -48,8 +48,8 @@
                         <label for="idarquivo">Arquivo</label>
                         <input type="text" name="idarquivo" id="idarquivo" size="8" minlength="8" maxlength="8" pattern="[A-Z]{2}[0-9]{6}" placeholder="AA000000" title="Preencha com o número do arquivo, precisam ser 2 letras maiúsculas e 6 números." required><br>
                         <label for="idrevisao">Revisão</label>
-                        <input type="text" name="idrevisao" id="idrevisao" size="1" minlength="1" maxlength="1" pattern="[A-Z]{1}" placeholder="A" title="Preencha com a letra da revisão, precisa ser 1 letra maiúscula." required><br>
-                        <button type="reset" id="idlimpadadosdepedido" title="Limpa os dados preenchidos do pedido.">Limpar Dados do Pedido</button><br>
+                        <input type="text" name="idrevisao" id="idrevisao" size="1" minlength="1" maxlength="1" pattern="[A-Z]{1}" placeholder="A" title="Preencha com a letra da revisão, precisa ser 1 letra maiúscula." required><hr>
+                        <button type="reset" id="idlimpadadosdepedido" title="Limpa os dados preenchidos do pedido.">Limpar Dados do Pedido</button>
                     </fieldset>
                 </form>
                 <form action="">
@@ -60,8 +60,8 @@
                         </details>
                         <details id="idemailscc">
                             <summary title='Clique para expandir e visualizar as opções de checbox para inserir no campo "Cc".'>E-mails Cc:</summary>
-                        </details>
-                        <button type="reset" id="idlimpaemailsselecionado" title='Limpa as checkbox selecionadas para os campos "Para" e "Cc".'>Limpar E-mails</button><br>
+                        </details><hr>
+                        <button type="reset" id="idlimpaemailsselecionado" title='Limpa as checkbox selecionadas para os campos "Para" e "Cc".'>Limpar E-mails</button>
                     </fieldset>
                 </form>
             </article>
@@ -77,17 +77,30 @@
                     <label for="idresultadoassunto" title="Apresenta o assunto do e-mail.">Assunto:</label><br>
                     <output id="idresultadoassunto"></output><br>
                     <label for="idresultadocorpodoemail" title="Apresenta o corpo do e-mail.">Corpo do E-mail:</label><br>
-                    <output id="idresultadocorpodoemail" spellcheck="true" contenteditable></output><br>
-                    <button type="button" id="idgerar" title="Gera os resultados com base nos itens preenchidos e selecionados nos campos acima.">Gerar</button>
+                    <output id="idresultadocorpodoemail" spellcheck="true" contenteditable></output><hr>
+                    <button type="button" id="idgerar" title="Gera os resultados com base nos itens preenchidos e selecionados nos campos acima.">Exibir Resultado</button>
                     <button type="reset" id="idlimparesultado"title="Limpa os resultados gerados.">Limpar Resultados</button>
-                    <input type="file" name="" id="idimagem">
+                </fieldset>
+            </form>
+            <form action="">
+                <fieldset>
+                    <legend>Extras</legend>
+                    <label for="idgeraremail">Gerar E-mail:</label>
+                    <a id="idgeraremail" target="_blank" title="Clique para gerar o e-mail.">&#x1F518</a><br>
+                    <label for="idbackgroundcolor">Cor do Background:</label>
+                    <input type="color" name="" id="idbackgroundcolor" value="#FFFFFF" list="idcores" title="Selecione a cor do background."><br>
+                    <label for="idbackgroundcolor">Cor do Texto:</label>
+                    <input type="color" name="" id="idtextocolor" value="#000000" list="idcores" title="Selecione a cor do texto."><br>
+                    <datalist id="idcores"></datalist>
+                    <label for="idassinatura">Assinatura de E-mail:</label>
+                    <input type="file" name="" id="idassinatura" title="Selecione a assinatura de e-mail nos seus arquivos."><br>
+                    <button type="reset" id="idlimpaextras"title="Limpa os extras.">Limpar Extras</button>
                 </fieldset>
             </form>
         </section>
     </main>
-    <footer>Desenvolvido por Henrique</footer>
+    <footer>Desenvolvido por Henrique Carvalho de Souza</footer>
     <script src="email.js"></script>
-<!--     <p id="teste">teste</p> -->
 <!--     <style style="display: block;" contenteditable>main, header, footer{color: #FFFFFF; background-color: #000000;}</style> -->
 </body>
 </html>
