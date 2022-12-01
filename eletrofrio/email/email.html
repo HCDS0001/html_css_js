@@ -19,89 +19,90 @@
                 <form action="">
                     <fieldset>
                         <legend>Tipo de E-mail</legend>
-                        <label for="idfunçao">Função</label>
-                        <select name="idfunçao" id="idfunçao" title="Selecione a sua função."></select><br>
-                        <label for="idtipo" class="classtipo">Tipo</label>
-                        <select name="idtipo" id="idtipo" class="classtipo" title="Selecione o tipo de e-mail que deseja gerar."></select><hr>
-                        <button type="reset" id="idlimpatipodeemail" title="Limpa as seleções de função e de tipo.">Limpar Tipo de E-mail</button>
+                        <label for="idFunção">Função</label>
+                        <select name="nameFunção" id="idFunção" title="Selecione a sua função."></select><br>
+                        <label for="idTipo" class="classTipo">Tipo</label>
+                        <select name="nameTipo" id="idTipo" class="classTipo" title="Selecione o tipo de e-mail que deseja gerar."></select><hr>
+                        <button type="reset" id="idLimpaTipoDeEmail" title="Limpa as seleções de função e de tipo.">Limpar Tipo de E-mail</button>
                     </fieldset>
                 </form>
-                <form action="" id="idformdadosdopedido">
-                    <fieldset id="iddadosdopedido">
+                <form action="">
+                    <fieldset id="idDadosDoPedido">
                         <legend>Dados do Pedido</legend>
-                        <label for="idnomerepresentante">Nome do Representante</label>
-                        <input type="text" name="idnomerepresentante" id="idnomerepresentante" size="15" placeholder="Representante" title="Muda ao selecionar o número do representante." readonly><br>
-                        <label for="idnumerorepresentante">Número do Representante</label>
-                        <select name="idnumerorepresentante" id="idnumerorepresentante" title="Selecione o número do representante."></select><br>
-                        <label for="idpedido">Pedido</label>
-                        <input type="text" name="idpedido" id="idpedido" size="3" minlength="3" maxlength="3" pattern="[0-9]{3}" placeholder="001" inputmode="numeric" title="Digite o número do pedido, precisam ser 3 números." required><br>
-                        <label for="idano">Ano</label>
-                        <select name="idano" id="idano" title="Selecione o ano do pedido."></select><br>
+                        <label for="idNomeRepresentante">Nome do Representante</label>
+                        <input type="text" name="nameNomeRepresentante" id="idNomeRepresentante" size="15" placeholder="Representante" title="Muda ao selecionar o número do representante." readonly><br>
+                        <label for="idNúmeroRepresentante">Número do Representante</label>
+                        <select name="nameNúmeroRepresentante" id="idNúmeroRepresentante" title="Selecione o número do representante."></select><br>
+                        <label for="idPedido">Pedido</label>
+                        <input type="text" name="namePedido" id="idPedido" size="3" minlength="3" maxlength="3" pattern="[0-9]{3}" placeholder="001" inputmode="numeric" title="Digite o número do pedido, precisam ser 3 números." required><br>
+                        <label for="idAno">Ano</label>
+                        <select name="nameAno" id="idAno" title="Selecione o ano do pedido."></select><br>
                         <label for="">Ordem de Venda</label>
-                        <input type="text" name="idordemdevenda" id="idordemdevenda" size="6" minlength="6" min="000001" max="999999" placeholder="609000" title="Preencha com o número da ordem de venda, precisam ser 6 números." inputmode="numeric" required><br>
-                        <label for="idnomedocliente">Nome do Cliente</label>
-                        <input type="text" name="idnomedocliente" id="idnomedocliente" size="15" minlength="1" placeholder="Nome do Cliente" title="Preencha com o nome do cliente." required><br>
-                        <label for="idnomefantasia">Nome Fantasia</label>
-                        <input type="text" name="idnomefantasia" id="idnomefantasia" size="15" minlength="1" placeholder="Nome Fantasia" title="Preencha com o nome fantasia."><br>
-                        <label for="idoptionmes">Mês de Cadastro</label>
-                        <select name="idoptionmes" id="idoptionmes" title="Selecione o mês de cadastro do pedido."></select><br>
-                        <label for="idarquivo">Arquivo</label>
-                        <input type="text" name="idarquivo" id="idarquivo" size="8" minlength="8" maxlength="8" pattern="[A-Z]{2}[0-9]{6}" placeholder="AA000000" title="Preencha com o número do arquivo, precisam ser 2 letras maiúsculas e 6 números." required><br>
-                        <label for="idrevisao">Revisão</label>
-                        <input type="text" name="idrevisao" id="idrevisao" size="1" minlength="1" maxlength="1" pattern="[A-Z]{1}" placeholder="A" title="Preencha com a letra da revisão, precisa ser 1 letra maiúscula." required><hr>
-                        <button type="reset" id="idlimpadadosdepedido" title="Limpa os dados preenchidos do pedido.">Limpar Dados do Pedido</button>
+                        <input type="text" name="nameOrdemDeVenda" id="idOrdemDeVenda" size="6" minlength="6" min="000001" max="999999" placeholder="609000" title="Preencha com o número da ordem de venda, precisam ser 6 números." inputmode="numeric" required><br>
+                        <label for="idNomeDoCliente">Nome do Cliente</label>
+                        <input type="text" name="nameNomeDoCliente" id="idNomeDoCliente" size="15" minlength="1" placeholder="Nome do Cliente" title="Preencha com o nome do cliente." required><br>
+                        <label for="idNomeFantasia">Nome Fantasia</label>
+                        <input type="text" name="nameNomeFantasia" id="idNomeFantasia" size="15" minlength="1" placeholder="Nome Fantasia" title="Preencha com o nome fantasia."><br>
+                        <label for="idMês">Mês de Cadastro</label>
+                        <select name="nameMês" id="idMês" title="Selecione o mês de cadastro do pedido."></select><br>
+                        <label for="idAnexarAssinatura">Arquivo</label>
+                        <input type="text" name="nameAnexarAssinatura" id="idAnexarAssinatura" size="8" minlength="8" maxlength="8" pattern="[A-Z]{2}[0-9]{6}" placeholder="AA000000" title="Preencha com o número do arquivo, precisam ser 2 letras maiúsculas e 6 números." required><br>
+                        <label for="idRevisão">Revisão</label>
+                        <input type="text" name="nameRevisão" id="idRevisão" size="1" minlength="1" maxlength="1" pattern="[A-Z]{1}" placeholder="A" title="Preencha com a letra da revisão, precisa ser 1 letra maiúscula." required><hr>
+                        <button type="reset" id="idLimpaDadosDePedido" title="Limpa os dados preenchidos do pedido.">Limpar Dados do Pedido</button>
                     </fieldset>
                 </form>
                 <form action="">
                     <fieldset>
                         <legend>Dados Pessoais</legend>
-                        <label for="idassinatura">Assinatura de E-mail:</label>
-                        <input type="file" name="" id="idassinatura" title="Selecione a assinatura de e-mail nos seus arquivos."><br><hr>
-                        <button type="reset" id="idlimpadadospessoais"title="Limpa os dados pessoais.">Limpar Dados Pessoais</button>
+                        <label for="idAssinatura">Assinatura de E-mail:</label>
+                        <input type="file" name="nameAssinatura" id="idAssinatura" title="Selecione a assinatura de e-mail nos seus arquivos."><br><hr>
+                        <button type="reset" id="idLimpaDadosPessoais"title="Limpa os dados pessoais.">Limpar Dados Pessoais</button>
                     </fieldset>
                 </form>
                 <form action="">
                     <fieldset>
                         <legend>E-mails Selecionados</legend>
-                        <details id="idemailspara">
+                        <details id="idEmailsPara">
                             <summary title='Clique para expandir e visualizar as opções de checbox para inserir no campo "Para".'>E-mails Para:</summary>
                         </details>
-                        <details id="idemailscc">
+                        <details id="idEmailsCc">
                             <summary title='Clique para expandir e visualizar as opções de checbox para inserir no campo "Cc".'>E-mails Cc:</summary>
                         </details><hr>
-                        <button type="reset" id="idlimpaemailsselecionado" title='Limpa as checkbox selecionadas para os campos "Para" e "Cc".'>Limpar E-mails</button>
+                        <button type="reset" id="idLimpaEmailSelecionado" title='Limpa as checkbox selecionadas para os campos "Para" e "Cc".'>Limpar E-mails</button>
                     </fieldset>
                 </form>
             </article>
         </section>
         <section>
-            <form action="" id="idformresultado">
+            <form action="">
                 <fieldset>
                     <legend>Resultado</legend>
-                    <label for="idresultadopara" title='Apresenta os e-mails para o campo "Para".'>Para:</label><br>
-                    <span id="idresultadopara"></span><br>
-                    <label for="idresultadocc" title='Apresenta os e-mails para o campo "Cc".'>Cc:</label><br>
-                    <span id="idresultadocc"></span><br>
-                    <label for="idresultadoassunto" title="Apresenta o assunto do e-mail.">Assunto:</label><br>
-                    <span id="idresultadoassunto"></span><br>
-                    <label for="idresultadocorpodoemail" title="Apresenta o corpo do e-mail.">Corpo do E-mail:</label><br>
-                    <span id="idresultadocorpodoemail" spellcheck="true" contenteditable></span><hr>
-                    <button type="button" id="idgerar" title="Gera os resultados com base nos itens preenchidos e selecionados nos campos acima.">Exibir Resultado</button>
-                    <button type="reset" id="idlimparesultado"title="Limpa os resultados gerados.">Limpar Resultados</button>
+                    <label for="idResultadoPara" title='Apresenta os e-mails para o campo "Para".'>Para:</label><br>
+                    <span id="idResultadoPara"></span><br>
+                    <label for="idResultadoCc" title='Apresenta os e-mails para o campo "Cc".'>Cc:</label><br>
+                    <span id="idResultadoCc"></span><br>
+                    <label for="idResultadoAssunto" title="Apresenta o assunto do e-mail.">Assunto:</label><br>
+                    <span id="idResultadoAssunto"></span><br>
+                    <label for="idResultadoCorpoDoEmail" title="Apresenta o corpo do e-mail.">Corpo do E-mail:</label><br>
+                    <span id="idResultadoCorpoDoEmail" spellcheck="true" contenteditable></span>
+                    <img src="" alt="Assinatura de e-mail." id="idArquivoAssinatura"><hr>
+                    <button type="button" id="idApresentaEmail" title="Gera os resultados com base nos itens preenchidos e selecionados nos campos acima.">Exibir Resultado</button>
+                    <button type="reset" id="idLimpaResultado"title="Limpa os resultados gerados.">Limpar Resultados</button>
                 </fieldset>
             </form>
             <form action="">
                 <fieldset>
                     <legend>Extras</legend>
-                    <button type="button" id="idcopiacorpodoemail" title="Copia o corpo do e-mail.">Copia Corpo do E-mail</button><br>
-                    <label for="idgeraremail">Gerar E-mail:</label>
-                    <a id="idgeraremail" target="_blank" title="Clique para gerar o e-mail.">&#x1F518</a><br>
-                    <label for="idbackgroundcolor">Cor do Background:</label>
-                    <input type="color" name="" id="idbackgroundcolor" value="#FFFFFF" list="idcores" title="Selecione a cor do background."><br>
-                    <label for="idbackgroundcolor">Cor do Texto:</label>
-                    <input type="color" name="" id="idtextocolor" value="#000000" list="idcores" title="Selecione a cor do texto."><br>
-                    <datalist id="idcores"></datalist>
-                    <button type="reset" id="idlimpaextras"title="Limpa os extras.">Limpar Extras</button>
+                    <button type="button" id="idCopiaCorpoDoEmail" title="Copia o corpo do e-mail.">Copia Corpo do E-mail</button><br>
+                    <label for="idGeraEmail">Gerar E-mail:</label>
+                    <a id="idGeraEmail" target="_blank" title="Clique para gerar o e-mail.">&#x1F518</a><br>
+                    <label for="idBackgroundColor">Cor do Background:</label>
+                    <input type="color" name="nameBackgroundColor" id="idBackgroundColor" value="#FFFFFF" list="idOpçõesCores" title="Selecione a cor do background."><br>
+                    <label for="idBackgroundColor">Cor do Texto:</label>
+                    <input type="color" name="nameTextoColor" id="idTextoColor" value="#000000" list="idOpçõesCores" title="Selecione a cor do texto."><br>
+                    <datalist id="idOpçõesCores"></datalist>
+                    <button type="reset" id="idLimpaExtras"title="Limpa os extras.">Limpar Extras</button>
                 </fieldset>
             </form>
         </section>
