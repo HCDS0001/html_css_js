@@ -54,6 +54,14 @@
                 </form>
                 <form action="">
                     <fieldset>
+                        <legend>Dados Pessoais</legend>
+                        <label for="idassinatura">Assinatura de E-mail:</label>
+                        <input type="file" name="" id="idassinatura" title="Selecione a assinatura de e-mail nos seus arquivos."><br><hr>
+                        <button type="reset" id="idlimpadadospessoais"title="Limpa os dados pessoais.">Limpar Dados Pessoais</button>
+                    </fieldset>
+                </form>
+                <form action="">
+                    <fieldset>
                         <legend>E-mails Selecionados</legend>
                         <details id="idemailspara">
                             <summary title='Clique para expandir e visualizar as opções de checbox para inserir no campo "Para".'>E-mails Para:</summary>
@@ -67,17 +75,17 @@
             </article>
         </section>
         <section>
-            <form action="">
+            <form action="" id="idformresultado">
                 <fieldset>
                     <legend>Resultado</legend>
                     <label for="idresultadopara" title='Apresenta os e-mails para o campo "Para".'>Para:</label><br>
-                    <output id="idresultadopara"></output><br>
+                    <span id="idresultadopara"></span><br>
                     <label for="idresultadocc" title='Apresenta os e-mails para o campo "Cc".'>Cc:</label><br>
-                    <output id="idresultadocc"></output><br>
+                    <span id="idresultadocc"></span><br>
                     <label for="idresultadoassunto" title="Apresenta o assunto do e-mail.">Assunto:</label><br>
-                    <output id="idresultadoassunto"></output><br>
+                    <span id="idresultadoassunto"></span><br>
                     <label for="idresultadocorpodoemail" title="Apresenta o corpo do e-mail.">Corpo do E-mail:</label><br>
-                    <output id="idresultadocorpodoemail" spellcheck="true" contenteditable></output><hr>
+                    <span id="idresultadocorpodoemail" spellcheck="true" contenteditable></span><hr>
                     <button type="button" id="idgerar" title="Gera os resultados com base nos itens preenchidos e selecionados nos campos acima.">Exibir Resultado</button>
                     <button type="reset" id="idlimparesultado"title="Limpa os resultados gerados.">Limpar Resultados</button>
                 </fieldset>
@@ -85,6 +93,7 @@
             <form action="">
                 <fieldset>
                     <legend>Extras</legend>
+                    <button type="button" id="idcopiacorpodoemail" title="Copia o corpo do e-mail.">Copia Corpo do E-mail</button><br>
                     <label for="idgeraremail">Gerar E-mail:</label>
                     <a id="idgeraremail" target="_blank" title="Clique para gerar o e-mail.">&#x1F518</a><br>
                     <label for="idbackgroundcolor">Cor do Background:</label>
@@ -92,8 +101,6 @@
                     <label for="idbackgroundcolor">Cor do Texto:</label>
                     <input type="color" name="" id="idtextocolor" value="#000000" list="idcores" title="Selecione a cor do texto."><br>
                     <datalist id="idcores"></datalist>
-                    <label for="idassinatura">Assinatura de E-mail:</label>
-                    <input type="file" name="" id="idassinatura" title="Selecione a assinatura de e-mail nos seus arquivos."><br>
                     <button type="reset" id="idlimpaextras"title="Limpa os extras.">Limpar Extras</button>
                 </fieldset>
             </form>

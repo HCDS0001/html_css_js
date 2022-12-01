@@ -26,6 +26,7 @@ let idresultadoassunto = document.querySelector("#idresultadoassunto")
 let idgerar = document.querySelector("#idgerar")
 let idresultadocorpodoemail = document.querySelector("#idresultadocorpodoemail")
 let idlimparesultado = document.querySelector("#idlimparesultado")
+let idcopiacorpodoemail = document.querySelector("#idcopiacorpodoemail")
 let idassinatura = document.querySelector("#idassinatura")
 let idbackgroundcolor = document.querySelector("#idbackgroundcolor")
 let idtextocolor = document.querySelector("#idtextocolor")
@@ -37,7 +38,6 @@ let idgeraremail = document.querySelector("#idgeraremail")
 
 let optiontag = "option"
 let inputtag = "input"
-let outputtag = "output"
 let labeltag = "label"
 let brtag = "br"
 let detailstag = "details"
@@ -59,17 +59,15 @@ let selectoption = "(SELECIONE UMA OPÇÃO)"
 let sim = "sim"
 let nao = "não"
 let classsempedido = "classsempedido"
-let informaçaoespecial = "<mark>Informação especial.</mark>"
-
+//let henrique = "hcds.rick@gmail.com"
 let br1 = "<br>".repeat(1)
 let br2 = "<br>".repeat(2)
 let br3 = "<br>".repeat(3)
-let henrique = "hcds.rick@gmail.com"
 let mailto = "mailto:"
 let cc = "?cc="
-let bcc = "&bcc="
+//let bcc = "&bcc="
 let subject = "&subject="
-let body = "&body="
+//let body = "&body="
 let OV = "OV: "
 let localizaçao = "LOCALIZAÇÃO: "
 let arquivo = "ARQUIVO: "
@@ -80,62 +78,62 @@ let enter = "%0D"
 
 let email = [
     {funçao:selectoption, tipo:selectoption, dadosdopedido:nao},
-    {area:"Comercial", funçao:"Analista", subgrupo:"Analista", tipo:"Liberação Parcial", dadosdopedido:sim},
-    {area:"Comercial", funçao:"Analista", subgrupo:"Analista", tipo:"Liberação Total", dadosdopedido:sim},
-    {area:"Comercial", funçao:"Analista", subgrupo:"Analista", tipo:"Linhas Atualizadas", dadosdopedido:sim},
-    {area:"Comercial", funçao:"Analista", subgrupo:"Analista", tipo:"Feito", dadosdopedido:sim},
-    {area:"Comercial", funçao:"Analista", subgrupo:"Analista", tipo:"Atualizar", dadosdopedido:sim},
-    {area:"Comercial", funçao:"Ajuste", subgrupo:"Ajuste", tipo:"Dúvidas", dadosdopedido:sim},
-    {area:"Comercial", funçao:"Ajuste", subgrupo:"Ajuste", tipo:"Aguardando Dúvidas", dadosdopedido:sim},
-    {area:"Comercial", funçao:"Ajuste", subgrupo:"Ajuste", tipo:"Arquivos de Ajuste", dadosdopedido:sim},
-    {area:"Comercial", funçao:"Ajuste", subgrupo:"Ajuste", tipo:"Aguardando Conferência", dadosdopedido:sim},
-    {area:"Comercial", funçao:"Ajuste", subgrupo:"Ajuste", tipo:"Alteração", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Executivo", subgrupo:"Executivo", tipo:"Pré Projeto", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Executivo", subgrupo:"Executivo", tipo:"Projeto Executivo", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Porta Walk-In", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Porta Seccional", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Portal de Selamento", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Niveladora de Doca", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Porta Rápida", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Porta Automática", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Porta Beer Cave", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Visor Corrediço", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Porta Vai e Vem Isolada", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Porta Vai e Vem de Tamanho Especial", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Resistência", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Termostato", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Porta Walk-In", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Porta Seccional", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Portal de Selamento", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Niveladora de Doca", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Porta Rápida", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Porta Automática", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Porta Beer Cave", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Visor Corrediço", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Porta Vai e Vem Isolada", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Porta Vai e Vem de Tamanho Especial", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Resistência", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Termostato", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Dúvida", tipo:"Dúvida Geral", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Dúvida", tipo:"Dúvida de Porta Seccional", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Dúvida", tipo:"Aguardando Dúvida", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Encaminhar", tipo:"Encaminhar", dadosdopedido:sim},
+    //{area:"Comercial", funçao:"Analista", subgrupo:"Analista", tipo:"Liberação Parcial", dadosdopedido:sim},
+    //{area:"Comercial", funçao:"Analista", subgrupo:"Analista", tipo:"Liberação Total", dadosdopedido:sim},
+    //{area:"Comercial", funçao:"Analista", subgrupo:"Analista", tipo:"Linhas Atualizadas", dadosdopedido:sim},
+    //{area:"Comercial", funçao:"Analista", subgrupo:"Analista", tipo:"Feito", dadosdopedido:sim},
+    //{area:"Comercial", funçao:"Analista", subgrupo:"Analista", tipo:"Atualizar", dadosdopedido:sim},
+    //{area:"Comercial", funçao:"Ajuste", subgrupo:"Ajuste", tipo:"Dúvidas", dadosdopedido:sim},
+    //{area:"Comercial", funçao:"Ajuste", subgrupo:"Ajuste", tipo:"Aguardando Dúvidas", dadosdopedido:sim},
+    //{area:"Comercial", funçao:"Ajuste", subgrupo:"Ajuste", tipo:"Arquivos de Ajuste", dadosdopedido:sim},
+    //{area:"Comercial", funçao:"Ajuste", subgrupo:"Ajuste", tipo:"Aguardando Conferência", dadosdopedido:sim},
+    //{area:"Comercial", funçao:"Ajuste", subgrupo:"Ajuste", tipo:"Alteração", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Executivo", subgrupo:"Executivo", tipo:"Pré Projeto", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Executivo", subgrupo:"Executivo", tipo:"Projeto Executivo", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Porta Walk-In", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Porta Seccional", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Portal de Selamento", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Niveladora de Doca", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Porta Rápida", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Porta Automática", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Porta Beer Cave", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Visor Corrediço", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Porta Vai e Vem Isolada", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Porta Vai e Vem de Tamanho Especial", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Resistência", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Compra", tipo:"Compra de Termostato", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Porta Walk-In", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Porta Seccional", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Portal de Selamento", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Niveladora de Doca", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Porta Rápida", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Porta Automática", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Porta Beer Cave", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Visor Corrediço", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Porta Vai e Vem Isolada", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Porta Vai e Vem de Tamanho Especial", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Resistência", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Cotação", tipo:"Cotação de Termostato", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Dúvida", tipo:"Dúvida Geral", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Dúvida", tipo:"Dúvida de Porta Seccional", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Dúvida", tipo:"Aguardando Dúvida", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Encaminhar", tipo:"Encaminhar", dadosdopedido:sim},
     {area:"Continnum", funçao:"Planilhamento", subgrupo:"Planilhamento", tipo:"Planilhamento Total", dadosdopedido:sim},
     {area:"Continnum", funçao:"Planilhamento", subgrupo:"Planilhamento", tipo:"Planilhamento Parcial", dadosdopedido:sim},
     {area:"Continnum", funçao:"Planilhamento", subgrupo:"Planilhamento", tipo:"Planilhamento Alteração", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Geral", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Geral", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Inclusão de Item", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Exclusão de Item", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Troca de Item", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Exclusão de Alfa", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Remoção de Alfa", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Estorno de Alfa", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Derrubar Usuário", dadosdopedido:sim},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Liberação de Tela", dadosdopedido:nao},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"SIP - Geral", dadosdopedido:nao},
-    {area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"SIP - Liberação para Edição de Painéis Altos", dadosdopedido:nao},
-    {area:"Externo", funçao:"Representante", subgrupo:"Representante", tipo:"Representante", dadosdopedido:sim}
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Geral", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Geral", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Inclusão de Item", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Exclusão de Item", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Troca de Item", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Exclusão de Alfa", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Remoção de Alfa", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Estorno de Alfa", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Derrubar Usuário", dadosdopedido:sim},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"Baan - Liberação de Tela", dadosdopedido:nao},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"SIP - Geral", dadosdopedido:nao},
+    //{area:"Continnum", funçao:"Planilhamento", subgrupo:"Suporte TI", tipo:"SIP - Liberação para Edição de Painéis Altos", dadosdopedido:nao},
+    //{area:"Externo", funçao:"Representante", subgrupo:"Representante", tipo:"Representante", dadosdopedido:sim},
 ]
 
 let cadastro = [
@@ -224,43 +222,43 @@ let cadastro = [
 ]
 
 let selectemail = [
-    {tipo: "Dúvida Geral", emailspara: [], emailscc: ["Continuum - Planilhamento", "Cláudia", "Cleber", "Ellen", "Letícia", "Luiz Fernando Gonsalvez", "Alexandre Ribeiro", "João Cláudio", "Luiz Eduardo", "Nilson", "Suelen", "Carla", "Roney"]},
-    {tipo: "Dúvida de Porta Seccional", emailspara: [], emailscc: ["Continuum - Planilhamento", "Cláudia", "Cleber", "Ellen", "Letícia", "Luiz Fernando Gonsalvez", "Alexandre Ribeiro", "João Cláudio", "Luiz Eduardo", "Nilson", "Suelen", "Carla", "Roney"]},
-    {tipo: "Aguardando Dúvida", emailspara: [], emailscc: ["Continuum - Planilhamento", "Cláudia", "Cleber", "Ellen", "Letícia", "Luiz Fernando Gonsalvez", "Alexandre Ribeiro", "João Cláudio", "Luiz Eduardo", "Nilson", "Suelen", "Carla", "Roney"]},
-    {tipo: "Encaminhar", emailspara: [], emailscc: []},
+    //{tipo: "Dúvida Geral", emailspara: [], emailscc: ["Continuum - Planilhamento", "Cláudia", "Cleber", "Ellen", "Letícia", "Luiz Fernando Gonsalvez", "Alexandre Ribeiro", "João Cláudio", "Luiz Eduardo", "Nilson", "Suelen", "Carla", "Roney"]},
+    //{tipo: "Dúvida de Porta Seccional", emailspara: [], emailscc: ["Continuum - Planilhamento", "Cláudia", "Cleber", "Ellen", "Letícia", "Luiz Fernando Gonsalvez", "Alexandre Ribeiro", "João Cláudio", "Luiz Eduardo", "Nilson", "Suelen", "Carla", "Roney"]},
+    //{tipo: "Aguardando Dúvida", emailspara: [], emailscc: ["Continuum - Planilhamento", "Cláudia", "Cleber", "Ellen", "Letícia", "Luiz Fernando Gonsalvez", "Alexandre Ribeiro", "João Cláudio", "Luiz Eduardo", "Nilson", "Suelen", "Carla", "Roney"]},
+    //{tipo: "Encaminhar", emailspara: [], emailscc: []},
     {tipo: "Planilhamento Total", emailspara: ["Continuum - Planilhamento para Produção"], emailscc: []},
     {tipo: "Planilhamento Parcial", emailspara: ["Continuum - Planilhamento para Produção"], emailscc: []},
-    {tipo: "Planilhamento Alteração", emailspara: ["Continuum - Planilhamento para Produção"], emailscc: []}
+    {tipo: "Planilhamento Alteração", emailspara: ["Continuum - Planilhamento para Produção"], emailscc: []},
 ]
 
 let ano = [
-    "00",
-    "01",
-    "02",
-    "03",
-    "04",
-    "05",
-    "06",
-    "07",
-    "08",
-    "09",
-    "10",
-    "11",
-    "12",
-    "13",
-    "14",
-    "15",
-    "16",
-    "17",
+    //"00",
+    //"01",
+    //"02",
+    //"03",
+    //"04",
+    //"05",
+    //"06",
+    //"07",
+    //"08",
+    //"09",
+    //"10",
+    //"11",
+    //"12",
+    //"13",
+    //"14",
+    //"15",
+    //"16",
+    //"17",
     "18",
     "19",
     "20",
     "21",
     "22",
     "23",
-    "24",
-    "25",
-    "26"
+    //"24",
+    //"25",
+    //"26",
 ]
 
 let mes = [
@@ -275,7 +273,7 @@ let mes = [
     {numero:09, nome:"Setembro"},
     {numero:10, nome:"Outubro"},
     {numero:11, nome:"Novembro"},
-    {numero:12, nome:"Dezembro"}
+    {numero:12, nome:"Dezembro"},
 ]
 
 let cores = [
@@ -285,6 +283,7 @@ let cores = [
     {cor:"Verde", valor:"#00FF00"},
     {cor:"Vermelho", valor:"#FF0000"},
     {cor:"Cinza Claro", valor:"#AAAAAA"},
+    {cor:"Cinza Escuro", valor:"#555555"},
     {cor:"Cinza Escuro", valor:"#555555"},
 ]
 
@@ -328,17 +327,13 @@ let email2 = email.slice()
 email2.unshift(0)
 let funçaoemail = []
 
-for (let index = 0; index < email.length; index++) {
-    if (email[index].funçao != email2[index].funçao) {funçaoemail.push(email[index])}
-}
+for (let index in email) {if (email[index].funçao != email2[index].funçao) {funçaoemail.push(email[index])}}
 
 let cadastro2 = cadastro.slice()
 cadastro2.unshift(0)
 let funçaocadastro = []
 
-for (let index = 0; index < cadastro.length; index++) {
-    if (cadastro[index].funçao != cadastro2[index].funçao) {funçaocadastro.push(cadastro[index])}
-}
+for (let index in cadastro) {if (cadastro[index].funçao != cadastro2[index].funçao) {funçaocadastro.push(cadastro[index])}}
 
 /* Filtra os Arrays */
 
@@ -373,17 +368,17 @@ funçaoemail.map((el)=>{
     let textofunçao = document.createTextNode(el.funçao)
     optionfunçao.appendChild(textofunçao)
     optionfunçao.setAttribute(valueattribute, el.funçao)
-    idfunçao.insertAdjacentElement("beforeend",optionfunçao)}
-)
+    idfunçao.insertAdjacentElement("beforeend",optionfunçao)
+})
 
 /* - Cria os subgrupos e as opções de tipo */
 
 /* -- Controla a visualização de seleções e limpa seleções anteriores */
 
 function changefunçao() {
-    if (idfunçao.value == selectoption) {
-        hidetipo()
-    } else {
+    limparesultado()
+    if (idfunçao.value == selectoption) {hidetipo()}
+    else {
         classtipo[0].style.display = displayinline_block
         classtipo[1].style.display = displayinline_block
         iddadosdopedido.style.display = displaynone
@@ -393,9 +388,7 @@ function changefunçao() {
 /* -- Filtra as opções de subgrupos de acordo com a função */
     
     let subgrupo = []
-    for (let index = 0; index < email.length; index++) {
-        if (email[index].funçao == idfunçao.value && email[index].subgrupo != email2[index].subgrupo) {subgrupo.push(email[index])}
-    }
+    for (let index in email) {if (email[index].funçao == idfunçao.value && email[index].subgrupo != email2[index].subgrupo) {subgrupo.push(email[index])}}
     
 /* -- Cria a opção Selection para a seleção de tipos */
 
@@ -415,66 +408,62 @@ function changefunçao() {
         let optionsubgrupo = document.createElement("optgroup")
         optionsubgrupo.setAttribute("label", el.subgrupo)
         optionsubgrupo.setAttribute(idattribute, capitalizenomepara)
-        idtipo.insertAdjacentElement("beforeend",optionsubgrupo)}
-    )
+        idtipo.insertAdjacentElement("beforeend",optionsubgrupo)
+    })
 
 /* -- Cria os tipos de acordo com a função */
 
     let emailtipo = email.filter((el)=>el.funçao == idfunçao.value && idfunçao.value != selectoption)
     emailtipo.map((el)=>{
+        let capitalizesubgrupo = `idpara${(el.subgrupo.replace(/ /g, "")).charAt(0).toLowerCase() + (el.subgrupo.replace(/ /g, "")).slice(1)}`
+        let idtipo = document.querySelector(`#${capitalizesubgrupo}`)
         let optiontipo = document.createElement(optiontag)
         let textotipo = document.createTextNode(el.tipo)
         optiontipo.appendChild(textotipo)
         if (el.dadosdopedido == nao) {optiontipo.setAttribute(classattribute, classsempedido)}
-        let capitalizesubgrupo = `idpara${(el.subgrupo.replace(/ /g, "")).charAt(0).toLowerCase() + (el.subgrupo.replace(/ /g, "")).slice(1)}`
-        let importar = document.querySelector(`#${capitalizesubgrupo}`)
-        importar.insertAdjacentElement("beforeend",optiontipo)
+        idtipo.insertAdjacentElement("beforeend",optiontipo)
     })
 }
 
 /* -- Limpa as informações de tipo de e-mail */
 
 function limpatipodeemail() {
+    limparesultado()
     hidetipo()
-    iddadosdopedido.style.display = displaynone
     while (idtipo.hasChildNodes()) {idtipo.removeChild(idtipo.firstChild)}
 }
 
 /* Dados do Pedido */
 
 function changetipo() {
+    limparesultado()
 
 /* - Oculta e limpa os dados do pedido caso seja da classe sem pedido */
 
     if (idtipo.selectedOptions[0].className == classsempedido) {
         iddadosdopedido.style.display = displaynone
         idlimpadadosdepedido.click()
-    } else {
-        iddadosdopedido.style.display = displayblock
     }
+    else {iddadosdopedido.style.display = displayblock}
 
 /* - Limpa as checkbox já selecionadas */
 
     let classparaemail = document.querySelectorAll(".classparaemail")
-    for (let index = 0; index < cadastro.length; index++) {
-        classparaemail[index].checked = false
-    }
+    for (let index in cadastro) {classparaemail[index].checked = false}
 
     let classccemail = document.querySelectorAll(".classccemail")
-    for (let index = 0; index < cadastro.length; index++) {
-        classccemail[index].checked = false
-    }
+    for (let index in cadastro) {classccemail[index].checked = false}
 
 /* - Seleciona as checkbox dos e-mails de acordo com o tipo de pedido */
 
-    for (let index = 0; index < selectemail.length; index++) {
+    for (let index in selectemail) {
         if (idtipo.value == selectemail[index].tipo) {
-            for (let index2 = 0; index2 < selectemail[index].emailspara.length; index2++) {
+            for (let index2 in selectemail[index].emailspara) {
                 let capitalizenomepara = `idpara${(selectemail[index].emailspara[index2].replace(/ /g, "")).charAt(0).toLowerCase() + (selectemail[index].emailspara[index2].replace(/ /g, "")).slice(1)}`
                 let idcheckboxpara = document.querySelector(`#${capitalizenomepara}`)
                 idcheckboxpara.checked = true
             }
-            for (let index2 = 0; index2 < selectemail[index].emailscc.length; index2++) {
+            for (let index2 in selectemail[index].emailscc) {
                 let capitalizenomecc = `idcc${(selectemail[index].emailscc[index2].replace(/ /g, "")).charAt(0).toLowerCase() + (selectemail[index].emailscc[index2].replace(/ /g, "")).slice(1)}`
                 let idcheckboxcc = document.querySelector(`#${capitalizenomecc}`)
                 idcheckboxcc.checked = true
@@ -486,7 +475,7 @@ function changetipo() {
 /* - Cria as opções de números dos representantes */
 
 idnomerepresentante.setAttribute(valueattribute,cadastrorepresentante[0].nome)
-for (let index = 0; index < cadastrorepresentante.length; index++) {
+for (let index in cadastrorepresentante) {
     let optionrepresentante = document.createElement('option')
     let textoptionrepresentante = document.createTextNode(cadastrorepresentante[index].numero)
     optionrepresentante.appendChild(textoptionrepresentante)
@@ -497,12 +486,8 @@ for (let index = 0; index < cadastrorepresentante.length; index++) {
 /* - Cria as opções de nomes dos representantes */
 
 function changenumerorepresentante() {
-    for (let index = 0; index < cadastrorepresentante.length; index++) {
-        if (idnumerorepresentante.value == cadastrorepresentante[index].numero) {
-            idnomerepresentante.setAttribute(valueattribute,cadastrorepresentante[index].nome)
-            index = cadastrorepresentante.length
-        }
-    }
+    limparesultado()
+    for (let index in cadastrorepresentante) {if (idnumerorepresentante.value == cadastrorepresentante[index].numero) {idnomerepresentante.setAttribute(valueattribute,cadastrorepresentante[index].nome)}}
 }
 
 /* - Cria as opções de ano do pedido */
@@ -512,8 +497,8 @@ ano.map((el)=>{
     let textoano = document.createTextNode(el)
     optionano.appendChild(textoano)
     optionano.setAttribute(valueattribute, el)
-    idano.insertAdjacentElement("beforeend",optionano)}
-)
+    idano.insertAdjacentElement("beforeend",optionano)
+})
 
 /* - Define o ano selecionado padrão */
 
@@ -526,12 +511,13 @@ mes.map((el)=>{
     let textomes = document.createTextNode(el.nome)
     optionmes.appendChild(textomes)
     optionmes.setAttribute(valueattribute, el.nome)
-    idoptionmes.insertAdjacentElement("beforeend",optionmes)}
-)
+    idoptionmes.insertAdjacentElement("beforeend",optionmes)
+})
 
 /* -- Limpa as informações dos dados do pedido */
 
 function limpadadosdopedido() {
+    limparesultado()
     idnomerepresentante.setAttribute(valueattribute,cadastrorepresentante[0].nome)
 }
 
@@ -539,7 +525,7 @@ function limpadadosdopedido() {
 
 /* - Cria e-mails para */
 
-for (let index = 0; index < funçaocadastro.length; index++) {
+for (let index in funçaocadastro) {
 
 /* -- Cria details para as funções para */
 
@@ -551,7 +537,6 @@ for (let index = 0; index < funçaocadastro.length; index++) {
 /* -- Cria summary para as funções para */
 
     let iddetailspara = document.querySelector(`#iddetailspara${capitalizenomefunçaocadastro}`)
-
     let summaryparaemail = document.createElement(summarytag)
     let summaryparatextoemail = document.createTextNode(funçaocadastro[index].funçao)
     summaryparaemail.appendChild(summaryparatextoemail)
@@ -575,45 +560,46 @@ for (let index = 0; index < funçaocadastro.length; index++) {
 /* -- Cria os inputs das checkbox das funções para */
 
     let funçaocadastrooptionfunçao = cadastroemail.filter((el)=>el.funçao == funçaocadastro[index].funçao)
-
     funçaocadastrooptionfunçao.map((el)=>{
-    let capitalizenomepara = `idpara${(el.nome.replace(/ /g, "")).charAt(0).toLowerCase() + (el.nome.replace(/ /g, "")).slice(1)}`
-    let optionemailcadastro = document.createElement(inputtag)
-    let textoemailcadastro = document.createTextNode(el.nome)
-    optionemailcadastro.appendChild(textoemailcadastro)
-    optionemailcadastro.setAttribute(typeattribute, checkboxattribute)
-    optionemailcadastro.setAttribute(idattribute, capitalizenomepara)
-    optionemailcadastro.setAttribute(classattribute, `classparaemailcadastro${capitalizenomefunçaocadastro} classparaemail`)
-    optionemailcadastro.setAttribute(valueattribute, el.emailcomercial)
-    iddetailspara.insertAdjacentElement("beforeend",optionemailcadastro)
+        let capitalizenomepara = `idpara${(el.nome.replace(/ /g, "")).charAt(0).toLowerCase() + (el.nome.replace(/ /g, "")).slice(1)}`
+        let optionemailcadastro = document.createElement(inputtag)
+        let textoemailcadastro = document.createTextNode(el.nome)
+        optionemailcadastro.appendChild(textoemailcadastro)
+        optionemailcadastro.setAttribute(typeattribute, checkboxattribute)
+        optionemailcadastro.setAttribute(idattribute, capitalizenomepara)
+        optionemailcadastro.setAttribute(classattribute, `classparaemailcadastro${capitalizenomefunçaocadastro} classparaemail`)
+        optionemailcadastro.setAttribute(valueattribute, el.emailcomercial)
+        iddetailspara.insertAdjacentElement("beforeend",optionemailcadastro)
 
 /* -- Cria os labels das checkbox das funções para */
 
-    let labelemailcadastro = document.createElement(labeltag)
-    let textolabelemailcadastro = document.createTextNode(el.nome)
-    labelemailcadastro.appendChild(textolabelemailcadastro)
-    labelemailcadastro.setAttribute(forattribute, capitalizenomepara)
-    iddetailspara.insertAdjacentElement("beforeend",labelemailcadastro)
+        let labelemailcadastro = document.createElement(labeltag)
+        let textolabelemailcadastro = document.createTextNode(el.nome)
+        labelemailcadastro.appendChild(textolabelemailcadastro)
+        labelemailcadastro.setAttribute(forattribute, capitalizenomepara)
+        iddetailspara.insertAdjacentElement("beforeend",labelemailcadastro)
 
 /* -- Cria espaçamento entre o label (option) e a checkbox seguinte das funções para */
 
-    let bremail = document.createElement(brtag)
-    iddetailspara.insertAdjacentElement("beforeend",bremail)}
-    )
+        let bremail = document.createElement(brtag)
+        iddetailspara.insertAdjacentElement("beforeend",bremail)
+    })
 
 /* -- Controla a visualização de seleção das checkbox das funções para */
 
     let checkedpara = 0
     let idselecionartodospara = document.querySelector(`#idselecionartodospara${capitalizenomefunçaocadastro}`)
     function selectallpara() {
+        limparesultado()
         if (checkedpara == 0) {
-            for (let index = 0; index < funçaocadastrooptionfunçao.length; index++) {
+            for (let index in funçaocadastrooptionfunçao) {
                 let classparaemail = document.querySelectorAll(`.classparaemailcadastro${capitalizenomefunçaocadastro}`)
                 classparaemail[index].checked = true
                 checkedpara = 1
             }
-        } else {
-            for (let index = 0; index < funçaocadastrooptionfunçao.length; index++) {
+        }
+        else {
+            for (let index in funçaocadastrooptionfunçao) {
                 let classparaemail = document.querySelectorAll(`.classparaemailcadastro${capitalizenomefunçaocadastro}`)
                 classparaemail[index].checked = false
                 checkedpara = 0
@@ -623,7 +609,10 @@ for (let index = 0; index < funçaocadastro.length; index++) {
 
 /* -- Limpa as checkbox das funções para */
 
-    function limpaemailsselecionados() {checkedpara = 0}
+    function limpaemailsselecionados() {
+        limparesultado()
+        checkedpara = 0
+    }
 
 /* Eventos das funções para*/
 
@@ -633,7 +622,7 @@ for (let index = 0; index < funçaocadastro.length; index++) {
 
 /* - Cria e-mails cc */
 
-for (let index = 0; index < funçaocadastro.length; index++) {
+for (let index in funçaocadastro) {
 
 /* -- Cria details para as funções cc */
 
@@ -645,7 +634,6 @@ for (let index = 0; index < funçaocadastro.length; index++) {
 /* -- Cria summary para as funções cc */
 
     let iddetailscc = document.querySelector(`#iddetailscc${capitalizenomefunçaocadastro}`)
-
     let summaryccemail = document.createElement(summarytag)
     let summarycctextoemail = document.createTextNode(funçaocadastro[index].funçao)
     summaryccemail.appendChild(summarycctextoemail)
@@ -671,43 +659,45 @@ for (let index = 0; index < funçaocadastro.length; index++) {
     let funçaocadastrooptionfunçao = cadastroemail.filter((el)=>el.funçao == funçaocadastro[index].funçao)
 
     funçaocadastrooptionfunçao.map((el)=>{
-    let capitalizenomecc = `idcc${(el.nome.replace(/ /g, "")).charAt(0).toLowerCase() + (el.nome.replace(/ /g, "")).slice(1)}`
-    let optionemailcadastro = document.createElement(inputtag)
-    let textoemailcadastro = document.createTextNode(el.nome)
-    optionemailcadastro.appendChild(textoemailcadastro)
-    optionemailcadastro.setAttribute(typeattribute, checkboxattribute)
-    optionemailcadastro.setAttribute(idattribute, capitalizenomecc)
-    optionemailcadastro.setAttribute(classattribute, `classccemailcadastro${capitalizenomefunçaocadastro} classccemail`)
-    optionemailcadastro.setAttribute(valueattribute, el.emailcomercial)
-    iddetailscc.insertAdjacentElement("beforeend",optionemailcadastro)
+        let capitalizenomecc = `idcc${(el.nome.replace(/ /g, "")).charAt(0).toLowerCase() + (el.nome.replace(/ /g, "")).slice(1)}`
+        let optionemailcadastro = document.createElement(inputtag)
+        let textoemailcadastro = document.createTextNode(el.nome)
+        optionemailcadastro.appendChild(textoemailcadastro)
+        optionemailcadastro.setAttribute(typeattribute, checkboxattribute)
+        optionemailcadastro.setAttribute(idattribute, capitalizenomecc)
+        optionemailcadastro.setAttribute(classattribute, `classccemailcadastro${capitalizenomefunçaocadastro} classccemail`)
+        optionemailcadastro.setAttribute(valueattribute, el.emailcomercial)
+        iddetailscc.insertAdjacentElement("beforeend",optionemailcadastro)
 
 /* -- Cria os labels das checkbox das funções cc */
 
-    let labelemailcadastro = document.createElement(labeltag)
-    let textolabelemailcadastro = document.createTextNode(el.nome)
-    labelemailcadastro.appendChild(textolabelemailcadastro)
-    labelemailcadastro.setAttribute(forattribute, capitalizenomecc)
-    iddetailscc.insertAdjacentElement("beforeend",labelemailcadastro)
+        let labelemailcadastro = document.createElement(labeltag)
+        let textolabelemailcadastro = document.createTextNode(el.nome)
+        labelemailcadastro.appendChild(textolabelemailcadastro)
+        labelemailcadastro.setAttribute(forattribute, capitalizenomecc)
+        iddetailscc.insertAdjacentElement("beforeend",labelemailcadastro)
 
 /* -- Cria espaçamento entre o label (option) e a checkbox seguinte das funções cc */
 
-    let bremail = document.createElement(brtag)
-    iddetailscc.insertAdjacentElement("beforeend",bremail)}
-    )
+        let bremail = document.createElement(brtag)
+        iddetailscc.insertAdjacentElement("beforeend",bremail)
+    })
 
 /* -- Controla a visualização de seleção das checkbox das funções cc */
 
     let checkedcc = 0
     let idselecionartodoscc = document.querySelector(`#idselecionartodoscc${capitalizenomefunçaocadastro}`)
     function selectallcc() {
+        limparesultado()
         if (checkedcc == 0) {
-            for (let index = 0; index < funçaocadastrooptionfunçao.length; index++) {
+            for (let index in funçaocadastrooptionfunçao) {
                 let classccemail = document.querySelectorAll(`.classccemailcadastro${capitalizenomefunçaocadastro}`)
                 classccemail[index].checked = true
                 checkedcc = 1
             }
-        } else {
-            for (let index = 0; index < funçaocadastrooptionfunçao.length; index++) {
+        }
+        else {
+            for (let index in funçaocadastrooptionfunçao) {
                 let classccemail = document.querySelectorAll(`.classccemailcadastro${capitalizenomefunçaocadastro}`)
                 classccemail[index].checked = false
                 checkedcc = 0
@@ -717,7 +707,10 @@ for (let index = 0; index < funçaocadastro.length; index++) {
 
 /* -- Limpa as checkbox das funções cc */
 
-    function limpaemailsselecionados() {checkedcc = 0}
+    function limpaemailsselecionados() {
+        limparesultado()
+        checkedcc = 0
+    }
 
 /* Eventos das funções cc*/
 
@@ -727,38 +720,55 @@ for (let index = 0; index < funçaocadastro.length; index++) {
 
 /* Gera resultados */
 
-/* - Variaveis Auxiliares */
-
-let verificanumerorepresentante = ""
-let verificanomedocliente = ""
-let verificanomefantasia = ""
+let assinatura = ""
+/* let number = -1 */
 
 function gerar() {
+/*     number ++
+    console.log(number) */
+    limparesultado()
+
+    
+/* - Verifica e gera a assinatura carregada */
+
+if (idassinatura.files.length == 0) {
+    assinatura = document.createElement('span')
+    let textoassinatura = document.createTextNode("Nenhuma assinatura selecionada.")
+    assinatura.appendChild(textoassinatura)
+    assinatura.setAttribute(idattribute, "idarquivoassinatura")
+}
+else {
+    assinatura = document.createElement('img')
+    assinatura.src = URL.createObjectURL(idassinatura.files[0])
+    assinatura.height = 100
+    assinatura.setAttribute(idattribute, "idarquivoassinatura")
+}
+
+/* if (number != 0) {
+    console.log("teste")
+    let idarquivoassinatura = document.querySelector("#idarquivoassinatura")
+    idarquivoassinatura.removeChild(idarquivoassinatura.lastChild)
+    number = 0
+} */
 
 /* - Gera e-mails para */
 
     idresultadopara.innerHTML = ""
     let classparaemail = document.querySelectorAll(".classparaemail")
-    for (let index = 0; index < cadastro.length; index++) {
-        if (classparaemail[index].checked == true) {
-            idresultadopara.innerHTML += `${classparaemail[index].value}; `
-        }
-    }
+    for (let index in cadastro) {if (classparaemail[index].checked == true) {idresultadopara.innerHTML += `${classparaemail[index].value}; `}}
 
 /* - Gera e-mails cc */
 
     idresultadocc.innerHTML = ""
     let classccemail = document.querySelectorAll(".classccemail")
-    for (let index = 0; index < cadastro.length; index++) {
-        if (classccemail[index].checked == true) {
-            idresultadocc.innerHTML += `${classccemail[index].value}; `
-        }
-    }
+    for (let index in cadastro) {if (classccemail[index].checked == true) {idresultadocc.innerHTML += `${classccemail[index].value}; `}}
 
 /* - Gera assunto */
 
 /* -- Verifica se tem dados não preenchidos e corrige a formatação */
-
+    let verificanumerorepresentante = ""
+    let verificanomedocliente = ""
+    let verificanomefantasia = ""
     let verificatipo = `${idtipo.value}`
 
     if (idpedido.value != "") {verificanumerorepresentante = `PED ${idnumerorepresentante.value}-${idpedido.value}/${idano.value}`}
@@ -766,15 +776,7 @@ function gerar() {
     if (idnomedocliente.value != "" && idtipo.value != "" && idpedido.value != "") {verificanomedocliente = ` - ${idnomedocliente.value}`}
     if (idnomefantasia.value != "") {verificanomefantasia = ` - ${idnomefantasia.value}`}
 
-    let assunto = `${verificanumerorepresentante}${verificatipo}${verificanomedocliente}${verificanomefantasia}`
-
-/* -- Corrige o assunto caso seja da classe sem pedido */
-    
-    let number = 0
-
-    for (let index = 0; index < email.length; index++) {if (email[index].tipo == idtipo.value) {number = index}}
-    if (email[number].dadosdopedido == nao) {assunto = `${verificatipo}`}
-    idresultadoassunto.innerHTML = `${assunto}`
+    idresultadoassunto.innerHTML = `${verificanumerorepresentante}${verificatipo}${verificanomedocliente}${verificanomefantasia}`
 
 /* - Gera corpor do e-mail */
 
@@ -782,68 +784,52 @@ function gerar() {
 
     let hora = new Date().getHours()
     let periodo = ""
-    if (hora < 6 || hora >= 18) {
-        periodo = "Boa noite"
-    } if (hora >= 6 && hora < 12) {
-        periodo = "Bom dia"
-    } if (hora >= 12 && hora < 18) {
-        periodo = "Boa tarde"
-    }
-
-/* -- Verifica e gera a assinatura carregada */
-
-    let assinatura = ""
-
-    if (idassinatura.files.length == 0) {
-        assinatura = document.createElement('p')
-        let textoassinatura = document.createTextNode("Nenhuma assinatura selecionada.")
-        assinatura.appendChild(textoassinatura)
-    } else {
-        assinatura = document.createElement('img')
-        assinatura.src = URL.createObjectURL(idassinatura.files[0])
-        assinatura.height = 100
-    }
+    if (hora < 6 || hora >= 18) {periodo = "Boa noite"}
+    if (hora >= 6 && hora < 12) {periodo = "Bom dia"}
+    if (hora >= 12 && hora < 18) {periodo = "Boa tarde"}
 
 /* -- Gera modelos de e-mails de acordo com o tipo */
 
     let emailtextocompleto = ""
+    let informaçaoespecial
+    let resultadoparaenvio
+    let resultadoccenvio
 
     switch (idtipo.value) {
         case "Planilhamento Total":
-            idresultadocorpodoemail.innerHTML = `
-            ${periodo},${br2}
-            ${idtipo.value}${br2}
-            ${verificanumerorepresentante}${verificanomedocliente}${verificanomefantasia}${br1}
-            ${OV}${idordemdevenda.value}${br1}
-            ${localizaçao}${idoptionmes.value} / ${idnomerepresentante.value}${br1}
-            ${arquivo}${idarquivo.value}${idrevisao.value}${br2}
-            ${informaçaoespecial}${br1}
-            ${agradecimento}${br3}`
+            informaçaoespecial = '<span style="background-color: rgb(255, 255, 0);"><mark>Informação especial.</mark></span>'
+            idresultadocorpodoemail.innerHTML = `${periodo},${br2}${idtipo.value}${br2}${verificanumerorepresentante}${verificanomedocliente}${verificanomefantasia}${br1}${OV}${idordemdevenda.value}${br1}${localizaçao}${idoptionmes.value} / ${idnomerepresentante.value}${br1}${arquivo}${idarquivo.value}${idrevisao.value}${br2}${informaçaoespecial}${br2}${agradecimento}${br3}`
             idresultadocorpodoemail.insertAdjacentElement("beforeend", assinatura)
-
-            let resultadoparaenvio = idresultadopara.innerHTML.replace(/;/g, ",").replace(/ /g, "")
-            let resultadoccenvio = idresultadocc.innerHTML.replace(/;/g, ",").replace(/ /g, "")
-            
-            emailtextocompleto = `${mailto}${resultadoparaenvio}${cc}${resultadoccenvio}${bcc}${henrique}${subject}${idresultadoassunto.innerHTML}${body}${periodo},${enter}${enter}${idtipo.value}${enter}${enter}${verificanumerorepresentante}${verificanomedocliente}${verificanomefantasia}${enter}${OV}${idordemdevenda.value}${enter}${localizaçao}${idoptionmes.value} / ${idnomerepresentante.value}${enter}${arquivo}${idarquivo.value}${idrevisao.value}${enter}${enter}${informaçaoespecial}${enter}${enter}${agradecimento}${enter}${enter}${enter}`
+            resultadoparaenvio = idresultadopara.innerHTML.replace(/;/g, ",").replace(/ /g, "")
+            resultadoccenvio = idresultadocc.innerHTML.replace(/;/g, ",").replace(/ /g, "")
+            emailtextocompleto = `${mailto}${resultadoparaenvio}${cc}${resultadoccenvio}${subject}${idresultadoassunto.innerHTML}`
+            function copiacorpodoemail() {navigator.clipboard.write([new ClipboardItem({ "text/plain": new Blob([idresultadocorpodoemail.innerText], { type: "text/plain" }), "text/html": new Blob([idresultadocorpodoemail.outerHTML], { type: "text/html" })})])}
+            idcopiacorpodoemail.addEventListener("click", copiacorpodoemail)
             break;
         case "Planilhamento Parcial":
-            idresultadocorpodoemail.innerHTML = `
-            ${periodo},${br2}
-            ${idtipo.value}${br2}
-            ${verificanumerorepresentante}${verificanomedocliente}${verificanomefantasia}${br1}
-            OV: ${idordemdevenda.value}${br1}
-            LOCALIZAÇÃO: ${idoptionmes.value} / ${idnomerepresentante.value}${br1}
-            ARQUIVO: ${idarquivo.value}${idrevisao.value}${br2}
-            ${informaçaoespecial}${br2}
-            Grato,${br3}`
+            informaçaoespecial = '<span style="background-color: rgb(255, 255, 0);"><mark>Informação especial.</mark></span>'
+            idresultadocorpodoemail.innerHTML = `${periodo},${br2}${idtipo.value}${br2}${verificanumerorepresentante}${verificanomedocliente}${verificanomefantasia}${br1}${OV}${idordemdevenda.value}${br1}${localizaçao}${idoptionmes.value} / ${idnomerepresentante.value}${br1}${arquivo}${idarquivo.value}${idrevisao.value}${br2}${informaçaoespecial}${br2}${agradecimento}${br3}`
             idresultadocorpodoemail.insertAdjacentElement("beforeend", assinatura)
+            resultadoparaenvio = idresultadopara.innerHTML.replace(/;/g, ",").replace(/ /g, "")
+            resultadoccenvio = idresultadocc.innerHTML.replace(/;/g, ",").replace(/ /g, "")
+            emailtextocompleto = `${mailto}${resultadoparaenvio}${cc}${resultadoccenvio}${subject}${idresultadoassunto.innerHTML}`
+            function copiacorpodoemail() {navigator.clipboard.write([new ClipboardItem({ "text/plain": new Blob([idresultadocorpodoemail.innerText], { type: "text/plain" }), "text/html": new Blob([idresultadocorpodoemail.outerHTML], { type: "text/html" })})])}
+            idcopiacorpodoemail.addEventListener("click", copiacorpodoemail)
+            break;
+        case "Planilhamento Alteração":
+            informaçaoespecial = '<span style="background-color: rgb(255, 255, 0);"><mark>Atualizado o alfa de LLLLLLLL.</mark></span>'
+            idresultadocorpodoemail.innerHTML = `${periodo},${br2}${idtipo.value}${br2}@Marcio Tosta e @Christian Aparecido dos Santos Pereira${br2}${informaçaoespecial}${br2}${agradecimento}${br3}`
+            idresultadocorpodoemail.insertAdjacentElement("beforeend", assinatura)
+            resultadoparaenvio = idresultadopara.innerHTML.replace(/;/g, ",").replace(/ /g, "")
+            resultadoccenvio = idresultadocc.innerHTML.replace(/;/g, ",").replace(/ /g, "")
+            emailtextocompleto = `${mailto}${resultadoparaenvio}${cc}${resultadoccenvio}${subject}${idresultadoassunto.innerHTML}`
+            function copiacorpodoemail() {navigator.clipboard.write([new ClipboardItem({ "text/plain": new Blob([idresultadocorpodoemail.innerText], { type: "text/plain" }), "text/html": new Blob([idresultadocorpodoemail.outerHTML], { type: "text/html" })})])}
+            idcopiacorpodoemail.addEventListener("click", copiacorpodoemail)
             break;
         default:
             idresultadocorpodoemail.innerHTML = "<mark>(OPÇÃO DE E-MAIL AINDA NÃO CONFIGURADA)</mark>"
             break;
     }
-
-    /* Cria o Link */
 
     idgeraremail.setAttribute(hreftag, emailtextocompleto)
 }
@@ -871,15 +857,11 @@ cores.map((el)=>{
 
 /* - Muda a cor do Background */
 
-function changecorbackground() {
-    document.body.style.background = idbackgroundcolor.value
-}
+function changecorbackground() {document.body.style.background = idbackgroundcolor.value}
 
 /* - Muda a cor do Texto */
 
-function changecortexto() {
-    document.body.style.color = idtextocolor.value
-}
+function changecortexto() {document.body.style.color = idtextocolor.value}
 
 /* - Limpa os extras */
 
