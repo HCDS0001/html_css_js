@@ -37,7 +37,7 @@
                         <input type="text" name="namePedido" id="idPedido" size="3" minlength="3" maxlength="3" pattern="[0-9]{3}" placeholder="001" inputmode="numeric" title="Digite o número do pedido, precisam ser 3 números." required><br>
                         <label for="idAno">Ano</label>
                         <select name="nameAno" id="idAno" title="Selecione o ano do pedido."></select><br>
-                        <label for="">Ordem de Venda</label>
+                        <label for="idOrdemDeVenda">Ordem de Venda</label>
                         <input type="text" name="nameOrdemDeVenda" id="idOrdemDeVenda" size="6" minlength="6" min="000001" max="999999" placeholder="609000" title="Preencha com o número da ordem de venda, precisam ser 6 números." inputmode="numeric" required><br>
                         <label for="idNomeDoCliente">Nome do Cliente</label>
                         <input type="text" name="nameNomeDoCliente" id="idNomeDoCliente" size="15" minlength="1" placeholder="Nome do Cliente" title="Preencha com o nome do cliente." required><br>
@@ -68,8 +68,11 @@
                         </details>
                         <details id="idEmailsCc">
                             <summary title='Clique para expandir e visualizar as opções de checbox para inserir no campo "Cc".'>E-mails Cc:</summary>
+                        </details>
+                        <details id="idEmailsBcc">
+                            <summary title='Clique para expandir e visualizar as opções de checbox para inserir no campo "Bcc".'>E-mails Bcc:</summary>
                         </details><hr>
-                        <button type="reset" id="idLimpaEmailSelecionado" title='Limpa as checkbox selecionadas para os campos "Para" e "Cc".'>Limpar E-mails</button>
+                        <button type="reset" id="idLimpaEmailSelecionado" title='Limpa as checkbox selecionadas para os campos "Para", "Cc" e "Bcc".'>Limpar E-mails</button>
                     </fieldset>
                 </form>
             </article>
@@ -82,11 +85,12 @@
                     <span id="idResultadoPara"></span><br>
                     <label for="idResultadoCc" title='Apresenta os e-mails para o campo "Cc".'>Cc:</label><br>
                     <span id="idResultadoCc"></span><br>
+                    <label for="idResultadoBcc" title='Apresenta os e-mails para o campo "Bcc".'>Bcc:</label><br>
+                    <span id="idResultadoBcc"></span><br>
                     <label for="idResultadoAssunto" title="Apresenta o assunto do e-mail.">Assunto:</label><br>
                     <span id="idResultadoAssunto"></span><br>
                     <label for="idResultadoCorpoDoEmail" title="Apresenta o corpo do e-mail.">Corpo do E-mail:</label><br>
-                    <span id="idResultadoCorpoDoEmail" spellcheck="true" contenteditable></span>
-                    <img src="" alt="Assinatura de e-mail." id="idArquivoAssinatura"><hr>
+                    <span id="idResultadoCorpoDoEmail" spellcheck="true" contenteditable></span><hr>
                     <button type="button" id="idApresentaEmail" title="Gera os resultados com base nos itens preenchidos e selecionados nos campos acima.">Exibir Resultado</button>
                     <button type="reset" id="idLimpaResultado"title="Limpa os resultados gerados.">Limpar Resultados</button>
                 </fieldset>
@@ -98,16 +102,17 @@
                     <label for="idGeraEmail">Gerar E-mail:</label>
                     <a id="idGeraEmail" target="_blank" title="Clique para gerar o e-mail.">&#x1F518</a><br>
                     <label for="idBackgroundColor">Cor do Background:</label>
-                    <input type="color" name="nameBackgroundColor" id="idBackgroundColor" value="#FFFFFF" list="idOpçõesCores" title="Selecione a cor do background."><br>
+                    <input type="color" name="nameBackgroundColor" id="idBackgroundColor" value="#FFFFFF" list="idOptionCores" title="Selecione a cor do background."><br>
                     <label for="idBackgroundColor">Cor do Texto:</label>
-                    <input type="color" name="nameTextoColor" id="idTextoColor" value="#000000" list="idOpçõesCores" title="Selecione a cor do texto."><br>
-                    <datalist id="idOpçõesCores"></datalist>
+                    <input type="color" name="nameTextoColor" id="idTextoColor" value="#000000" list="idOptionCores" title="Selecione a cor do texto."><br>
+                    <datalist id="idOptionCores"></datalist>
                     <button type="reset" id="idLimpaExtras"title="Limpa os extras.">Limpar Extras</button>
                 </fieldset>
             </form>
         </section>
     </main>
     <footer>Desenvolvido por Henrique Carvalho de Souza</footer>
+<!--     <p id="teste">TESTE</p> -->
     <script src="email.js"></script>
 <!--     <style style="display: block;" contenteditable>main, header, footer{color: #FFFFFF; background-color: #000000;}</style> -->
 </body>
