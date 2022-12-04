@@ -473,20 +473,20 @@ function changeTipo() {
 
 /* - Seleciona as checkbox dos e-mails de acordo com o tipo de pedido */
 
-    for (let index in cadastro) {
-        if (idTipo.value == cadastro[index].tipo) {
-            for (let index2 in cadastro[index].emailsPara) {
-                let capitalizeIdPara = `idPara${(cadastro[index].emailsPara[index2].replace(/ /g, "")).charAt(0).toLowerCase() + (cadastro[index].emailsPara[index2].replace(/ /g, "")).slice(1)}`
+    for (let index in email) {
+        if (idTipo.value == email[index].tipo) {
+            for (let index2 in email[index].emailsPara) {
+                let capitalizeIdPara = `idPara${(email[index].emailsPara[index2].replace(/ /g, "")).charAt(0).toLowerCase() + (email[index].emailsPara[index2].replace(/ /g, "")).slice(1)}`
                 let idCheckboxPara = document.querySelector(`#${capitalizeIdPara}`)
                 idCheckboxPara.checked = true
             }
-            for (let index2 in cadastro[index].emailsCc) {
-                let capitalizeIdCc = `idCc${(cadastro[index].emailsCc[index2].replace(/ /g, "")).charAt(0).toLowerCase() + (cadastro[index].emailsCc[index2].replace(/ /g, "")).slice(1)}`
+            for (let index2 in email[index].emailsCc) {
+                let capitalizeIdCc = `idCc${(email[index].emailsCc[index2].replace(/ /g, "")).charAt(0).toLowerCase() + (email[index].emailsCc[index2].replace(/ /g, "")).slice(1)}`
                 let idCheckboxCc = document.querySelector(`#${capitalizeIdCc}`)
                 idCheckboxCc.checked = true
             }
-            for (let index2 in cadastro[index].emailsBcc) {
-                let capitalizeIdBcc = `idBcc${(cadastro[index].emailsBcc[index2].replace(/ /g, "")).charAt(0).toLowerCase() + (cadastro[index].emailsBcc[index2].replace(/ /g, "")).slice(1)}`
+            for (let index2 in email[index].emailsBcc) {
+                let capitalizeIdBcc = `idBcc${(email[index].emailsBcc[index2].replace(/ /g, "")).charAt(0).toLowerCase() + (email[index].emailsBcc[index2].replace(/ /g, "")).slice(1)}`
                 let idCheckboxBcc = document.querySelector(`#${capitalizeIdBcc}`)
                 idCheckboxBcc.checked = true
             }
