@@ -13,7 +13,7 @@ let idOrdemDeVenda = document.querySelector("#idOrdemDeVenda")
 let idNomeDoCliente = document.querySelector("#idNomeDoCliente")
 let idNomeFantasia = document.querySelector("#idNomeFantasia")
 let idMês = document.querySelector("#idMês")
-let idAnexarAssinatura = document.querySelector("#idAnexarAssinatura")
+let idArquivo = document.querySelector("#idArquivo")
 let idRevisão = document.querySelector("#idRevisão")
 let idLimpaDadosDePedido = document.querySelector("#idLimpaDadosDePedido")
 let idLimpaDadosPessoais = document.querySelector("#idLimpaDadosPessoais")
@@ -44,7 +44,7 @@ let labelTag = "label"
 let brTag = "br"
 let detailsTag = "details"
 let summaryTag = "summary"
-let hrefTag = "href"
+let hrefAttribute = "href"
 let valueAttribute = "value"
 let idAttribute = "id"
 let classAttribute = "class"
@@ -420,7 +420,7 @@ function changeFunção() {
     subGrupo.map((el)=>{
         let capitalizeIdSubGrupo = `iDSubGrupo${(el.subGrupo.replace(/ /g, "")).charAt(0).toLowerCase() + (el.subGrupo.replace(/ /g, "")).slice(1)}`
         let optionSubGrupo = document.createElement("optgroup")
-        optionSubGrupo.setAttribute("label", el.subGrupo)
+        optionSubGrupo.setAttribute(labelTag, el.subGrupo)
         optionSubGrupo.setAttribute(idAttribute, capitalizeIdSubGrupo)
         idTipo.insertAdjacentElement("beforeend",optionSubGrupo)
     })
@@ -543,9 +543,7 @@ function limpaDadosDoPedido() {
     idNomeRepresentante.setAttribute(valueAttribute,representanteCadastro[0].nome)
 }
 
-function limpaDadosPessoais() {
-
-}
+function limpaDadosPessoais() {limpaResultado()}
 
 /* E-mails Selecionados */
 
@@ -848,7 +846,6 @@ function gerar() {
 
 /* - Gera e-mails para */
 
-    idResultadoPara.innerHTML = ""
     let classParaEmail = document.querySelectorAll(".classParaEmail")
     for (let index in cadastro) {if (classParaEmail[index].checked == true) {idResultadoPara.innerHTML += `${classParaEmail[index].value}; `}}
 
@@ -878,9 +875,8 @@ if (idAssinatura.files.length == 0) {
 else {
     assinatura = document.createElement("img")
     assinatura.setAttribute(srcAttribute, URL.createObjectURL(idAssinatura.files[0]))
-    assinatura.setAttribute("width", "300px")
+    assinatura.setAttribute(widthAttribute, "300px")
 }
-
 
 /* -- Verifica se tem dados não preenchidos e corrige a formatação */
     let verificaNúmeroRepresentante = ""
@@ -930,12 +926,11 @@ else {
             informação01 = `Gostaria de tirar algumas dúvidas a respeito de porta seccional e portal de selamento:`
             informação02 = `1 - Qual o pé direito livre do início do vão da porta até a primeira obstrução do lado externo da porta (medida A)?`
             informação03 = `2 - Qual a altura do patamar entre a parada dos caminhões e a base das portas seccionais (medida B)?`
-            imagem01.setAttribute(srcAttribute,"Porta_Seccional_Livre_de_Alvenaria.png")
+            imagem01.setAttribute(srcAttribute,"https://lh3.googleusercontent.com/coTn4u0vKBxt0cW_BtDviHia3cj4qlQA8yVoVRbksCscSSUFOHh9RltjQb1u_YqbnEGl2_H7QMpnZQ0795Nb-oSmVr5j-C9HyygvDbMvSoJ_kM7skWOHWxt2LXnTyc8dGT-EFJgkNRo1iZ5FC4MU4hdjL4X12PESlMACVPsz9j7n9oI1cMZdxvuLAL2PGDp3ylcFA5EgZEp2H8l6WJbjUBZqzC63uKR7OUBdjy3XQOpBO6BAyMqaD9nnkgvbg2aZb5Y5Z_EQ4hh3e5wUfsXhM1atOb3HDZtN7Ts8OWDyjxy0G2DCWC0Goo0x8KjSKdfAU79ostfV_h24-Yc0zXX2wxmXZUtbwKN4YXKXipDVgVVnQa4qS5__N22ff5du-2zQfTOgGHOuVx9XZF3_RcoReOLnmWG9TBsLa0To06QTq3c6SR6pZz7C4KJ0jKwp2YS_Xolqpt1LRd7cZeuaLnaNagzqT0lFgTfHC1SRmBVo1rtdsyBJcksZUtVcT-KcibWcTiqD5TPLeP77od9Lh9cnXqGShketOhfRGhAhuZZGTU1Kmo7NBVU2Q-xuD8qkR4Gj36Xr5jhWbAJgVsWV8ttIYWjM9CNGjJ9USJ0Hn_4XoD09kDr7hF_424DEP2PA-fqateVkGerKL_ukFreLXaqIxeFnSjDXK8OrQ9XeUr9KccY5d5iCzdF9MFRk6pzk0UyW_MAoyFe0oDziq1YKEBmpRIjipAlZcMhrDrAUAi4MDH5KJUPQ45insDHvQrhaYEOOXRUkh03QuvPBnGCtyyKzP7TvXFiiQ5-y3uQPEkm0m65u0ANtaPnUdy5PwyFKcxnIPoUeW3vgsXNA4YCmaOq3K6Gajp2uo66X_l1pngN8n9Tyb9sk80RVvazirE66vmdn60jiyL61PXqU-Wp_RYVCrQc6MOnuz5J1wjx1fg52CBK1=w925-h754-no?authuser=0")
             imagem01.setAttribute(altAttribute,"Porta Seccional Livre de Alvenaria")
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}`
             idResultadoCorpoDoEmail.appendChild(imagem01)
             idResultadoCorpoDoEmail.innerHTML += `${br2}${agradecimento}${br3}`
-            idResultadoCorpoDoEmail.appendChild(assinatura)
             break;
         case "Dúvida de Porta Seccional Encostada em Alvenaria":
             informação01 = `Gostaria de tirar algumas dúvidas a respeito de porta seccional e portal de selamento:`
@@ -943,12 +938,11 @@ else {
             informação03 = `2 - Qual a altura do patamar entre a parada dos caminhões e a base das portas seccionais (medida B)?`
             informação04 = `3 - Em frente aos painéis onde estão as portas seccionais existe uma representação de parede de alvenaria, essa alvenaria vai até o teto correto?`
             informação05 = `4 - Por favor me confirme a espessura da alvenaria da pergunta anterior (medida C)?`
-            imagem01.setAttribute(srcAttribute,"Porta_Seccional_Encostada_em_Alvenaria.png")
+            imagem01.setAttribute(srcAttribute,"https://lh3.googleusercontent.com/mq2prDkhs6HK4N_KWeFI-5AP5eW264RDzJDveNPKPhui37DnXjMRpeBdf8aWHQ3KRMzT0hNpglyqasJBgJdSP5IUUAIaF0nAs8E48ldSBMXTdPZ7d5kLabpYtcckig4zjeofZKXrR2780avX-6R3bposSjvgT_0YNRQklUIVaU5eGfSU-XM6ToOIhnZlecWqKdVIwTJENDow0dzG3RdGPGR4Lsm0xui6UuU_FL_e-OBUm_V5KcuTna-ixtWZPdW7W_xIfSYES9JbV_XL7nCek-6Er1EogSQPrF5uUSSm3vzdl6CoZDvJsMxmeY0z68s3X9s3LbZT-bPmv_Yf8UXLPkjjbMBWgfkrZT1LK8b8osqVVZpD_XJJ8VwGK6FR-GyDmADnbsQIz1zC5WK9U5ZOTc59vWW4Li0t4Mp4meLvv7NOSvDZqTb-1MRCPch2e-t44qiwi7slO50lpwPSLJVz4mHNBOrQEH71AD3QGwKkkpDRjXA2kQjXNzk-ReegWus8CoPmTD-zlTP_Xn81TlpzVKJeRl36ORCzb9yf-DuosJYm4ajUbUZMfbKOUJjbBuHl5XMOiEoaT79ODUHypQSuju3K2R8ncHPeTnVtSiRoV68Cq6Mzu5tw9hHqRXl6lFR5NuMisl9V3UE_zpllK3BfC5ydmBmIf4oSERUw0cJxk-ZU_DjyhJHTFG1mOowaQh6iYVBMumxXZwHBVh3ob8QOIuJ0MAV0ZvL3rKfweGEb2CwaB7Xu63Rng0W8haFy6ytCV4rn6SGRc8wFJXmybII8yo3fJLgV1mEBjjktlKj1uMeC3w5JsH4xWN8gOX9wjdUM4sssfCiv4SCzC7GgpvdfBRsc0rMPC8oIvL5X4PPuHlMmbBjCR9Mlydj9kz_etSbD7eZu2YE4MAlMIzGQsBrWpxNyKJ1jJ9INjaWdU1MOTabF=w843-h666-no?authuser=0")
             imagem01.setAttribute(altAttribute,"Porta Seccional Encostada em Alvenaria")
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${informação04}${br2}${informação05}${br2}`
             idResultadoCorpoDoEmail.appendChild(imagem01)
             idResultadoCorpoDoEmail.innerHTML += `${br2}${agradecimento}${br3}`
-            idResultadoCorpoDoEmail.appendChild(assinatura)
             break;
         case "Aguardando Dúvida":
             informação01 = `Seguimos arguardando as dúvidas e correções enviadas nos e-mails anteriores, a demora nas respostas afeta diretamente o prazo de entrega dos materiais.`
@@ -960,21 +954,23 @@ else {
             break;
         case "Planilhamento Total":
             informação01 = `<span ${amareloBackground}><mark>Informação especial.</mark></span>`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idAnexarAssinatura.value}${idRevisão.value}${br2}${informação01}${br2}${agradecimento}${br3}`
+            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${idRevisão.value}${br2}${informação01}${br2}${agradecimento}${br3}`
             break;
         case "Planilhamento Parcial":
             informação01 = `<span ${amareloBackground}><mark>Informação especial.</mark></span>`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idAnexarAssinatura.value}${idRevisão.value}${br2}${informação01}${br2}${agradecimento}${br3}`
+            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${idRevisão.value}${br2}${informação01}${br2}${agradecimento}${br3}`
             break;
         case "Planilhamento Alteração":
             informação01 = `<span ${amareloBackground}><mark>Atualizado o alfa de OOOOOOOO.</mark></span>`
-            contatos = ``
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${marcioHiperlink} e ${christianHiperlink}${br2}${informação01}${br2}${simoneHiperlink}${br2}Por favor verificar a necessidade de atualização do projeto executivo.${br2}${agradecimento}${br3}`
+            informação02 = `Por favor verificar a necessidade de atualização do projeto executivo.`
+            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${marcioHiperlink} e ${christianHiperlink}${br2}${informação01}${br2}${simoneHiperlink}${br2}${informação02}${br2}${agradecimento}${br3}`
             break;
         default:
-            idResultadoCorpoDoEmail.innerHTML = "<mark>(OPÇÃO DE E-MAIL AINDA NÃO CONFIGURADA)</mark>"
+            informação01 = `<span ${amareloBackground}><mark>(OPÇÃO DE E-MAIL AINDA NÃO CONFIGURADA)</mark></span>`
+            idResultadoCorpoDoEmail.innerHTML = `${informação01}`
             break;
     }
+    idResultadoCorpoDoEmail.appendChild(assinatura)
 
 /* -- Gera os dados do e-mail no formato correto para o mailTo */
 
@@ -992,12 +988,11 @@ else {
         if (idResultadoBcc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${cc}${idResultadoCc.innerHTML}${bcc}${controlEmail}${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
         if (idResultadoCc.innerHTML == "" && idResultadoBcc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${bcc2}${controlEmail}${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
     } 
-    if (hrefMailtoEmail) {idGeraEmail.setAttribute(hrefTag, hrefMailtoEmail)}
+    if (hrefMailtoEmail) {idGeraEmail.setAttribute(hrefAttribute, hrefMailtoEmail)}
 
 /* -- Copia o corpo do e-mail */
 
-    function copiaCorpoDoEmail() {
-        navigator.clipboard.write([new ClipboardItem({ "text/plain": new Blob([idResultadoCorpoDoEmail.innerText], { type: "text/plain" }), "text/html": new Blob([idResultadoCorpoDoEmail.outerHTML], { type: "text/html" })})])}
+    function copiaCorpoDoEmail() {navigator.clipboard.write([new ClipboardItem({ "text/plain": new Blob([idResultadoCorpoDoEmail.innerText], { type: "text/plain" }), "text/html": new Blob([idResultadoCorpoDoEmail.innerHTML], { type: "text/html" })})])}
     idCopiaCorpoDoEmail.addEventListener("click", copiaCorpoDoEmail)
 }
 
@@ -1009,6 +1004,7 @@ function limpaResultado() {
     idResultadoBcc.innerHTML = ""
     idResultadoAssunto.innerHTML = ""
     idResultadoCorpoDoEmail.innerHTML = ""
+    idGeraEmail.removeAttribute(hrefAttribute)
 }
 
 /* Opções Extras */
@@ -1056,9 +1052,9 @@ idLimpaExtras.addEventListener("click", limpaExtras)
 
 /* Mostra o que está na área de transferência */
 
-/* async function mostraÁreaDeTransferência() {
-    let teste = document.querySelector("#teste")
-    try {
+/* //let teste1 = document.querySelector("#teste1")
+let teste2 = document.querySelector("#teste2")
+async function mostraÁreaDeTransferência() {
     let clipboardItems = await navigator.clipboard.read()
     for (const clipboardItem of clipboardItems) {
         for (const type of clipboardItem.types) {
@@ -1066,17 +1062,14 @@ idLimpaExtras.addEventListener("click", limpaExtras)
             let reader = new FileReader()
             reader.onload = () => {
                 console.log(reader.result)
-                alert(reader.result)
-                teste.innerHTML = reader.result
+                //alert(reader.result)
+                //teste1.innerHTML = reader.result
             }
             reader.readAsText(blob)
         }
     }
-    } catch (err) {
-    console.error(err.name, err.message)
-    }
 }
-idCopiaCorpoDoEmail.addEventListener("click", mostraÁreaDeTransferência) */
+teste2.addEventListener("click", mostraÁreaDeTransferência) */
 
 /* TESTE */
 
