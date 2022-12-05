@@ -982,11 +982,11 @@ else {
     if (idResultadoCc.innerHTML == "" && idResultadoBcc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${subject2}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
 
     if (controlEmail != "") {
-        hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${cc}${idResultadoCc.innerHTML}${bcc}${idResultadoBcc.innerHTML}; ${controlEmail}${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")
+        hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${cc}${idResultadoCc.innerHTML}${bcc}${idResultadoBcc.innerHTML}${controlEmail};${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")
         bcc2 = bcc.replace(/&/,"?")
-        if (idResultadoCc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${bcc2}${idResultadoBcc.innerHTML}; ${controlEmail}${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
-        if (idResultadoBcc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${cc}${idResultadoCc.innerHTML}${bcc}${controlEmail}${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
-        if (idResultadoCc.innerHTML == "" && idResultadoBcc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${bcc2}${controlEmail}${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
+        if (idResultadoCc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${bcc2}${idResultadoBcc.innerHTML}${controlEmail};${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
+        if (idResultadoBcc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${cc}${idResultadoCc.innerHTML}${bcc}${controlEmail};${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
+        if (idResultadoCc.innerHTML == "" && idResultadoBcc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${bcc2}${controlEmail};${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
     } 
     if (hrefMailtoEmail) {idGeraEmail.setAttribute(hrefAttribute, hrefMailtoEmail)}
 
