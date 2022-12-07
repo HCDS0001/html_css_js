@@ -6,6 +6,10 @@ input:invalid{
     display: none;
 }
 
+#idDadosDeCompra{
+    display: none;
+}
+
 .classTipo{
     display: none;
 }

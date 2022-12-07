@@ -48,8 +48,15 @@
                         <label for="idArquivo">Arquivo</label>
                         <input type="text" name="nameAnexarAssinatura" id="idArquivo" size="8" minlength="8" maxlength="8" pattern="[A-Z]{2}[0-9]{6}" placeholder="AA000000" title="Preencha com o número do arquivo, precisam ser 2 letras maiúsculas e 6 números." required><br>
                         <label for="idRevisão">Revisão</label>
-                        <input type="text" name="nameRevisão" id="idRevisão" size="1" minlength="1" maxlength="1" pattern="[A-Z]{1}" placeholder="A" title="Preencha com a letra da revisão, precisa ser 1 letra maiúscula." required><hr>
+                        <input type="text" name="nameRevisão" id="idRevisão" size="1" minlength="1" maxlength="1" pattern="[A-Z]{1}" placeholder="A" title="Preencha com a letra da revisão, precisa ser 1 letra maiúscula."><hr>
                         <button type="reset" id="idLimpaDadosDePedido" title="Limpa os dados preenchidos do pedido.">Limpar Dados do Pedido</button>
+                    </fieldset>
+                </form>
+                <form action="">
+                    <fieldset id="idDadosDeCompra">
+                        <legend>Dados de Compra</legend>
+                        <label for="idFornecedor">Fornecedor:</label>
+                        <select name="nameFornecedor" id="idFornecedor" title="Selecione o fornecedor do material."></select><br>
                     </fieldset>
                 </form>
                 <form action="">
@@ -111,8 +118,8 @@
         </section>
     </main>
     <footer>Desenvolvido por Henrique Carvalho de Souza</footer>
-<!--     <button id="teste2">teste2</button> -->
-<!--     <p id="teste1">teste1</p> -->
+    <a id="idDúvidasDesenvolvedor" target="_blank" title="Clique para enviar um e-mail de dúvidas para o desenvolvedor da página.">Dúvidas para o desenvolvedor.</a><br>
+<!--     <button id="idExibeÁreaDeTransferência">Exibe Área de Transferência</button> -->
 <!--     <style style="display: block;" contenteditable>main, header, footer{color: #FFFFFF; background-color: #000000;}</style> -->
     <script src="email.js"></script>
 </body>

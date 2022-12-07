@@ -13,6 +13,7 @@ let idOrdemDeVenda = document.querySelector("#idOrdemDeVenda")
 let idNomeDoCliente = document.querySelector("#idNomeDoCliente")
 let idNomeFantasia = document.querySelector("#idNomeFantasia")
 let idMês = document.querySelector("#idMês")
+let idFornecedor = document.querySelector("#idFornecedor")
 let idArquivo = document.querySelector("#idArquivo")
 let idRevisão = document.querySelector("#idRevisão")
 let idLimpaDadosDePedido = document.querySelector("#idLimpaDadosDePedido")
@@ -25,16 +26,17 @@ let idResultadoPara = document.querySelector("#idResultadoPara")
 let idResultadoCc = document.querySelector("#idResultadoCc")
 let idResultadoBcc = document.querySelector("#idResultadoBcc")
 let idResultadoAssunto = document.querySelector("#idResultadoAssunto")
-let idApresentaEmail = document.querySelector("#idApresentaEmail")
 let idResultadoCorpoDoEmail = document.querySelector("#idResultadoCorpoDoEmail")
-let idLimpaResultado = document.querySelector("#idLimpaResultado")
+let idApresentaEmail = document.querySelector("#idApresentaEmail")
 let idCopiaCorpoDoEmail = document.querySelector("#idCopiaCorpoDoEmail")
+let idGeraEmail = document.querySelector("#idGeraEmail")
+let idLimpaResultado = document.querySelector("#idLimpaResultado")
 let idAssinatura = document.querySelector("#idAssinatura")
+let idDúvidasDesenvolvedor = document.querySelector("#idDúvidasDesenvolvedor")
 let idBackgroundColor = document.querySelector("#idBackgroundColor")
 let idTextoColor = document.querySelector("#idTextoColor")
 let idOptionCores = document.querySelector("#idOptionCores")
 let idLimpaExtras = document.querySelector("#idLimpaExtras")
-let idGeraEmail = document.querySelector("#idGeraEmail")
 
 /* Variáveis para facilitar a escrita de funções  */
 
@@ -64,10 +66,11 @@ let selectOption = "(SELECIONE UMA OPÇÃO)"
 let sim = "sim"
 let não = "não"
 let classSemPedido = "classSemPedido"
-let controlEmail = "hcds.rick@gmail.com"
+let controlEmail = ""//"hcds.rick@gmail.com"
 let br1 = "<br>".repeat(1)
 let br2 = "<br>".repeat(2)
 let br3 = "<br>".repeat(3)
+let br4 = "<br>".repeat(4)
 let mailTo = "mailTo:"
 let cc = "?cc="
 let bcc = "&bcc="
@@ -79,102 +82,49 @@ let arquivo = "ARQUIVO: "
 let agradecimento = "Atenciosamente,"
 let enter = "%0D"
 
-/* Variáveis para e-mails que servem para vários representantes */
-
-let emailsSãoPaulo = "felipe.santos@eletrofrio.com.br; bruna.nahkur@eletrofrio.com.br; diego.paula@eletrofrio.com.br; edison@eletrofrio.com.br; danielly.fabem@eletrofrio.com.br"
-let emailsExterior = "gabriel@eletrofrio.com.br; luiz.alves@eletrofrio.com.br"
-
 /* Arrays com dados a serem inseridos */
-
-let email = [
-    {função:selectOption, tipo:selectOption, dadosDoPedido:não},
-    //{area:"Comercial", função:"Analista", subGrupo:"Analista", tipo:"Liberação Parcial", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Comercial", função:"Analista", subGrupo:"Analista", tipo:"Liberação Total", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Comercial", função:"Analista", subGrupo:"Analista", tipo:"Linhas Atualizadas", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Comercial", função:"Analista", subGrupo:"Analista", tipo:"Feito", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Comercial", função:"Analista", subGrupo:"Analista", tipo:"Atualizar", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Comercial", função:"Ajuste", subGrupo:"Ajuste", tipo:"Dúvidas", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Comercial", função:"Ajuste", subGrupo:"Ajuste", tipo:"Aguardando Dúvidas", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Comercial", função:"Ajuste", subGrupo:"Ajuste", tipo:"Arquivos de Ajuste", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Comercial", função:"Ajuste", subGrupo:"Ajuste", tipo:"Aguardando Conferência", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Comercial", função:"Ajuste", subGrupo:"Ajuste", tipo:"Alteração", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Executivo", subGrupo:"Executivo", tipo:"Pré Projeto", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Executivo", subGrupo:"Executivo", tipo:"Projeto Executivo", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Compra", tipo:"Compra de Porta Walk-In", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Compra", tipo:"Compra de Porta Seccional", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Compra", tipo:"Compra de Portal de Selamento", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Compra", tipo:"Compra de Niveladora de Doca", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Compra", tipo:"Compra de Porta Rápida", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Compra", tipo:"Compra de Porta Automática", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Compra", tipo:"Compra de Porta Beer Cave", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Compra", tipo:"Compra de Visor Corrediço", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Compra", tipo:"Compra de Porta Vai e Vem Isolada", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Compra", tipo:"Compra de Porta Vai e Vem de Tamanho Especial", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Compra", tipo:"Compra de Resistência", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Compra", tipo:"Compra de Termostato", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Cotação", tipo:"Cotação de Porta Walk-In", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Cotação", tipo:"Cotação de Porta Seccional", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Cotação", tipo:"Cotação de Portal de Selamento", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Cotação", tipo:"Cotação de Niveladora de Doca", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Cotação", tipo:"Cotação de Porta Rápida", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Cotação", tipo:"Cotação de Porta Automática", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Cotação", tipo:"Cotação de Porta Beer Cave", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Cotação", tipo:"Cotação de Visor Corrediço", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Cotação", tipo:"Cotação de Porta Vai e Vem Isolada", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Cotação", tipo:"Cotação de Porta Vai e Vem de Tamanho Especial", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Cotação", tipo:"Cotação de Resistência", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Cotação", tipo:"Cotação de Termostato", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    {area:"Continnum", função:"Planilhamento", subGrupo:"Dúvida", tipo:"Dúvida Geral", dadosDoPedido:sim, emailsPara: [], emailsCc: ["Continuum - Planilhamento", "Cláudia", "Cleber", "Ellen", "Letícia", "Luiz Fernando Gonsalvez", "Alexandre Ribeiro", "João Cláudio", "Luiz Eduardo", "Nilson", "Suelen", "Carla", "Roney"], emailsBcc: []},
-    {area:"Continnum", função:"Planilhamento", subGrupo:"Dúvida", tipo:"Dúvida de Porta Seccional Livre de Alvenaria", dadosDoPedido:sim, emailsPara: [], emailsCc: ["Continuum - Planilhamento", "Cláudia", "Cleber", "Ellen", "Letícia", "Luiz Fernando Gonsalvez", "Alexandre Ribeiro", "João Cláudio", "Luiz Eduardo", "Nilson", "Suelen", "Carla", "Roney"], emailsBcc: []},
-    {area:"Continnum", função:"Planilhamento", subGrupo:"Dúvida", tipo:"Dúvida de Porta Seccional Encostada em Alvenaria", dadosDoPedido:sim, emailsPara: [], emailsCc: ["Continuum - Planilhamento", "Cláudia", "Cleber", "Ellen", "Letícia", "Luiz Fernando Gonsalvez", "Alexandre Ribeiro", "João Cláudio", "Luiz Eduardo", "Nilson", "Suelen", "Carla", "Roney"], emailsBcc: []},
-    {area:"Continnum", função:"Planilhamento", subGrupo:"Dúvida", tipo:"Aguardando Dúvida", dadosDoPedido:sim, emailsPara: [], emailsCc: ["Continuum - Planilhamento", "Cláudia", "Cleber", "Ellen", "Letícia", "Luiz Fernando Gonsalvez", "Alexandre Ribeiro", "João Cláudio", "Luiz Eduardo", "Nilson", "Suelen", "Carla", "Roney"], emailsBcc: []},
-    {area:"Continnum", função:"Planilhamento", subGrupo:"Encaminhar", tipo:"Encaminhar", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    {area:"Continnum", função:"Planilhamento", subGrupo:"Planilhamento", tipo:"Planilhamento Total", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
-    {area:"Continnum", função:"Planilhamento", subGrupo:"Planilhamento", tipo:"Planilhamento Parcial", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
-    {area:"Continnum", função:"Planilhamento", subGrupo:"Planilhamento", tipo:"Planilhamento Alteração", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Suporte TI", tipo:"Geral", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Suporte TI", tipo:"Baan - Geral", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Suporte TI", tipo:"Baan - Inclusão de Item", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Suporte TI", tipo:"Baan - Exclusão de Item", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Suporte TI", tipo:"Baan - Troca de Item", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Suporte TI", tipo:"Baan - Exclusão de Alfa", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Suporte TI", tipo:"Baan - Remoção de Alfa", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Suporte TI", tipo:"Baan - Estorno de Alfa", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Suporte TI", tipo:"Baan - Derrubar Usuário", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Suporte TI", tipo:"Baan - Liberação de Tela", dadosDoPedido:não, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Suporte TI", tipo:"SIP - Geral", dadosDoPedido:não, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Continnum", função:"Planilhamento", subGrupo:"Suporte TI", tipo:"SIP - Liberação para Edição de Painéis Altos", dadosDoPedido:não, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{area:"Externo", função:"Representante", subGrupo:"Representante", tipo:"Representante", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-]
 
 let cadastro = [
     //{função:"_ADM_", número:"_ADM_", nome:"Henrique Carvalho de Souza", emailComercial:"hcds.rick@gmail.com"},
-    {função:"Ajuste", número:"nnn", nome:"Cláudia", emailComercial:"claudia.carvalho@eletrofrio.com.br"},
-    {função:"Ajuste", número:"nnn", nome:"Cleber", emailComercial:"cleber.medeiros@eletrofrio.com.br"},
-    {função:"Ajuste", número:"nnn", nome:"Ellen", emailComercial:"ellen@eletrofrio.com.br"},
-    {função:"Ajuste", número:"nnn", nome:"Letícia", emailComercial:"leticia.karoline@eletrofrio.com.br"},
-    {função:"Ajuste", número:"nnn", nome:"Luiz Fernando Gonsalvez", emailComercial:"luiz.goncalves@eletrofrio.com.br"},
-    {função:"Analista", número:"nnn", nome:"Alexandre Ribeiro", emailComercial:"alexandre.ribeiro@eletrofrio.com.br"},
-    {função:"Analista", número:"nnn", nome:"João Cláudio", emailComercial:"jclaudio@eletrofrio.com.br"},
-    {função:"Analista", número:"nnn", nome:"Luiz Eduardo", emailComercial:"luiz.eduardo@eletrofrio.com.br"},
-    {função:"Analista", número:"nnn", nome:"Nilson", emailComercial:"nilson@eletrofrio.com.br"},
-    {função:"Analista", número:"nnn", nome:"Suelen", emailComercial:"suelen.assis@eletrofrio.com.br"},
-    {função:"Executivo", número:"nnn", nome:"Bruno", emailComercial:"bruno.garcia@eletrofrio.com.br"},
-    {função:"Executivo", número:"nnn", nome:"Carlos", emailComercial:"carlos.margon@eletrofrio.com.br"},
-    {função:"Executivo", número:"nnn", nome:"Rubens", emailComercial:"rubens@eletrofrio.com.br"},
-    {função:"Executivo", número:"nnn", nome:"Susan", emailComercial:"susan.colsani@eletrofrio.com.br"},
-    {função:"Fábrica", número:"nnn", nome:"Christian", emailComercial:"christian@eletrofrio.com.br"},
-    {função:"Fábrica", número:"nnn", nome:"Marcio", emailComercial:"tosta@eletrofrio.com.br"},
-    {função:"Grupo", número:"nnn", nome:"Continuum - Planilhamento para Produção", emailComercial:"PLANIC.F@uhygb1yu6fxo7a.onmicrosoft.com"},
-    {função:"Grupo", número:"nnn", nome:"Continuum - Planilhamento", emailComercial:"planilhamento@continuum.ind.br"},
-    {função:"Grupo", número:"nnn", nome:"Continuum - Projeto Executivo", emailComercial:"projetos@continuum.ind.br"},
-    {função:"Liderança", número:"nnn", nome:"Carla", emailComercial:"carlaadriana@eletrofrio.com.br"},
-    {função:"Liderança", número:"nnn", nome:"Roney", emailComercial:"roney@eletrofrio.com.br"},
-    {função:"Liderança", número:"nnn", nome:"Alexandre Cavagnoli", emailComercial:"alexandre.cavagnoli@eletrofrio.com.br"},
-    {função:"Liderança", número:"nnn", nome:"Leandro Vianna", emailComercial:"leandro.vianna@eletrofrio.com.br"},
-    {função:"Liderança", número:"nnn", nome:"Simone", emailComercial:"simone@eletrofrio.com.br"},
-    {função:"Planilhamento", número:"nnn", nome:"Amarildo", emailComercial:"amarildo.cruz@eletrofrio.com.br"},
-    {função:"Planilhamento", número:"nnn", nome:"Gabriel", emailComercial:"gabriel.aguiar@eletrofrio.com.br"},
+    {função:"Ajuste", número:"106286", nome:"Cláudia", emailComercial:"claudia.carvalho@eletrofrio.com.br"},
+    {função:"Ajuste", número:"106078", nome:"Cleber", emailComercial:"cleber.medeiros@eletrofrio.com.br"},
+    {função:"Ajuste", número:"32245", nome:"Ellen", emailComercial:"ellen@eletrofrio.com.br"},
+    {função:"Ajuste", número:"106260", nome:"Letícia", emailComercial:"leticia.karoline@eletrofrio.com.br"},
+    {função:"Ajuste", número:"106263", nome:"Luiz Fernando Gonsalvez", emailComercial:"luiz.goncalves@eletrofrio.com.br"},
+    {função:"Ajuste São Paulo", número:"105898", nome:"Bruna", emailComercial:"bruna.nahkur@eletrofrio.com.br"},
+    {função:"Ajuste São Paulo", número:"106122", nome:"Diego", emailComercial:"diego.paula@eletrofrio.com.br"},
+    {função:"Ajuste São Paulo", número:"57750", nome:"Felipe", emailComercial:"felipe.santos@eletrofrio.com.br"},
+    {função:"Analista", número:"53534", nome:"Alexandre Ribeiro", emailComercial:"alexandre.ribeiro@eletrofrio.com.br"},
+    {função:"Analista", número:"26797", nome:"João Cláudio", emailComercial:"jclaudio@eletrofrio.com.br"},
+    {função:"Analista", número:"38308", nome:"Luiz Eduardo", emailComercial:"luiz.eduardo@eletrofrio.com.br"},
+    {função:"Analista", número:"34566", nome:"Nilson", emailComercial:"nilson@eletrofrio.com.br"},
+    {função:"Compras", número:"106321", nome:"Reinaldo", emailComercial:"reinaldo.rossini@eletrofrio.com.br"},
+    {função:"Compras", número:"45320", nome:"Tiago", emailComercial:"tiago.felipe@eletrofrio.com.br"},
+    {função:"Analista", número:"64067", nome:"Suelen", emailComercial:"suelen.assis@eletrofrio.com.br"},
+    {função:"Executivo", número:"56690", nome:"Bruno", emailComercial:"bruno.garcia@eletrofrio.com.br"},
+    {função:"Executivo", número:"41597", nome:"Carlos", emailComercial:"carlos.margon@eletrofrio.com.br"},
+    {função:"Executivo", número:"31745", nome:"Rubens", emailComercial:"rubens@eletrofrio.com.br"},
+    {função:"Executivo", número:"200239", nome:"Susan", emailComercial:"susan.colsani@eletrofrio.com.br"},
+    {função:"Fábrica", número:"41155", nome:"Christian", emailComercial:"christian@eletrofrio.com.br"},
+    {função:"Fábrica", número:"6168", nome:"Marcio", emailComercial:"tosta@eletrofrio.com.br"},
+    {função:"Fábrica", número:"105789", nome:"Robson", emailComercial:"robson.tolentino@eletrofrio.com.br"},
+    {função:"Fábrica", número:"nnn", nome:"Thauany", emailComercial:"thauany.silva@aefacessorios.com.br"},
+    {função:"Grupo", número:"Group01", nome:"Continuum - Planilhamento para Produção", emailComercial:"PLANIC.F@uhygb1yu6fxo7a.onmicrosoft.com"},
+    {função:"Grupo", número:"Group02", nome:"Continuum - Planilhamento", emailComercial:"planilhamento@continuum.ind.br"},
+    {função:"Grupo", número:"Group03", nome:"Continuum - Projeto Executivo", emailComercial:"projetos@continuum.ind.br"},
+    {função:"Grupo", número:"Group04", nome:"Suporte TI", emailComercial:"suporteti@eletrofrio.com.br"},
+    {função:"Grupo", número:"Group05", nome:"Compras", emailComercial:"compraseletrofrio@uhygb1yu6fxo7a.onmicrosoft.com"},
+    {função:"Liderança Comercial", número:"31273", nome:"Carla", emailComercial:"carlaadriana@eletrofrio.com.br"},
+    {função:"Liderança Comercial", número:"33071", nome:"Roney", emailComercial:"roney@eletrofrio.com.br"},
+    {função:"Liderança Continuum", número:"nnn", nome:"Alexandre Cavagnoli", emailComercial:"alexandre.cavagnoli@eletrofrio.com.br"},
+    {função:"Liderança Continuum", número:"nnn", nome:"Leandro Vianna", emailComercial:"leandro.vianna@eletrofrio.com.br"},
+    {função:"Liderança Continuum", número:"34540", nome:"Simone", emailComercial:"simone@eletrofrio.com.br"},
+    {função:"Liderança Exterior", número:"37140", nome:"Gabriel Antonio Marques", emailComercial:"gabriel@eletrofrio.com.br"},
+    {função:"Liderança Exterior", número:"570", nome:"Luiz Fernando Alves", emailComercial:"luiz.alves@eletrofrio.com.br"},
+    {função:"Liderança São Paulo", número:"52048", nome:"Danielly", emailComercial:"danielly.fabem@eletrofrio.com.br"},
+    {função:"Liderança São Paulo", número:"31796", nome:"Edison", emailComercial:"edison@eletrofrio.com.br"},
+    {função:"Planilhamento", número:"105962", nome:"Amarildo", emailComercial:"amarildo.cruz@eletrofrio.com.br"},
+    {função:"Planilhamento", número:"52899", nome:"Gabriel Castilho de Aguiar", emailComercial:"gabriel.aguiar@eletrofrio.com.br"},
     {função:"Planilhamento", número:"500016", nome:"Henrique", emailComercial:"henrique.souza@eletrofrio.com.br"},
     {função:"Representante", número:"001", nome:"Venda Direta Curitiba", emailComercial:"(VERIFICAR O RESPONSÁVEL)"},
     {função:"Representante", número:"004", nome:"Tecnimet", emailComercial:"angel.gallagher@tecnimet.com; electromecanica@tecnimet.com; rodney.roman@tecnimet.com, marcosm@tecnimet.com; javier.escobar@tecnimet.com; div.comercial@tecnimet.com"},
@@ -184,28 +134,28 @@ let cadastro = [
     {função:"Representante", número:"024", nome:"Mallet", emailComercial:"silvio@mallet.net.br; helcio@mallet.net.br; adm@mallet.net.br; leonardo@mallet.net.br"},
     {função:"Representante", número:"035", nome:"Clecio", emailComercial:"clecio.salviano@eletrofrio.com.br"},
     {função:"Representante", número:"057", nome:"Refripan", emailComercial:"rafernandomenezes@yahoo.com.br; nidia.roza@hotmail.com"},
-    {função:"Representante", número:"062", nome:"M Weidner", emailComercial: `${emailsSãoPaulo}; marceloeletrofrio@gmail.com; marceloweidner@globo.com`},
+    {função:"Representante", número:"062", nome:"M Weidner", emailComercial:"marceloeletrofrio@gmail.com; marceloweidner@globo.com"},
     {função:"Representante", número:"067", nome:"Tortelli", emailComercial:"projetos1@torteli.com.br; vendas@torteli.com.br; torteli@torteli.com.br"},
     {função:"Representante", número:"070", nome:"Venda Direta São Paulo", emailComercial:"(VERIFICAR O RESPONSÁVEL)"},
     {função:"Representante", número:"077", nome:"Llampe Frio PR", emailComercial:"kaua@llampefrio.com.br; contato@llampefrio.com.br; projetos2@llampefrio.com.br; projetos3@llampefrio.com.br; projetos4@llampefrio.com.br; samantha@llampefrio.com.br; depro@llampefrio.com.br; ernesto@llampefrio.com.br; lfandre@llampefrio.com.br; llampefrio@llampefrio.com.br"},
-    {função:"Representante", número:"082", nome:"HB", emailComercial: `${emailsSãoPaulo}; hb-bene@uol.com.br`},
+    {função:"Representante", número:"082", nome:"HB", emailComercial:"hb-bene@uol.com.br"},
     {função:"Representante", número:"087", nome:"Baldissera", emailComercial:"baldissera@redesul.com.br; gilmar_west@hotmail.com"},
     {função:"Representante", número:"093", nome:"Gurgel", emailComercial:"gurgeldf@gmail.com; gurgelrepresentacoes@hotmail.com; gurgel61@terra.com.br"},
-    {função:"Representante", número:"094", nome:"Luiz Nachbar", emailComercial: `${emailsSãoPaulo}; luiz_nachbar@eletrofrio.com.br`},
+    {função:"Representante", número:"094", nome:"Luiz Nachbar", emailComercial:"luiz_nachbar@eletrofrio.com.br"},
     {função:"Representante", número:"096", nome:"Kalliel", emailComercial:"kallielprojetos@gmail.com"},
     {função:"Representante", número:"097", nome:"DE", emailComercial:"vendas@deequipamentos.com.br; daniel@deequipamentos.com.br; projetos@deequipamentos.com.br; projetos2@deequipamentos.com.br; projetos3@deequipamentos.com.br"},
-    {função:"Representante", número:"101", nome:"Da Roz", emailComercial: `${emailsSãoPaulo}; renatabartel@darozrepresentacoes.com.br; douglas@darozrepresentacoes.com.br; darozrep@terra.com.br; darozrep@gmail.com`},
+    {função:"Representante", número:"101", nome:"Da Roz", emailComercial:"renatabartel@darozrepresentacoes.com.br; douglas@darozrepresentacoes.com.br; darozrep@terra.com.br; darozrep@gmail.com"},
     {função:"Representante", número:"102", nome:"Superbrasil", emailComercial:"comercial2@superb.com.br; luiz@superb.com.br; comercial@superb.com.br; sac@superb.com.br"},
     {função:"Representante", número:"106", nome:"Vitoria", emailComercial:"jeffersondsrf@uol.com.br; rafael.lnery@gmail.com; jucelito@msn.com"},
     {função:"Representante", número:"112", nome:"Ronald", emailComercial:"ronaldioliveira@ronaldmaquinas.com.br; mariacardoso@ronaldmaquinas.com.br; anaoliveira@ronaldmaquinas.com.br; yasmimoliveira@ronaldmaquinas.com.br; orlandomazoni@ronaldmaquinas.com.br; leo.brandao.arq@gmail.com; ronaldioliveira@ronaldmaquinas.com.br"},
-    {função:"Representante", número:"114", nome:"Scallet", emailComercial: `${emailsSãoPaulo}; scallet@eletrofrio.com.br; carla.sp@eletrofrio.com.br`},
+    {função:"Representante", número:"114", nome:"Scallet", emailComercial:"scallet@eletrofrio.com.br; carla.sp@eletrofrio.com.br"},
     {função:"Representante", número:"115", nome:"Guide", emailComercial:"cirilo@guidisc.com.br; projetos@guidisc.com.br; rinaldo@guidisc.com.br; guidi@guidisc.com.br"},
     {função:"Representante", número:"118", nome:"Fast Sul", emailComercial:"mbariano@fastsul.com; contato@fastsul.com"},
     {função:"Representante", número:"120", nome:"Rio Fast", emailComercial:"riofasteletro@yahoo.com.br; gabriel@amorimequipamentosrj.com; fausto@amorimequipamentosrj.com; riofasteletro@yahoo.com.br"},
     {função:"Representante", número:"121", nome:"Eletrofast", emailComercial:"vinicius@eletrofastrj.com; vilmar@eletrofastrj.com; diego@eletrofastrj.com; pedro@eletrofastrj.com; eletrofast@yahoo.com.br; luizamorimp@yahoo.com.br"},
     {função:"Representante", número:"182", nome:"Afonso Araujo", emailComercial:"afonsovargasaraujo@gmail.com"},
     {função:"Representante", número:"187", nome:"ETCO", emailComercial:"etcorep@terra.com.br"},
-    {função:"Representante", número:"189", nome:"Refriged", emailComercial: `${emailsSãoPaulo}; ednilson.santos@uol.com.br; ednilson.eletrofrio@gmail.com`},
+    {função:"Representante", número:"189", nome:"Refriged", emailComercial:"ednilson.santos@uol.com.br; ednilson.eletrofrio@gmail.com"},
     {função:"Representante", número:"190", nome:"A&F", emailComercial:"renan@aefbolsadenegocios.com.br; renato@aefbolsadenegocios.com.br; fernando@aefbolsadenegocios.com.br; victor@aefbolsadenegocios.com.br; wilian@aefbolsadenegocios.com.br; roni@aefbolsadenegocios.com.br; victor@aefbolsadenegocios.com.br"},
     {função:"Representante", número:"191", nome:"Produtiva", emailComercial:"suporte@produtivarepresentacoes.com.br; michel@produtivarepresentacoes.com.br"},
     {função:"Representante", número:"193", nome:"Llampe Frio SC", emailComercial:"kaua@llampefrio.com.br; contato@llampefrio.com.br; projetos2@llampefrio.com.br; projetos3@llampefrio.com.br; projetos4@llampefrio.com.br; samantha@llampefrio.com.br; depro@llampefrio.com.br; ernesto@llampefrio.com.br; lfandre@llampefrio.com.br; llampefrio@llampefrio.com.br"},
@@ -217,49 +167,173 @@ let cadastro = [
     {função:"Representante", número:"203", nome:"HCM", emailComercial:"anderson@hcm.com.br; hcm@hcm.com.br; hamilton@hcm.com.br"},
     {função:"Representante", número:"207", nome:"Brava", emailComercial:"eac_cunha@yahoo.com.br; joaogabriel_p@hotmail.com; eac_cunha@yahoo.com.br"},
     {função:"Representante", número:"213", nome:"Mercato", emailComercial:"mercato.projeto@gmail.com; denis@mercatorepresentacoes.com.br"},
-    {função:"Representante", número:"217", nome:"Cold Import", emailComercial: `${emailsExterior}; jlescano@coldimport.com.pe`},
-    {função:"Representante", número:"218", nome:"Cencosud", emailComercial: `${emailsExterior}`},
-    {função:"Representante", número:"223", nome:"Hercold", emailComercial: `${emailsSãoPaulo}; fastlest@uol.com.br`},
+    {função:"Representante", número:"217", nome:"Cold Import", emailComercial:"jlescano@coldimport.com.pe"},
+    {função:"Representante", número:"218", nome:"Cencosud", emailComercial:""},
+    {função:"Representante", número:"223", nome:"Hercold", emailComercial:"fastlest@uol.com.br"},
     {função:"Representante", número:"226", nome:"EC", emailComercial:"record@record-maq.com.br; projetos@record-maq.com.br; leonardomoura@record-maq.com.br; silviogoncales@record-maq.com.br; diegoreis@record-maq.com.br"},
     {função:"Representante", número:"227", nome:"Edeval (MIL)", emailComercial:"edevalvendas@gmail.com"},
     {função:"Representante", número:"228", nome:"JPC", emailComercial:"alexandre@acequipamentos.com.br; jp-candido@hotmail.com; projetos.acequipamentos@gmail.com; alexandre@pontodarefrigeracao.com.br"},
     {função:"Representante", número:"229", nome:"Wesley Dal Pozzo", emailComercial:"engenharia_dlpz@outlook.com; dlpz@onda.com.br; walace_dlpz@hotmail.com "},
-    {função:"Representante", número:"230", nome:"Ergosystem", emailComercial: `${emailsSãoPaulo}; ergosystem.comercial@outlook.com; ergosystem.comercial1@outlook.com`},
-    {função:"Representante", número:"231", nome:"SM", emailComercial: `${emailsExterior}`},
+    {função:"Representante", número:"230", nome:"Ergosystem", emailComercial: "ergosystem.comercial@outlook.com; ergosystem.comercial1@outlook.com"},
+    {função:"Representante", número:"231", nome:"SM", emailComercial:""},
     {função:"Representante", número:"232", nome:"S&I", emailComercial:"carol@siautomacao.com.br; geraldo@siautomacao.com.br; silvia@siautomacao.com.br; alexandre@siautomacao.com.br"},
-    {função:"Representante", número:"233", nome:"Control y Sostenibilidad", emailComercial: `${emailsExterior}`},
-    {função:"Representante", número:"234", nome:"Aarci", emailComercial: `${emailsExterior}; "juan.avila@aarci.co; info@aarci.co`},
+    {função:"Representante", número:"233", nome:"Control y Sostenibilidad", emailComercial:""},
+    {função:"Representante", número:"234", nome:"Aarci", emailComercial:"juan.avila@aarci.co; info@aarci.co"},
     {função:"Representante", número:"236", nome:"T&G", emailComercial:"filipe.lisbooa@yahoo.com.br; ed_wanderson@yahoo.com.br"},
     {função:"Representante", número:"237", nome:"Rematec", emailComercial:"roger@rematecvarejo.com.br; alessandra@rematecvarejo.com.br; ariele@rematecvarejo.com.br; orcamentos@rematecvarejo.com.br; projetos@rematecvarejo.com.br; alessandra@remaqbh.com.br"},
     {função:"Representante", número:"238", nome:"FMG", emailComercial:"projetos.fmg@hotmail.com; fmg_representacoes@hotmail.com"},
-    {função:"Representante", número:"239", nome:"PSK", emailComercial: `${emailsSãoPaulo}`},
+    {função:"Representante", número:"239", nome:"PSK", emailComercial:""},
+    {função:"TI", número:"45118", nome:"Clauber", emailComercial:"clauber.correia@eletrofrio.com.br"},
+    {função:"TI", número:"26690", nome:"Deisi", emailComercial:"deisi@eletrofrio.com.br"},
+    {função:"TI", número:"28960", nome:"Gilson", emailComercial:"gilson@eletrofrio.com.br"},
+    {função:"TI", número:"50045", nome:"Willian", emailComercial:"willian.laudites@eletrofrio.com.br"},
+]
+
+
+/* - E-mails de internos que respondem por vários representantes */
+
+grupoSãoPaulo = ["062", "082", "094", "101", "114", "189", "223", "230", "239"]
+for (const index1 in cadastro) {
+    if (grupoSãoPaulo.includes(cadastro[index1].número)) {
+        if (cadastro[index1].emailComercial == "") {
+            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Bruna").map((index2)=>`${index2.emailComercial}`)
+            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Diego").map((index2)=>`; ${index2.emailComercial}`)
+            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Felipe").map((index2)=>`; ${index2.emailComercial}`)
+            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Danielly").map((index2)=>`; ${index2.emailComercial}`)
+            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Edison").map((index2)=>`; ${index2.emailComercial}`)
+        }
+        else {
+            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Bruna").map((index2)=>`; ${index2.emailComercial}`)
+            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Diego").map((index2)=>`; ${index2.emailComercial}`) 
+            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Felipe").map((index2)=>`; ${index2.emailComercial}`) 
+            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Danielly").map((index2)=>`; ${index2.emailComercial}`) 
+            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Edison").map((index2)=>`; ${index2.emailComercial}`) 
+        }
+    }
+}
+grupoExterior = ["217", "218", "231", "233", "234"]
+for (const index1 in cadastro) {
+    if (grupoExterior.includes(cadastro[index1].número)) {
+        if (cadastro[index1].emailComercial == "") {
+            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Gabriel Antonio Marques").map((index2)=>`${index2.emailComercial}`)
+            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Luiz Fernando Alves").map((index2)=>`; ${index2.emailComercial}`)
+        }
+        else {
+            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Gabriel Antonio Marques").map((index2)=>`; ${index2.emailComercial}`)
+            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Luiz Fernando Alves").map((index2)=>`; ${index2.emailComercial}`) 
+        }
+    }
+}
+
+/* - Variáveis auxiliares para configurar grupos dos e-mails padrões */
+
+let ajuste = []
+cadastro.filter((index)=>index.função == "Ajuste").map((index)=>ajuste.push(index.nome))
+let analista = []
+cadastro.filter((index)=>index.função == "Analista").map((index)=>analista.push(index.nome))
+let liderançaComercial = []
+cadastro.filter((index)=>index.função == "Liderança Comercial").map((index)=>liderançaComercial.push(index.nome))
+let liderançaContinuum = []
+cadastro.filter((index)=>index.função == "Liderança Continuum").map((index)=>liderançaContinuum.push(index.nome))
+let planilhamento = []
+cadastro.filter((index)=>index.função == "Planilhamento").map((index)=>planilhamento.push(index.nome))
+let representante = ["Venda Direta Curitiba"]
+
+/* - Atualiza o e-mail do representante de acordo com o representante selecionado */
+
+function mudaEmailRepresentante() {
+    for (let index1 in email) {if (email[index1].emailsPara.toString() == representante.toString()) {email[index1].emailsPara.splice(0,1,(cadastro[cadastro.map((index2) => index2.número).indexOf(idNúmeroRepresentante.value)].nome))}}
+    for (let index in email) {representante = (cadastro[cadastro.map((index) => index.número).indexOf(idNúmeroRepresentante.value)].nome)}
+}
+
+let email = [
+    {função:selectOption, ordemSubgrupo:1, subGrupo:selectOption, ordemTipo:1, tipo:selectOption, dadosDoPedido:não, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Analista", ordemSubgrupo:1, subGrupo:"Analista", ordemTipo:1, tipo:"Liberação Total", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Analista", ordemSubgrupo:1, subGrupo:"Analista", ordemTipo:2, tipo:"Liberação Parcial", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Analista", ordemSubgrupo:1, subGrupo:"Analista", ordemTipo:3, tipo:"Linhas Atualizadas", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Analista", ordemSubgrupo:1, subGrupo:"Analista", ordemTipo:4, tipo:"Feito", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Analista", ordemSubgrupo:1, subGrupo:"Analista", ordemTipo:5, tipo:"Atualizar", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Ajuste", ordemSubgrupo:1, subGrupo:"Ajuste", ordemTipo:1, tipo:"Dúvidas", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Ajuste", ordemSubgrupo:1, subGrupo:"Ajuste", ordemTipo:2, tipo:"Aguardando Dúvidas", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Ajuste", ordemSubgrupo:1, subGrupo:"Ajuste", ordemTipo:3, tipo:"Arquivos de Ajuste", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Ajuste", ordemSubgrupo:1, subGrupo:"Ajuste", ordemTipo:4, tipo:"Aguardando Conferência", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Ajuste", ordemSubgrupo:1, subGrupo:"Ajuste", ordemTipo:5, tipo:"Alteração", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Executivo", ordemSubgrupo:1, subGrupo:"Executivo", ordemTipo:1, tipo:"Pré Projeto", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Executivo", ordemSubgrupo:1, subGrupo:"Executivo", ordemTipo:2, tipo:"Projeto Executivo", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    {função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:1, tipo:"Compra de Porta Walk-In", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: []},
+    {função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:2, tipo:"Compra de Porta Seccional", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:3, tipo:"Compra de Portal de Selamento", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:4, tipo:"Compra de Niveladora de Doca", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:5, tipo:"Compra de Porta Rápida", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:6, tipo:"Compra de Porta Automática", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:7, tipo:"Compra de Porta Beer Cave", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:8, tipo:"Compra de Visor Corrediço", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:9, tipo:"Compra de Estrado de Borracha", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:10, tipo:"Compra de Porta Vai e Vem Isolada", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:11, tipo:"Compra de Porta Vai e Vem de Tamanho Especial", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:12, tipo:"Compra de Resistência", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:13, tipo:"Compra de Termostato", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:3, subGrupo:"Cotação", ordemTipo:1, tipo:"Cotação de Porta Walk-In", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:3, subGrupo:"Cotação", ordemTipo:2, tipo:"Cotação de Porta Seccional", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:3, subGrupo:"Cotação", ordemTipo:3, tipo:"Cotação de Portal de Selamento", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:3, subGrupo:"Cotação", ordemTipo:4, tipo:"Cotação de Niveladora de Doca", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:3, subGrupo:"Cotação", ordemTipo:5, tipo:"Cotação de Porta Rápida", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:3, subGrupo:"Cotação", ordemTipo:6, tipo:"Cotação de Porta Automática", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:3, subGrupo:"Cotação", ordemTipo:7, tipo:"Cotação de Porta Beer Cave", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:3, subGrupo:"Cotação", ordemTipo:8, tipo:"Cotação de Visor Corrediço", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Cotação", ordemTipo:9, tipo:"Compra de Estrado de Borracha", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:3, subGrupo:"Cotação", ordemTipo:10, tipo:"Cotação de Porta Vai e Vem Isolada", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:3, subGrupo:"Cotação", ordemTipo:11, tipo:"Cotação de Porta Vai e Vem de Tamanho Especial", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:3, subGrupo:"Cotação", ordemTipo:12, tipo:"Cotação de Resistência", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:3, subGrupo:"Cotação", ordemTipo:13, tipo:"Cotação de Termostato", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    {função:"Planilhamento", ordemSubgrupo:2, subGrupo:"Dúvida", ordemTipo:1, tipo:"Dúvida Geral", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
+    {função:"Planilhamento", ordemSubgrupo:2, subGrupo:"Dúvida", ordemTipo:2, tipo:"Dúvida de Porta Seccional Livre de Alvenaria", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
+    {função:"Planilhamento", ordemSubgrupo:2, subGrupo:"Dúvida", ordemTipo:3, tipo:"Dúvida de Porta Seccional Encostada em Alvenaria", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
+    {função:"Planilhamento", ordemSubgrupo:2, subGrupo:"Dúvida", ordemTipo:4, tipo:"Aguardando Dúvida", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
+    {função:"Planilhamento", ordemSubgrupo:5, subGrupo:"Encaminhar", ordemTipo:1, tipo:"Encaminhar", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    {função:"Planilhamento", ordemSubgrupo:1, subGrupo:"Planilhamento", ordemTipo:1, tipo:"Planilhamento Total", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
+    {função:"Planilhamento", ordemSubgrupo:1, subGrupo:"Planilhamento", ordemTipo:2, tipo:"Planilhamento Parcial", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
+    {função:"Planilhamento", ordemSubgrupo:1, subGrupo:"Planilhamento", ordemTipo:3, tipo:"Planilhamento Alteração", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
+    {função:"Planilhamento", ordemSubgrupo:1, subGrupo:"Suporte TI", ordemTipo:1, tipo:"Suporte TI - Geral", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: [], emailsBcc: []},
+    {função:"Planilhamento", ordemSubgrupo:1, subGrupo:"Suporte TI", ordemTipo:2, tipo:"Suporte TI - Baan - Geral", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:1, subGrupo:"Suporte TI", ordemTipo:3, tipo:"Suporte TI - Baan - Inclusão de Item", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:1, subGrupo:"Suporte TI", ordemTipo:4, tipo:"Suporte TI - Baan - Exclusão de Item", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:1, subGrupo:"Suporte TI", ordemTipo:5, tipo:"Suporte TI - Baan - Troca de Item", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:1, subGrupo:"Suporte TI", ordemTipo:6, tipo:"Suporte TI - Baan - Exclusão de Alfa", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:1, subGrupo:"Suporte TI", ordemTipo:7, tipo:"Suporte TI - Baan - Remoção de Alfa", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:"Planilhamento", ordemSubgrupo:1, subGrupo:"Suporte TI", ordemTipo:8, tipo:"Suporte TI - Baan - Estorno de Alfa", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    {função:"Planilhamento", ordemSubgrupo:1, subGrupo:"Suporte TI", ordemTipo:9, tipo:"Suporte TI - Baan - Derrubar Usuário", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    {função:"Planilhamento", ordemSubgrupo:1, subGrupo:"Suporte TI", ordemTipo:10, tipo:"Suporte TI - Baan - Liberação de Tela", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: [], emailsBcc: []},
+    {função:"Planilhamento", ordemSubgrupo:1, subGrupo:"Suporte TI", ordemTipo:11, tipo:"Suporte TI - SIP - Geral", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: ["Gilson", "Willian"], emailsBcc: []},
+    {função:"Planilhamento", ordemSubgrupo:1, subGrupo:"Suporte TI", ordemTipo:12, tipo:"Suporte TI - SIP - Liberação para Edição de Painéis Altos", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: ["Gilson", "Willian"], emailsBcc: []},
+    //{função:"Representante", ordemSubgrupo:1, subGrupo:"Representante", ordemTipo:1, tipo:"Representante", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
 ]
 
 let ano = [
-    //"00",
-    //"01",
-    //"02",
-    //"03",
-    //"04",
-    //"05",
-    //"06",
-    //"07",
-    //"08",
-    //"09",
-    //"10",
-    //"11",
-    //"12",
-    //"13",
-    //"14",
-    //"15",
-    //"16",
-    //"17",
+    "00",
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
     "18",
     "19",
     "20",
     "21",
     "22",
-    "23",
+    //"23",
     //"24",
     //"25",
     //"26",
@@ -278,6 +352,18 @@ let mês = [
     {número:10, nome:"Outubro"},
     {número:11, nome:"Novembro"},
     {número:12, nome:"Dezembro"},
+]
+
+let fornecedor = [
+    "3R Plásticos",
+    "AEF",
+    "BR-Inova",
+    "Danfoss",
+    "Inovadoor",
+    "MBPIsoblock",
+    "Metalbras",
+    "Rohden",
+    "Thermoson",
 ]
 
 let cores = [
@@ -303,35 +389,43 @@ let cores = [
 
 /* Organização dos Arrays */
 
-email.sort((el1,el2) => {
-    if (el1.area < el2.area) {return -1}
-    if (el1.area > el2.area) {return 1}
-    if (el1.função < el2.função) {return -1}
-    if (el1.função > el2.função) {return 1}
-    if (el1.subGrupo < el2.subGrupo) {return -1}
-    if (el1.subGrupo > el2.subGrupo) {return 1}
-    if (el1.tipo < el2.tipo) {return -1}
-    if (el1.tipo > el2.tipo) {return 1}
+email.sort((index1,index2) => {
+    if (index1.função < index2.função) {return -1}
+    if (index1.função > index2.função) {return 1}
+    if (index1.ordemSubgrupo < index2.ordemSubgrupo) {return -1}
+    if (index1.ordemSubgrupo > index2.ordemSubgrupo) {return 1}
+    if (index1.subGrupo < index2.subGrupo) {return -1}
+    if (index1.subGrupo > index2.subGrupo) {return 1}
+    if (index1.ordemTipo < index2.ordemTipo) {return -1}
+    if (index1.ordemTipo > index2.ordemTipo) {return 1}
+    if (index1.tipo < index2.tipo) {return -1}
+    if (index1.tipo > index2.tipo) {return 1}
     return 0
 })
 
-cadastro.sort((el1,el2) => {
-    if (el1.função < el2.função) {return -1}
-    if (el1.função > el2.função) {return 1}
-    if (el1.número < el2.número) {return -1}
-    if (el1.número > el2.número) {return 1}
+cadastro.sort((index1,index2) => {
+    if (index1.função < index2.função) {return -1}
+    if (index1.função > index2.função) {return 1}
+    if (index1.número < index2.número) {return -1}
+    if (index1.número > index2.número) {return 1}
     return 0
 })
 
-ano.sort((el1,el2) => {
-    if (el1 < el2) {return -1}
-    if (el1 > el2) {return 1}
+ano.sort((index1,index2) => {
+    if (index1 > index2) {return -1}
+    if (index1 < index2) {return 1}
     return 0
 })
 
-mês.sort((el1,el2) => {
-    if (el1.número < el2.número) {return -1}
-    if (el1.número > el2.número) {return 1}
+mês.sort((index1,index2) => {
+    if (index1.número < index2.número) {return -1}
+    if (index1.número > index2.número) {return 1}
+    return 0
+})
+
+mês.sort((index1,index2) => {
+    if (index1.número < index2.número) {return -1}
+    if (index1.número > index2.número) {return 1}
     return 0
 })
 
@@ -351,17 +445,17 @@ for (let index in cadastro) {if (cadastro[index].função != cadastro2[index].fu
 
 /* Filtra os Arrays */
 
-let representanteCadastro = cadastro.filter((el)=>el.função == "Representante")
+let representanteCadastro = cadastro.filter((index)=>index.função == "Representante")
 
-let emailCadastro = cadastro.filter((el)=>el)
+let emailCadastro = cadastro.filter((index)=>index)
 
 /* Organização dos arrays filtrados diferente do array original */
 
-emailCadastro.sort((el1,el2) => {
-    if (el1.função < el2.função) {return -1}
-    if (el1.função > el2.função) {return 1}
-    if (el1.nome < el2.nome) {return -1}
-    if (el1.nome > el2.nome) {return 1}
+emailCadastro.sort((index1,index2) => {
+    if (index1.função < index2.função) {return -1}
+    if (index1.função > index2.função) {return 1}
+    if (index1.nome < index2.nome) {return -1}
+    if (index1.nome > index2.nome) {return 1}
     return 0
 })
 
@@ -373,15 +467,23 @@ function hideTipo() {
     idDadosDoPedido.style.display = displayNone
 }
 
+/* Verifica período do dia */
+
+let hora = new Date().getHours()
+let período = ""
+if (hora < 6 || hora >= 18) {período = "Boa noite"}
+if (hora >= 6 && hora < 12) {período = "Bom dia"}
+if (hora >= 12 && hora < 18) {período = "Boa tarde"}
+
 /* Tipo de E-mail */
 
 /* - Cria as opções de função */
 
-funçãoEmail.map((el)=>{
+funçãoEmail.map((index)=>{
     let optionFunção = document.createElement(optionTag)
-    let textoFunção = document.createTextNode(el.função)
+    let textoFunção = document.createTextNode(index.função)
     optionFunção.appendChild(textoFunção)
-    optionFunção.setAttribute(valueAttribute, el.função)
+    optionFunção.setAttribute(valueAttribute, index.função)
     idFunção.insertAdjacentElement("beforeend",optionFunção)
 })
 
@@ -406,35 +508,35 @@ function changeFunção() {
     
 /* -- Cria a opção Selection para a seleção de tipos */
 
-    let selectOptionTipoEmail = email.filter((el)=>el.função == selectOption)
-    selectOptionTipoEmail.map((el)=>{
+    let selectOptionTipoEmail = email.filter((index)=>index.função == selectOption)
+    selectOptionTipoEmail.map((index)=>{
         let optionTipo = document.createElement(optionTag)
-        let textoTipo = document.createTextNode(el.tipo)
+        let textoTipo = document.createTextNode(index.tipo)
         optionTipo.appendChild(textoTipo)
-        if (el.dadosDoPedido == não) {optionTipo.setAttribute(classAttribute, classSemPedido)}
+        if (index.dadosDoPedido == não) {optionTipo.setAttribute(classAttribute, classSemPedido)}
         idTipo.insertAdjacentElement("beforeend",optionTipo)
     })
     
 /* -- Cria os subgrupos */
 
-    subGrupo.map((el)=>{
-        let capitalizeIdSubGrupo = `iDSubGrupo${(el.subGrupo.replace(/ /g, "")).charAt(0).toLowerCase() + (el.subGrupo.replace(/ /g, "")).slice(1)}`
+    subGrupo.map((index)=>{
+        let capitalizeIdSubGrupo = `iDSubGrupo${(index.subGrupo.replace(/ /g, "")).charAt(0).toLowerCase() + (index.subGrupo.replace(/ /g, "")).slice(1)}`
         let optionSubGrupo = document.createElement("optgroup")
-        optionSubGrupo.setAttribute(labelTag, el.subGrupo)
+        optionSubGrupo.setAttribute(labelTag, index.subGrupo)
         optionSubGrupo.setAttribute(idAttribute, capitalizeIdSubGrupo)
         idTipo.insertAdjacentElement("beforeend",optionSubGrupo)
     })
 
 /* -- Cria os tipos de acordo com a função */
 
-    let tipoEmail = email.filter((el)=>el.função == idFunção.value && idFunção.value != selectOption)
-    tipoEmail.map((el)=>{
-        let capitalizeIdSubGrupo = `iDSubGrupo${(el.subGrupo.replace(/ /g, "")).charAt(0).toLowerCase() + (el.subGrupo.replace(/ /g, "")).slice(1)}`
+    let tipoEmail = email.filter((index)=>index.função == idFunção.value && idFunção.value != selectOption)
+    tipoEmail.map((index)=>{
+        let capitalizeIdSubGrupo = `iDSubGrupo${(index.subGrupo.replace(/ /g, "")).charAt(0).toLowerCase() + (index.subGrupo.replace(/ /g, "")).slice(1)}`
         let idSubGrupo = document.querySelector(`#${capitalizeIdSubGrupo}`)
         let optionTipo = document.createElement(optionTag)
-        let textoTipo = document.createTextNode(el.tipo)
+        let textoTipo = document.createTextNode(index.tipo)
         optionTipo.appendChild(textoTipo)
-        if (el.dadosDoPedido == não) {optionTipo.setAttribute(classAttribute, classSemPedido)}
+        if (index.dadosDoPedido == não) {optionTipo.setAttribute(classAttribute, classSemPedido)}
         idSubGrupo.insertAdjacentElement("beforeend",optionTipo)
     })
 }
@@ -452,13 +554,18 @@ function limpaTipoDeEmail() {
 function changeTipo() {
     limpaResultado()
 
-/* - Oculta e limpa os dados do pedido caso seja da classe sem pedido */
+/* - Oculta e limpa os dados do pedido caso seja da classe sem pedido ou exibe caso não seja */
 
     if (idTipo.selectedOptions[0].className == classSemPedido) {
         idDadosDoPedido.style.display = displayNone
         idLimpaDadosDePedido.click()
     }
     else {idDadosDoPedido.style.display = displayBlock}
+
+    /* - Oculta os dados de compra caso seja não seja do tipo compra e exibe caso seja */
+
+    if (email.filter((index)=>index.tipo == idTipo.selectedOptions[0].value).map((index)=>index.subGrupo) != "Compra") {idDadosDeCompra.style.display = displayNone}
+    else {idDadosDeCompra.style.display = displayBlock}
 
 /* - Limpa as checkbox já selecionadas */
 
@@ -473,20 +580,20 @@ function changeTipo() {
 
 /* - Seleciona as checkbox dos e-mails de acordo com o tipo de pedido */
 
-    for (let index in email) {
-        if (idTipo.value == email[index].tipo) {
-            for (let index2 in email[index].emailsPara) {
-                let capitalizeIdPara = `idPara${(email[index].emailsPara[index2].replace(/ /g, "")).charAt(0).toLowerCase() + (email[index].emailsPara[index2].replace(/ /g, "")).slice(1)}`
+    for (let index1 in email) {
+        if (idTipo.value == email[index1].tipo) {
+            for (let index2 in email[index1].emailsPara) {
+                let capitalizeIdPara = `idPara${(email[index1].emailsPara[index2].replace(/ /g, "")).charAt(0).toLowerCase() + (email[index1].emailsPara[index2].replace(/ /g, "")).slice(1)}`
                 let idCheckboxPara = document.querySelector(`#${capitalizeIdPara}`)
                 idCheckboxPara.checked = true
             }
-            for (let index2 in email[index].emailsCc) {
-                let capitalizeIdCc = `idCc${(email[index].emailsCc[index2].replace(/ /g, "")).charAt(0).toLowerCase() + (email[index].emailsCc[index2].replace(/ /g, "")).slice(1)}`
+            for (let index2 in email[index1].emailsCc) {
+                let capitalizeIdCc = `idCc${(email[index1].emailsCc[index2].replace(/ /g, "")).charAt(0).toLowerCase() + (email[index1].emailsCc[index2].replace(/ /g, "")).slice(1)}`
                 let idCheckboxCc = document.querySelector(`#${capitalizeIdCc}`)
                 idCheckboxCc.checked = true
             }
-            for (let index2 in email[index].emailsBcc) {
-                let capitalizeIdBcc = `idBcc${(email[index].emailsBcc[index2].replace(/ /g, "")).charAt(0).toLowerCase() + (email[index].emailsBcc[index2].replace(/ /g, "")).slice(1)}`
+            for (let index2 in email[index1].emailsBcc) {
+                let capitalizeIdBcc = `idBcc${(email[index1].emailsBcc[index2].replace(/ /g, "")).charAt(0).toLowerCase() + (email[index1].emailsBcc[index2].replace(/ /g, "")).slice(1)}`
                 let idCheckboxBcc = document.querySelector(`#${capitalizeIdBcc}`)
                 idCheckboxBcc.checked = true
             }
@@ -510,15 +617,17 @@ for (let index in representanteCadastro) {
 function changeNúmeroRepresentante() {
     limpaResultado()
     for (let index in representanteCadastro) {if (idNúmeroRepresentante.value == representanteCadastro[index].número) {idNomeRepresentante.setAttribute(valueAttribute,representanteCadastro[index].nome)}}
+    mudaEmailRepresentante()
+    changeTipo()
 }
 
 /* - Cria as opções de ano do pedido */
 
-ano.map((el)=>{
+ano.map((index)=>{
     let optionAno = document.createElement(optionTag)
-    let textoOptionAno = document.createTextNode(el)
+    let textoOptionAno = document.createTextNode(index)
     optionAno.appendChild(textoOptionAno)
-    optionAno.setAttribute(valueAttribute, el)
+    optionAno.setAttribute(valueAttribute, index)
     idAno.insertAdjacentElement("beforeend",optionAno)
 })
 
@@ -528,11 +637,11 @@ idAno.value = new Date().getFullYear() - 2000
 
 /* - Cria as opções de mês do pedido */
 
-mês.map((el)=>{
+mês.map((index)=>{
     let optionMês = document.createElement(optionTag)
-    let textoOptionMês = document.createTextNode(el.nome)
+    let textoOptionMês = document.createTextNode(index.nome)
     optionMês.appendChild(textoOptionMês)
-    optionMês.setAttribute(valueAttribute, el.nome)
+    optionMês.setAttribute(valueAttribute, index.nome)
     idMês.insertAdjacentElement("beforeend",optionMês)
 })
 
@@ -540,20 +649,37 @@ mês.map((el)=>{
 
 function limpaDadosDoPedido() {
     limpaResultado()
-    idNomeRepresentante.setAttribute(valueAttribute,representanteCadastro[0].nome)
+    idNúmeroRepresentante.value = representanteCadastro[0].número
+    changeNúmeroRepresentante()
 }
 
 function limpaDadosPessoais() {limpaResultado()}
+
+/* Dados de Compra */
+
+/* - Cria as opções de fornecedores */
+
+fornecedor.map((index)=>{
+    let optionForncedor = document.createElement(optionTag)
+    let textooptionForncedor = document.createTextNode(index)
+    optionForncedor.appendChild(textooptionForncedor)
+    optionForncedor.setAttribute(valueAttribute, index)
+    idFornecedor.insertAdjacentElement("beforeend",optionForncedor)
+})
+
+/* - Limpa os resultados ao mudar o fornecedor */
+
+function changeFornecedor() {limpaResultado()}
 
 /* E-mails Selecionados */
 
 /* - Cria e-mails para */
 
-for (let index in funçãoCadastro) {
+for (let index1 in funçãoCadastro) {
 
 /* -- Cria details para as funções para */
 
-    let capitalizeIdFunçãoCadastro = `${(funçãoCadastro[index].função.replace(/ /g, "")).charAt(0).toLowerCase() + (funçãoCadastro[index].função.replace(/ /g, "")).slice(1)}`
+    let capitalizeIdFunçãoCadastro = `${(funçãoCadastro[index1].função.replace(/ /g, "")).charAt(0).toLowerCase() + (funçãoCadastro[index1].função.replace(/ /g, "")).slice(1)}`
     let detailsParaEmail = document.createElement(detailsTag)
     detailsParaEmail.setAttribute(idAttribute, `idDetailsPara${capitalizeIdFunçãoCadastro}`)
     idEmailsPara.insertAdjacentElement("beforeend",detailsParaEmail)
@@ -562,7 +688,7 @@ for (let index in funçãoCadastro) {
 
     let idDetailsPara = document.querySelector(`#idDetailsPara${capitalizeIdFunçãoCadastro}`)
     let summaryParaEmail = document.createElement(summaryTag)
-    let textoSummaryParaEmail = document.createTextNode(funçãoCadastro[index].função)
+    let textoSummaryParaEmail = document.createTextNode(funçãoCadastro[index1].função)
     summaryParaEmail.appendChild(textoSummaryParaEmail)
     summaryParaEmail.setAttribute(idAttribute, `idSummaryPara${capitalizeIdFunçãoCadastro}`)
     idDetailsPara.insertAdjacentElement("beforeend",summaryParaEmail)
@@ -570,7 +696,7 @@ for (let index in funçãoCadastro) {
 /* -- Cria label para selecionar todas as checkbox das funções para */
 
     let labelEmail = document.createElement(labelTag)
-    let textoLabelEmail = document.createTextNode(`Selecionar todos do grupo ${funçãoCadastro[index].função}`)
+    let textoLabelEmail = document.createTextNode(`Selecionar todos do grupo ${funçãoCadastro[index1].função}`)
     labelEmail.appendChild(textoLabelEmail)
     labelEmail.setAttribute(idAttribute, `idSelecionarTodosPara${capitalizeIdFunçãoCadastro}`)
     labelEmail.setAttribute(forAttribute, `idSelecionarTodosPara${capitalizeIdFunçãoCadastro}`)
@@ -583,22 +709,22 @@ for (let index in funçãoCadastro) {
 
 /* -- Cria os inputs das checkbox das funções para */
 
-    let inputEmailCadastro = emailCadastro.filter((el)=>el.função == funçãoCadastro[index].função)
-    inputEmailCadastro.map((el)=>{
-        let capitalizeIdPara = `idPara${(el.nome.replace(/ /g, "")).charAt(0).toLowerCase() + (el.nome.replace(/ /g, "")).slice(1)}`
+    let inputEmailCadastro = emailCadastro.filter((index2)=>index2.função == funçãoCadastro[index1].função)
+    inputEmailCadastro.map((index2)=>{
+        let capitalizeIdPara = `idPara${(index2.nome.replace(/ /g, "")).charAt(0).toLowerCase() + (index2.nome.replace(/ /g, "")).slice(1)}`
         let optionInputEmailCadastro = document.createElement(inputTag)
-        let textoOptionInputEmailCadastro = document.createTextNode(el.nome)
+        let textoOptionInputEmailCadastro = document.createTextNode(index2.nome)
         optionInputEmailCadastro.appendChild(textoOptionInputEmailCadastro)
         optionInputEmailCadastro.setAttribute(typeAttribute, checkboxAttribute)
         optionInputEmailCadastro.setAttribute(idAttribute, capitalizeIdPara)
         optionInputEmailCadastro.setAttribute(classAttribute, `classParaEmailcadastro${capitalizeIdFunçãoCadastro} classParaEmail`)
-        optionInputEmailCadastro.setAttribute(valueAttribute, el.emailComercial)
+        optionInputEmailCadastro.setAttribute(valueAttribute, index2.emailComercial)
         idDetailsPara.insertAdjacentElement("beforeend",optionInputEmailCadastro)
 
 /* -- Cria os labels das checkbox das funções para */
 
         let labelEmailCadastro = document.createElement(labelTag)
-        let textoLabelEmailcadastro = document.createTextNode(el.nome)
+        let textoLabelEmailcadastro = document.createTextNode(index2.nome)
         labelEmailCadastro.appendChild(textoLabelEmailcadastro)
         labelEmailCadastro.setAttribute(forAttribute, capitalizeIdPara)
         idDetailsPara.insertAdjacentElement("beforeend",labelEmailCadastro)
@@ -616,16 +742,16 @@ for (let index in funçãoCadastro) {
     function selecionarTodosPara() {
         limpaResultado()
         if (checkedPara == 0) {
-            for (let index in inputEmailCadastro) {
+            for (let index2 in inputEmailCadastro) {
                 let classParaEmail = document.querySelectorAll(`.classParaEmailcadastro${capitalizeIdFunçãoCadastro}`)
-                classParaEmail[index].checked = true
+                classParaEmail[index2].checked = true
                 checkedPara = 1
             }
         }
         else {
-            for (let index in inputEmailCadastro) {
+            for (let index2 in inputEmailCadastro) {
                 let classParaEmail = document.querySelectorAll(`.classParaEmailcadastro${capitalizeIdFunçãoCadastro}`)
-                classParaEmail[index].checked = false
+                classParaEmail[index2].checked = false
                 checkedPara = 0
             }
         }
@@ -646,11 +772,11 @@ for (let index in funçãoCadastro) {
 
 /* - Cria e-mails cc */
 
-for (let index in funçãoCadastro) {
+for (let index1 in funçãoCadastro) {
 
 /* -- Cria details para as funções cc */
 
-    let capitalizeIdFunçãoCadastro = `${(funçãoCadastro[index].função.replace(/ /g, "")).charAt(0).toLowerCase() + (funçãoCadastro[index].função.replace(/ /g, "")).slice(1)}`
+    let capitalizeIdFunçãoCadastro = `${(funçãoCadastro[index1].função.replace(/ /g, "")).charAt(0).toLowerCase() + (funçãoCadastro[index1].função.replace(/ /g, "")).slice(1)}`
     let detailsCcEmail = document.createElement(detailsTag)
     detailsCcEmail.setAttribute(idAttribute, `idDetailsCc${capitalizeIdFunçãoCadastro}`)
     idEmailsCc.insertAdjacentElement("beforeend",detailsCcEmail)
@@ -659,7 +785,7 @@ for (let index in funçãoCadastro) {
 
     let idDetailsCc = document.querySelector(`#idDetailsCc${capitalizeIdFunçãoCadastro}`)
     let summaryCcEmail = document.createElement(summaryTag)
-    let summarycctextoemail = document.createTextNode(funçãoCadastro[index].função)
+    let summarycctextoemail = document.createTextNode(funçãoCadastro[index1].função)
     summaryCcEmail.appendChild(summarycctextoemail)
     summaryCcEmail.setAttribute(idAttribute, `idSummaryCc${capitalizeIdFunçãoCadastro}`)
     idDetailsCc.insertAdjacentElement("beforeend",summaryCcEmail)
@@ -667,7 +793,7 @@ for (let index in funçãoCadastro) {
 /* -- Cria label para selecionar todas as checkbox das funções cc */
 
     let labelEmail = document.createElement(labelTag)
-    let textoLabelEmail = document.createTextNode(`Selecionar todos do grupo ${funçãoCadastro[index].função}`)
+    let textoLabelEmail = document.createTextNode(`Selecionar todos do grupo ${funçãoCadastro[index1].função}`)
     labelEmail.appendChild(textoLabelEmail)
     labelEmail.setAttribute(idAttribute, `idSelecionarTodosCc${capitalizeIdFunçãoCadastro}`)
     labelEmail.setAttribute(forAttribute, `idSelecionarTodosCc${capitalizeIdFunçãoCadastro}`)
@@ -680,23 +806,23 @@ for (let index in funçãoCadastro) {
 
 /* -- Cria os inputs das checkbox das funções cc */
 
-    let inputEmailCadastro = emailCadastro.filter((el)=>el.função == funçãoCadastro[index].função)
+    let inputEmailCadastro = emailCadastro.filter((index2)=>index2.função == funçãoCadastro[index1].função)
 
-    inputEmailCadastro.map((el)=>{
-        let capitalizeIdCc = `idCc${(el.nome.replace(/ /g, "")).charAt(0).toLowerCase() + (el.nome.replace(/ /g, "")).slice(1)}`
+    inputEmailCadastro.map((index2)=>{
+        let capitalizeIdCc = `idCc${(index2.nome.replace(/ /g, "")).charAt(0).toLowerCase() + (index2.nome.replace(/ /g, "")).slice(1)}`
         let optionInputEmailCadastro = document.createElement(inputTag)
-        let textoOptionInputEmailCadastro = document.createTextNode(el.nome)
+        let textoOptionInputEmailCadastro = document.createTextNode(index2.nome)
         optionInputEmailCadastro.appendChild(textoOptionInputEmailCadastro)
         optionInputEmailCadastro.setAttribute(typeAttribute, checkboxAttribute)
         optionInputEmailCadastro.setAttribute(idAttribute, capitalizeIdCc)
         optionInputEmailCadastro.setAttribute(classAttribute, `classCcEmailcadastro${capitalizeIdFunçãoCadastro} classCcEmail`)
-        optionInputEmailCadastro.setAttribute(valueAttribute, el.emailComercial)
+        optionInputEmailCadastro.setAttribute(valueAttribute, index2.emailComercial)
         idDetailsCc.insertAdjacentElement("beforeend",optionInputEmailCadastro)
 
 /* -- Cria os labels das checkbox das funções cc */
 
         let labelEmailCadastro = document.createElement(labelTag)
-        let textoLabelEmailcadastro = document.createTextNode(el.nome)
+        let textoLabelEmailcadastro = document.createTextNode(index2.nome)
         labelEmailCadastro.appendChild(textoLabelEmailcadastro)
         labelEmailCadastro.setAttribute(forAttribute, capitalizeIdCc)
         idDetailsCc.insertAdjacentElement("beforeend",labelEmailCadastro)
@@ -714,16 +840,16 @@ for (let index in funçãoCadastro) {
     function selecionarTodosCc() {
         limpaResultado()
         if (checkedCc == 0) {
-            for (let index in inputEmailCadastro) {
+            for (let index2 in inputEmailCadastro) {
                 let classCcEmail = document.querySelectorAll(`.classCcEmailcadastro${capitalizeIdFunçãoCadastro}`)
-                classCcEmail[index].checked = true
+                classCcEmail[index2].checked = true
                 checkedCc = 1
             }
         }
         else {
-            for (let index in inputEmailCadastro) {
+            for (let index2 in inputEmailCadastro) {
                 let classCcEmail = document.querySelectorAll(`.classCcEmailcadastro${capitalizeIdFunçãoCadastro}`)
-                classCcEmail[index].checked = false
+                classCcEmail[index2].checked = false
                 checkedCc = 0
             }
         }
@@ -744,11 +870,11 @@ for (let index in funçãoCadastro) {
 
 /* - Cria e-mails bcc */
 
-for (let index in funçãoCadastro) {
+for (let index1 in funçãoCadastro) {
 
 /* -- Cria details bcc as funções bcc */
     
-        let capitalizeIdFunçãoCadastro = `${(funçãoCadastro[index].função.replace(/ /g, "")).charAt(0).toLowerCase() + (funçãoCadastro[index].função.replace(/ /g, "")).slice(1)}`
+        let capitalizeIdFunçãoCadastro = `${(funçãoCadastro[index1].função.replace(/ /g, "")).charAt(0).toLowerCase() + (funçãoCadastro[index1].função.replace(/ /g, "")).slice(1)}`
         let detailsBccEmail = document.createElement(detailsTag)
         detailsBccEmail.setAttribute(idAttribute, `idDetailsBcc${capitalizeIdFunçãoCadastro}`)
         idEmailsBcc.insertAdjacentElement("beforeend",detailsBccEmail)
@@ -757,7 +883,7 @@ for (let index in funçãoCadastro) {
     
         let idDetailsBcc = document.querySelector(`#idDetailsBcc${capitalizeIdFunçãoCadastro}`)
         let summaryBccEmail = document.createElement(summaryTag)
-        let textoSummaryBccEmail = document.createTextNode(funçãoCadastro[index].função)
+        let textoSummaryBccEmail = document.createTextNode(funçãoCadastro[index1].função)
         summaryBccEmail.appendChild(textoSummaryBccEmail)
         summaryBccEmail.setAttribute(idAttribute, `idSummaryBcc${capitalizeIdFunçãoCadastro}`)
         idDetailsBcc.insertAdjacentElement("beforeend",summaryBccEmail)
@@ -765,7 +891,7 @@ for (let index in funçãoCadastro) {
 /* -- Cria label bcc selecionar todas as checkbox das funções bcc */
     
         let labelEmail = document.createElement(labelTag)
-        let textoLabelEmail = document.createTextNode(`Selecionar todos do grupo ${funçãoCadastro[index].função}`)
+        let textoLabelEmail = document.createTextNode(`Selecionar todos do grupo ${funçãoCadastro[index1].função}`)
         labelEmail.appendChild(textoLabelEmail)
         labelEmail.setAttribute(idAttribute, `idSelecionarTodosBcc${capitalizeIdFunçãoCadastro}`)
         labelEmail.setAttribute(forAttribute, `idSelecionarTodosBcc${capitalizeIdFunçãoCadastro}`)
@@ -778,22 +904,22 @@ for (let index in funçãoCadastro) {
     
 /* -- Cria os inputs das checkbox das funções bcc */
     
-        let inputEmailCadastro = emailCadastro.filter((el)=>el.função == funçãoCadastro[index].função)
-        inputEmailCadastro.map((el)=>{
-            let capitalizeIdBcc = `idBcc${(el.nome.replace(/ /g, "")).charAt(0).toLowerCase() + (el.nome.replace(/ /g, "")).slice(1)}`
+        let inputEmailCadastro = emailCadastro.filter((index2)=>index2.função == funçãoCadastro[index1].função)
+        inputEmailCadastro.map((index2)=>{
+            let capitalizeIdBcc = `idBcc${(index2.nome.replace(/ /g, "")).charAt(0).toLowerCase() + (index2.nome.replace(/ /g, "")).slice(1)}`
             let optionInputEmailCadastro = document.createElement(inputTag)
-            let textoOptionInputEmailCadastro = document.createTextNode(el.nome)
+            let textoOptionInputEmailCadastro = document.createTextNode(index2.nome)
             optionInputEmailCadastro.appendChild(textoOptionInputEmailCadastro)
             optionInputEmailCadastro.setAttribute(typeAttribute, checkboxAttribute)
             optionInputEmailCadastro.setAttribute(idAttribute, capitalizeIdBcc)
             optionInputEmailCadastro.setAttribute(classAttribute, `classBccEmailcadastro${capitalizeIdFunçãoCadastro} classBccEmail`)
-            optionInputEmailCadastro.setAttribute(valueAttribute, el.emailComercial)
+            optionInputEmailCadastro.setAttribute(valueAttribute, index2.emailComercial)
             idDetailsBcc.insertAdjacentElement("beforeend",optionInputEmailCadastro)
     
 /* -- Cria os labels das checkbox das funções bcc */
     
             let labelEmailCadastro = document.createElement(labelTag)
-            let textoLabelEmailcadastro = document.createTextNode(el.nome)
+            let textoLabelEmailcadastro = document.createTextNode(index2.nome)
             labelEmailCadastro.appendChild(textoLabelEmailcadastro)
             labelEmailCadastro.setAttribute(forAttribute, capitalizeIdBcc)
             idDetailsBcc.insertAdjacentElement("beforeend",labelEmailCadastro)
@@ -811,16 +937,16 @@ for (let index in funçãoCadastro) {
         function selecionarTodosBcc() {
             limpaResultado()
             if (checkedBcc == 0) {
-                for (let index in inputEmailCadastro) {
+                for (let index2 in inputEmailCadastro) {
                     let classBccEmail = document.querySelectorAll(`.classBccEmailcadastro${capitalizeIdFunçãoCadastro}`)
-                    classBccEmail[index].checked = true
+                    classBccEmail[index2].checked = true
                     checkedBcc = 1
                 }
             }
             else {
-                for (let index in inputEmailCadastro) {
+                for (let index2 in inputEmailCadastro) {
                     let classBccEmail = document.querySelectorAll(`.classBccEmailcadastro${capitalizeIdFunçãoCadastro}`)
-                    classBccEmail[index].checked = false
+                    classBccEmail[index2].checked = false
                     checkedBcc = 0
                 }
             }
@@ -893,19 +1019,12 @@ else {
 
 /* - Gera corpor do e-mail */
 
-/* -- Verifica período do dia */
-
-    let hora = new Date().getHours()
-    let período = ""
-    if (hora < 6 || hora >= 18) {período = "Boa noite"}
-    if (hora >= 6 && hora < 12) {período = "Bom dia"}
-    if (hora >= 12 && hora < 18) {período = "Boa tarde"}
-
 /* -- Variáveis Auxiliares */
 
-    let marcioHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((el) => el.nome).indexOf("Marcio")].emailComercial}>@Marcio Tosta</a>`
-    let christianHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((el) => el.nome).indexOf("Christian")].emailComercial}>Christian Aparecido dos Santos Pereira</a>`
-    let simoneHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((el) => el.nome).indexOf("Simone")].emailComercial}>@Simone da Luz</a>`
+    let christianHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Christian")].emailComercial}>Christian Aparecido dos Santos Pereira</a>`
+    let marcioHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Marcio")].emailComercial}>@Marcio Tosta</a>`
+    let simoneHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Simone")].emailComercial}>@Simone da Luz</a>`
+    let comprasHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Compras")].emailComercial}>@Compras Eletrofrio</a>`
     let amareloBackground = 'style="background-color: rgb(255, 255, 0)"'
     let informação01
     let informação02
@@ -918,6 +1037,20 @@ else {
 /* -- Gera modelos de e-mails de acordo com o tipo */
 
     switch (idTipo.value) {
+        case "Compra de Porta Walk-In":
+            informação01 = `Por gentileza efetuar a compra conforme abaixo.`
+            informação02 = `Material já cadastrado na ordem de venda.`
+            informação03 = `<span ${amareloBackground}><mark>Puxador acoplado junto a porta;${br1}Acabamento alumínio anodizado sem pintura;${br1}Iluminação em LED;${br1}Incluir logomarca Eletrofrio em todas as portas;${br1}Identificar a Ordem de Compra (OC) nos volumes.</mark></span>`
+            informação04 = `Fornecedor - ${idFornecedor.value}.`
+            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
+            break;
+        case "Compra de Porta Seccional":
+            informação01 = `Por gentileza efetuar a compra conforme abaixo.`
+            informação02 = `Material já cadastrado na ordem de venda.`
+            informação03 = `<span ${amareloBackground}><mark>N UN - PORTA SECCIONAL LL;${br1}Vão de abertura: N,NN m de largura x N,NN m de altura;${br1}Porta seccional para ser fixada em painel de NN mm e alvenaria de NNN mm (total NNN mm);${br1}Pé direito livre: N,NN m;${br1}Com talha.</mark></span>`
+            informação04 = `Fornecedor - ${idFornecedor.value}.`
+            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
+            break;
         case "Dúvida Geral":
             informação01 = `Texto de dúvidas.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
@@ -965,6 +1098,30 @@ else {
             informação02 = `Por favor verificar a necessidade de atualização do projeto executivo.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${marcioHiperlink} e ${christianHiperlink}${br2}${informação01}${br2}${simoneHiperlink}${br2}${informação02}${br2}${agradecimento}${br3}`
             break;
+        case "Suporte TI - Geral":
+            informação01 = `Texto de dúvidas.`
+            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
+            break;
+        case "Suporte TI - Baan - Derrubar Usuário":
+            informação01 = `Por favor derrubar o usuário conectado à ${OV}${idOrdemDeVenda.value}.`
+            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${informação01}${br4}${agradecimento}${br3}`
+            break;
+        case "Suporte TI - Baan - Liberação de Tela":
+            informação01 = `Gostaria de solicitar a liberação da seguinte tela: OOOOOOOO.`
+            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${informação01}${br4}${agradecimento}${br3}`
+            break;
+        case "Suporte TI - Baan - Geral":
+            informação01 = `Texto de dúvidas.`
+            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
+            break;
+        case "Suporte TI - SIP - Geral":
+            informação01 = `Texto de dúvidas.`
+            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
+            break;
+        case "Suporte TI - SIP - Liberação para Edição de Painéis Altos":
+            informação01 = `Gostaria de solicitar a liberação do meu SIP para editar câmaras frigoríficas com alturas maiores que o limite de padrão.`
+            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${idTipo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
+            break;
         default:
             informação01 = `<span ${amareloBackground}><mark>(OPÇÃO DE E-MAIL AINDA NÃO CONFIGURADA)</mark></span>`
             idResultadoCorpoDoEmail.innerHTML = `${informação01}`
@@ -1009,16 +1166,6 @@ function limpaResultado() {
 
 /* Opções Extras */
 
-/* Cria as Opções de Cores padrão */
-
-cores.map((el)=>{
-    let optionCores = document.createElement(optionTag)
-    let textoOptionCores = document.createTextNode(el.nome)
-    optionCores.appendChild(textoOptionCores)
-    optionCores.setAttribute(valueAttribute, el.valor)
-    idOptionCores.insertAdjacentElement("beforeend",optionCores)
-})
-
 /* - Muda a cor do Background */
 
 function changeCorBackground() {document.body.style.background = idBackgroundColor.value}
@@ -1027,6 +1174,16 @@ function changeCorBackground() {document.body.style.background = idBackgroundCol
 
 function changeCorTexto() {document.body.style.color = idTextoColor.value}
 
+/* Cria as Opções de Cores padrão */
+
+cores.map((index)=>{
+    let optionCores = document.createElement(optionTag)
+    let textoOptionCores = document.createTextNode(index.nome)
+    optionCores.appendChild(textoOptionCores)
+    optionCores.setAttribute(valueAttribute, index.valor)
+    idOptionCores.insertAdjacentElement("beforeend",optionCores)
+})
+
 /* - Limpa os extras */
 
 function limpaExtras() {
@@ -1034,13 +1191,27 @@ function limpaExtras() {
     document.body.style.color = "#000000"
 }
 
+/* - Gera link de dúvidas para o representante */
+
+let hrefDúvidasDesenvolvedor = `mailTo:hcds.rick@gmail.com?subject=Dúvidas do Gerador de E-mails Padrão&body=${período},%0D%0D`
+idDúvidasDesenvolvedor.setAttribute(hrefAttribute, hrefDúvidasDesenvolvedor)
+
 /* Eventos do HTML*/
 
 idFunção.addEventListener("change", changeFunção)
 idLimpaTipoDeEmail.addEventListener("click", limpaTipoDeEmail)
 idTipo.addEventListener("change", changeTipo)
 idNúmeroRepresentante.addEventListener("change", changeNúmeroRepresentante)
+idPedido.addEventListener("change", limpaResultado)
+idAno.addEventListener("change", limpaResultado)
+idOrdemDeVenda.addEventListener("change", limpaResultado)
+idNomeDoCliente.addEventListener("change", limpaResultado)
+idNomeFantasia.addEventListener("change", limpaResultado)
+idMês.addEventListener("change", limpaResultado)
+idArquivo.addEventListener("change", limpaResultado)
+idRevisão.addEventListener("change", limpaResultado)
 idLimpaDadosDePedido.addEventListener("click", limpaDadosDoPedido)
+idFornecedor.addEventListener("change", changeFornecedor)
 idLimpaDadosPessoais.addEventListener("click", limpaDadosPessoais)
 idApresentaEmail.addEventListener("click", gerar)
 idLimpaResultado.addEventListener("click", limpaResultado)
@@ -1048,30 +1219,21 @@ idBackgroundColor.addEventListener("change", changeCorBackground)
 idTextoColor.addEventListener("change", changeCorTexto)
 idLimpaExtras.addEventListener("click", limpaExtras)
 
-/* TESTE */
-
 /* Mostra o que está na área de transferência */
 
-/* //let teste1 = document.querySelector("#teste1")
-let teste2 = document.querySelector("#teste2")
+/* let idExibeÁreaDeTransferência = document.querySelector("#idExibeÁreaDeTransferência")
 async function mostraÁreaDeTransferência() {
     let clipboardItems = await navigator.clipboard.read()
     for (const clipboardItem of clipboardItems) {
         for (const type of clipboardItem.types) {
             const blob = await clipboardItem.getType(type)
             let reader = new FileReader()
-            reader.onload = () => {
-                console.log(reader.result)
-                //alert(reader.result)
-                //teste1.innerHTML = reader.result
-            }
+            reader.onload = () => {console.log(reader.result)}
             reader.readAsText(blob)
         }
     }
 }
-teste2.addEventListener("click", mostraÁreaDeTransferência) */
-
-/* TESTE */
+idExibeÁreaDeTransferência.addEventListener("click", mostraÁreaDeTransferência) */
 
 /* FIM */
 
