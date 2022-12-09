@@ -298,7 +298,7 @@ let email = [
     {função:"Executivo", ordemSubgrupo:1, subGrupo:"Projeto", ordemTipo:2, tipo:"Executivo - Projetos Executivos", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: [].concat(liderançaContinuum).concat(executivo).concat(planilhamento), emailsBcc: []},
     {função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:1, tipo:"Planilhamento - Compra de Porta Walk-In", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: []},
     {função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:2, tipo:"Planilhamento - Compra de Porta Seccional", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: []},
-    //{função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:3, tipo:"Compra de Portal de Selamento", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    {função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:3, tipo:"Planilhamento - Compra de Portal de Selamento", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
     //{função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:4, tipo:"Compra de Niveladora de Doca", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
     //{função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:5, tipo:"Compra de Porta Rápida", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
     //{função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:6, tipo:"Compra de Porta Automática", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
@@ -1194,6 +1194,13 @@ else {
             informação04 = `Fornecedor - ${idFornecedor.value}.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
             break
+        case "Planilhamento - Compra de Portal de Selamento":
+            informação01 = `Por gentileza efetuar a compra conforme abaixo.`
+            informação02 = `Material já cadastrado na ordem de venda.`
+            informação03 = `<span ${amareloBackground}><mark>N UN - PORTAL DE SELAMENTO;${br1}Vão de abertura: N,NN m de largura x N,NN m de altura;${br1}Porta de selamento para ser fixada em painel de NN mm e alvenaria de NNN mm (total NNN mm);${br1}Pé direito livre: N,NN m.</mark></span>`
+            informação04 = `Fornecedor - ${idFornecedor.value}.`
+            idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
+            break        
         case "Planilhamento - Dúvidas Gerais":
             informação01 = `Texto de dúvidas.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${agradecimento}${br3}`
