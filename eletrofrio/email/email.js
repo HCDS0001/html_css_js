@@ -282,20 +282,20 @@ function mudaEmailRepresentante() {
 
 let email = [
     {função:selectOption, ordemSubgrupo:1, subGrupo:selectOption, ordemTipo:1, tipo:selectOption, dadosDoPedido:não, emailsPara: [], emailsCc: [], emailsBcc: []},
-    {função:"Analista", ordemSubgrupo:1, subGrupo:"Analista", ordemTipo:1, tipo:"Analista - Liberação", dadosDoPedido:sim, emailsPara: ["Liberação"], emailsCc: [], emailsBcc: []},
-    {função:"Analista", ordemSubgrupo:1, subGrupo:"Analista", ordemTipo:2, tipo:"Analista - Liberação Total", dadosDoPedido:sim, emailsPara: ["Liberação"], emailsCc: [], emailsBcc: []},
-    {função:"Analista", ordemSubgrupo:1, subGrupo:"Analista", ordemTipo:3, tipo:"Analista - Liberação Parcial", dadosDoPedido:sim, emailsPara: ["Liberação"], emailsCc: [], emailsBcc: []},
-    {função:"Analista", ordemSubgrupo:1, subGrupo:"Analista", ordemTipo:4, tipo:"Analista - Linhas Atualizadas", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
-    {função:"Analista", ordemSubgrupo:1, subGrupo:"Analista", ordemTipo:5, tipo:"Analista - Feito", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
-    {função:"Analista", ordemSubgrupo:1, subGrupo:"Analista", ordemTipo:5, tipo:"Analista - Alterações", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    {função:"Ajuste", ordemSubgrupo:1, subGrupo:"Ajuste", ordemTipo:1, tipo:"Ajuste - Dúvidas Gerais", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
-    {função:"Ajuste", ordemSubgrupo:1, subGrupo:"Ajuste", ordemTipo:2, tipo:"Ajuste - Aguardando Dúvidas", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
+    {função:"Analista", ordemSubgrupo:1, subGrupo:"Liberação", ordemTipo:1, tipo:"Analista - Liberação", dadosDoPedido:sim, emailsPara: ["Liberação"], emailsCc: [], emailsBcc: []},
+    {função:"Analista", ordemSubgrupo:1, subGrupo:"Liberação", ordemTipo:2, tipo:"Analista - Liberação Total", dadosDoPedido:sim, emailsPara: ["Liberação"], emailsCc: [], emailsBcc: []},
+    {função:"Analista", ordemSubgrupo:1, subGrupo:"Liberação", ordemTipo:3, tipo:"Analista - Liberação Parcial", dadosDoPedido:sim, emailsPara: ["Liberação"], emailsCc: [], emailsBcc: []},
+    {função:"Analista", ordemSubgrupo:1, subGrupo:"Verificação", ordemTipo:4, tipo:"Analista - Linhas Atualizadas", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
+    {função:"Analista", ordemSubgrupo:1, subGrupo:"Verificação", ordemTipo:5, tipo:"Analista - Feito", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
+    {função:"Analista", ordemSubgrupo:1, subGrupo:"Alteração", ordemTipo:5, tipo:"Analista - Alterações", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    {função:"Ajuste", ordemSubgrupo:1, subGrupo:"Dúvida", ordemTipo:1, tipo:"Ajuste - Dúvidas Gerais", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
+    {função:"Ajuste", ordemSubgrupo:1, subGrupo:"Dúvida", ordemTipo:2, tipo:"Ajuste - Aguardando Dúvidas", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:"Ajuste", ordemSubgrupo:1, subGrupo:"Ajuste", ordemTipo:3, tipo:"Ajuste - Arquivos para Produção", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:"Ajuste", ordemSubgrupo:1, subGrupo:"Ajuste", ordemTipo:4, tipo:"Ajuste - Aguardando Conferência", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
-    {função:"Ajuste", ordemSubgrupo:1, subGrupo:"Ajuste", ordemTipo:5, tipo:"Ajuste - Arquivos de Alteração", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
-    {função:"Ajuste", ordemSubgrupo:1, subGrupo:"Ajuste", ordemTipo:6, tipo:"Ajuste - Verificar Possibilidade de Alteração", dadosDoPedido:sim, emailsPara: ["Roney"], emailsCc: ["Simone", "Bruno Garcia", "Carla"].concat(representante).concat(ajuste).concat(analista).concat(planilhamento), emailsBcc: []},
-    {função:"Executivo", ordemSubgrupo:1, subGrupo:"Executivo", ordemTipo:1, tipo:"Executivo - Projetos Antecipados", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: [].concat(liderançaContinuum).concat(executivo).concat(planilhamento), emailsBcc: []},
-    //{função:"Executivo", ordemSubgrupo:1, subGrupo:"Executivo", ordemTipo:2, tipo:"Projeto Executivo", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: [].concat(liderançaContinuum).concat(executivo).concat(planilhamento), emailsBcc: []},
+    {função:"Ajuste", ordemSubgrupo:1, subGrupo:"Alteração", ordemTipo:5, tipo:"Ajuste - Arquivos de Alteração", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
+    {função:"Ajuste", ordemSubgrupo:1, subGrupo:"Alteração", ordemTipo:6, tipo:"Ajuste - Verificar Possibilidade de Alteração", dadosDoPedido:sim, emailsPara: ["Roney"], emailsCc: ["Simone", "Bruno Garcia", "Carla"].concat(representante).concat(ajuste).concat(analista).concat(planilhamento), emailsBcc: []},
+    {função:"Executivo", ordemSubgrupo:1, subGrupo:"Projeto", ordemTipo:1, tipo:"Executivo - Projetos Antecipados", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: [].concat(liderançaContinuum).concat(executivo).concat(planilhamento), emailsBcc: []},
+    {função:"Executivo", ordemSubgrupo:1, subGrupo:"Projeto", ordemTipo:2, tipo:"Executivo - Projetos Executivos", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: [].concat(liderançaContinuum).concat(executivo).concat(planilhamento), emailsBcc: []},
     {função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:1, tipo:"Planilhamento - Compra de Porta Walk-In", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: []},
     {função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:2, tipo:"Planilhamento - Compra de Porta Seccional", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: []},
     //{função:"Planilhamento", ordemSubgrupo:4, subGrupo:"Compra", ordemTipo:3, tipo:"Compra de Portal de Selamento", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
@@ -638,66 +638,12 @@ function changeTipo() {
 
 /* - Seleciona as checkbox dos e-mails do tipo executivo de acordo com os responsáveis */
 
-
-/* TESTE */
-
-/*     if (email.filter((index1)=>index1.tipo == idTipo.value).map((index1)=>`${index1.função}`) == "Executivo") {
-        for (let index2 in email) {
-            if (idTipo.value == email[index2].tipo) {
-                for (let index = 4; index < Object.keys(representanteCadastro[0]).length; index++) {
-                    let responsável
-                    let teste = Object.keys(representanteCadastro[0])[index]
-                    console.log(teste)
-                    responsável = cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>`${index3.teste}`)
-                    console.log(responsável)
-                    if (responsável != "") {
-                        let capitalizeIdParaGerente1 = `idPara${(responsável.toString().replace(/ /g, "")).charAt(0).toLowerCase() + (responsável.toString().replace(/ /g, "")).slice(1)}`
-                        let idCheckboxParaGerente1 = document.querySelector(`#${capitalizeIdParaGerente1}`)
-                        idCheckboxParaGerente1.checked = true
-                    }
-                }
-            }
-        }
-    } */
-
-/* TESTE */
-
     if (email.filter((index1)=>index1.tipo == idTipo.value).map((index1)=>`${index1.função}`) == "Executivo") {
         for (let index2 in email) {
             if (idTipo.value == email[index2].tipo) {
                 for (let index = 4; index < Object.keys(representanteCadastro[0]).length; index++) {
-                    let responsável
-                    switch (index) {
-                        case 4:
-                            responsável = cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>`${index3.gerente1}`)
-                            break;
-                        case 5:
-                            responsável = cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>`${index3.gerente2}`)
-                            break;
-                        case 6:
-                            responsável = cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>`${index3.engenheiro1}`)
-                            break;
-                        case 7:
-                            responsável = cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>`${index3.engenheiro2}`)
-                            break;
-                        case 8:
-                            responsável = cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>`${index3.coordenadorRegional1}`)
-                            break;
-                        case 9:
-                            responsável = cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>`${index3.coordenadorRegional2}`)
-                            break;
-                        case 10:
-                            responsável = cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>`${index3.supervisorDeObra1}`)
-                            break;
-                        case 11:
-                            responsável = cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>`${index3.supervisorDeObra2}`)
-                            break;
-                        default:
-                            console.log("erro")
-                            break;
-                    }
-                    if (responsável != "") {
-                        let capitalizeIdParaGerente1 = `idPara${(responsável.toString().replace(/ /g, "")).charAt(0).toLowerCase() + (responsável.toString().replace(/ /g, "")).slice(1)}`
+                    if (cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>Object.values(index3)[index]) != "") {
+                        let capitalizeIdParaGerente1 = `idPara${(cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>Object.values(index3)[index]).toString().replace(/ /g, "")).charAt(0).toLowerCase() + (cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>Object.values(index3)[index]).toString().replace(/ /g, "")).slice(1)}`
                         let idCheckboxParaGerente1 = document.querySelector(`#${capitalizeIdParaGerente1}`)
                         idCheckboxParaGerente1.checked = true
                     }
@@ -1154,39 +1100,39 @@ else {
             informação01 = `Segue liberação.`
             informação02 = `Observações:`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${informação02}${br4}${agradecimento}${br3}`
-            break;
+            break
         case "Analista - Liberação Total":
             informação01 = `Segue liberação total.`
             informação02 = `Observações:`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${informação02}${br4}${agradecimento}${br3}`
-            break;
+            break
         case "Analista - Liberação Parcial":
             informação01 = `Segue liberação parcial.`
             informação02 = `Observações:`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${informação02}${br4}${agradecimento}${br3}`
-            break;
+            break
         case "Analista - Linhas Atualizadas":
             informação01 = `Linhas atualizadas.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br4}${agradecimento}${br3}`
-            break;
+            break
         case "Analista - Feito":
             informação01 = `Feito.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Analista - Alterações":
             informação01 = `Novos arquivos salvos na rede.`
             informação02 = `Alterações:`
             informação03 = `01 - Informação do que foi alterado.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${informação02}${br1}${informação03}${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Ajuste - Dúvidas Gerais":
             informação01 = `Texto de dúvidas.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Ajuste - Aguardando Dúvidas":
             informação01 = `Seguimos arguardando as dúvidas e correções enviadas nos e-mails anteriores, a demora nas respostas afeta diretamente o prazo de entrega dos materiais.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Ajuste - Arquivos para Produção":
             informação01 = `Analista, o pedido citado no título do e-mail foi ajustado e registrado para produção conforme os arquivos enviados pelo representante.`
             informação02 = `Projetista/Representante`
@@ -1198,11 +1144,11 @@ else {
             informação08 = `Lista de Ajuste: 211`
             informação09 = `Os expositores serão cadastrados de acordo com a planilha abaixo:`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br1}${informação04}${br1}${informação05}${br2}${informação06}${br2}${informação07}${br1}${informação08}${br2}${informação09}${br4}${agradecimento}${br3}`
-            break;
+            break
         case "Ajuste - Aguardando Conferência":
             informação01 = `Seguimos arguardando o OK informando que os arquivos foram conferidos e podem seguir para a produção, a demora nas respostas afeta diretamente o prazo de entrega dos materiais.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Ajuste - Arquivos de Alteração":
             informação01 = `Analista, segue ajuste atualizado de acordo com os novos arquivos enviados pelo representante.`
             informação02 = `Alterações:`
@@ -1215,36 +1161,43 @@ else {
             informação09 = `<span ${amareloBackground}><mark>- Informação especial.</mark></span>`
             informação10 = `Os expositores serão cadastrados de acordo com a planilha abaixo:`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${informação02}${br1}${informação03}${br2}${informação04}${br2}${informação05}${br1}${informação06}${br1}${informação07}${br1}${informação08}${br2}${informação09}${br2}${informação10}${br4}${agradecimento}${br3}`
-            break;
+            break
         case "Ajuste - Verificar Possibilidade de Alteração":
             informação01 = `Ainda é possível fazer alterações?`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${roneyHiperlink}${br2}${informação01}${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Executivo - Projetos Antecipados":
-            informação01 = `Segue antecipação de projeto de OOOOOOOOOOOO.`
+            informação01 = `Segue antecipação de projeto executivo de OOOOOOOOOOOO.`
             informação02 = `Pedimos a gentileza de verificação e aprovação dos projetos em resposta a este e-mail.`
             informação03 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
             informação04 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
-            break;
+            break
+        case "Executivo - Projetos Executivos":
+            informação01 = `Segue projeto executivo de OOOOOOOOOOOO.`
+            informação02 = `Pedimos a gentileza de verificação e aprovação dos projetos em resposta a este e-mail.`
+            informação03 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
+            informação04 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
+            idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
+            break
         case "Planilhamento - Compra de Porta Walk-In":
             informação01 = `Por gentileza efetuar a compra conforme abaixo.`
             informação02 = `Material já cadastrado na ordem de venda.`
             informação03 = `<span ${amareloBackground}><mark>Puxador acoplado junto a porta;${br1}Acabamento alumínio anodizado sem pintura;${br1}Iluminação em LED;${br1}Incluir logomarca Eletrofrio em todas as portas;${br1}Identificar a Ordem de Compra (OC) nos volumes.</mark></span>`
             informação04 = `Fornecedor - ${idFornecedor.value}.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Planilhamento - Compra de Porta Seccional":
             informação01 = `Por gentileza efetuar a compra conforme abaixo.`
             informação02 = `Material já cadastrado na ordem de venda.`
             informação03 = `<span ${amareloBackground}><mark>N UN - PORTA SECCIONAL LL;${br1}Vão de abertura: N,NN m de largura x N,NN m de altura;${br1}Porta seccional para ser fixada em painel de NN mm e alvenaria de NNN mm (total NNN mm);${br1}Pé direito livre: N,NN m;${br1}Com talha.</mark></span>`
             informação04 = `Fornecedor - ${idFornecedor.value}.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Planilhamento - Dúvidas Gerais":
             informação01 = `Texto de dúvidas.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Planilhamento - Dúvida de Porta Seccional Livre de Alvenaria":
             informação01 = `Gostaria de tirar algumas dúvidas a respeito de porta seccional e portal de selamento:`
             informação02 = `1 - Qual o pé direito livre do início do vão da porta até a primeira obstrução do lado externo da porta (medida A)?`
@@ -1254,7 +1207,7 @@ else {
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}`
             idResultadoCorpoDoEmail.appendChild(imagem01)
             idResultadoCorpoDoEmail.innerHTML += `${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Planilhamento - Dúvida de Porta Seccional Encostada em Alvenaria":
             informação01 = `Gostaria de tirar algumas dúvidas a respeito de porta seccional e portal de selamento:`
             informação02 = `1 - Qual o pé direito livre do início do vão da porta até a primeira obstrução do lado externo da porta (medida A)?`
@@ -1266,62 +1219,62 @@ else {
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${informação04}${br2}${informação05}${br2}`
             idResultadoCorpoDoEmail.appendChild(imagem01)
             idResultadoCorpoDoEmail.innerHTML += `${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Planilhamento - Aguardando Dúvidas":
             informação01 = `Seguimos arguardando as dúvidas e correções enviadas nos e-mails anteriores, a demora nas respostas afeta diretamente o prazo de entrega dos materiais.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Planilhamento - Encaminhar":
             informação01 = `Encaminhando e-mail.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Planilhamento Total":
             informação01 = `<span ${amareloBackground}><mark>Informação especial.</mark></span>`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${idRevisão.value}${br2}${informação01}${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Planilhamento Parcial":
             informação01 = `<span ${amareloBackground}><mark>Informação especial.</mark></span>`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${idRevisão.value}${br2}${informação01}${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Planilhamento Alteração":
             informação01 = `<span ${amareloBackground}><mark>Atualizado o alfa de OOOOOOOO.</mark></span>`
             informação02 = `Por favor verificar a necessidade de atualização do projeto executivo.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${marcioHiperlink} e ${christianHiperlink}${br2}${informação01}${br2}${simoneHiperlink}${br2}${informação02}${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Planilhamento - Suporte TI - Geral":
             informação01 = `Texto de dúvidas.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Planilhamento - Suporte TI - Baan - Derrubar Usuário":
             informação01 = `Por favor derrubar o usuário conectado à ${OV}${idOrdemDeVenda.value}.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br4}${agradecimento}${br3}`
-            break;
+            break
         case "Planilhamento - Suporte TI - Baan - Liberação de Tela":
             informação01 = `Gostaria de solicitar a liberação da seguinte tela: OOOOOOOO.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br4}${agradecimento}${br3}`
-            break;
+            break
         case "Planilhamento - Suporte TI - Baan - Geral":
             informação01 = `Texto de dúvidas.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Planilhamento - Suporte TI - SIP - Geral":
             informação01 = `Usuário - LLLLLLLL.LLLLLLLL.`
             informação02 = `Texto de dúvidas.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
-            break;
+            break
         case "Planilhamento - Suporte TI - SIP - Liberação para Edição de Painéis Altos":
             informação01 = `Usuário - LLLLLLLL.LLLLLLLL.`
             informação02 = `Gostaria de solicitar a liberação do meu SIP para editar câmaras frigoríficas com alturas maiores que o limite de padrão.`
             idResultadoCorpoDoEmail.innerHTML = `${idTipo.value}${br2}${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
-            break;
+            break
             case selectOption:
             informação01 = `<span ${amareloBackground}><mark>(OPÇÃO DE TIPO DE E-MAIL NÃO SELECIONADO)</mark></span>`
             idResultadoCorpoDoEmail.innerHTML = `${informação01}${br3}`
-            break;
+            break
         default:
             informação01 = `<span ${amareloBackground}><mark>(OPÇÃO DE E-MAIL AINDA NÃO CONFIGURADA)</mark></span>`
             idResultadoCorpoDoEmail.innerHTML = `${informação01}${br3}`
-            break;
+            break
     }
     idResultadoCorpoDoEmail.appendChild(assinatura)
 
