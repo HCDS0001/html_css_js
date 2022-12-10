@@ -17,7 +17,7 @@
             </article>
             <article>
                 <form action="">
-                    <fieldset>
+                    <fieldset id="idFieldsetDadosPessoais">
                         <legend>Tipo de E-mail</legend>
                         <label for="idFunção">Função</label>
                         <select name="nameFunção" id="idFunção" title="Selecione a sua função."></select><br>
@@ -27,7 +27,7 @@
                     </fieldset>
                 </form>
                 <form action="">
-                    <fieldset id="idDadosDoPedido">
+                    <fieldset id="idFieldsetDadosDoPedido">
                         <legend>Dados do Pedido</legend>
                         <label for="idNomeRepresentante">Nome do Representante</label>
                         <input type="text" name="nameNomeRepresentante" id="idNomeRepresentante" size="15" placeholder="Representante" title="Muda ao selecionar o número do representante." readonly><br>
@@ -53,14 +53,14 @@
                     </fieldset>
                 </form>
                 <form action="">
-                    <fieldset id="idDadosDeCompra">
+                    <fieldset id="idFieldsetDadosDeCompra">
                         <legend>Dados de Compra</legend>
                         <label for="idFornecedor">Fornecedor:</label>
                         <select name="nameFornecedor" id="idFornecedor" title="Selecione o fornecedor do material."></select><br>
                     </fieldset>
                 </form>
                 <form action="">
-                    <fieldset>
+                    <fieldset id="idFieldsetDadosPessoais">
                         <legend>Dados Pessoais</legend>
                         <label for="idAssinatura">Assinatura de E-mail:</label>
                         <input type="file" name="nameAssinatura" accept="image/png" name="nameAssinatura" id="idAssinatura" title="Selecione a assinatura de e-mail nos seus arquivos."><br><hr>
@@ -68,7 +68,7 @@
                     </fieldset>
                 </form>
                 <form action="">
-                    <fieldset>
+                    <fieldset id="idFieldsetEmailsSelecionados">
                         <legend>E-mails Selecionados</legend>
                         <details id="idEmailsPara">
                             <summary title='Clique para expandir e visualizar as opções de checbox para inserir no campo "Para".'>E-mails Para:</summary>
@@ -86,7 +86,7 @@
         </section>
         <section>
             <form action="">
-                <fieldset>
+                <fieldset id="idFieldsetResultado">
                     <legend>Resultado</legend>
                     <label for="idResultadoPara" title='Apresenta os e-mails para o campo "Para".'>Para:</label><br>
                     <span id="idResultadoPara"></span><br>
@@ -100,12 +100,12 @@
                     <span id="idResultadoCorpoDoEmail" spellcheck="true" contenteditable></span><hr>
                     <button type="button" id="idApresentaEmail" title="Gera os resultados com base nos itens preenchidos e selecionados nos campos acima.">Exibir Resultado</button><br>
                     <button type="button" id="idCopiaCorpoDoEmail" title="Copia o corpo do e-mail.">Copia Corpo do E-mail</button><br>
-                    <a id="idGeraEmail" target="_blank" title="Clique para gerar o e-mail.">Gerar E-mail</a><br>
+                    <a id="idGeraEmail" target="_blank" title="Clique para gerar o e-mail.">Gerar E-mail</a>
                     <button type="reset" id="idLimpaResultado"title="Limpa os resultados gerados.">Limpar Resultados</button>
                 </fieldset>
             </form>
             <form action="">
-                <fieldset>
+                <fieldset id="idFieldsetExtras">
                     <legend>Extras</legend>
                     <label for="idBackgroundColor">Cor do Background:</label>
                     <input type="color" name="nameBackgroundColor" id="idBackgroundColor" value="#FFFFFF" list="idOptionCores" title="Selecione a cor do background."><br>
@@ -117,9 +117,11 @@
             </form>
         </section>
     </main>
-    <footer>Desenvolvido por Henrique Carvalho de Souza</footer>
-    <a id="idDúvidasDesenvolvedor" target="_blank" title="Clique para enviar um e-mail de dúvidas para o desenvolvedor da página.">Dúvidas para o desenvolvedor.</a><br>
-<!--     <button id="idExibeÁreaDeTransferência">Exibe Área de Transferência</button> -->
+    <footer>
+        <span>Desenvolvido por Henrique Carvalho de Souza</span>
+        <a id="idDúvidasDesenvolvedor" target="_blank" title="Clique para enviar um e-mail de dúvidas para o desenvolvedor da página.">Dúvidas para o desenvolvedor.</a>
+        <button id="idExibeÁreaDeTransferência">Exibe Área de Transferência</button>
+    </footer>
 <!--     <style style="display: block;" contenteditable>main, header, footer{color: #FFFFFF; background-color: #000000;}</style> -->
     <script src="email.js"></script>
 </body>

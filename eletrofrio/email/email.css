@@ -1,15 +1,96 @@
+/* Estilizações necessárias ao funcionamento */
+
 input:invalid{
     background-color: rgba(255, 255, 0, 1);
 }
 
-#idDadosDoPedido{
+#idFieldsetDadosDoPedido{
     display: none;
 }
 
-#idDadosDeCompra{
+#idFieldsetDadosDeCompra{
     display: none;
 }
 
 .classTipo{
     display: none;
 }
+
+/* Estilizações estéticas */
+
+body{
+    margin: auto;
+    max-width: 450px;
+}
+
+/* - Texto */
+
+#idFieldsetResultado span{
+    font: normal normal normal normal 11.0pt "calibri", "sans-serif";
+}
+
+legend{
+    font: normal normal bold normal 11.0pt "Arial", "sans-serif";
+}
+
+a{
+    font: normal normal normal normal 10.0pt "Arial", "sans-serif";
+}
+
+button{
+    font: normal normal normal normal 10.0pt "Arial", "sans-serif";
+}
+
+#idFieldsetResultado label{
+/*     font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 11.0pt;
+    line-height: normal;
+    font-family: "Arial", "sans-serif"; */
+    font: normal normal bold normal 11.0pt "Arial", "sans-serif";
+/*     text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-color: black;
+    text-decoration-thickness: 1px; */
+    text-decoration: underline solid black 1px;
+/*     text-transform: uppercase; */
+}
+
+/* - Ocupação na tela */
+
+fieldset button,select{
+    width: 100%;
+}
+
+fieldset input{
+    width: calc(100% - 8px);
+}
+
+#idFieldsetDadosPessoais input,label{
+    width: 100%;
+}
+
+#idFieldsetExtras input{
+    width: calc(100% - 0px);
+}
+
+footer button{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    justify-content: center;
+    text-align: center;
+}
+
+footer span,a{
+    display: flex;
+    justify-content: center;
+}
+
+/* #idGeraEmail{
+    background-color: rgb(240, 240, 240); 
+    border: 1px solid rgb(120, 120, 120);
+    border-radius: 2px;
+} */
