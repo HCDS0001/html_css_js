@@ -89,15 +89,15 @@
             <form action="">
                 <fieldset id="idFieldsetResultado">
                     <legend>Resultado</legend>
-                    <label for="idResultadoPara" title='Apresenta os e-mails para o campo "Para".'>Para:</label><br>
+                    <label for="idResultadoPara" title='Apresenta os e-mails para o campo "Para".' class="classLabelResultado">Para:</label><br>
                     <span id="idResultadoPara"></span><br>
-                    <label for="idResultadoCc" title='Apresenta os e-mails para o campo "Cc".'>Cc:</label><br>
+                    <label for="idResultadoCc" title='Apresenta os e-mails para o campo "Cc".' class="classLabelResultado">Cc:</label><br>
                     <span id="idResultadoCc"></span><br>
-                    <label for="idResultadoBcc" title='Apresenta os e-mails para o campo "Bcc".'>Bcc:</label><br>
+                    <label for="idResultadoBcc" title='Apresenta os e-mails para o campo "Bcc".' class="classLabelResultado">Bcc:</label><br>
                     <span id="idResultadoBcc"></span><br>
-                    <label for="idResultadoAssunto" title="Apresenta o assunto do e-mail.">Assunto:</label><br>
+                    <label for="idResultadoAssunto" title="Apresenta o assunto do e-mail." class="classLabelResultado">Assunto:</label><br>
                     <span id="idResultadoAssunto"></span><br>
-                    <label for="idResultadoCorpoDoEmail" title="Apresenta o corpo do e-mail.">Corpo do E-mail:</label><br>
+                    <label for="idResultadoCorpoDoEmail" title="Apresenta o corpo do e-mail." class="classLabelResultado">Corpo do E-mail:</label><br>
                     <span id="idResultadoCorpoDoEmail" spellcheck="true" contenteditable></span><hr>
                     <button type="button" id="idApresentaEmail" title="Gera os resultados com base nos itens preenchidos e selecionados nos campos acima.">Exibir Resultado</button><br>
                     <button type="button" id="idCopiaCorpoDoEmail" title="Copia o corpo do e-mail.">Copia Corpo do E-mail</button><br>
@@ -107,25 +107,27 @@
                     <button type="reset" id="idLimpaResultado"title="Limpa os resultados gerados.">Limpar Resultados</button>
                 </fieldset>
             </form>
-            <form action="">
+<!--             <form action="">
                 <fieldset id="idFieldsetExtras">
                     <legend>Extras</legend>
                     <label for="idBackgroundColor">Cor do Background:</label>
                     <input type="color" name="nameBackgroundColor" id="idBackgroundColor" value="#FFFFFF" list="idOptionCores" title="Selecione a cor do background."><br>
-                    <label for="idBackgroundColor">Cor do Texto:</label>
+                    <label for="idTextoColor">Cor do Texto:</label>
                     <input type="color" name="nameTextoColor" id="idTextoColor" value="#000000" list="idOptionCores" title="Selecione a cor do texto."><br>
+                    <label for="idEstiloDeCor">Estilo de Cor:</label>
+                    <button type="button" id="idEstiloDeCor" title="Muda o estilo de cores da página.">White Mode</button><br>
                     <datalist id="idOptionCores"></datalist>
                     <button type="reset" id="idLimpaExtras"title="Limpa os extras.">Limpar Extras</button>
                 </fieldset>
-            </form>
+            </form> -->
         </section>
     </main>
     <footer>
-        <span>Desenvolvido por Henrique Carvalho de Souza</span>
         <button type="button" formtarget="_blank">
-            <a id="idDúvidasDesenvolvedor" target="_blank" title="Clique para enviar um e-mail de dúvidas para o desenvolvedor da página.">Dúvidas para o desenvolvedor.</a>
+            <a id="idDúvidasDesenvolvedor" target="_blank" title="Clique para enviar um e-mail de dúvidas para o desenvolvedor da página.">Dúvidas Para o Desenvolvedor</a>
         </button><br>
-        <button id="idExibeÁreaDeTransferência">Exibe Área de Transferência</button>
+<!--         <button id="idExibeÁreaDeTransferência">Exibe Área de Transferência</button> -->
+        <span>Desenvolvido por Henrique Carvalho de Souza</span>
     </footer>
 <!--     <style style="display: block;" contenteditable>main, header, footer{color: #FFFFFF; background-color: #000000;}</style> -->
     <script src="email.js"></script>

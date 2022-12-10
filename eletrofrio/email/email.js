@@ -22,6 +22,7 @@ let idEmailsPara = document.querySelector("#idEmailsPara")
 let idEmailsCc = document.querySelector("#idEmailsCc")
 let idEmailsBcc = document.querySelector("#idEmailsBcc")
 let idLimpaEmailSelecionado = document.querySelector("#idLimpaEmailSelecionado")
+let idFieldsetResultado = document.querySelector("#idFieldsetResultado")
 let idResultadoPara = document.querySelector("#idResultadoPara")
 let idResultadoCc = document.querySelector("#idResultadoCc")
 let idResultadoBcc = document.querySelector("#idResultadoBcc")
@@ -36,7 +37,14 @@ let idDúvidasDesenvolvedor = document.querySelector("#idDúvidasDesenvolvedor")
 let idBackgroundColor = document.querySelector("#idBackgroundColor")
 let idTextoColor = document.querySelector("#idTextoColor")
 let idOptionCores = document.querySelector("#idOptionCores")
+let idEstiloDeCor = document.querySelector("#idEstiloDeCor")
 let idLimpaExtras = document.querySelector("#idLimpaExtras")
+
+let buttonTagSelector = document.querySelectorAll("button")
+let selectTagSelector = document.querySelectorAll("select")
+let inputTagSelector = document.querySelectorAll("input")
+let aTagSelector = document.querySelectorAll("a")
+let classLabelResultado = document.querySelectorAll(".classLabelResultado")
 
 /* Variáveis para facilitar a escrita de funções  */
 
@@ -438,6 +446,7 @@ let cores = [
     {cor:"Cinza Claro", valor:"#C0C0C0"},
     {cor:"Cinza", valor:"#808080"},
     {cor:"Cinza Escuro", valor:"#404040"},
+    {cor:"Cinza Muito Escuro", valor:"#202020"},
     {cor:"Preto", valor:"#000000"},
     {cor:"Azul Claro", valor:"#8080FF"},
     {cor:"Azul", valor:"#0000FF"},
@@ -451,6 +460,7 @@ let cores = [
     {cor:"Amarelo Claro", valor:"#FFFF80"},
     {cor:"Amarelo", valor:"#FFFF00"},
     {cor:"Amarelo Escuro", valor:"#808000"},
+    {cor:"Botão", valor:"#F0F0F0"},
 
 ]
 
@@ -766,6 +776,7 @@ for (let index1 in funçãoCadastro) {
     let capitalizeIdFunçãoCadastro = `${(funçãoCadastro[index1].função.replace(/ /g, "")).charAt(0).toLowerCase() + (funçãoCadastro[index1].função.replace(/ /g, "")).slice(1)}`
     let detailsParaEmail = document.createElement(detailsTag)
     detailsParaEmail.setAttribute(idAttribute, `idDetailsPara${capitalizeIdFunçãoCadastro}`)
+    detailsParaEmail.setAttribute(classAttribute, `classDetails`)
     idEmailsPara.insertAdjacentElement("beforeend",detailsParaEmail)
 
 /* -- Cria summary para as funções para */
@@ -801,7 +812,7 @@ for (let index1 in funçãoCadastro) {
         optionInputEmailCadastro.appendChild(textoOptionInputEmailCadastro)
         optionInputEmailCadastro.setAttribute(typeAttribute, checkboxAttribute)
         optionInputEmailCadastro.setAttribute(idAttribute, capitalizeIdPara)
-        optionInputEmailCadastro.setAttribute(classAttribute, `classParaEmailcadastro${capitalizeIdFunçãoCadastro} classParaEmail`)
+        optionInputEmailCadastro.setAttribute(classAttribute, `classParaEmailcadastro${capitalizeIdFunçãoCadastro} classParaEmail classInputEmail`)
         optionInputEmailCadastro.setAttribute(valueAttribute, index2.emailComercial)
         idDetailsPara.insertAdjacentElement("beforeend",optionInputEmailCadastro)
 
@@ -863,6 +874,7 @@ for (let index1 in funçãoCadastro) {
     let capitalizeIdFunçãoCadastro = `${(funçãoCadastro[index1].função.replace(/ /g, "")).charAt(0).toLowerCase() + (funçãoCadastro[index1].função.replace(/ /g, "")).slice(1)}`
     let detailsCcEmail = document.createElement(detailsTag)
     detailsCcEmail.setAttribute(idAttribute, `idDetailsCc${capitalizeIdFunçãoCadastro}`)
+    detailsCcEmail.setAttribute(classAttribute, `classDetails`)
     idEmailsCc.insertAdjacentElement("beforeend",detailsCcEmail)
 
 /* -- Cria summary para as funções cc */
@@ -899,7 +911,7 @@ for (let index1 in funçãoCadastro) {
         optionInputEmailCadastro.appendChild(textoOptionInputEmailCadastro)
         optionInputEmailCadastro.setAttribute(typeAttribute, checkboxAttribute)
         optionInputEmailCadastro.setAttribute(idAttribute, capitalizeIdCc)
-        optionInputEmailCadastro.setAttribute(classAttribute, `classCcEmailcadastro${capitalizeIdFunçãoCadastro} classCcEmail`)
+        optionInputEmailCadastro.setAttribute(classAttribute, `classCcEmailcadastro${capitalizeIdFunçãoCadastro} classCcEmail classInputEmail`)
         optionInputEmailCadastro.setAttribute(valueAttribute, index2.emailComercial)
         idDetailsCc.insertAdjacentElement("beforeend",optionInputEmailCadastro)
 
@@ -956,14 +968,15 @@ for (let index1 in funçãoCadastro) {
 
 for (let index1 in funçãoCadastro) {
 
-/* -- Cria details bcc as funções bcc */
+/* -- Cria details para as funções bcc */
     
         let capitalizeIdFunçãoCadastro = `${(funçãoCadastro[index1].função.replace(/ /g, "")).charAt(0).toLowerCase() + (funçãoCadastro[index1].função.replace(/ /g, "")).slice(1)}`
         let detailsBccEmail = document.createElement(detailsTag)
         detailsBccEmail.setAttribute(idAttribute, `idDetailsBcc${capitalizeIdFunçãoCadastro}`)
+        detailsBccEmail.setAttribute(classAttribute, `classDetails`)
         idEmailsBcc.insertAdjacentElement("beforeend",detailsBccEmail)
     
-/* -- Cria summary bcc as funções bcc */
+/* -- Cria summary para as funções bcc */
     
         let idDetailsBcc = document.querySelector(`#idDetailsBcc${capitalizeIdFunçãoCadastro}`)
         let summaryBccEmail = document.createElement(summaryTag)
@@ -972,7 +985,7 @@ for (let index1 in funçãoCadastro) {
         summaryBccEmail.setAttribute(idAttribute, `idSummaryBcc${capitalizeIdFunçãoCadastro}`)
         idDetailsBcc.insertAdjacentElement("beforeend",summaryBccEmail)
     
-/* -- Cria label bcc selecionar todas as checkbox das funções bcc */
+/* -- Cria label para selecionar todas as checkbox das funções bcc */
     
         let labelEmail = document.createElement(labelTag)
         let textoLabelEmail = document.createTextNode(`${selectAll} ${funçãoCadastro[index1].função}`)
@@ -996,7 +1009,7 @@ for (let index1 in funçãoCadastro) {
             optionInputEmailCadastro.appendChild(textoOptionInputEmailCadastro)
             optionInputEmailCadastro.setAttribute(typeAttribute, checkboxAttribute)
             optionInputEmailCadastro.setAttribute(idAttribute, capitalizeIdBcc)
-            optionInputEmailCadastro.setAttribute(classAttribute, `classBccEmailcadastro${capitalizeIdFunçãoCadastro} classBccEmail`)
+            optionInputEmailCadastro.setAttribute(classAttribute, `classBccEmailcadastro${capitalizeIdFunçãoCadastro} classBccEmail classInputEmail`)
             optionInputEmailCadastro.setAttribute(valueAttribute, index2.emailComercial)
             idDetailsBcc.insertAdjacentElement("beforeend",optionInputEmailCadastro)
     
@@ -1386,15 +1399,15 @@ function limpaResultado() {
 
 /* - Muda a cor do Background */
 
-function changeCorBackground() {document.body.style.background = idBackgroundColor.value}
+/* function changeCorBackground() {document.body.style.background = idBackgroundColor.value} */
 
 /* - Muda a cor do Texto */
 
-function changeCorTexto() {document.body.style.color = idTextoColor.value}
+/* function changeCorTexto() {document.body.style.color = idTextoColor.value} */
 
 /* Cria as Opções de Cores padrão */
 
-cores.map((index)=>{
+/* cores.map((index)=>{
     let optionCores = document.createElement(optionTag)
     let textoOptionCores = document.createTextNode(index.nome)
     optionCores.appendChild(textoOptionCores)
@@ -1402,12 +1415,107 @@ cores.map((index)=>{
     idOptionCores.insertAdjacentElement("beforeend",optionCores)
 })
 
+let mode = 0
+
+function changeEstiloDeCor() {
+    if (mode == 0) {
+        idEstiloDeCor.innerHTML = "Dark Mode"
+        classLabelResultado.forEach(el => {el.style.textDecoration = "underline solid white 1px"})
+        document.body.style.background = cores.filter((index2)=>index2.cor == "Cinza Muito Escuro").map((index2)=>`${index2.valor}`)
+        buttonTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Cinza").map((index2)=>`${index2.valor}`)})
+        selectTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Cinza Muito Escuro").map((index2)=>`${index2.valor}`)})
+        inputTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Cinza Muito Escuro").map((index2)=>`${index2.valor}`)})
+        aTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Cinza").map((index2)=>`${index2.valor}`)})
+        idBackgroundColor.value = cores.filter((index2)=>index2.cor == "Cinza Muito Escuro").map((index2)=>`${index2.valor}`)
+
+        document.body.style.color = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)
+        buttonTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)})
+        selectTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)})
+        inputTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)})
+        aTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)})
+        idTextoColor.value = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)
+
+        buttonTagSelector.forEach(el => {el.style.borderRadius = "2px"})
+        buttonTagSelector.forEach(el => {el.style.border = "1px solid #C0C0C0"})
+        selectTagSelector.forEach(el => {el.style.borderRadius = "2px"})
+        selectTagSelector.forEach(el => {el.style.border = "1px solid #C0C0C0"})
+        inputTagSelector.forEach(el => {el.style.borderRadius = "2px"})
+        inputTagSelector.forEach(el => {el.style.border = "1px solid #C0C0C0"})
+        idAssinatura.style.border = "0px none #000000"
+
+        mode = 1
+    } else {
+        idEstiloDeCor.innerHTML = "White Mode"
+        classLabelResultado.forEach(el => {el.style.textDecoration = "underline solid black 1px"})
+        document.body.style.background = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)
+        buttonTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Botão").map((index2)=>`${index2.valor}`)})
+        selectTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)})
+        inputTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)})
+        aTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Botão").map((index2)=>`${index2.valor}`)})
+        idBackgroundColor.value = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)
+
+        document.body.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)
+        buttonTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)})
+        selectTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)})
+        inputTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)})
+        aTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)})
+        idTextoColor.value = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)
+
+        buttonTagSelector.forEach(el => {el.style.borderRadius = "2px"})
+        buttonTagSelector.forEach(el => {el.style.border = "1px solid #707070"})
+        selectTagSelector.forEach(el => {el.style.borderRadius = "2px"})
+        selectTagSelector.forEach(el => {el.style.border = "1px solid #707070"})
+        inputTagSelector.forEach(el => {el.style.borderRadius = "2px"})
+        inputTagSelector.forEach(el => {el.style.border = "1px solid #707070"})
+        idAssinatura.style.border = "0px none #000000"
+
+        mode = 0
+    }
+}
+
+buttonTagSelector.forEach(el => {el.addEventListener("mouseover", teste1)})
+buttonTagSelector.forEach(el => {el.addEventListener("mouseout", teste2)})
+
+function teste1(){
+    buttonTagSelector.forEach(el => {el.style.background = "green"})
+}
+
+function teste2(){
+    buttonTagSelector.forEach(el => {el.style.background = "red"})
+} */
+
 /* - Limpa os extras */
 
-function limpaExtras() {
-    document.body.style.background = "#FFFFFF"
-    document.body.style.color = "#000000"
-}
+/* function limpaExtras() {
+    document.body.style.background = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)
+    document.body.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)
+
+    idEstiloDeCor.innerHTML = "White Mode"
+    classLabelResultado.forEach(el => {el.style.textDecoration = "underline solid black 1px"})
+    document.body.style.background = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)
+    buttonTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Botão").map((index2)=>`${index2.valor}`)})
+    selectTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)})
+    inputTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)})
+    aTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Botão").map((index2)=>`${index2.valor}`)})
+    idBackgroundColor.value = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)
+
+    document.body.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)
+    buttonTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)})
+    selectTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)})
+    inputTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)})
+    aTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)})
+    idTextoColor.value = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)
+
+    buttonTagSelector.forEach(el => {el.style.borderRadius = "2px"})
+    buttonTagSelector.forEach(el => {el.style.border = "1px solid #707070"})
+    selectTagSelector.forEach(el => {el.style.borderRadius = "2px"})
+    selectTagSelector.forEach(el => {el.style.border = "1px solid #707070"})
+    inputTagSelector.forEach(el => {el.style.borderRadius = "2px"})
+    inputTagSelector.forEach(el => {el.style.border = "1px solid #707070"})
+    idAssinatura.style.border = "0px none #000000"
+
+    mode = 0
+} */
 
 /* - Gera link de dúvidas para o representante */
 
@@ -1433,13 +1541,14 @@ idFornecedor.addEventListener("change", changeFornecedor)
 idLimpaDadosPessoais.addEventListener("click", limpaDadosPessoais)
 idApresentaEmail.addEventListener("click", gerar)
 idLimpaResultado.addEventListener("click", limpaResultado)
-idBackgroundColor.addEventListener("change", changeCorBackground)
+/* idBackgroundColor.addEventListener("change", changeCorBackground)
 idTextoColor.addEventListener("change", changeCorTexto)
-idLimpaExtras.addEventListener("click", limpaExtras)
+idEstiloDeCor.addEventListener("click", changeEstiloDeCor)
+idLimpaExtras.addEventListener("click", limpaExtras) */
 
 /* Mostra o que está na área de transferência */
 
-let idExibeÁreaDeTransferência = document.querySelector("#idExibeÁreaDeTransferência")
+/* let idExibeÁreaDeTransferência = document.querySelector("#idExibeÁreaDeTransferência")
 async function mostraÁreaDeTransferência() {
     let clipboardItems = await navigator.clipboard.read()
     for (const clipboardItem of clipboardItems) {
@@ -1451,7 +1560,7 @@ async function mostraÁreaDeTransferência() {
         }
     }
 }
-idExibeÁreaDeTransferência.addEventListener("click", mostraÁreaDeTransferência)
+idExibeÁreaDeTransferência.addEventListener("click", mostraÁreaDeTransferência) */
 
 /* FIM */
 

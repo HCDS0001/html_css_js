@@ -60,15 +60,52 @@ button{
 
 /* - Ocupação na tela */
 
-fieldset button,select{
+footer button{
+    width: 100% /* calc(100% - 32px) */;
+}
+
+
+#idFieldsetDadosPessoais label, #idFieldsetDadosPessoais button, #idFieldsetDadosPessoais select{
     width: 100%;
 }
 
-fieldset input{
+#idFieldsetDadosPessoais input{
+    width: calc(100%);
+}
+
+#idFieldsetDadosDoPedido label, #idFieldsetDadosDoPedido button, #idFieldsetDadosDoPedido select{
+    width: 100%;
+}
+
+#idFieldsetDadosDoPedido input{
     width: calc(100% - 8px);
 }
 
-#idFieldsetDadosPessoais input,label{
+#idFieldsetDadosDeCompra label, #idFieldsetDadosDeCompra button, #idFieldsetDadosDeCompra select{
+    width: 100%;
+}
+
+#idFieldsetDadosDeCompra input{
+    width: calc(100% - 8px);
+}
+
+#idFieldsetEmailsSelecionados label, #idFieldsetEmailsSelecionados button, #idFieldsetEmailsSelecionados select{
+    width: 100%;
+}
+
+/* #idFieldsetEmailsSelecionados input{
+    width: calc(100% - 8px);
+} */
+
+#idFieldsetResultado label, #idFieldsetResultado button, #idFieldsetResultado select{
+    width: 100%;
+}
+
+#idFieldsetResultado input{
+    width: calc(100% - 8px);
+}
+
+#idFieldsetExtras label, #idFieldsetExtras button, #idFieldsetExtras select{
     width: 100%;
 }
 
@@ -87,6 +124,24 @@ footer button{
 footer span,a{
     display: flex;
     justify-content: center;
+}
+
+
+fieldset{
+    border-radius: 5px;
+}
+
+.classDetails{
+    margin: 0px 0px 0px 20px;
+}
+
+.classInputEmail{
+    margin: 0px 0px 0px 20px;
+}
+
+a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
 }
 
 /* #idGeraEmail{
