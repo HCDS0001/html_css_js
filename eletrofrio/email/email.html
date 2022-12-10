@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de E-mails Padrão</title>
+    <title>Eletrofrio - Gerador de E-mails</title>
+    <link rel="shortcut icon" href="Símbolo_Eletrofrio.ico" type="image/x-icon">
     <link rel="stylesheet" href="email.css">
 </head>
 <body>
@@ -100,7 +101,9 @@
                     <span id="idResultadoCorpoDoEmail" spellcheck="true" contenteditable></span><hr>
                     <button type="button" id="idApresentaEmail" title="Gera os resultados com base nos itens preenchidos e selecionados nos campos acima.">Exibir Resultado</button><br>
                     <button type="button" id="idCopiaCorpoDoEmail" title="Copia o corpo do e-mail.">Copia Corpo do E-mail</button><br>
-                    <a id="idGeraEmail" target="_blank" title="Clique para gerar o e-mail.">Gerar E-mail</a>
+                    <button type="button" formtarget="_blank">
+                        <a id="idGeraEmail" target="_blank" title="Clique para gerar o e-mail.">Gerar E-mail</a>
+                    </button>
                     <button type="reset" id="idLimpaResultado"title="Limpa os resultados gerados.">Limpar Resultados</button>
                 </fieldset>
             </form>
@@ -119,7 +122,9 @@
     </main>
     <footer>
         <span>Desenvolvido por Henrique Carvalho de Souza</span>
-        <a id="idDúvidasDesenvolvedor" target="_blank" title="Clique para enviar um e-mail de dúvidas para o desenvolvedor da página.">Dúvidas para o desenvolvedor.</a>
+        <button type="button" formtarget="_blank">
+            <a id="idDúvidasDesenvolvedor" target="_blank" title="Clique para enviar um e-mail de dúvidas para o desenvolvedor da página.">Dúvidas para o desenvolvedor.</a>
+        </button><br>
         <button id="idExibeÁreaDeTransferência">Exibe Área de Transferência</button>
     </footer>
 <!--     <style style="display: block;" contenteditable>main, header, footer{color: #FFFFFF; background-color: #000000;}</style> -->
