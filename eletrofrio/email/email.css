@@ -121,7 +121,7 @@ footer button{
     text-align: center;
 }
 
-footer span,a{
+footer span, footer a{
     display: flex;
     justify-content: center;
 }
@@ -139,7 +139,7 @@ fieldset{
     margin: 0px 0px 0px 20px;
 }
 
-a{
+button a{
     color: rgb(0, 0, 0);
     text-decoration: none;
 }

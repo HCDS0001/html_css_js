@@ -100,6 +100,7 @@ let coordenadorRegionalFunção = "Coordenador Regional"
 let engenheiroFunção = "Engenheiro"
 let executivoFunção = "Executivo"
 let fábricaFunção = "Fábrica"
+let fornecedorFunção = "Fornecedor"
 let gerenteFunção = "Gerente"
 let grupoFunção = "Grupo"
 let liderançaComercialFunção = "Liderança Comercial"
@@ -160,6 +161,16 @@ let cadastro = [
     {função:fábricaFunção, número:"6168", nome:"Marcio", emailComercial:"tosta@eletrofrio.com.br"},
     {função:fábricaFunção, número:"105789", nome:"Robson", emailComercial:"robson.tolentino@eletrofrio.com.br"},
     {função:fábricaFunção, número:"nnn", nome:"Thauany", emailComercial:"thauany.silva@aefacessorios.com.br"},
+    {função:fornecedorFunção, número:"nnn", nome:"3R Plásticos", emailComercial:"vendas05@angare.com"},
+    {função:fornecedorFunção, número:"nnn", nome:"AEF", emailComercial:"alexsandro.machado@aefacessorios.com.br; raphael.nascimento@aefacessorios.com.br; thiago.drum@aefacessorios.com.br; diego.fernandes@aefacessorios.com.br"},
+    {função:fornecedorFunção, número:"nnn", nome:"BR-Inova", emailComercial:"alexandre@br-inova.com.br; marcelo@br-inova.com.br; nilso@br-inova.com.br"},
+    {função:fornecedorFunção, número:"nnn", nome:"Danfoss", emailComercial:"mgomes@mgomes.com.br; alex.pagiato@danfoss.com; daniel.andrade@danfoss.com"},
+    {função:fornecedorFunção, número:"nnn", nome:"Inovadoor", emailComercial:"roberto.filho@inovadoor.com.br; marina.negrao@inovadoor.com.br; fabiola.stachuk@inovadoor.com.br"},
+    {função:fornecedorFunção, número:"nnn", nome:"Kopron", emailComercial:"comercial3@kopron.com; marcos.sabbag@kopron.com; comercial10@kopron.com; comercial6@kopron.com"},
+    {função:fornecedorFunção, número:"nnn", nome:"MBPIsoblock", emailComercial:"joelma@mbpisoblock.com.br; sylvio@mbpisoblock.com.br; paolareis@mbp.com.br"},
+    {função:fornecedorFunção, número:"nnn", nome:"Metalbras", emailComercial:"leticia@metalbrasvidros.com.br; wellington@metalbrasvidros.com.br; kathleen@metalbrasvidros.com.br; bianca@metalbrasvidros.com.br"},
+    {função:fornecedorFunção, número:"nnn", nome:"Rohden", emailComercial:"julianatambosi@rohden.com.br; vendasrv02@rohden.com.br"},
+    {função:fornecedorFunção, número:"nnn", nome:"Thermoson", emailComercial:"vendas2.sonia@termosom.com.br; vendas1.karoline@termosom.com.br"},
     {função:gerenteFunção, número:"31141", nome:"Ana Paula", emailComercial:"anapaula@eletrofrio.com.br"},
     {função:gerenteFunção, número:"105882", nome:"André Francisco", emailComercial:"andre.francisco@eletrofrio.com.br"},
     {função:gerenteFunção, número:"32083", nome:"Cristiane", emailComercial:"cristiane@eletrofrio.com.br"},
@@ -316,71 +327,72 @@ let representante = [cadastro.filter((index)=>index.função == representanteFun
 
 function mudaEmailRepresentante() {
     for (let index1 in email) {if (email[index1].emailsPara.toString() == representante.toString()) {email[index1].emailsPara.splice(0,1,(cadastro[cadastro.map((index2) => index2.número).indexOf(idNúmeroRepresentante.value)].nome))}}
-    for (let index in email) {representante = (cadastro[cadastro.map((index) => index.número).indexOf(idNúmeroRepresentante.value)].nome)}
+    representante = (cadastro[cadastro.map((index) => index.número).indexOf(idNúmeroRepresentante.value)].nome)
 }
 
 let email = [
     {função:selectOption, ordemSubgrupo:1, subGrupo:selectOption, ordemTipo:1, tipo:selectOption, dadosDoPedido:não, emailsPara: [], emailsCc: [], emailsBcc: []},
-    {função:analistaFunção, ordemSubgrupo:1, subGrupo:liberaçãoSubGrupo, ordemTipo:1, tipo:"Liberação", dadosDoPedido:sim, emailsPara: ["Liberação"], emailsCc: [], emailsBcc: []},
-    {função:analistaFunção, ordemSubgrupo:1, subGrupo:liberaçãoSubGrupo, ordemTipo:2, tipo:"Liberação Total", dadosDoPedido:sim, emailsPara: ["Liberação"], emailsCc: [], emailsBcc: []},
-    {função:analistaFunção, ordemSubgrupo:1, subGrupo:liberaçãoSubGrupo, ordemTipo:3, tipo:"Liberação Parcial", dadosDoPedido:sim, emailsPara: ["Liberação"], emailsCc: [], emailsBcc: []},
-    {função:analistaFunção, ordemSubgrupo:1, subGrupo:verificaçãoSubGrupo, ordemTipo:4, tipo:"Linhas Atualizadas", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
-    {função:analistaFunção, ordemSubgrupo:1, subGrupo:verificaçãoSubGrupo, ordemTipo:5, tipo:"Feito", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
-    {função:analistaFunção, ordemSubgrupo:1, subGrupo:alteraçãoSubGrupo, ordemTipo:5, tipo:"Alterações", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    {função:ajusteFunção, ordemSubgrupo:1, subGrupo:dúvidaSubGrupo, ordemTipo:1, tipo:"Dúvidas Gerais", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
-    {função:ajusteFunção, ordemSubgrupo:1, subGrupo:dúvidaSubGrupo, ordemTipo:2, tipo:"Aguardando Dúvidas", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
+    {função:analistaFunção, ordemSubgrupo:1, subGrupo:liberaçãoSubGrupo, ordemTipo:1, tipo:"Completa", dadosDoPedido:sim, emailsPara: ["Liberação"], emailsCc: [], emailsBcc: []},
+    {função:analistaFunção, ordemSubgrupo:1, subGrupo:liberaçãoSubGrupo, ordemTipo:2, tipo:"Total", dadosDoPedido:sim, emailsPara: ["Liberação"], emailsCc: [], emailsBcc: []},
+    {função:analistaFunção, ordemSubgrupo:1, subGrupo:liberaçãoSubGrupo, ordemTipo:3, tipo:"Parcial", dadosDoPedido:sim, emailsPara: ["Liberação"], emailsCc: [], emailsBcc: []},
+    {função:analistaFunção, ordemSubgrupo:2, subGrupo:verificaçãoSubGrupo, ordemTipo:1, tipo:"Linhas Atualizadas", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
+    {função:analistaFunção, ordemSubgrupo:2, subGrupo:verificaçãoSubGrupo, ordemTipo:2, tipo:"Feito", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
+    {função:analistaFunção, ordemSubgrupo:3, subGrupo:alteraçãoSubGrupo, ordemTipo:1, tipo:"Padrão", dadosDoPedido:sim, emailsPara: ["Liberação"], emailsCc: [], emailsBcc: []},
+    {função:ajusteFunção, ordemSubgrupo:2, subGrupo:dúvidaSubGrupo, ordemTipo:1, tipo:"Geral", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
+    {função:ajusteFunção, ordemSubgrupo:2, subGrupo:dúvidaSubGrupo, ordemTipo:2, tipo:"Aguardando Dúvidas", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:ajusteFunção, ordemSubgrupo:1, subGrupo:ajusteSubGrupo, ordemTipo:3, tipo:"Arquivos para Produção", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:ajusteFunção, ordemSubgrupo:1, subGrupo:ajusteSubGrupo, ordemTipo:4, tipo:"Aguardando Conferência", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
-    {função:ajusteFunção, ordemSubgrupo:1, subGrupo:alteraçãoSubGrupo, ordemTipo:5, tipo:"Arquivos de Alteração", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
-    {função:ajusteFunção, ordemSubgrupo:1, subGrupo:alteraçãoSubGrupo, ordemTipo:6, tipo:"Verificar Possibilidade de Alteração", dadosDoPedido:sim, emailsPara: ["Roney"], emailsCc: ["Simone", "Bruno Garcia", "Carla"].concat(representante).concat(ajuste).concat(analista).concat(planilhamento), emailsBcc: []},
-    {função:executivoFunção, ordemSubgrupo:1, subGrupo:projetoSubGrupo, ordemTipo:1, tipo:"Projetos Antecipados", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: [].concat(liderançaContinuum).concat(executivo).concat(planilhamento), emailsBcc: []},
-    {função:executivoFunção, ordemSubgrupo:1, subGrupo:projetoSubGrupo, ordemTipo:2, tipo:"Projetos Executivos", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: [].concat(liderançaContinuum).concat(executivo).concat(planilhamento), emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:1, tipo:"Compra de Porta Walk-In", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:2, tipo:"Compra de Porta Seccional", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:3, tipo:"Compra de Portal de Selamento", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:4, tipo:"Compra de Niveladora de Doca", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:5, tipo:"Compra de Porta Rápida", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:6, tipo:"Compra de Porta Automática", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:7, tipo:"Compra de Porta Beer Cave", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:8, tipo:"Compra de Visor Móvel", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:9, tipo:"Compra de Estrado de Borracha", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:10, tipo:"Compra de Porta Vai e Vem Isolada", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:11, tipo:"Compra de Porta Vai e Vem de Tamanho Especial", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:12, tipo:"Compra de Resistência", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:13, tipo:"Compra de Termostato", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:1, tipo:"Cotação de Porta Walk-In", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:2, tipo:"Cotação de Porta Seccional", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:3, tipo:"Cotação de Portal de Selamento", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:4, tipo:"Cotação de Niveladora de Doca", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:5, tipo:"Cotação de Porta Rápida", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:6, tipo:"Cotação de Porta Automática", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:7, tipo:"Cotação de Porta Beer Cave", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:8, tipo:"Cotação de Visor Corrediço", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:cotaçãoSubGrupo, ordemTipo:9, tipo:"Cotação de Estrado de Borracha", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:10, tipo:"Cotação de Porta Vai e Vem Isolada", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:11, tipo:"Cotação de Porta Vai e Vem de Tamanho Especial", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:12, tipo:"Cotação de Resistência", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:13, tipo:"Cotação de Termostato", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:2, subGrupo:dúvidaSubGrupo, ordemTipo:1, tipo:"Dúvidas Gerais", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:2, subGrupo:dúvidaSubGrupo, ordemTipo:2, tipo:"Dúvida de Porta Seccional Livre de Alvenaria", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:2, subGrupo:dúvidaSubGrupo, ordemTipo:3, tipo:"Dúvida de Porta Seccional Encostada em Alvenaria", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:2, subGrupo:dúvidaSubGrupo, ordemTipo:4, tipo:"Aguardando Dúvidas", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
+    {função:ajusteFunção, ordemSubgrupo:3, subGrupo:alteraçãoSubGrupo, ordemTipo:5, tipo:"Arquivos de Alteração", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
+    {função:ajusteFunção, ordemSubgrupo:3, subGrupo:alteraçãoSubGrupo, ordemTipo:6, tipo:"Verificar Possibilidade de Alteração", dadosDoPedido:sim, emailsPara: ["Roney"], emailsCc: ["Simone", "Bruno Garcia", "Carla"].concat(representante).concat(ajuste).concat(analista).concat(planilhamento), emailsBcc: []},
+    {função:executivoFunção, ordemSubgrupo:1, subGrupo:projetoSubGrupo, ordemTipo:1, tipo:"Antecipado", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: [].concat(liderançaContinuum).concat(executivo).concat(planilhamento), emailsBcc: []},
+    {função:executivoFunção, ordemSubgrupo:1, subGrupo:projetoSubGrupo, ordemTipo:2, tipo:"Executivo", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: [].concat(liderançaContinuum).concat(executivo).concat(planilhamento), emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:1, tipo:"Porta Walk-In", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: [], fornecedor: ["Rohden"]},
+    {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:2, tipo:"Porta Seccional", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: [], fornecedor: ["AEF", "BR-Inova", "Inovadoor"]},
+    {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:3, tipo:"Portal de Selamento", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: [], fornecedor: ["BR-Inova", "Inovadoor"]},
+    //{função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:4, tipo:"Niveladora de Doca", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: [], fornecedor: []},
+    //{função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:5, tipo:"Porta Rápida", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: [], fornecedor: []},
+    //{função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:6, tipo:"Porta Automática", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: [], fornecedor: []},
+    {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:7, tipo:"Porta Beer Cave", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: [], fornecedor: ["Metalbras"]},
+    {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:8, tipo:"Visor Móvel", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: [], fornecedor: ["Thermoson"]},
+    {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:9, tipo:"Estrado de Borracha", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: [], fornecedor: ["3R Plásticos"]},
+    //{função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:10, tipo:"Porta Vai e Vem Isolada", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: [], fornecedor: []},
+    //{função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:11, tipo:"Porta Vai e Vem de Tamanho Especial", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: [], fornecedor: []},
+    {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:12, tipo:"Resistência", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: [], fornecedor: ["Danfoss"]},
+    {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:13, tipo:"Termostato", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: [], fornecedor: ["Danfoss"]},
+    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:1, tipo:"Porta Walk-In", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: [], fornecedor: []},
+    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:2, tipo:"Porta Seccional", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: [], fornecedor: []},
+    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:3, tipo:"Portal de Selamento", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: [], fornecedor: []},
+    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:4, tipo:"Niveladora de Doca", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: [], fornecedor: []},
+    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:5, tipo:"Porta Rápida", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: [], fornecedor: []},
+    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:6, tipo:"Porta Automática", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: [], fornecedor: []},
+    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:7, tipo:"Porta Beer Cave", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: [], fornecedor: []},
+    {função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:8, tipo:"Visor Móvel", dadosDoPedido:sim, emailsPara: [], emailsCc: ["Compras", "Reinaldo", "Robson", "Roney"].concat(liderançaContinuum).concat(planilhamento).concat(executivo), emailsBcc: [], fornecedor: ["Thermoson"]},
+    //{função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:cotaçãoSubGrupo, ordemTipo:9, tipo:"Estrado de Borracha", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: [], fornecedor: []},
+    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:10, tipo:"Porta Vai e Vem Isolada", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: [], fornecedor: []},
+    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:11, tipo:"Porta Vai e Vem de Tamanho Especial", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: [], fornecedor: []},
+    {função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:12, tipo:"Resistência", dadosDoPedido:sim, emailsPara: [], emailsCc: ["Compras", "Reinaldo", "Robson", "Roney"].concat(liderançaContinuum).concat(planilhamento).concat(executivo), emailsBcc: [], fornecedor: ["Danfoss"]},
+    //{função:planilhamentoFunção, ordemSubgrupo:3, subGrupo:cotaçãoSubGrupo, ordemTipo:13, tipo:"Termostato", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: [], fornecedor: []},
+    {função:planilhamentoFunção, ordemSubgrupo:2, subGrupo:dúvidaSubGrupo, ordemTipo:1, tipo:"Geral", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:2, subGrupo:dúvidaSubGrupo, ordemTipo:2, tipo:"Porta Seccional VL Livre de Alvenaria", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:2, subGrupo:dúvidaSubGrupo, ordemTipo:3, tipo:"Porta Seccional HL Livre de Alvenaria", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:2, subGrupo:dúvidaSubGrupo, ordemTipo:4, tipo:"Porta Seccional HL Encostada em Alvenaria", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:2, subGrupo:dúvidaSubGrupo, ordemTipo:5, tipo:"Aguardando", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:planilhamentoFunção, ordemSubgrupo:5, subGrupo:encaminharSubGrupo, ordemTipo:1, tipo:"Encaminhar", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:planilhamentoSubGrupo, ordemTipo:1, tipo:"Planilhamento Total", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:planilhamentoSubGrupo, ordemTipo:2, tipo:"Planilhamento Parcial", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:planilhamentoSubGrupo, ordemTipo:3, tipo:"Planilhamento Alteração", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:1, tipo:"Suporte TI - Geral", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: [], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:2, tipo:"Suporte TI - Baan - Geral", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:3, tipo:"Suporte TI - Baan - Inclusão de Item", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:4, tipo:"Suporte TI - Baan - Exclusão de Item", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:5, tipo:"Suporte TI - Baan - Troca de Item", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:6, tipo:"Suporte TI - Baan - Exclusão de Alfa", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:7, tipo:"Suporte TI - Baan - Remoção de Alfa", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    //{função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:8, tipo:"Suporte TI - Baan - Estorno de Alfa", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:9, tipo:"Suporte TI - Baan - Derrubar Usuário", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:10, tipo:"Suporte TI - Baan - Liberação de Tela", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: [], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:11, tipo:"Suporte TI - SIP - Geral", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: ["Gilson", "Willian"], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:12, tipo:"Suporte TI - SIP - Liberação para Edição de Painéis Altos", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: ["Gilson", "Willian"], emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:planilhamentoSubGrupo, ordemTipo:1, tipo:"Total", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:planilhamentoSubGrupo, ordemTipo:2, tipo:"Parcial", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:planilhamentoSubGrupo, ordemTipo:3, tipo:"Alteração", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:1, tipo:"Geral", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: [], emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:2, tipo:"Baan - Geral", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: [], emailsBcc: []},
+    //{função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:3, tipo:"Baan - Inclusão de Item", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:4, tipo:"Baan - Exclusão de Item", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:5, tipo:"Baan - Troca de Item", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:6, tipo:"Baan - Exclusão de Alfa", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:7, tipo:"Baan - Remoção de Alfa", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    //{função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:8, tipo:"Baan - Estorno de Alfa", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:9, tipo:"Baan - Derrubar Usuário", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:10, tipo:"Baan - Liberação de Tela", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: [], emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:11, tipo:"SIP - Geral", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: ["Gilson", "Willian"], emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:12, tipo:"SIP - Liberação para Edição de Painéis Altos", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: ["Gilson", "Willian"], emailsBcc: []},
     //{função:representanteFunção, ordemSubgrupo:1, subGrupo:"Representante", ordemTipo:1, tipo:"Representante", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
 ]
 
@@ -427,18 +439,6 @@ let mês = [
     {número:10, nome:"Outubro"},
     {número:11, nome:"Novembro"},
     {número:12, nome:"Dezembro"},
-]
-
-let fornecedor = [
-    "3R Plásticos",
-    "AEF",
-    "BR-Inova",
-    "Danfoss",
-    "Inovadoor",
-    "MBPIsoblock",
-    "Metalbras",
-    "Rohden",
-    "Thermoson",
 ]
 
 let cores = [
@@ -631,6 +631,17 @@ function limpaTipoDeEmail() {
 function changeTipo() {
     limpaResultado()
 
+/* - Verifica o subgrupo do pedido */
+    
+    let somaDasOpçõesNosSubGrupos = 0
+    for (let index in idTipo.children) {
+        somaDasOpçõesNosSubGrupos += idTipo.children[index].children.length
+        if (somaDasOpçõesNosSubGrupos >= idTipo.selectedIndex) {
+            subGrupo = idTipo.children[index].label
+            break
+        }
+    }
+
 /* - Oculta e limpa os dados do pedido caso seja da classe sem pedido ou exibe caso não seja */
 
     if (idTipo.selectedOptions[0].className == classSemPedido) {
@@ -641,8 +652,38 @@ function changeTipo() {
 
 /* - Oculta os dados de compra caso seja não seja do tipo compra e exibe caso seja */
 
-    if (email.filter((index)=>index.tipo == idTipo.selectedOptions[0].value).map((index)=>index.subGrupo) != compraSubGrupo) {idFieldsetDadosDeCompra.style.display = displayNone}
-    else {idFieldsetDadosDeCompra.style.display = displayBlock}
+    if (email.filter((index)=>index.tipo == idTipo.selectedOptions[0].value && index.subGrupo == subGrupo).map((index)=>index.subGrupo) == compraSubGrupo || email.filter((index)=>index.tipo == idTipo.selectedOptions[0].value && index.subGrupo == subGrupo).map((index)=>index.subGrupo) == cotaçãoSubGrupo) {idFieldsetDadosDeCompra.style.display = displayBlock}
+    else {idFieldsetDadosDeCompra.style.display = displayNone}
+
+/* Dados de Compra */
+
+/* - Cria as opções de fornecedores de acordo com o tipo de e-mail selecionado */
+
+    while (idFornecedor.hasChildNodes()) {idFornecedor.removeChild(idFornecedor.firstChild)}
+
+        email.filter((index2)=>index2.tipo == idTipo.value && index2.subGrupo == subGrupo && (index2.subGrupo == compraSubGrupo || index2.subGrupo == cotaçãoSubGrupo)).map((index1)=>{
+            for (const index3 of index1.fornecedor) {
+                let optionForncedor = document.createElement(optionTag)
+                let textooptionForncedor = document.createTextNode(index3)
+                optionForncedor.appendChild(textooptionForncedor)
+                optionForncedor.setAttribute(valueAttribute, index3)
+                idFornecedor.insertAdjacentElement("beforeend",optionForncedor)
+            }
+        })
+    
+    emailsSelecionados ()
+}
+
+/* Limpa os resultados ao mudar o fornecedor */
+
+function changeFornecedor() {
+    limpaResultado()
+    emailsSelecionados ()
+}
+
+/* Seleciona as checkbox dos e-mails */
+
+function emailsSelecionados () {
 
 /* - Limpa as checkbox já selecionadas */
 
@@ -658,7 +699,7 @@ function changeTipo() {
 /* - Seleciona as checkbox dos e-mails de acordo com o tipo de pedido */
 
     for (let index1 in email) {
-        if (idTipo.value == email[index1].tipo) {
+        if (idTipo.value == email[index1].tipo && email[index1].subGrupo == subGrupo) {
             for (let index2 in email[index1].emailsPara) {
                 let capitalizeIdPara = `idPara${(email[index1].emailsPara[index2].replace(/ /g, "")).charAt(0).toLowerCase() + (email[index1].emailsPara[index2].replace(/ /g, "")).slice(1)}`
                 let idCheckboxPara = document.querySelector(`#${capitalizeIdPara}`)
@@ -679,9 +720,9 @@ function changeTipo() {
 
 /* - Seleciona as checkbox dos e-mails do tipo executivo de acordo com os responsáveis */
 
-    if (email.filter((index1)=>index1.tipo == idTipo.value).map((index1)=>`${index1.função}`) == executivoFunção) {
+    if (email.filter((index1)=>index1.tipo == idTipo.value && index1.subGrupo == subGrupo).map((index1)=>`${index1.função}`) == executivoFunção) {
         for (let index2 in email) {
-            if (idTipo.value == email[index2].tipo) {
+            if (idTipo.value == email[index2].tipo && email[index2].subGrupo == subGrupo) {
                 for (let index = 4; index < Object.keys(representanteCadastro[0]).length; index++) {
                     if (cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>Object.values(index3)[index]) != "") {
                         let capitalizeIdParaGerente1 = `idPara${(cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>Object.values(index3)[index]).toString().replace(/ /g, "")).charAt(0).toLowerCase() + (cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>Object.values(index3)[index]).toString().replace(/ /g, "")).slice(1)}`
@@ -689,6 +730,18 @@ function changeTipo() {
                         idCheckboxParaGerente1.checked = true
                     }
                 }
+            }
+        }
+    }
+
+/* - Seleciona as checkbox dos e-mails do fornecedor para e-mails de cotação */
+
+    if (email.filter((index1)=>index1.tipo == idTipo.value && index1.subGrupo == subGrupo).map((index1)=>`${index1.subGrupo}`) == cotaçãoSubGrupo) {
+        for (let index1 in cadastro) {
+            if (idFornecedor.value == cadastro[index1].nome) {
+                let capitalizeIdPara = `idPara${(cadastro[index1].nome.replace(/ /g, "")).charAt(0).toLowerCase() + (cadastro[index1].nome.replace(/ /g, "")).slice(1)}`
+                let idCheckboxPara = document.querySelector(`#${capitalizeIdPara}`)
+                idCheckboxPara.checked = true
             }
         }
     }
@@ -748,22 +801,6 @@ function limpaDadosDoPedido() {
 }
 
 function limpaDadosPessoais() {limpaResultado()}
-
-/* Dados de Compra */
-
-/* - Cria as opções de fornecedores */
-
-fornecedor.map((index)=>{
-    let optionForncedor = document.createElement(optionTag)
-    let textooptionForncedor = document.createTextNode(index)
-    optionForncedor.appendChild(textooptionForncedor)
-    optionForncedor.setAttribute(valueAttribute, index)
-    idFornecedor.insertAdjacentElement("beforeend",optionForncedor)
-})
-
-/* - Limpa os resultados ao mudar o fornecedor */
-
-function changeFornecedor() {limpaResultado()}
 
 /* E-mails Selecionados */
 
@@ -1105,10 +1142,10 @@ else {
     let verificaNúmeroRepresentante = ""
     let verificaNomeDoCliente = ""
     let verificaNomeFantasia = ""
-    let verificaTipo = `${idTipo.value}`
+    let verificaTipo = `${subGrupo} - ${idTipo.value}`
 
     if (idPedido.value != "") {verificaNúmeroRepresentante = `PED ${idNúmeroRepresentante.value}-${idPedido.value}/${idAno.value}`}
-    if (idTipo.value != "" && idPedido.value != "") {verificaTipo = ` - ${idTipo.value}`}
+    if (idTipo.value != "" && idPedido.value != "") {verificaTipo = ` - ${subGrupo} - ${idTipo.value}`}
     if (idNomeDoCliente.value != "" && idTipo.value != "" && idPedido.value != "") {verificaNomeDoCliente = ` - ${idNomeDoCliente.value}`}
     if (idNomeFantasia.value != "") {verificaNomeFantasia = ` - ${idNomeFantasia.value}`}
 
@@ -1139,45 +1176,45 @@ else {
 
 /* -- Gera modelos de e-mails de acordo com o tipo */
 
-    switch (`${idFunção.value}${idTipo.value}`) {
-        case `${analistaFunção}Liberação`:
+    switch (`${idFunção.value}${subGrupo}${idTipo.value}`) {
+        case `${analistaFunção}${liberaçãoSubGrupo}Completa`:
             informação01 = `Segue liberação.`
             informação02 = `Observações:`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${agradecimento}${br3}`
             break
-        case `${analistaFunção}Liberação Total`:
+        case `${analistaFunção}${liberaçãoSubGrupo}Total`:
             informação01 = `Segue liberação total.`
             informação02 = `Observações:`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${agradecimento}${br3}`
             break
-        case `${analistaFunção}Liberação Parcial`:
+        case `${analistaFunção}${liberaçãoSubGrupo}Parcial`:
             informação01 = `Segue liberação parcial.`
             informação02 = `Observações:`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${agradecimento}${br3}`
             break
-        case `${analistaFunção}Linhas Atualizadas`:
+        case `${analistaFunção}${verificaçãoSubGrupo}Linhas Atualizadas`:
             informação01 = `Linhas atualizadas.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br4}${agradecimento}${br3}`
             break
-        case `${analistaFunção}Feito`:
+        case `${analistaFunção}${verificaçãoSubGrupo}Feito`:
             informação01 = `Feito.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
             break
-        case `${analistaFunção}Alterações`:
+        case `${analistaFunção}${alteraçãoSubGrupo}Padrão`:
             informação01 = `Novos arquivos salvos na rede.`
             informação02 = `Alterações:`
             informação03 = `01 - Informação do que foi alterado.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br1}${informação03}${br2}${agradecimento}${br3}`
             break
-        case `${ajusteFunção}Dúvidas Gerais`:
+        case `${ajusteFunção}${dúvidaSubGrupo}Geral`:
             informação01 = `Texto de dúvidas.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
             break
-        case `${ajusteFunção}Aguardando Dúvidas`:
+        case `${ajusteFunção}${dúvidaSubGrupo}Aguardando Dúvidas`:
             informação01 = `Seguimos arguardando as dúvidas e correções enviadas nos e-mails anteriores, a demora nas respostas afeta diretamente o prazo de entrega dos materiais.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
             break
-        case `${ajusteFunção}Arquivos para Produção`:
+        case `${ajusteFunção}${ajusteSubGrupo}Arquivos para Produção`:
             informação01 = `Analista, o pedido citado no título do e-mail foi ajustado e registrado para produção conforme os arquivos enviados pelo representante.`
             informação02 = `Projetista/Representante`
             informação03 = `- Por gentileza conferir os arquivos de ajuste.`
@@ -1189,11 +1226,11 @@ else {
             informação09 = `Os expositores serão cadastrados de acordo com a planilha abaixo:`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br1}${informação04}${br1}${informação05}${br2}${informação06}${br2}${informação07}${br1}${informação08}${br2}${informação09}${br4}${agradecimento}${br3}`
             break
-        case `${ajusteFunção}Aguardando Conferência`:
+        case `${ajusteFunção}${ajusteSubGrupo}Aguardando Conferência`:
             informação01 = `Seguimos arguardando o OK informando que os arquivos foram conferidos e podem seguir para a produção, a demora nas respostas afeta diretamente o prazo de entrega dos materiais.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
             break
-        case `${ajusteFunção}Arquivos de Alteração`:
+        case `${ajusteFunção}${alteraçãoSubGrupo}Arquivos de Alteração`:
             informação01 = `Analista, segue ajuste atualizado de acordo com os novos arquivos enviados pelo representante.`
             informação02 = `Alterações:`
             informação03 = `01 - Informação do que foi alterado.`
@@ -1206,145 +1243,166 @@ else {
             informação10 = `Os expositores serão cadastrados de acordo com a planilha abaixo:`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br1}${informação03}${br2}${informação04}${br2}${informação05}${br1}${informação06}${br1}${informação07}${br1}${informação08}${br2}${informação09}${br2}${informação10}${br4}${agradecimento}${br3}`
             break
-        case `${ajusteFunção}Verificar Possibilidade de Alteração`:
+        case `${ajusteFunção}${alteraçãoSubGrupo}Verificar Possibilidade de Alteração`:
             informação01 = `Ainda é possível fazer alterações?`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${roneyHiperlink}${br2}${informação01}${br2}${agradecimento}${br3}`
             break
-        case `${executivoFunção}Projetos Antecipados`:
+        case `${executivoFunção}${projetoSubGrupo}Antecipado`:
             informação01 = `Segue antecipação de projeto executivo de OOOOOOOOOOOO.`
             informação02 = `Pedimos a gentileza de verificação e aprovação dos projetos em resposta a este e-mail.`
             informação03 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
             informação04 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
             break
-        case `${executivoFunção}Projetos Executivos`:
+        case `${executivoFunção}${projetoSubGrupo}Executivo`:
             informação01 = `Segue projeto executivo de OOOOOOOOOOOO.`
             informação02 = `Pedimos a gentileza de verificação e aprovação dos projetos em resposta a este e-mail.`
             informação03 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
             informação04 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Compra de Porta Walk-In`:
+        case `${planilhamentoFunção}${compraFunção}Porta Walk-In`:
             informação01 = `Por gentileza efetuar a compra conforme abaixo.`
             informação02 = `Material já cadastrado na ordem de venda.`
             informação03 = `<span ${amareloBackground}><mark>Puxador acoplado junto a porta;${br1}Acabamento alumínio anodizado sem pintura;${br1}Iluminação em LED;${br1}Incluir logomarca Eletrofrio em todas as portas;${br1}Identificar a Ordem de Compra (OC) nos volumes.</mark></span>`
             informação04 = `Fornecedor - ${idFornecedor.value}.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Compra de Porta Seccional`:
+        case `${planilhamentoFunção}${compraFunção}Porta Seccional`:
             informação01 = `Por gentileza efetuar a compra conforme abaixo.`
             informação02 = `Material já cadastrado na ordem de venda.`
             informação03 = `<span ${amareloBackground}><mark>N UN - PORTA SECCIONAL LL;${br1}Vão de abertura: N,NN m de largura x N,NN m de altura;${br1}Porta seccional para ser fixada em painel de NN mm e alvenaria de NNN mm (total NNN mm);${br1}Pé direito livre: N,NN m;${br1}Com talha.</mark></span>`
             informação04 = `Fornecedor - ${idFornecedor.value}.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Compra de Portal de Selamento`:
+        case `${planilhamentoFunção}${compraFunção}Portal de Selamento`:
             informação01 = `Por gentileza efetuar a compra conforme abaixo.`
             informação02 = `Material já cadastrado na ordem de venda.`
             informação03 = `<span ${amareloBackground}><mark>N UN - PORTAL DE SELAMENTO;${br1}Vão de abertura: N,NN m de largura x N,NN m de altura;${br1}Porta de selamento para ser fixada em painel de NN mm e alvenaria de NNN mm (total NNN mm);${br1}Pé direito livre: N,NN m.</mark></span>`
             informação04 = `Fornecedor - ${idFornecedor.value}.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
             break  
-        case `${planilhamentoFunção}Compra de Porta Beer Cave`:
+        case `${planilhamentoFunção}${compraFunção}Porta Beer Cave`:
             informação01 = `Por gentileza efetuar a compra conforme abaixo.`
             informação02 = `Material já cadastrado na ordem de venda.`
             informação03 = `Fornecedor - ${idFornecedor.value}.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Compra de Visor Móvel`:
+        case `${planilhamentoFunção}${compraFunção}Visor Móvel`:
             informação01 = `Por gentileza efetuar a compra conforme abaixo.`
             informação02 = `Material já cadastrado na ordem de venda.`
             informação03 = `<span ${amareloBackground}><mark>Para montagem em painel de 70 mm;${br1}Materiais: Estrutura em alumínio natural e vidro incolor temperado;${br1}Tipo: Flangeado - móvel.</mark></span>`
             informação04 = `Fornecedor - ${idFornecedor.value}.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Compra de Estrado de Borracha`:
+        case `${planilhamentoFunção}${compraFunção}Estrado de Borracha`:
             informação01 = `Por gentileza efetuar a compra conforme abaixo.`
             informação02 = `Material já cadastrado na ordem de venda.`
             informação03 = `Fornecedor - ${idFornecedor.value}.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Compra de Resistência`:
+        case `${planilhamentoFunção}${compraFunção}Resistência`:
             informação01 = `Por gentileza efetuar a compra conforme abaixo.`
             informação02 = `Material já cadastrado na ordem de venda.`
             informação03 = `Fornecedor - ${idFornecedor.value}.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Compra de Termostato`:
+        case `${planilhamentoFunção}${compraFunção}Termostato`:
             informação01 = `Por gentileza efetuar a compra conforme abaixo.`
             informação02 = `Material já cadastrado na ordem de venda.`
             informação03 = `Fornecedor - ${idFornecedor.value}.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Dúvidas Gerais`:
+        case `${planilhamentoFunção}${cotaçãoSubGrupo}Visor Móvel`:
+            informação01 = `Por gentileza efetuar a cotação conforme abaixo.`
+            informação02 = `<span ${amareloBackground}><mark>Para montagem em painel de 70 mm;${br1}Materiais: Estrutura em alumínio natural e vidro incolor temperado;${br1}Tipo: Flangeado - móvel.</mark></span>`
+            informação03 = `Fornecedor - ${idFornecedor.value}.`
+            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${informação01}${br4}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
+            break
+        case `${planilhamentoFunção}${cotaçãoSubGrupo}Resistência`:
+            informação01 = `Por gentileza efetuar a cotação conforme abaixo.`
+            informação02 = `Fornecedor - ${idFornecedor.value}.`
+            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${informação01}${br4}${informação02}${br2}${agradecimento}${br3}`
+            break
+        case `${planilhamentoFunção}${dúvidaSubGrupo}Geral`:
             informação01 = `Texto de dúvidas.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Dúvida de Porta Seccional Livre de Alvenaria`:
+        case `${planilhamentoFunção}${dúvidaSubGrupo}Porta Seccional VL Livre de Alvenaria`:
             informação01 = `Gostaria de tirar algumas dúvidas a respeito de porta seccional e portal de selamento:`
             informação02 = `1 - Qual o pé direito livre do início do vão da porta até a primeira obstrução do lado externo da porta (medida A)?`
             informação03 = `2 - Qual a altura do patamar entre a parada dos caminhões e a base das portas seccionais (medida B)?`
-            imagem01.setAttribute(srcAttribute,"https://lh3.googleusercontent.com/coTn4u0vKBxt0cW_BtDviHia3cj4qlQA8yVoVRbksCscSSUFOHh9RltjQb1u_YqbnEGl2_H7QMpnZQ0795Nb-oSmVr5j-C9HyygvDbMvSoJ_kM7skWOHWxt2LXnTyc8dGT-EFJgkNRo1iZ5FC4MU4hdjL4X12PESlMACVPsz9j7n9oI1cMZdxvuLAL2PGDp3ylcFA5EgZEp2H8l6WJbjUBZqzC63uKR7OUBdjy3XQOpBO6BAyMqaD9nnkgvbg2aZb5Y5Z_EQ4hh3e5wUfsXhM1atOb3HDZtN7Ts8OWDyjxy0G2DCWC0Goo0x8KjSKdfAU79ostfV_h24-Yc0zXX2wxmXZUtbwKN4YXKXipDVgVVnQa4qS5__N22ff5du-2zQfTOgGHOuVx9XZF3_RcoReOLnmWG9TBsLa0To06QTq3c6SR6pZz7C4KJ0jKwp2YS_Xolqpt1LRd7cZeuaLnaNagzqT0lFgTfHC1SRmBVo1rtdsyBJcksZUtVcT-KcibWcTiqD5TPLeP77od9Lh9cnXqGShketOhfRGhAhuZZGTU1Kmo7NBVU2Q-xuD8qkR4Gj36Xr5jhWbAJgVsWV8ttIYWjM9CNGjJ9USJ0Hn_4XoD09kDr7hF_424DEP2PA-fqateVkGerKL_ukFreLXaqIxeFnSjDXK8OrQ9XeUr9KccY5d5iCzdF9MFRk6pzk0UyW_MAoyFe0oDziq1YKEBmpRIjipAlZcMhrDrAUAi4MDH5KJUPQ45insDHvQrhaYEOOXRUkh03QuvPBnGCtyyKzP7TvXFiiQ5-y3uQPEkm0m65u0ANtaPnUdy5PwyFKcxnIPoUeW3vgsXNA4YCmaOq3K6Gajp2uo66X_l1pngN8n9Tyb9sk80RVvazirE66vmdn60jiyL61PXqU-Wp_RYVCrQc6MOnuz5J1wjx1fg52CBK1=w925-h754-no?authuser=0")
-            imagem01.setAttribute(altAttribute,"Porta Seccional Livre de Alvenaria")
+            imagem01.setAttribute(srcAttribute,"https://lh3.googleusercontent.com/pw/AL9nZEWflVFoAmOgMvuqxePbEp8YdqjILyV3u5AKaYDiPrPNHBmvBIp8sKsKu1eaQh17ENFCp8k4b7xSSUczdEXBGNoPcs3P68FkjB9BQ2ZDhRRdqKH9TY21KmA0FaYTMia5Rb6QcrfSJYVnQfV6J5hiVmlw=w768-h650-no?authuser=0")
+            imagem01.setAttribute(altAttribute,"Porta Seccional VL Livre de Alvenaria")
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}`
             idResultadoCorpoDoEmail.appendChild(imagem01)
             idResultadoCorpoDoEmail.innerHTML += `${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Dúvida de Porta Seccional Encostada em Alvenaria`:
+        case `${planilhamentoFunção}${dúvidaSubGrupo}Porta Seccional HL Livre de Alvenaria`:
+            informação01 = `Gostaria de tirar algumas dúvidas a respeito de porta seccional e portal de selamento:`
+            informação02 = `1 - Qual o pé direito livre do início do vão da porta até a primeira obstrução do lado externo da porta (medida A)?`
+            informação03 = `2 - Qual a altura do patamar entre a parada dos caminhões e a base das portas seccionais (medida B)?`
+            imagem01.setAttribute(srcAttribute,"https://lh3.googleusercontent.com/pw/AL9nZEWaLArI0jK99p9UJ24ZIV5q4DGt3lvY7xtJi-TOu7BrnJnt6lalmSNNL3tnD1wCDg_gU9fDk05Yhe06ZLov2d-CNCcPxGs3h8So23s9f8rS99PU4F7a5EuqjgNbHwmZoz6K9aLpgOvjOUNu3RDNRXvo=w735-h628-no?authuser=0")
+            imagem01.setAttribute(altAttribute,"Porta Seccional HL Livre de Alvenaria")
+            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}`
+            idResultadoCorpoDoEmail.appendChild(imagem01)
+            idResultadoCorpoDoEmail.innerHTML += `${br2}${agradecimento}${br3}`
+            break
+        case `${planilhamentoFunção}${dúvidaSubGrupo}Porta Seccional HL Encostada em Alvenaria`:
             informação01 = `Gostaria de tirar algumas dúvidas a respeito de porta seccional e portal de selamento:`
             informação02 = `1 - Qual o pé direito livre do início do vão da porta até a primeira obstrução do lado externo da porta (medida A)?`
             informação03 = `2 - Qual a altura do patamar entre a parada dos caminhões e a base das portas seccionais (medida B)?`
             informação04 = `3 - Em frente aos painéis onde estão as portas seccionais existe uma representação de parede de alvenaria, essa alvenaria vai até o teto correto?`
             informação05 = `4 - Por favor me confirme a espessura da alvenaria da pergunta anterior (medida C)?`
-            imagem01.setAttribute(srcAttribute,"https://lh3.googleusercontent.com/mq2prDkhs6HK4N_KWeFI-5AP5eW264RDzJDveNPKPhui37DnXjMRpeBdf8aWHQ3KRMzT0hNpglyqasJBgJdSP5IUUAIaF0nAs8E48ldSBMXTdPZ7d5kLabpYtcckig4zjeofZKXrR2780avX-6R3bposSjvgT_0YNRQklUIVaU5eGfSU-XM6ToOIhnZlecWqKdVIwTJENDow0dzG3RdGPGR4Lsm0xui6UuU_FL_e-OBUm_V5KcuTna-ixtWZPdW7W_xIfSYES9JbV_XL7nCek-6Er1EogSQPrF5uUSSm3vzdl6CoZDvJsMxmeY0z68s3X9s3LbZT-bPmv_Yf8UXLPkjjbMBWgfkrZT1LK8b8osqVVZpD_XJJ8VwGK6FR-GyDmADnbsQIz1zC5WK9U5ZOTc59vWW4Li0t4Mp4meLvv7NOSvDZqTb-1MRCPch2e-t44qiwi7slO50lpwPSLJVz4mHNBOrQEH71AD3QGwKkkpDRjXA2kQjXNzk-ReegWus8CoPmTD-zlTP_Xn81TlpzVKJeRl36ORCzb9yf-DuosJYm4ajUbUZMfbKOUJjbBuHl5XMOiEoaT79ODUHypQSuju3K2R8ncHPeTnVtSiRoV68Cq6Mzu5tw9hHqRXl6lFR5NuMisl9V3UE_zpllK3BfC5ydmBmIf4oSERUw0cJxk-ZU_DjyhJHTFG1mOowaQh6iYVBMumxXZwHBVh3ob8QOIuJ0MAV0ZvL3rKfweGEb2CwaB7Xu63Rng0W8haFy6ytCV4rn6SGRc8wFJXmybII8yo3fJLgV1mEBjjktlKj1uMeC3w5JsH4xWN8gOX9wjdUM4sssfCiv4SCzC7GgpvdfBRsc0rMPC8oIvL5X4PPuHlMmbBjCR9Mlydj9kz_etSbD7eZu2YE4MAlMIzGQsBrWpxNyKJ1jJ9INjaWdU1MOTabF=w843-h666-no?authuser=0")
-            imagem01.setAttribute(altAttribute,"Porta Seccional Encostada em Alvenaria")
+            imagem01.setAttribute(srcAttribute,"https://lh3.googleusercontent.com/pw/AL9nZEVjUxN-l6wEZ0aqIvxcb7W4avXdABwwpCSNy_kTGZbjxP_O_TL_p3CzqdVLvyWBN9SYAnhG47_MYav2mxY7Yn4E-GvYykBTnYCJzSxsNLGwMYsLjxXIdEN29Z_Pfua-35B671GAZPlx_FLLmRhgz9-_=w786-h628-no?authuser=0")
+            imagem01.setAttribute(altAttribute,"Porta Seccional HL Encostada em Alvenaria")
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${informação04}${br2}${informação05}${br2}`
             idResultadoCorpoDoEmail.appendChild(imagem01)
             idResultadoCorpoDoEmail.innerHTML += `${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Aguardando Dúvidas`:
+        case `${planilhamentoFunção}${dúvidaSubGrupo}Aguardando`:
             informação01 = `Seguimos arguardando as dúvidas e correções enviadas nos e-mails anteriores, a demora nas respostas afeta diretamente o prazo de entrega dos materiais.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Encaminhar`:
+        case `${planilhamentoFunção}${encaminharSubGrupo}Encaminhar`:
             informação01 = `Encaminhando e-mail.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Planilhamento Total`:
+        case `${planilhamentoFunção}${planilhamentoSubGrupo}Total`:
             informação01 = `<span ${amareloBackground}><mark>Informação especial.</mark></span>`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Planilhamento Parcial`:
+        case `${planilhamentoFunção}${planilhamentoSubGrupo}Parcial`:
             informação01 = `<span ${amareloBackground}><mark>Informação especial.</mark></span>`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Planilhamento Alteração`:
+        case `${planilhamentoFunção}${planilhamentoSubGrupo}Alteração`:
             informação01 = `<span ${amareloBackground}><mark>Atualizado o alfa de OOOOOOOO.</mark></span>`
             informação02 = `Por favor verificar a necessidade de atualização do projeto executivo.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${marcioHiperlink} e ${christianHiperlink}${br2}${informação01}${br2}${simoneHiperlink}${br2}${informação02}${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Suporte TI - Geral`:
+        case `${planilhamentoFunção}${suporteTiSubGrupo}Geral`:
             informação01 = `Texto de dúvidas.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Suporte TI - Baan - Derrubar Usuário`:
+        case `${planilhamentoFunção}${suporteTiSubGrupo}Baan - Geral`:
+            informação01 = `Texto de dúvidas.`
+            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
+            break
+        case `${planilhamentoFunção}${suporteTiSubGrupo}Baan - Derrubar Usuário`:
             informação01 = `Por favor derrubar o usuário conectado à ${OV}${idOrdemDeVenda.value}.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br4}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Suporte TI - Baan - Liberação de Tela`:
+        case `${planilhamentoFunção}${suporteTiSubGrupo}Baan - Liberação de Tela`:
             informação01 = `Gostaria de solicitar a liberação da seguinte tela: OOOOOOOO.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br4}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Suporte TI - Baan - Geral`:
-            informação01 = `Texto de dúvidas.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}Suporte TI - SIP - Geral`:
+        case `${planilhamentoFunção}${suporteTiSubGrupo}SIP - Geral`:
             informação01 = `Usuário - LLLLLLLL.LLLLLLLL.`
             informação02 = `Texto de dúvidas.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
             break
-        case `${planilhamentoFunção}Suporte TI - SIP - Liberação para Edição de Painéis Altos`:
+        case `${planilhamentoFunção}${suporteTiSubGrupo}SIP - Liberação para Edição de Painéis Altos`:
             informação01 = `Usuário - LLLLLLLL.LLLLLLLL.`
             informação02 = `Gostaria de solicitar a liberação do meu SIP para editar câmaras frigoríficas com alturas maiores que o limite de padrão.`
             idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
@@ -1527,6 +1585,8 @@ idDúvidasDesenvolvedor.setAttribute(hrefAttribute, hrefDúvidasDesenvolvedor)
 idFunção.addEventListener("change", changeFunção)
 idLimpaTipoDeEmail.addEventListener("click", limpaTipoDeEmail)
 idTipo.addEventListener("change", changeTipo)
+
+idFornecedor.addEventListener("change", changeFornecedor)
 idNúmeroRepresentante.addEventListener("change", changeNúmeroRepresentante)
 idPedido.addEventListener("change", limpaResultado)
 idAno.addEventListener("change", limpaResultado)
@@ -1537,7 +1597,6 @@ idMês.addEventListener("change", limpaResultado)
 idArquivo.addEventListener("change", limpaResultado)
 idRevisão.addEventListener("change", limpaResultado)
 idLimpaDadosDePedido.addEventListener("click", limpaDadosDoPedido)
-idFornecedor.addEventListener("change", changeFornecedor)
 idLimpaDadosPessoais.addEventListener("click", limpaDadosPessoais)
 idApresentaEmail.addEventListener("click", gerar)
 idLimpaResultado.addEventListener("click", limpaResultado)
