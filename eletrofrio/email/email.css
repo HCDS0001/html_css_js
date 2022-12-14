@@ -1,151 +1,107 @@
 /* Estilizações necessárias ao funcionamento */
 
-input:invalid{
-    background-color: rgba(255, 255, 0, 1);
-}
+input:invalid{background-color: rgba(255, 255, 0, 1);}
+#idFieldsetDadosDoPedido{display: none;}
+#idFieldsetDadosDeCompra{display: none;}
+.classTipo{display: none;}
 
-#idFieldsetDadosDoPedido{
-    display: none;
-}
+/* Estilizações Geral */
 
-#idFieldsetDadosDeCompra{
-    display: none;
-}
-
-.classTipo{
-    display: none;
-}
-
-/* Estilizações estéticas */
+*{font: normal normal normal normal 10.0pt "Arial", "sans-serif";}
 
 body{
     margin: auto;
-    max-width: 450px;
+    max-width: 350px;
 }
 
-/* - Texto */
+/* White Mode */
 
-#idFieldsetResultado span{
-    font: normal normal normal normal 11.0pt "calibri", "sans-serif";
-}
-
-legend{
-    font: normal normal bold normal 11.0pt "Arial", "sans-serif";
-}
-
-a{
-    font: normal normal normal normal 10.0pt "Arial", "sans-serif";
-}
-
-button{
-    font: normal normal normal normal 10.0pt "Arial", "sans-serif";
+body{
+    background: #FFFFFF; 
+    color: #000000;
 }
 
 #idFieldsetResultado label{
-/*     font-style: normal;
-    font-variant: normal;
-    font-weight: normal;
-    font-stretch: normal;
-    font-size: 11.0pt;
-    line-height: normal;
-    font-family: "Arial", "sans-serif"; */
-    font: normal normal bold normal 11.0pt "Arial", "sans-serif";
-/*     text-decoration-line: underline;
-    text-decoration-style: solid;
-    text-decoration-color: black;
-    text-decoration-thickness: 1px; */
-    text-decoration: underline solid black 1px;
-/*     text-transform: uppercase; */
+        font: normal normal bold normal 11.0pt "Arial", "sans-serif";
+        text-decoration: underline solid black 1px;
+    }
+
+button{
+    background: #EFEFEF; 
+    color: #000000;
+    border: 1px solid #767676;
+    border-radius: 2.5px;
 }
 
-/* - Ocupação na tela */
-
-footer button{
-    width: 100% /* calc(100% - 32px) */;
+select{
+    background: #FFFFFF; 
+    color: #000000;
+    border: 1px solid #767676;
+    border-radius: 2.5px;
 }
 
-
-#idFieldsetDadosPessoais label, #idFieldsetDadosPessoais button, #idFieldsetDadosPessoais select{
-    width: 100%;
+input{
+    background: #FFFFFF; 
+    color: #000000;
+    border: 1px solid #767676;
+    border-radius: 2.5px;
 }
 
-#idFieldsetDadosPessoais input{
-    width: calc(100%);
-}
+a{color: #000000;}
 
-#idFieldsetDadosDoPedido label, #idFieldsetDadosDoPedido button, #idFieldsetDadosDoPedido select{
-    width: 100%;
-}
+/* Largura dos Itens */
 
-#idFieldsetDadosDoPedido input{
-    width: calc(100% - 8px);
-}
+label, button, select, input, img{width: 100%;}
+input{width: calc(100% - 6px);}
+#idAssinatura{width: calc(100% - 2px);}
+#idBackgroundColor, #idTextoColor{width: calc(100% - 0px);}
+#idFieldsetEmailsSelecionados input{width: 13px;}
 
-#idFieldsetDadosDeCompra label, #idFieldsetDadosDeCompra button, #idFieldsetDadosDeCompra select{
-    width: 100%;
-}
+/* - Texto */
 
-#idFieldsetDadosDeCompra input{
-    width: calc(100% - 8px);
-}
-
-#idFieldsetEmailsSelecionados label, #idFieldsetEmailsSelecionados button, #idFieldsetEmailsSelecionados select{
-    width: 100%;
-}
-
-/* #idFieldsetEmailsSelecionados input{
-    width: calc(100% - 8px);
-} */
-
-#idFieldsetResultado label, #idFieldsetResultado button, #idFieldsetResultado select{
-    width: 100%;
-}
-
-#idFieldsetResultado input{
-    width: calc(100% - 8px);
-}
-
-#idFieldsetExtras label, #idFieldsetExtras button, #idFieldsetExtras select{
-    width: 100%;
-}
-
-#idFieldsetExtras input{
-    width: calc(100% - 0px);
-}
-
-footer button{
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    justify-content: center;
-    text-align: center;
-}
-
-footer span, footer a{
-    display: flex;
-    justify-content: center;
-}
-
-
-fieldset{
-    border-radius: 5px;
-}
-
-.classDetails{
-    margin: 0px 0px 0px 20px;
-}
-
-.classInputEmail{
-    margin: 0px 0px 0px 20px;
-}
+h1{font: normal normal bold normal 12.0pt "Arial", "sans-serif";}
+h2{font: normal normal normal normal 11.0pt "Arial", "sans-serif";}
+#idFieldsetResultado span{font: normal normal normal normal 11.0pt "calibri", "sans-serif";}
+legend{font: normal normal bold normal 11.0pt "Arial", "sans-serif";}
 
 button a{
     color: rgb(0, 0, 0);
     text-decoration: none;
 }
 
-/* #idGeraEmail{
-    background-color: rgb(240, 240, 240); 
-    border: 1px solid rgb(120, 120, 120);
-    border-radius: 2px;
+/* - Posição na tela */
+
+footer span, footer a, .classTítuloInstruções, #idTítuloPágina{
+    display: flex;
+    justify-content: center;
+}
+
+.classParágrafoInstruções{text-align: justify;}
+
+fieldset{border-radius: 5px;}
+.classDetails{margin: 0px 0px 0px 20px;}
+.classInputEmail{margin: 0px 0px 0px 20px;}
+
+.classTítuloInstruções{
+    background: #EFEFEF; 
+    color: #000000;
+    border: 1px solid #767676;
+    border-radius: 2.5px;
+}
+
+/* #idFieldsetResultado label{
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 11.0pt;
+    line-height: normal;
+    font-family: "Arial", "sans-serif";
+    font: normal normal bold normal 11.0pt "Arial", "sans-serif";
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-color: black;
+    text-decoration-thickness: 1px;
+    text-decoration: underline solid black 1px;
+    text-transform: uppercase;
 } */

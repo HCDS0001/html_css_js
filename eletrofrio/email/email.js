@@ -1,5 +1,6 @@
 /* Chamada de dados do HTML */
 
+let classTítuloInstruções = document.querySelectorAll(".classTítuloInstruções")
 let idFunção = document.querySelector("#idFunção")
 let idTipo = document.querySelector("#idTipo")
 let classTipo = document.querySelectorAll(".classTipo")
@@ -166,7 +167,7 @@ let cadastro = [
     {função:fornecedorFunção, número:"nnn", nome:"BR-Inova", emailComercial:"alexandre@br-inova.com.br; marcelo@br-inova.com.br; nilso@br-inova.com.br"},
     {função:fornecedorFunção, número:"nnn", nome:"Danfoss", emailComercial:"mgomes@mgomes.com.br; alex.pagiato@danfoss.com; daniel.andrade@danfoss.com"},
     {função:fornecedorFunção, número:"nnn", nome:"Inovadoor", emailComercial:"roberto.filho@inovadoor.com.br; marina.negrao@inovadoor.com.br; fabiola.stachuk@inovadoor.com.br"},
-    {função:fornecedorFunção, número:"nnn", nome:"Kopron", emailComercial:"comercial3@kopron.com; marcos.sabbag@kopron.com; comercial10@kopron.com; comercial6@kopron.com"},
+    {função:fornecedorFunção, número:"nnn", nome:"Kopron", emailComercial:"comercial3@kopron.com; marcos.sabbag@kopron.com; comercial10@kopron.com; comercial6@kopron.com; engenharia4@kopron.com"},
     {função:fornecedorFunção, número:"nnn", nome:"MBPIsoblock", emailComercial:"joelma@mbpisoblock.com.br; sylvio@mbpisoblock.com.br; paolareis@mbp.com.br"},
     {função:fornecedorFunção, número:"nnn", nome:"Metalbras", emailComercial:"leticia@metalbrasvidros.com.br; wellington@metalbrasvidros.com.br; kathleen@metalbrasvidros.com.br; bianca@metalbrasvidros.com.br"},
     {função:fornecedorFunção, número:"nnn", nome:"Rohden", emailComercial:"julianatambosi@rohden.com.br; vendasrv02@rohden.com.br"},
@@ -460,7 +461,24 @@ let cores = [
     {cor:"Amarelo Claro", valor:"#FFFF80"},
     {cor:"Amarelo", valor:"#FFFF00"},
     {cor:"Amarelo Escuro", valor:"#808000"},
-    {cor:"Botão", valor:"#F0F0F0"},
+    {cor:"White Mode Botão Background Mouse Fora", valor:"#EFEFEF"},
+    {cor:"White Mode Botão Borda Mouse Fora", valor:"#767676"},
+    {cor:"White Mode Botão Background Mouse Sobre", valor:"#E5E5E5"},
+    {cor:"White Mode Botão Borda Mouse Sobre", valor:"#4F4F4F"},
+    {cor:"White Mode Botão Background Mouse Para Baixo", valor:"#F5F5F5"},
+    {cor:"White Mode Botão Borda Mouse Para Baixo", valor:"#8D8D8D"},
+    {cor:"White Mode Background", valor:"#FFFFFF"},
+    {cor:"White Mode Texto", valor:"#000000"},
+    {cor:"White Mode Inválido", valor:"#FFFF00"},
+    {cor:"Dark Mode Botão Background Mouse Fora", valor:"#101010"},
+    {cor:"Dark Mode Botão Borda Mouse Fora", valor:"#898989"},
+    {cor:"Dark Mode Botão Background Mouse Sobre", valor:"#1A1A1A"},
+    {cor:"Dark Mode Botão Borda Mouse Sobre", valor:"#B0B0B0"},
+    {cor:"Dark Mode Botão Background Mouse Para Baixo", valor:"#0A0A0A"},
+    {cor:"Dark Mode Botão Borda Mouse Para Baixo", valor:"#727272"},
+    {cor:"Dark Mode Background", valor:"#363636"},
+    {cor:"Dark Mode Texto", valor:"#FFFFFF"},
+    {cor:"Dark Mode Inválido", valor:"#616100"},
 
 ]
 
@@ -1099,347 +1117,365 @@ for (let index1 in funçãoCadastro) {
         idLimpaEmailSelecionado.addEventListener("click", limpaEmailsSelecionados)
     }
 
+/* Verifica os campos inválidos */
+
+function conferir() {
+    limpaResultado()
+    if (idEstiloDeCor.innerHTML == "White Mode") {WhiteMode()}
+    else {DarkMode()}
+}
+
 /* Gera resultados */
 
 function gerar() {
-    limpaResultado()
+
+    conferir()
+
+    if (idFunção.value == selectOption) {idResultadoCorpoDoEmail.innerHTML = `<mark>(TIPO DE E-MAIL - FUNÇÃO NÃO SELECIONADA)</mark>`}
+    if (idTipo.value == selectOption) {idResultadoCorpoDoEmail.innerHTML = `<mark>(TIPO DE E-MAIL - TIPO NÃO SELECIONADO)</mark>`}
+    if (idFunção.value != selectOption && idTipo.value != selectOption) {
 
 /* - Gera e-mails para */
 
-    let classParaEmail = document.querySelectorAll(".classParaEmail")
-    for (let index in cadastro) {if (classParaEmail[index].checked == true) {idResultadoPara.innerHTML += `${classParaEmail[index].value}; `}}
+        let classParaEmail = document.querySelectorAll(".classParaEmail")
+        for (let index in cadastro) {if (classParaEmail[index].checked == true) {idResultadoPara.innerHTML += `${classParaEmail[index].value}; `}}
 
 /* - Gera e-mails cc */
 
-    idResultadoCc.innerHTML = ""
-    let classCcEmail = document.querySelectorAll(".classCcEmail")
-    for (let index in cadastro) {if (classCcEmail[index].checked == true) {idResultadoCc.innerHTML += `${classCcEmail[index].value}; `}}
+        idResultadoCc.innerHTML = ""
+        let classCcEmail = document.querySelectorAll(".classCcEmail")
+        for (let index in cadastro) {if (classCcEmail[index].checked == true) {idResultadoCc.innerHTML += `${classCcEmail[index].value}; `}}
 
 /* - Gera e-mails bcc */
 
-    idResultadoBcc.innerHTML = ""
-    let classBccEmail = document.querySelectorAll(".classBccEmail")
-    for (let index in cadastro) {if (classBccEmail[index].checked == true) {idResultadoBcc.innerHTML += `${classBccEmail[index].value}; `}}
+        idResultadoBcc.innerHTML = ""
+        let classBccEmail = document.querySelectorAll(".classBccEmail")
+        for (let index in cadastro) {if (classBccEmail[index].checked == true) {idResultadoBcc.innerHTML += `${classBccEmail[index].value}; `}}
 
 /* - Gera assunto */
- 
+
 /* - Verifica e gera a assinatura carregada */
 
-let assinatura
+    let assinatura
 
-if (idAssinatura.files.length == 0) {
-    assinatura = document.createElement("span")
-    let textoAssinatura = document.createTextNode("Nenhuma assinatura selecionada.")
-    assinatura.appendChild(textoAssinatura)
-}
-else {
-    assinatura = document.createElement("img")
-    assinatura.setAttribute(srcAttribute, URL.createObjectURL(idAssinatura.files[0]))
-    assinatura.setAttribute(widthAttribute, larguraImagem)
-}
+    if (idAssinatura.files.length == 0) {
+        assinatura = document.createElement("span")
+        let textoAssinatura = document.createTextNode("Nenhuma assinatura selecionada.")
+        assinatura.appendChild(textoAssinatura)
+    }
+    else {
+        assinatura = document.createElement("img")
+        assinatura.setAttribute(srcAttribute, URL.createObjectURL(idAssinatura.files[0]))
+        assinatura.setAttribute(widthAttribute, larguraImagem)
+    }
 
 /* -- Verifica se tem dados não preenchidos e corrige a formatação */
-    let verificaNúmeroRepresentante = ""
-    let verificaNomeDoCliente = ""
-    let verificaNomeFantasia = ""
-    let verificaTipo = `${subGrupo} - ${idTipo.value}`
 
-    if (idPedido.value != "") {verificaNúmeroRepresentante = `PED ${idNúmeroRepresentante.value}-${idPedido.value}/${idAno.value}`}
-    if (idTipo.value != "" && idPedido.value != "") {verificaTipo = ` - ${subGrupo} - ${idTipo.value}`}
-    if (idNomeDoCliente.value != "" && idTipo.value != "" && idPedido.value != "") {verificaNomeDoCliente = ` - ${idNomeDoCliente.value}`}
-    if (idNomeFantasia.value != "") {verificaNomeFantasia = ` - ${idNomeFantasia.value}`}
+        let verificaNúmeroRepresentante = ""
+        let verificaNomeDoCliente = ""
+        let verificaNomeFantasia = ""
+        let verificaTipo = `${subGrupo} - ${idTipo.value}`
 
-    idResultadoAssunto.innerHTML = `${verificaNúmeroRepresentante}${verificaTipo}${verificaNomeDoCliente}${verificaNomeFantasia}`.toUpperCase()
+        if (idPedido.value != "") {verificaNúmeroRepresentante = `PED ${idNúmeroRepresentante.value}-${idPedido.value}/${idAno.value}`}
+        if (idTipo.value != "" && idPedido.value != "") {verificaTipo = ` - ${subGrupo} - ${idTipo.value}`}
+        if (idNomeDoCliente.value != "" && idTipo.value != "" && idPedido.value != "") {verificaNomeDoCliente = ` - ${idNomeDoCliente.value}`}
+        if (idNomeFantasia.value != "") {verificaNomeFantasia = ` - ${idNomeFantasia.value}`}
+
+        idResultadoAssunto.innerHTML = `${verificaNúmeroRepresentante}${verificaTipo}${verificaNomeDoCliente}${verificaNomeFantasia}`.toUpperCase()
 
 /* - Gera corpor do e-mail */
 
 /* -- Variáveis Auxiliares */
 
-    let christianHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Christian")].emailComercial}>@Christian Aparecido dos Santos Pereira</a>`
-    let marcioHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Marcio")].emailComercial}>@Marcio Tosta</a>`
-    let roneyHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Roney")].emailComercial}>@Roney Florencio da Silva</a>`
-    let simoneHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Simone")].emailComercial}>@Simone da Luz</a>`
-    let comprasHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Compras")].emailComercial}>@Compras Eletrofrio</a>`
-    let amareloBackground = 'style="background-color: rgb(255, 255, 0)"'
-    let informação01
-    let informação02
-    let informação03
-    let informação04
-    let informação05
-    let informação06
-    let informação07
-    let informação08
-    let informação09
-    let informação10
-    let imagem01 = document.createElement("img")
-    imagem01.setAttribute(widthAttribute, larguraImagem)
+        let christianHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Christian")].emailComercial}>@Christian Aparecido dos Santos Pereira</a>`
+        let marcioHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Marcio")].emailComercial}>@Marcio Tosta</a>`
+        let roneyHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Roney")].emailComercial}>@Roney Florencio da Silva</a>`
+        let simoneHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Simone")].emailComercial}>@Simone da Luz</a>`
+        let comprasHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Compras")].emailComercial}>@Compras Eletrofrio</a>`
+        let spanMarkBackground = 'style="background-color: rgb(255, 255, 0)"'
+        let informação01
+        let informação02
+        let informação03
+        let informação04
+        let informação05
+        let informação06
+        let informação07
+        let informação08
+        let informação09
+        let informação10
+        let imagem01 = document.createElement("img")
+        imagem01.setAttribute(widthAttribute, larguraImagem)
 
 /* -- Gera modelos de e-mails de acordo com o tipo */
 
-    switch (`${idFunção.value}${subGrupo}${idTipo.value}`) {
-        case `${analistaFunção}${liberaçãoSubGrupo}Completa`:
-            informação01 = `Segue liberação.`
-            informação02 = `Observações:`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${agradecimento}${br3}`
-            break
-        case `${analistaFunção}${liberaçãoSubGrupo}Total`:
-            informação01 = `Segue liberação total.`
-            informação02 = `Observações:`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${agradecimento}${br3}`
-            break
-        case `${analistaFunção}${liberaçãoSubGrupo}Parcial`:
-            informação01 = `Segue liberação parcial.`
-            informação02 = `Observações:`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${agradecimento}${br3}`
-            break
-        case `${analistaFunção}${verificaçãoSubGrupo}Linhas Atualizadas`:
-            informação01 = `Linhas atualizadas.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br4}${agradecimento}${br3}`
-            break
-        case `${analistaFunção}${verificaçãoSubGrupo}Feito`:
-            informação01 = `Feito.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break
-        case `${analistaFunção}${alteraçãoSubGrupo}Padrão`:
-            informação01 = `Novos arquivos salvos na rede.`
-            informação02 = `Alterações:`
-            informação03 = `01 - Informação do que foi alterado.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br1}${informação03}${br2}${agradecimento}${br3}`
-            break
-        case `${ajusteFunção}${dúvidaSubGrupo}Geral`:
-            informação01 = `Texto de dúvidas.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break
-        case `${ajusteFunção}${dúvidaSubGrupo}Aguardando Dúvidas`:
-            informação01 = `Seguimos arguardando as dúvidas e correções enviadas nos e-mails anteriores, a demora nas respostas afeta diretamente o prazo de entrega dos materiais.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break
-        case `${ajusteFunção}${ajusteSubGrupo}Arquivos para Produção`:
-            informação01 = `Analista, o pedido citado no título do e-mail foi ajustado e registrado para produção conforme os arquivos enviados pelo representante.`
-            informação02 = `Projetista/Representante`
-            informação03 = `- Por gentileza conferir os arquivos de ajuste.`
-            informação04 = `- O pedido só será liberado para produção após sua autorização/ok.`
-            informação05 = `- Toda e qualquer alteração futura que seja necessária (desde que devidamente autorizada) deve ser feita utilizando este arquivo de layout em anexo.`
-            informação06 = `<span ${amareloBackground}><mark>- Informação especial.</mark></span>`
-            informação07 = `Lista de Orçamento: 211`
-            informação08 = `Lista de Ajuste: 211`
-            informação09 = `Os expositores serão cadastrados de acordo com a planilha abaixo:`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br1}${informação04}${br1}${informação05}${br2}${informação06}${br2}${informação07}${br1}${informação08}${br2}${informação09}${br4}${agradecimento}${br3}`
-            break
-        case `${ajusteFunção}${ajusteSubGrupo}Aguardando Conferência`:
-            informação01 = `Seguimos arguardando o OK informando que os arquivos foram conferidos e podem seguir para a produção, a demora nas respostas afeta diretamente o prazo de entrega dos materiais.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break
-        case `${ajusteFunção}${alteraçãoSubGrupo}Arquivos de Alteração`:
-            informação01 = `Analista, segue ajuste atualizado de acordo com os novos arquivos enviados pelo representante.`
-            informação02 = `Alterações:`
-            informação03 = `01 - Informação do que foi alterado.`
-            informação04 = `Demais itens permanecem inalterados.`
-            informação05 = `Projetista/Representante`
-            informação06 = `- Por gentileza conferir os arquivos de ajuste.`
-            informação07 = `- O pedido só será liberado para produção após sua autorização/ok.`
-            informação08 = `- Toda e qualquer alteração futura que seja necessária (desde que devidamente autorizada) deve ser feita utilizando este arquivo de layout em anexo.`
-            informação09 = `<span ${amareloBackground}><mark>- Informação especial.</mark></span>`
-            informação10 = `Os expositores serão cadastrados de acordo com a planilha abaixo:`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br1}${informação03}${br2}${informação04}${br2}${informação05}${br1}${informação06}${br1}${informação07}${br1}${informação08}${br2}${informação09}${br2}${informação10}${br4}${agradecimento}${br3}`
-            break
-        case `${ajusteFunção}${alteraçãoSubGrupo}Verificar Possibilidade de Alteração`:
-            informação01 = `Ainda é possível fazer alterações?`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${roneyHiperlink}${br2}${informação01}${br2}${agradecimento}${br3}`
-            break
-        case `${executivoFunção}${projetoSubGrupo}Antecipado`:
-            informação01 = `Segue antecipação de projeto executivo de OOOOOOOOOOOO.`
-            informação02 = `Pedimos a gentileza de verificação e aprovação dos projetos em resposta a este e-mail.`
-            informação03 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
-            informação04 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
-            break
-        case `${executivoFunção}${projetoSubGrupo}Executivo`:
-            informação01 = `Segue projeto executivo de OOOOOOOOOOOO.`
-            informação02 = `Pedimos a gentileza de verificação e aprovação dos projetos em resposta a este e-mail.`
-            informação03 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
-            informação04 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${compraFunção}Porta Walk-In`:
-            informação01 = `Por gentileza efetuar a compra conforme abaixo.`
-            informação02 = `Material já cadastrado na ordem de venda.`
-            informação03 = `<span ${amareloBackground}><mark>Puxador acoplado junto a porta;${br1}Acabamento alumínio anodizado sem pintura;${br1}Iluminação em LED;${br1}Incluir logomarca Eletrofrio em todas as portas;${br1}Identificar a Ordem de Compra (OC) nos volumes.</mark></span>`
-            informação04 = `Fornecedor - ${idFornecedor.value}.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${compraFunção}Porta Seccional`:
-            informação01 = `Por gentileza efetuar a compra conforme abaixo.`
-            informação02 = `Material já cadastrado na ordem de venda.`
-            informação03 = `<span ${amareloBackground}><mark>N UN - PORTA SECCIONAL LL;${br1}Vão de abertura: N,NN m de largura x N,NN m de altura;${br1}Porta seccional para ser fixada em painel de NN mm e alvenaria de NNN mm (total NNN mm);${br1}Pé direito livre: N,NN m;${br1}Com talha.</mark></span>`
-            informação04 = `Fornecedor - ${idFornecedor.value}.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${compraFunção}Portal de Selamento`:
-            informação01 = `Por gentileza efetuar a compra conforme abaixo.`
-            informação02 = `Material já cadastrado na ordem de venda.`
-            informação03 = `<span ${amareloBackground}><mark>N UN - PORTAL DE SELAMENTO;${br1}Vão de abertura: N,NN m de largura x N,NN m de altura;${br1}Porta de selamento para ser fixada em painel de NN mm e alvenaria de NNN mm (total NNN mm);${br1}Pé direito livre: N,NN m.</mark></span>`
-            informação04 = `Fornecedor - ${idFornecedor.value}.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
-            break  
-        case `${planilhamentoFunção}${compraFunção}Porta Beer Cave`:
-            informação01 = `Por gentileza efetuar a compra conforme abaixo.`
-            informação02 = `Material já cadastrado na ordem de venda.`
-            informação03 = `Fornecedor - ${idFornecedor.value}.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${compraFunção}Visor Móvel`:
-            informação01 = `Por gentileza efetuar a compra conforme abaixo.`
-            informação02 = `Material já cadastrado na ordem de venda.`
-            informação03 = `<span ${amareloBackground}><mark>Para montagem em painel de 70 mm;${br1}Materiais: Estrutura em alumínio natural e vidro incolor temperado;${br1}Tipo: Flangeado - móvel.</mark></span>`
-            informação04 = `Fornecedor - ${idFornecedor.value}.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${compraFunção}Estrado de Borracha`:
-            informação01 = `Por gentileza efetuar a compra conforme abaixo.`
-            informação02 = `Material já cadastrado na ordem de venda.`
-            informação03 = `Fornecedor - ${idFornecedor.value}.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${compraFunção}Resistência`:
-            informação01 = `Por gentileza efetuar a compra conforme abaixo.`
-            informação02 = `Material já cadastrado na ordem de venda.`
-            informação03 = `Fornecedor - ${idFornecedor.value}.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${compraFunção}Termostato`:
-            informação01 = `Por gentileza efetuar a compra conforme abaixo.`
-            informação02 = `Material já cadastrado na ordem de venda.`
-            informação03 = `Fornecedor - ${idFornecedor.value}.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${cotaçãoSubGrupo}Visor Móvel`:
-            informação01 = `Por gentileza efetuar a cotação conforme abaixo.`
-            informação02 = `<span ${amareloBackground}><mark>Para montagem em painel de 70 mm;${br1}Materiais: Estrutura em alumínio natural e vidro incolor temperado;${br1}Tipo: Flangeado - móvel.</mark></span>`
-            informação03 = `Fornecedor - ${idFornecedor.value}.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${informação01}${br4}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${cotaçãoSubGrupo}Resistência`:
-            informação01 = `Por gentileza efetuar a cotação conforme abaixo.`
-            informação02 = `Fornecedor - ${idFornecedor.value}.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${informação01}${br4}${informação02}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${dúvidaSubGrupo}Geral`:
-            informação01 = `Texto de dúvidas.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${dúvidaSubGrupo}Porta Seccional VL Livre de Alvenaria`:
-            informação01 = `Gostaria de tirar algumas dúvidas a respeito de porta seccional e portal de selamento:`
-            informação02 = `1 - Qual o pé direito livre do início do vão da porta até a primeira obstrução do lado externo da porta (medida A)?`
-            informação03 = `2 - Qual a altura do patamar entre a parada dos caminhões e a base das portas seccionais (medida B)?`
-            imagem01.setAttribute(srcAttribute,"https://lh3.googleusercontent.com/pw/AL9nZEWflVFoAmOgMvuqxePbEp8YdqjILyV3u5AKaYDiPrPNHBmvBIp8sKsKu1eaQh17ENFCp8k4b7xSSUczdEXBGNoPcs3P68FkjB9BQ2ZDhRRdqKH9TY21KmA0FaYTMia5Rb6QcrfSJYVnQfV6J5hiVmlw=w768-h650-no?authuser=0")
-            imagem01.setAttribute(altAttribute,"Porta Seccional VL Livre de Alvenaria")
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}`
-            idResultadoCorpoDoEmail.appendChild(imagem01)
-            idResultadoCorpoDoEmail.innerHTML += `${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${dúvidaSubGrupo}Porta Seccional HL Livre de Alvenaria`:
-            informação01 = `Gostaria de tirar algumas dúvidas a respeito de porta seccional e portal de selamento:`
-            informação02 = `1 - Qual o pé direito livre do início do vão da porta até a primeira obstrução do lado externo da porta (medida A)?`
-            informação03 = `2 - Qual a altura do patamar entre a parada dos caminhões e a base das portas seccionais (medida B)?`
-            imagem01.setAttribute(srcAttribute,"https://lh3.googleusercontent.com/pw/AL9nZEWaLArI0jK99p9UJ24ZIV5q4DGt3lvY7xtJi-TOu7BrnJnt6lalmSNNL3tnD1wCDg_gU9fDk05Yhe06ZLov2d-CNCcPxGs3h8So23s9f8rS99PU4F7a5EuqjgNbHwmZoz6K9aLpgOvjOUNu3RDNRXvo=w735-h628-no?authuser=0")
-            imagem01.setAttribute(altAttribute,"Porta Seccional HL Livre de Alvenaria")
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}`
-            idResultadoCorpoDoEmail.appendChild(imagem01)
-            idResultadoCorpoDoEmail.innerHTML += `${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${dúvidaSubGrupo}Porta Seccional HL Encostada em Alvenaria`:
-            informação01 = `Gostaria de tirar algumas dúvidas a respeito de porta seccional e portal de selamento:`
-            informação02 = `1 - Qual o pé direito livre do início do vão da porta até a primeira obstrução do lado externo da porta (medida A)?`
-            informação03 = `2 - Qual a altura do patamar entre a parada dos caminhões e a base das portas seccionais (medida B)?`
-            informação04 = `3 - Em frente aos painéis onde estão as portas seccionais existe uma representação de parede de alvenaria, essa alvenaria vai até o teto correto?`
-            informação05 = `4 - Por favor me confirme a espessura da alvenaria da pergunta anterior (medida C)?`
-            imagem01.setAttribute(srcAttribute,"https://lh3.googleusercontent.com/pw/AL9nZEVjUxN-l6wEZ0aqIvxcb7W4avXdABwwpCSNy_kTGZbjxP_O_TL_p3CzqdVLvyWBN9SYAnhG47_MYav2mxY7Yn4E-GvYykBTnYCJzSxsNLGwMYsLjxXIdEN29Z_Pfua-35B671GAZPlx_FLLmRhgz9-_=w786-h628-no?authuser=0")
-            imagem01.setAttribute(altAttribute,"Porta Seccional HL Encostada em Alvenaria")
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${informação04}${br2}${informação05}${br2}`
-            idResultadoCorpoDoEmail.appendChild(imagem01)
-            idResultadoCorpoDoEmail.innerHTML += `${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${dúvidaSubGrupo}Aguardando`:
-            informação01 = `Seguimos arguardando as dúvidas e correções enviadas nos e-mails anteriores, a demora nas respostas afeta diretamente o prazo de entrega dos materiais.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${encaminharSubGrupo}Encaminhar`:
-            informação01 = `Encaminhando e-mail.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${planilhamentoSubGrupo}Total`:
-            informação01 = `<span ${amareloBackground}><mark>Informação especial.</mark></span>`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${planilhamentoSubGrupo}Parcial`:
-            informação01 = `<span ${amareloBackground}><mark>Informação especial.</mark></span>`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${planilhamentoSubGrupo}Alteração`:
-            informação01 = `<span ${amareloBackground}><mark>Atualizado o alfa de OOOOOOOO.</mark></span>`
-            informação02 = `Por favor verificar a necessidade de atualização do projeto executivo.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${marcioHiperlink} e ${christianHiperlink}${br2}${informação01}${br2}${simoneHiperlink}${br2}${informação02}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${suporteTiSubGrupo}Geral`:
-            informação01 = `Texto de dúvidas.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${suporteTiSubGrupo}Baan - Geral`:
-            informação01 = `Texto de dúvidas.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${suporteTiSubGrupo}Baan - Derrubar Usuário`:
-            informação01 = `Por favor derrubar o usuário conectado à ${OV}${idOrdemDeVenda.value}.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br4}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${suporteTiSubGrupo}Baan - Liberação de Tela`:
-            informação01 = `Gostaria de solicitar a liberação da seguinte tela: OOOOOOOO.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br4}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${suporteTiSubGrupo}SIP - Geral`:
-            informação01 = `Usuário - LLLLLLLL.LLLLLLLL.`
-            informação02 = `Texto de dúvidas.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
-            break
-        case `${planilhamentoFunção}${suporteTiSubGrupo}SIP - Liberação para Edição de Painéis Altos`:
-            informação01 = `Usuário - LLLLLLLL.LLLLLLLL.`
-            informação02 = `Gostaria de solicitar a liberação do meu SIP para editar câmaras frigoríficas com alturas maiores que o limite de padrão.`
-            idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
-            break
-        case selectOption:
-        informação01 = `<span ${amareloBackground}><mark>(OPÇÃO DE TIPO DE E-MAIL NÃO SELECIONADO)</mark></span>`
-        idResultadoCorpoDoEmail.innerHTML = `${informação01}${br3}`
-        break
-        default:
-            informação01 = `<span ${amareloBackground}><mark>(OPÇÃO DE E-MAIL AINDA NÃO CONFIGURADA)</mark></span>`
+        switch (`${idFunção.value}${subGrupo}${idTipo.value}`) {
+            case `${analistaFunção}${liberaçãoSubGrupo}Completa`:
+                informação01 = `Segue liberação.`
+                informação02 = `Observações:`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${agradecimento}${br3}`
+                break
+            case `${analistaFunção}${liberaçãoSubGrupo}Total`:
+                informação01 = `Segue liberação total.`
+                informação02 = `Observações:`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${agradecimento}${br3}`
+                break
+            case `${analistaFunção}${liberaçãoSubGrupo}Parcial`:
+                informação01 = `Segue liberação parcial.`
+                informação02 = `Observações:`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${agradecimento}${br3}`
+                break
+            case `${analistaFunção}${verificaçãoSubGrupo}Linhas Atualizadas`:
+                informação01 = `Linhas atualizadas.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br4}${agradecimento}${br3}`
+                break
+            case `${analistaFunção}${verificaçãoSubGrupo}Feito`:
+                informação01 = `Feito.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
+                break
+            case `${analistaFunção}${alteraçãoSubGrupo}Padrão`:
+                informação01 = `Novos arquivos salvos na rede.`
+                informação02 = `Alterações:`
+                informação03 = `01 - Informação do que foi alterado.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br1}${informação03}${br2}${agradecimento}${br3}`
+                break
+            case `${ajusteFunção}${dúvidaSubGrupo}Geral`:
+                informação01 = `Texto de dúvidas.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
+                break
+            case `${ajusteFunção}${dúvidaSubGrupo}Aguardando Dúvidas`:
+                informação01 = `Seguimos arguardando as dúvidas e correções enviadas nos e-mails anteriores, a demora nas respostas afeta diretamente o prazo de entrega dos materiais.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
+                break
+            case `${ajusteFunção}${ajusteSubGrupo}Arquivos para Produção`:
+                informação01 = `Analista, o pedido citado no título do e-mail foi ajustado e registrado para produção conforme os arquivos enviados pelo representante.`
+                informação02 = `Projetista/Representante`
+                informação03 = `- Por gentileza conferir os arquivos de ajuste.`
+                informação04 = `- O pedido só será liberado para produção após sua autorização/ok.`
+                informação05 = `- Toda e qualquer alteração futura que seja necessária (desde que devidamente autorizada) deve ser feita utilizando este arquivo de layout em anexo.`
+                informação06 = `<span ${spanMarkBackground}><mark>- Informação especial.</mark></span>`
+                informação07 = `Lista de Orçamento: 211`
+                informação08 = `Lista de Ajuste: 211`
+                informação09 = `Os expositores serão cadastrados de acordo com a planilha abaixo:`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br1}${informação04}${br1}${informação05}${br2}${informação06}${br2}${informação07}${br1}${informação08}${br2}${informação09}${br4}${agradecimento}${br3}`
+                break
+            case `${ajusteFunção}${ajusteSubGrupo}Aguardando Conferência`:
+                informação01 = `Seguimos arguardando o OK informando que os arquivos foram conferidos e podem seguir para a produção, a demora nas respostas afeta diretamente o prazo de entrega dos materiais.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
+                break
+            case `${ajusteFunção}${alteraçãoSubGrupo}Arquivos de Alteração`:
+                informação01 = `Analista, segue ajuste atualizado de acordo com os novos arquivos enviados pelo representante.`
+                informação02 = `Alterações:`
+                informação03 = `01 - Informação do que foi alterado.`
+                informação04 = `Demais itens permanecem inalterados.`
+                informação05 = `Projetista/Representante`
+                informação06 = `- Por gentileza conferir os arquivos de ajuste.`
+                informação07 = `- O pedido só será liberado para produção após sua autorização/ok.`
+                informação08 = `- Toda e qualquer alteração futura que seja necessária (desde que devidamente autorizada) deve ser feita utilizando este arquivo de layout em anexo.`
+                informação09 = `<span ${spanMarkBackground}><mark>- Informação especial.</mark></span>`
+                informação10 = `Os expositores serão cadastrados de acordo com a planilha abaixo:`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br1}${informação03}${br2}${informação04}${br2}${informação05}${br1}${informação06}${br1}${informação07}${br1}${informação08}${br2}${informação09}${br2}${informação10}${br4}${agradecimento}${br3}`
+                break
+            case `${ajusteFunção}${alteraçãoSubGrupo}Verificar Possibilidade de Alteração`:
+                informação01 = `Ainda é possível fazer alterações?`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${roneyHiperlink}${br2}${informação01}${br2}${agradecimento}${br3}`
+                break
+            case `${executivoFunção}${projetoSubGrupo}Antecipado`:
+                informação01 = `Segue antecipação de projeto executivo de OOOOOOOOOOOO.`
+                informação02 = `Pedimos a gentileza de verificação e aprovação dos projetos em resposta a este e-mail.`
+                informação03 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
+                informação04 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
+                break
+            case `${executivoFunção}${projetoSubGrupo}Executivo`:
+                informação01 = `Segue projeto executivo de OOOOOOOOOOOO.`
+                informação02 = `Pedimos a gentileza de verificação e aprovação dos projetos em resposta a este e-mail.`
+                informação03 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
+                informação04 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${compraFunção}Porta Walk-In`:
+                informação01 = `Por gentileza efetuar a compra conforme abaixo.`
+                informação02 = `Material já cadastrado na ordem de venda.`
+                informação03 = `<span ${spanMarkBackground}><mark>Puxador acoplado junto a porta;${br1}Acabamento alumínio anodizado sem pintura;${br1}Iluminação em LED;${br1}Incluir logomarca Eletrofrio em todas as portas;${br1}Identificar a Ordem de Compra (OC) nos volumes.</mark></span>`
+                informação04 = `Fornecedor - ${idFornecedor.value}.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${compraFunção}Porta Seccional`:
+                informação01 = `Por gentileza efetuar a compra conforme abaixo.`
+                informação02 = `Material já cadastrado na ordem de venda.`
+                informação03 = `<span ${spanMarkBackground}><mark>N UN - PORTA SECCIONAL LL;${br1}Vão de abertura: N,NN m de largura x N,NN m de altura;${br1}Porta seccional para ser fixada em painel de NN mm e alvenaria de NNN mm (total NNN mm);${br1}Pé direito livre: N,NN m;${br1}Com talha.</mark></span>`
+                informação04 = `Fornecedor - ${idFornecedor.value}.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${compraFunção}Portal de Selamento`:
+                informação01 = `Por gentileza efetuar a compra conforme abaixo.`
+                informação02 = `Material já cadastrado na ordem de venda.`
+                informação03 = `<span ${spanMarkBackground}><mark>N UN - PORTAL DE SELAMENTO;${br1}Vão de abertura: N,NN m de largura x N,NN m de altura;${br1}Porta de selamento para ser fixada em painel de NN mm e alvenaria de NNN mm (total NNN mm);${br1}Pé direito livre: N,NN m.</mark></span>`
+                informação04 = `Fornecedor - ${idFornecedor.value}.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
+                break  
+            case `${planilhamentoFunção}${compraFunção}Porta Beer Cave`:
+                informação01 = `Por gentileza efetuar a compra conforme abaixo.`
+                informação02 = `Material já cadastrado na ordem de venda.`
+                informação03 = `Fornecedor - ${idFornecedor.value}.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${compraFunção}Visor Móvel`:
+                informação01 = `Por gentileza efetuar a compra conforme abaixo.`
+                informação02 = `Material já cadastrado na ordem de venda.`
+                informação03 = `<span ${spanMarkBackground}><mark>Para montagem em painel de 70 mm;${br1}Materiais: Estrutura em alumínio natural e vidro incolor temperado;${br1}Tipo: Flangeado - móvel.</mark></span>`
+                informação04 = `Fornecedor - ${idFornecedor.value}.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${compraFunção}Estrado de Borracha`:
+                informação01 = `Por gentileza efetuar a compra conforme abaixo.`
+                informação02 = `Material já cadastrado na ordem de venda.`
+                informação03 = `Fornecedor - ${idFornecedor.value}.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${compraFunção}Resistência`:
+                informação01 = `Por gentileza efetuar a compra conforme abaixo.`
+                informação02 = `Material já cadastrado na ordem de venda.`
+                informação03 = `Fornecedor - ${idFornecedor.value}.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${compraFunção}Termostato`:
+                informação01 = `Por gentileza efetuar a compra conforme abaixo.`
+                informação02 = `Material já cadastrado na ordem de venda.`
+                informação03 = `Fornecedor - ${idFornecedor.value}.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${cotaçãoSubGrupo}Visor Móvel`:
+                informação01 = `Por gentileza efetuar a cotação conforme abaixo.`
+                informação02 = `<span ${spanMarkBackground}><mark>Para montagem em painel de 70 mm;${br1}Materiais: Estrutura em alumínio natural e vidro incolor temperado;${br1}Tipo: Flangeado - móvel.</mark></span>`
+                informação03 = `Fornecedor - ${idFornecedor.value}.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${informação01}${br4}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${cotaçãoSubGrupo}Resistência`:
+                informação01 = `Por gentileza efetuar a cotação conforme abaixo.`
+                informação02 = `Fornecedor - ${idFornecedor.value}.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${informação01}${br4}${informação02}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${dúvidaSubGrupo}Geral`:
+                informação01 = `Texto de dúvidas.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${dúvidaSubGrupo}Porta Seccional VL Livre de Alvenaria`:
+                informação01 = `Gostaria de tirar algumas dúvidas a respeito de porta seccional e portal de selamento:`
+                informação02 = `1 - Qual o pé direito livre do início do vão da porta até a primeira obstrução do lado externo da porta (medida A)?`
+                informação03 = `2 - Qual a altura do patamar entre a parada dos caminhões e a base das portas seccionais (medida B)?`
+                imagem01.setAttribute(srcAttribute,"https://lh3.googleusercontent.com/pw/AL9nZEWflVFoAmOgMvuqxePbEp8YdqjILyV3u5AKaYDiPrPNHBmvBIp8sKsKu1eaQh17ENFCp8k4b7xSSUczdEXBGNoPcs3P68FkjB9BQ2ZDhRRdqKH9TY21KmA0FaYTMia5Rb6QcrfSJYVnQfV6J5hiVmlw=w768-h650-no?authuser=0")
+                imagem01.setAttribute(altAttribute,"Porta Seccional VL Livre de Alvenaria")
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}`
+                idResultadoCorpoDoEmail.appendChild(imagem01)
+                idResultadoCorpoDoEmail.innerHTML += `${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${dúvidaSubGrupo}Porta Seccional HL Livre de Alvenaria`:
+                informação01 = `Gostaria de tirar algumas dúvidas a respeito de porta seccional e portal de selamento:`
+                informação02 = `1 - Qual o pé direito livre do início do vão da porta até a primeira obstrução do lado externo da porta (medida A)?`
+                informação03 = `2 - Qual a altura do patamar entre a parada dos caminhões e a base das portas seccionais (medida B)?`
+                imagem01.setAttribute(srcAttribute,"https://lh3.googleusercontent.com/pw/AL9nZEWaLArI0jK99p9UJ24ZIV5q4DGt3lvY7xtJi-TOu7BrnJnt6lalmSNNL3tnD1wCDg_gU9fDk05Yhe06ZLov2d-CNCcPxGs3h8So23s9f8rS99PU4F7a5EuqjgNbHwmZoz6K9aLpgOvjOUNu3RDNRXvo=w735-h628-no?authuser=0")
+                imagem01.setAttribute(altAttribute,"Porta Seccional HL Livre de Alvenaria")
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}`
+                idResultadoCorpoDoEmail.appendChild(imagem01)
+                idResultadoCorpoDoEmail.innerHTML += `${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${dúvidaSubGrupo}Porta Seccional HL Encostada em Alvenaria`:
+                informação01 = `Gostaria de tirar algumas dúvidas a respeito de porta seccional e portal de selamento:`
+                informação02 = `1 - Qual o pé direito livre do início do vão da porta até a primeira obstrução do lado externo da porta (medida A)?`
+                informação03 = `2 - Qual a altura do patamar entre a parada dos caminhões e a base das portas seccionais (medida B)?`
+                informação04 = `3 - Em frente aos painéis onde estão as portas seccionais existe uma representação de parede de alvenaria, essa alvenaria vai até o teto correto?`
+                informação05 = `4 - Por favor me confirme a espessura da alvenaria da pergunta anterior (medida C)?`
+                imagem01.setAttribute(srcAttribute,"https://lh3.googleusercontent.com/pw/AL9nZEVjUxN-l6wEZ0aqIvxcb7W4avXdABwwpCSNy_kTGZbjxP_O_TL_p3CzqdVLvyWBN9SYAnhG47_MYav2mxY7Yn4E-GvYykBTnYCJzSxsNLGwMYsLjxXIdEN29Z_Pfua-35B671GAZPlx_FLLmRhgz9-_=w786-h628-no?authuser=0")
+                imagem01.setAttribute(altAttribute,"Porta Seccional HL Encostada em Alvenaria")
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${informação04}${br2}${informação05}${br2}`
+                idResultadoCorpoDoEmail.appendChild(imagem01)
+                idResultadoCorpoDoEmail.innerHTML += `${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${dúvidaSubGrupo}Aguardando`:
+                informação01 = `Seguimos arguardando as dúvidas e correções enviadas nos e-mails anteriores, a demora nas respostas afeta diretamente o prazo de entrega dos materiais.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${encaminharSubGrupo}Encaminhar`:
+                informação01 = `Encaminhando e-mail.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${planilhamentoSubGrupo}Total`:
+                informação01 = `<span ${spanMarkBackground}><mark>Informação especial.</mark></span>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${planilhamentoSubGrupo}Parcial`:
+                informação01 = `<span ${spanMarkBackground}><mark>Informação especial.</mark></span>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${planilhamentoSubGrupo}Alteração`:
+                informação01 = `<span ${spanMarkBackground}><mark>Atualizado o alfa de OOOOOOOO.</mark></span>`
+                informação02 = `Por favor verificar a necessidade de atualização do projeto executivo.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${marcioHiperlink} e ${christianHiperlink}${br2}${informação01}${br2}${simoneHiperlink}${br2}${informação02}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${suporteTiSubGrupo}Geral`:
+                informação01 = `Texto de dúvidas.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${suporteTiSubGrupo}Baan - Geral`:
+                informação01 = `Texto de dúvidas.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${suporteTiSubGrupo}Baan - Derrubar Usuário`:
+                informação01 = `Por favor derrubar o usuário conectado à ${OV}${idOrdemDeVenda.value}.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br4}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${suporteTiSubGrupo}Baan - Liberação de Tela`:
+                informação01 = `Gostaria de solicitar a liberação da seguinte tela: OOOOOOOO.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br4}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${suporteTiSubGrupo}SIP - Geral`:
+                informação01 = `Usuário - LLLLLLLL.LLLLLLLL.`
+                informação02 = `Texto de dúvidas.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
+                break
+            case `${planilhamentoFunção}${suporteTiSubGrupo}SIP - Liberação para Edição de Painéis Altos`:
+                informação01 = `Usuário - LLLLLLLL.LLLLLLLL.`
+                informação02 = `Gostaria de solicitar a liberação do meu SIP para editar câmaras frigoríficas com alturas maiores que o limite de padrão.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
+                break
+            case selectOption:
+            informação01 = `<span ${spanMarkBackground}><mark>(OPÇÃO DE TIPO DE E-MAIL NÃO SELECIONADO)</mark></span>`
             idResultadoCorpoDoEmail.innerHTML = `${informação01}${br3}`
             break
-    }
-    idResultadoCorpoDoEmail.appendChild(assinatura)
+            default:
+                informação01 = `<span ${spanMarkBackground}><mark>(OPÇÃO DE E-MAIL AINDA NÃO CONFIGURADA)</mark></span>`
+                idResultadoCorpoDoEmail.innerHTML = `${informação01}${br3}`
+                break
+        }
+        idResultadoCorpoDoEmail.appendChild(assinatura)
 
 /* -- Gera os dados do e-mail no formato correto para o mailTo */
 
-    hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${cc}${idResultadoCc.innerHTML}${bcc}${idResultadoBcc.innerHTML}${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")
-    let bcc2 = bcc.replace(/&/,"?")
-    let subject2 = subject.replace(/&/,"?")
-    if (idResultadoCc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${bcc2}${idResultadoBcc.innerHTML}${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
-    if (idResultadoBcc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${cc}${idResultadoCc.innerHTML}${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
-    if (idResultadoCc.innerHTML == "" && idResultadoBcc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${subject2}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
+        hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${cc}${idResultadoCc.innerHTML}${bcc}${idResultadoBcc.innerHTML}${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")
+        let bcc2 = bcc.replace(/&/,"?")
+        let subject2 = subject.replace(/&/,"?")
+        if (idResultadoCc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${bcc2}${idResultadoBcc.innerHTML}${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
+        if (idResultadoBcc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${cc}${idResultadoCc.innerHTML}${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
+        if (idResultadoCc.innerHTML == "" && idResultadoBcc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${subject2}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
 
-    if (controlEmail != "") {
-        hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${cc}${idResultadoCc.innerHTML}${bcc}${idResultadoBcc.innerHTML}${controlEmail};${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")
-        bcc2 = bcc.replace(/&/,"?")
-        if (idResultadoCc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${bcc2}${idResultadoBcc.innerHTML}${controlEmail};${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
-        if (idResultadoBcc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${cc}${idResultadoCc.innerHTML}${bcc}${controlEmail};${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
-        if (idResultadoCc.innerHTML == "" && idResultadoBcc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${bcc2}${controlEmail};${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
-    } 
-    if (hrefMailtoEmail) {idGeraEmail.setAttribute(hrefAttribute, hrefMailtoEmail)}
+        if (controlEmail != "") {
+            hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${cc}${idResultadoCc.innerHTML}${bcc}${idResultadoBcc.innerHTML}${controlEmail};${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")
+            bcc2 = bcc.replace(/&/,"?")
+            if (idResultadoCc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${bcc2}${idResultadoBcc.innerHTML}${controlEmail};${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
+            if (idResultadoBcc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${cc}${idResultadoCc.innerHTML}${bcc}${controlEmail};${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
+            if (idResultadoCc.innerHTML == "" && idResultadoBcc.innerHTML == "") {hrefMailtoEmail = `${mailTo}${idResultadoPara.innerHTML}${bcc2}${controlEmail};${subject}${idResultadoAssunto.innerHTML}`.replace(/; /g,";")}
+        } 
+        if (hrefMailtoEmail) {idGeraEmail.setAttribute(hrefAttribute, hrefMailtoEmail)}
 
 /* -- Copia o corpo do e-mail */
 
-    function copiaCorpoDoEmail() {navigator.clipboard.write([new ClipboardItem({ "text/plain": new Blob([idResultadoCorpoDoEmail.innerText], { type: "text/plain" }), "text/html": new Blob([idResultadoCorpoDoEmail.innerHTML], { type: "text/html" })})])}
-    idCopiaCorpoDoEmail.addEventListener("click", copiaCorpoDoEmail)
+        function copiaCorpoDoEmail() {
+            navigator.clipboard.write([new ClipboardItem({ "text/plain": new Blob([idResultadoCorpoDoEmail.innerText], { type: "text/plain" }), "text/html": new Blob([idResultadoCorpoDoEmail.innerHTML], { type: "text/html" })})])
+            idCopiaCorpoDoEmail.innerHTML = "E-MAIL COPIADO!"
+        }
+        idCopiaCorpoDoEmail.addEventListener("click", copiaCorpoDoEmail)
+    }
 }
 
 /* - Limpa os resultados gerados */
@@ -1451,21 +1487,22 @@ function limpaResultado() {
     idResultadoAssunto.innerHTML = ""
     idResultadoCorpoDoEmail.innerHTML = ""
     idGeraEmail.removeAttribute(hrefAttribute)
+    idCopiaCorpoDoEmail.innerHTML = "Copia Corpo do E-mail"
 }
 
 /* Opções Extras */
 
 /* - Muda a cor do Background */
 
-/* function changeCorBackground() {document.body.style.background = idBackgroundColor.value} */
+function changeCorBackground() {document.body.style.background = idBackgroundColor.value}
 
 /* - Muda a cor do Texto */
 
-/* function changeCorTexto() {document.body.style.color = idTextoColor.value} */
+function changeCorTexto() {document.body.style.color = idTextoColor.value}
 
 /* Cria as Opções de Cores padrão */
 
-/* cores.map((index)=>{
+cores.map((index)=>{
     let optionCores = document.createElement(optionTag)
     let textoOptionCores = document.createTextNode(index.nome)
     optionCores.appendChild(textoOptionCores)
@@ -1473,107 +1510,172 @@ function limpaResultado() {
     idOptionCores.insertAdjacentElement("beforeend",optionCores)
 })
 
-let mode = 0
-
 function changeEstiloDeCor() {
-    if (mode == 0) {
-        idEstiloDeCor.innerHTML = "Dark Mode"
-        classLabelResultado.forEach(el => {el.style.textDecoration = "underline solid white 1px"})
-        document.body.style.background = cores.filter((index2)=>index2.cor == "Cinza Muito Escuro").map((index2)=>`${index2.valor}`)
-        buttonTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Cinza").map((index2)=>`${index2.valor}`)})
-        selectTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Cinza Muito Escuro").map((index2)=>`${index2.valor}`)})
-        inputTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Cinza Muito Escuro").map((index2)=>`${index2.valor}`)})
-        aTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Cinza").map((index2)=>`${index2.valor}`)})
-        idBackgroundColor.value = cores.filter((index2)=>index2.cor == "Cinza Muito Escuro").map((index2)=>`${index2.valor}`)
+    if (idEstiloDeCor.innerHTML == "White Mode") {DarkMode()}
+    else {WhiteMode()}
+}
 
-        document.body.style.color = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)
-        buttonTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)})
-        selectTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)})
-        inputTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)})
-        aTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)})
-        idTextoColor.value = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)
+/* White Mode */
 
-        buttonTagSelector.forEach(el => {el.style.borderRadius = "2px"})
-        buttonTagSelector.forEach(el => {el.style.border = "1px solid #C0C0C0"})
-        selectTagSelector.forEach(el => {el.style.borderRadius = "2px"})
-        selectTagSelector.forEach(el => {el.style.border = "1px solid #C0C0C0"})
-        inputTagSelector.forEach(el => {el.style.borderRadius = "2px"})
-        inputTagSelector.forEach(el => {el.style.border = "1px solid #C0C0C0"})
-        idAssinatura.style.border = "0px none #000000"
-
-        mode = 1
-    } else {
-        idEstiloDeCor.innerHTML = "White Mode"
-        classLabelResultado.forEach(el => {el.style.textDecoration = "underline solid black 1px"})
-        document.body.style.background = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)
-        buttonTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Botão").map((index2)=>`${index2.valor}`)})
-        selectTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)})
-        inputTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)})
-        aTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Botão").map((index2)=>`${index2.valor}`)})
-        idBackgroundColor.value = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)
-
-        document.body.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)
-        buttonTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)})
-        selectTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)})
-        inputTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)})
-        aTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)})
-        idTextoColor.value = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)
-
-        buttonTagSelector.forEach(el => {el.style.borderRadius = "2px"})
-        buttonTagSelector.forEach(el => {el.style.border = "1px solid #707070"})
-        selectTagSelector.forEach(el => {el.style.borderRadius = "2px"})
-        selectTagSelector.forEach(el => {el.style.border = "1px solid #707070"})
-        inputTagSelector.forEach(el => {el.style.borderRadius = "2px"})
-        inputTagSelector.forEach(el => {el.style.border = "1px solid #707070"})
-        idAssinatura.style.border = "0px none #000000"
-
-        mode = 0
+function WhiteMode() {
+    
+    if((idBackgroundColor.value.toUpperCase() == cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor) || idBackgroundColor.value.toUpperCase() == cores.filter((index)=>index.cor == "Dark Mode Background").map((index)=>index.valor))){
+        document.body.style.background = cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor)
+        idBackgroundColor.value = cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor)
     }
+
+    if((idTextoColor.value.toUpperCase() == cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor) || idTextoColor.value.toUpperCase() == cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor))){
+        document.body.style.color = cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)
+        idTextoColor.value = cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)
+    }
+
+    classLabelResultado.forEach(index => {index.style.textDecoration = `underline solid ${cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)} 1px`})
+
+    buttonTagSelector.forEach(index => {index.style.background = cores.filter((index)=>index.cor == "White Mode Botão Background Mouse Fora").map((index)=>index.valor)})
+    buttonTagSelector.forEach(index => {index.style.color = cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)})
+    buttonTagSelector.forEach(index => {index.style.border = `1px solid ${cores.filter((index)=>index.cor == "White Mode Botão Borda Mouse Fora").map((index)=>index.valor)}`})
+    buttonTagSelector.forEach(index => {index.style.borderRadius = "2.5px"})
+
+    selectTagSelector.forEach(index => {index.style.background = cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor)})
+    selectTagSelector.forEach(index => {index.style.color = cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)})
+    selectTagSelector.forEach(index => {index.style.border = `1px solid ${cores.filter((index)=>index.cor == "White Mode Botão Borda Mouse Fora").map((index)=>index.valor)}`})
+    selectTagSelector.forEach(index => {index.style.borderRadius = "2.5px"})
+
+    inputTagSelector.forEach(index => {index.style.background = cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor)})
+    inputTagSelector.forEach(index => {index.style.color = cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)})
+    inputTagSelector.forEach(index => {index.style.border = `1px solid ${cores.filter((index)=>index.cor == "White Mode Botão Borda Mouse Fora").map((index)=>index.valor)}`})
+    inputTagSelector.forEach(index => {index.style.borderRadius = "2.5px"})
+
+    aTagSelector.forEach(index => {index.style.color = cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)})
+
+    classTítuloInstruções.forEach(index => {index.style.background = cores.filter((index)=>index.cor == "White Mode Botão Background Mouse Fora").map((index)=>index.valor)})
+    classTítuloInstruções.forEach(index => {index.style.color = cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)})
+    classTítuloInstruções.forEach(index => {index.style.border = `1px solid ${cores.filter((index)=>index.cor == "White Mode Botão Borda Mouse Fora").map((index)=>index.valor)}`})
+    classTítuloInstruções.forEach(index => {index.style.borderRadius = "2.5px"})
+
+    for (let index of buttonTagSelector) {
+        index.addEventListener("mouseover", mouseSobre)
+        function mouseSobre() {
+            index.style.height = "19px"
+            index.style.background = cores.filter((index)=>index.cor == "White Mode Botão Background Mouse Sobre").map((index)=>index.valor)
+            index.style.border = `1px solid ${cores.filter((index)=>index.cor == "White Mode Botão Borda Mouse Sobre").map((index)=>index.valor)}`
+            index.style.borderRadius = "2.5px"
+        }
+    }
+
+    for (let index of buttonTagSelector) {
+        index.addEventListener("mouseout", mouseFora)
+        function mouseFora() {
+            index.style.height = "19px"
+            index.style.background = cores.filter((index)=>index.cor == "White Mode Botão Background Mouse Fora").map((index)=>index.valor)
+            index.style.border = `1px solid ${cores.filter((index)=>index.cor == "White Mode Botão Borda Mouse Fora").map((index)=>index.valor)}`
+            index.style.borderRadius = "2.5px"
+        }
+    }
+
+    for (let index of buttonTagSelector) {
+        index.addEventListener("mousedown", mouseParaBaixo)
+        function mouseParaBaixo() {
+            index.style.height = "19px"
+            index.style.background = cores.filter((index)=>index.cor == "White Mode Botão Background Mouse Para Baixo").map((index)=>index.valor)
+            index.style.border = `1px solid ${cores.filter((index)=>index.cor == "White Mode Botão Borda Mouse Para Baixo").map((index)=>index.valor)}`
+            index.style.borderRadius = "2.5px"
+        }
+    }
+
+    for (let index of inputTagSelector) {if(index.reportValidity() == false) {
+        index.style.height = "15px"
+        index.style.background = cores.filter((index)=>index.cor == "White Mode Inválido").map((index)=>index.valor)
+        index.style.border = `1px solid ${cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)}`
+    }}
+
+    idEstiloDeCor.innerHTML = "White Mode"
 }
 
-buttonTagSelector.forEach(el => {el.addEventListener("mouseover", teste1)})
-buttonTagSelector.forEach(el => {el.addEventListener("mouseout", teste2)})
+/* Dark Mode */
 
-function teste1(){
-    buttonTagSelector.forEach(el => {el.style.background = "green"})
+function DarkMode() {
+    
+    if((idBackgroundColor.value.toUpperCase() == cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor) || idBackgroundColor.value.toUpperCase() == cores.filter((index)=>index.cor == "Dark Mode Background").map((index)=>index.valor))){
+        document.body.style.background = cores.filter((index)=>index.cor == "Dark Mode Background").map((index)=>index.valor)
+        idBackgroundColor.value = cores.filter((index)=>index.cor == "Dark Mode Background").map((index)=>index.valor)
+    }
+
+    if((idTextoColor.value.toUpperCase() == cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor) || idTextoColor.value.toUpperCase() == cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor))){
+        document.body.style.color = cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor)
+        idTextoColor.value = cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor)
+    }
+
+    classLabelResultado.forEach(index => {index.style.textDecoration = `underline solid ${cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor)} 1px`})
+
+    buttonTagSelector.forEach(index => {index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão Background Mouse Fora").map((index)=>index.valor)})
+    buttonTagSelector.forEach(index => {index.style.color = cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor)})
+    buttonTagSelector.forEach(index => {index.style.border = `1px solid ${cores.filter((index)=>index.cor == "Dark Mode Botão Borda Mouse Fora").map((index)=>index.valor)}`})
+    buttonTagSelector.forEach(index => {index.style.borderRadius = "2.5px"})
+
+    selectTagSelector.forEach(index => {index.style.background = cores.filter((index)=>index.cor == "Dark Mode Background").map((index)=>index.valor)})
+    selectTagSelector.forEach(index => {index.style.color = cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor)})
+    selectTagSelector.forEach(index => {index.style.border = `1px solid ${cores.filter((index)=>index.cor == "Dark Mode Botão Borda Mouse Fora").map((index)=>index.valor)}`})
+    selectTagSelector.forEach(index => {index.style.borderRadius = "2.5px"})
+
+    inputTagSelector.forEach(index => {index.style.background = cores.filter((index)=>index.cor == "Dark Mode Background").map((index)=>index.valor)})
+    inputTagSelector.forEach(index => {index.style.color = cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor)})
+    inputTagSelector.forEach(index => {index.style.border = `1px solid ${cores.filter((index)=>index.cor == "Dark Mode Botão Borda Mouse Fora").map((index)=>index.valor)}`})
+    inputTagSelector.forEach(index => {index.style.borderRadius = "2.5px"})
+
+    aTagSelector.forEach(index => {index.style.color = cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor)})
+
+    classTítuloInstruções.forEach(index => {index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão Background Mouse Fora").map((index)=>index.valor)})
+    classTítuloInstruções.forEach(index => {index.style.color = cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor)})
+    classTítuloInstruções.forEach(index => {index.style.border = `1px solid ${cores.filter((index)=>index.cor == "Dark Mode Botão Borda Mouse Fora").map((index)=>index.valor)}`})
+    classTítuloInstruções.forEach(index => {index.style.borderRadius = "2.5px"})
+
+    for (let index of buttonTagSelector) {
+        index.addEventListener("mouseover", mouseSobre)
+        function mouseSobre() {
+            index.style.height = "19px"
+            index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão Background Mouse Sobre").map((index)=>index.valor)
+            index.style.border = `1px solid ${cores.filter((index)=>index.cor == "Dark Mode Botão Borda Mouse Sobre").map((index)=>index.valor)}`
+            index.style.borderRadius = "2.5px"
+        }
+    }
+
+    for (let index of buttonTagSelector) {
+        index.addEventListener("mouseout", mouseFora)
+        function mouseFora() {
+            index.style.height = "19px"
+            index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão Background Mouse Fora").map((index)=>index.valor)
+            index.style.border = `1px solid ${cores.filter((index)=>index.cor == "Dark Mode Botão Borda Mouse Fora").map((index)=>index.valor)}`
+            index.style.borderRadius = "2.5px"
+        }
+    }
+
+    for (let index of buttonTagSelector) {
+        index.addEventListener("mousedown", mouseParaBaixo)
+        function mouseParaBaixo() {
+            index.style.height = "19px"
+            index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão Background Mouse Para Baixo").map((index)=>index.valor)
+            index.style.border = `1px solid ${cores.filter((index)=>index.cor == "Dark Mode Botão Borda Mouse Para Baixo").map((index)=>index.valor)}`
+            index.style.borderRadius = "2.5px"
+        }
+    }
+
+    for (let index of inputTagSelector) {if(index.reportValidity() == false) {
+        index.style.height = "15px"
+        index.style.background = cores.filter((index)=>index.cor == "Dark Mode Inválido").map((index)=>index.valor)
+        index.style.border = `1px solid ${cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor)}`
+    }}
+
+    idEstiloDeCor.innerHTML = "Dark Mode"
 }
-
-function teste2(){
-    buttonTagSelector.forEach(el => {el.style.background = "red"})
-} */
 
 /* - Limpa os extras */
 
-/* function limpaExtras() {
-    document.body.style.background = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)
-    document.body.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)
-
-    idEstiloDeCor.innerHTML = "White Mode"
-    classLabelResultado.forEach(el => {el.style.textDecoration = "underline solid black 1px"})
-    document.body.style.background = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)
-    buttonTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Botão").map((index2)=>`${index2.valor}`)})
-    selectTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)})
-    inputTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)})
-    aTagSelector.forEach(el => {el.style.background = cores.filter((index2)=>index2.cor == "Botão").map((index2)=>`${index2.valor}`)})
-    idBackgroundColor.value = cores.filter((index2)=>index2.cor == "Branco").map((index2)=>`${index2.valor}`)
-
-    document.body.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)
-    buttonTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)})
-    selectTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)})
-    inputTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)})
-    aTagSelector.forEach(el => {el.style.color = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)})
-    idTextoColor.value = cores.filter((index2)=>index2.cor == "Preto").map((index2)=>`${index2.valor}`)
-
-    buttonTagSelector.forEach(el => {el.style.borderRadius = "2px"})
-    buttonTagSelector.forEach(el => {el.style.border = "1px solid #707070"})
-    selectTagSelector.forEach(el => {el.style.borderRadius = "2px"})
-    selectTagSelector.forEach(el => {el.style.border = "1px solid #707070"})
-    inputTagSelector.forEach(el => {el.style.borderRadius = "2px"})
-    inputTagSelector.forEach(el => {el.style.border = "1px solid #707070"})
-    idAssinatura.style.border = "0px none #000000"
-
-    mode = 0
-} */
+function limpaExtras() {
+    idBackgroundColor.value = cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor)
+    idTextoColor.value = cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)
+    WhiteMode()
+}
 
 /* - Gera link de dúvidas para o representante */
 
@@ -1585,29 +1687,28 @@ idDúvidasDesenvolvedor.setAttribute(hrefAttribute, hrefDúvidasDesenvolvedor)
 idFunção.addEventListener("change", changeFunção)
 idLimpaTipoDeEmail.addEventListener("click", limpaTipoDeEmail)
 idTipo.addEventListener("change", changeTipo)
-
 idFornecedor.addEventListener("change", changeFornecedor)
 idNúmeroRepresentante.addEventListener("change", changeNúmeroRepresentante)
-idPedido.addEventListener("change", limpaResultado)
-idAno.addEventListener("change", limpaResultado)
-idOrdemDeVenda.addEventListener("change", limpaResultado)
-idNomeDoCliente.addEventListener("change", limpaResultado)
-idNomeFantasia.addEventListener("change", limpaResultado)
-idMês.addEventListener("change", limpaResultado)
-idArquivo.addEventListener("change", limpaResultado)
-idRevisão.addEventListener("change", limpaResultado)
+idPedido.addEventListener("change", conferir)
+idAno.addEventListener("change", conferir)
+idOrdemDeVenda.addEventListener("change", conferir)
+idNomeDoCliente.addEventListener("change", conferir)
+idNomeFantasia.addEventListener("change", conferir)
+idMês.addEventListener("change", conferir)
+idArquivo.addEventListener("change", conferir)
+idRevisão.addEventListener("change", conferir)
 idLimpaDadosDePedido.addEventListener("click", limpaDadosDoPedido)
 idLimpaDadosPessoais.addEventListener("click", limpaDadosPessoais)
 idApresentaEmail.addEventListener("click", gerar)
 idLimpaResultado.addEventListener("click", limpaResultado)
-/* idBackgroundColor.addEventListener("change", changeCorBackground)
+idBackgroundColor.addEventListener("change", changeCorBackground)
 idTextoColor.addEventListener("change", changeCorTexto)
 idEstiloDeCor.addEventListener("click", changeEstiloDeCor)
-idLimpaExtras.addEventListener("click", limpaExtras) */
+idLimpaExtras.addEventListener("click", limpaExtras)
 
 /* Mostra o que está na área de transferência */
 
-/* let idExibeÁreaDeTransferência = document.querySelector("#idExibeÁreaDeTransferência")
+let idExibeÁreaDeTransferência = document.querySelector("#idExibeÁreaDeTransferência")
 async function mostraÁreaDeTransferência() {
     let clipboardItems = await navigator.clipboard.read()
     for (const clipboardItem of clipboardItems) {
@@ -1619,10 +1720,6 @@ async function mostraÁreaDeTransferência() {
         }
     }
 }
-idExibeÁreaDeTransferência.addEventListener("click", mostraÁreaDeTransferência) */
+idExibeÁreaDeTransferência.addEventListener("click", mostraÁreaDeTransferência)
 
 /* FIM */
-
-
-
-
