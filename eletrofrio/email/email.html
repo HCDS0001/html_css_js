@@ -39,7 +39,7 @@
                         <select name="nameFunção" id="idFunção" title="Selecione a sua função."></select><br>
                         <label for="idTipo" class="classTipo">Tipo</label>
                         <select name="nameTipo" id="idTipo" class="classTipo" title="Selecione o tipo de e-mail que deseja gerar."></select><hr>
-                        <button type="reset" id="idLimpaTipoDeEmail" title="Limpa as seleções de função e de tipo.">Limpar Tipo de E-mail</button>
+                        <button type="reset" id="idLimpaTipoDeEmail" class="classBotãoDeLimpeza" title="Limpa as seleções de função e de tipo.">Limpar Tipo de E-mail</button>
                     </fieldset>
                 </form>
                 <form action="">
@@ -65,7 +65,7 @@
                         <input type="text" name="nameAnexarAssinatura" id="idArquivo" size="8" minlength="8" maxlength="8" pattern="[A-Z]{2}[0-9]{6}" placeholder="AA000000" title="Preencha com o número do arquivo, precisam ser 2 letras maiúsculas e 6 números." required><br>
                         <label for="idRevisão">Revisão</label>
                         <input type="text" name="nameRevisão" id="idRevisão" size="1" minlength="1" maxlength="1" pattern="[A-Z]{1}" placeholder="A" title="Preencha com a letra da revisão, precisa ser 1 letra maiúscula." required><hr>
-                        <button type="reset" id="idLimpaDadosDePedido" title="Limpa os dados preenchidos do pedido.">Limpar Dados do Pedido</button>
+                        <button type="reset" id="idLimpaDadosDePedido" class="classBotãoDeLimpeza" title="Limpa os dados preenchidos do pedido.">Limpar Dados do Pedido</button>
                     </fieldset>
                 </form>
                 <form action="">
@@ -80,7 +80,7 @@
                         <legend>Dados Pessoais</legend>
                         <label for="idAssinatura">Assinatura de E-mail:</label>
                         <input type="file" name="nameAssinatura" accept="image/png" name="nameAssinatura" id="idAssinatura" title="Selecione a assinatura de e-mail nos seus arquivos."><br><hr>
-                        <button type="reset" id="idLimpaDadosPessoais"title="Limpa os dados pessoais.">Limpar Dados Pessoais</button>
+                        <button type="reset" id="idLimpaDadosPessoais" class="classBotãoDeLimpeza" title="Limpa os dados pessoais.">Limpar Dados Pessoais</button>
                     </fieldset>
                 </form>
                 <form action="">
@@ -95,7 +95,7 @@
                         <details id="idEmailsBcc">
                             <summary title='Clique para expandir e visualizar as opções de checbox para inserir no campo "Bcc".'>E-mails Bcc:</summary>
                         </details><hr>
-                        <button type="reset" id="idLimpaEmailSelecionado" title='Limpa as checkbox selecionadas para os campos "Para", "Cc" e "Bcc".'>Limpar E-mails</button>
+                        <button type="reset" id="idLimpaEmailSelecionado" class="classBotãoDeLimpeza" title='Limpa as checkbox selecionadas para os campos "Para", "Cc" e "Bcc".'>Limpar E-mails</button>
                     </fieldset>
                 </form>
             </article>
@@ -119,7 +119,7 @@
                     <button type="button" formtarget="_blank">
                         <a id="idGeraEmail" target="_blank" title="Clique para gerar o e-mail.">Gerar E-mail</a>
                     </button>
-                    <button type="reset" id="idLimpaResultado"title="Limpa os resultados gerados.">Limpar Resultados</button>
+                    <button type="reset" id="idLimpaResultado" class="classBotãoDeLimpeza" title="Limpa os resultados gerados.">Limpar Resultados</button>
                 </fieldset>
             </form>
             <form action="">
@@ -132,7 +132,7 @@
                     <label for="idEstiloDeCor">Estilo de Cor:</label>
                     <button type="button" id="idEstiloDeCor" title="Muda o estilo de cores da página.">White Mode</button><br>
                     <datalist id="idOptionCores"></datalist>
-                    <button type="reset" id="idLimpaExtras"title="Limpa os extras.">Limpar Extras</button>
+                    <button type="reset" id="idLimpaExtras" class="classBotãoDeLimpeza" title="Limpa os extras.">Limpar Extras</button>
                 </fieldset>
             </form>
         </section>

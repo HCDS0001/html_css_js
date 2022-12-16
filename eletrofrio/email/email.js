@@ -46,6 +46,7 @@ let selectTagSelector = document.querySelectorAll("select")
 let inputTagSelector = document.querySelectorAll("input")
 let aTagSelector = document.querySelectorAll("a")
 let classLabelResultado = document.querySelectorAll(".classLabelResultado")
+let classBotãoDeLimpeza = document.querySelectorAll(".classBotãoDeLimpeza")
 
 /* Variáveis para facilitar a escrita de funções  */
 
@@ -470,7 +471,10 @@ let cores = [
     {cor:"White Mode Background", valor:"#FFFFFF"},
     {cor:"White Mode Texto", valor:"#000000"},
     {cor:"White Mode Inválido", valor:"#FFFF00"},
-    {cor:"Dark Mode Botão Background Mouse Fora", valor:"#101010"},
+    {cor:"White Mode Botão de Limpeza Mouse Fora", valor:"#AAAAAA"},
+    {cor:"White Mode Botão de Limpeza Mouse Sobre", valor:"#DD0000"},
+    {cor:"White Mode Botão de Limpeza Mouse Para Baixo", valor:"#FF0000"},
+    {cor:"Dark Mode Botão Background Mouse Fora", valor:"#222222"},
     {cor:"Dark Mode Botão Borda Mouse Fora", valor:"#898989"},
     {cor:"Dark Mode Botão Background Mouse Sobre", valor:"#1A1A1A"},
     {cor:"Dark Mode Botão Borda Mouse Sobre", valor:"#B0B0B0"},
@@ -479,7 +483,9 @@ let cores = [
     {cor:"Dark Mode Background", valor:"#363636"},
     {cor:"Dark Mode Texto", valor:"#FFFFFF"},
     {cor:"Dark Mode Inválido", valor:"#616100"},
-
+    {cor:"Dark Mode Botão de Limpeza Mouse Fora", valor:"#101010"},
+    {cor:"Dark Mode Botão de Limpeza Mouse Sobre", valor:"#DD0000"},
+    {cor:"Dark Mode Botão de Limpeza Mouse Para Baixo", valor:"#FF0000"},
 ]
 
 /* Organização dos Arrays */
@@ -1129,10 +1135,13 @@ function conferir() {
 
 function gerar() {
 
+/* - Conferir e-mails e inputs */
+
     conferir()
 
     if (idFunção.value == selectOption) {idResultadoCorpoDoEmail.innerHTML = `<mark>(TIPO DE E-MAIL - FUNÇÃO NÃO SELECIONADA)</mark>`}
     if (idTipo.value == selectOption) {idResultadoCorpoDoEmail.innerHTML = `<mark>(TIPO DE E-MAIL - TIPO NÃO SELECIONADO)</mark>`}
+    for (let index of inputTagSelector) {if (index.checkValidity() == false) {index.reportValidity(); break}} 
     if (idFunção.value != selectOption && idTipo.value != selectOption) {
 
 /* - Gera e-mails para */
@@ -1583,7 +1592,28 @@ function WhiteMode() {
         }
     }
 
-    for (let index of inputTagSelector) {if(index.reportValidity() == false) {
+/*     for (let index of classBotãoDeLimpeza) {
+        index.addEventListener("mouseover", mouseSobre)
+        function mouseSobre() {
+            index.style.background = cores.filter((index)=>index.cor == "White Mode Botão de Limpeza Mouse Sobre").map((index)=>index.valor)
+        }
+    }
+
+    for (let index of classBotãoDeLimpeza) {
+        index.addEventListener("mouseout", mouseFora)
+        function mouseFora() {
+            index.style.background = cores.filter((index)=>index.cor == "White Mode Botão de Limpeza Mouse Fora").map((index)=>index.valor)
+        }
+    }
+
+    for (let index of classBotãoDeLimpeza) {
+        index.addEventListener("mousedown", mouseParaBaixo)
+        function mouseParaBaixo() {
+            index.style.background = cores.filter((index)=>index.cor == "White Mode Botão de Limpeza Mouse Para Baixo").map((index)=>index.valor)
+        }
+    } */
+
+    for (let index of inputTagSelector) {if(index.checkValidity() == false) {
         index.style.height = "15px"
         index.style.background = cores.filter((index)=>index.cor == "White Mode Inválido").map((index)=>index.valor)
         index.style.border = `1px solid ${cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)}`
@@ -1660,7 +1690,28 @@ function DarkMode() {
         }
     }
 
-    for (let index of inputTagSelector) {if(index.reportValidity() == false) {
+/*     for (let index of classBotãoDeLimpeza) {
+        index.addEventListener("mouseover", mouseSobre)
+        function mouseSobre() {
+            index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão de Limpeza Mouse Sobre").map((index)=>index.valor)
+        }
+    }
+
+    for (let index of classBotãoDeLimpeza) {
+        index.addEventListener("mouseout", mouseFora)
+        function mouseFora() {
+            index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão de Limpeza Mouse Fora").map((index)=>index.valor)
+        }
+    }
+
+    for (let index of classBotãoDeLimpeza) {
+        index.addEventListener("mousedown", mouseParaBaixo)
+        function mouseParaBaixo() {
+            index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão de Limpeza Mouse Para Baixo").map((index)=>index.valor)
+        }
+    } */
+
+    for (let index of inputTagSelector) {if(index.checkValidity() == false) {
         index.style.height = "15px"
         index.style.background = cores.filter((index)=>index.cor == "Dark Mode Inválido").map((index)=>index.valor)
         index.style.border = `1px solid ${cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor)}`
