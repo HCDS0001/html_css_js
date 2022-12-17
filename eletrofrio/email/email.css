@@ -31,11 +31,15 @@ body{
     }
 
 button{
+    height: 19px;
     background: #EFEFEF; 
     color: #000000;
     border: 1px solid #767676;
     border-radius: 2.5px;
 }
+
+button:hover{background: #E5E5E5;}
+button:active{background: #F5F5F5;}
 
 select{
     background: #FFFFFF; 
@@ -61,7 +65,7 @@ input{width: calc(100% - 6px);}
 #idBackgroundColor, #idTextoColor{width: calc(100% - 0px);}
 #idFieldsetEmailsSelecionados input{width: 13px;}
 
-/* - Texto */
+/* Texto */
 
 h1{font: normal normal bold normal 12.0pt "Arial", "sans-serif";}
 h2{font: normal normal normal normal 11.0pt "Arial", "sans-serif";}
@@ -75,7 +79,7 @@ button a{
 
 #idTítuloPágina{text-shadow: 1px 1px 3px black;}
 
-/* - Posição na tela */
+/* Posição na tela */
 
 footer span, footer a, .classTítuloInstruções, #idTítuloPágina{
     display: flex;
@@ -95,25 +99,9 @@ fieldset{border-radius: 5px;}
     border-radius: 2.5px;
 }
 
-/* .classBotãoDeLimpeza{background: #AAAAAA;}
-.classBotãoDeLimpeza:hover{background: #DD0000;}
-.classBotãoDeLimpeza:active{background: #FF0000;} */
+.classTítuloInstruções:hover{background: #E5E5E5;}
+.classTítuloInstruções:active{background: #F5F5F5;}
 
-/* body{background-image: linear-gradient(315deg, #6666FF 0%, white 100%);} */
-
-/* #idFieldsetResultado label{
-    font-style: normal;
-    font-variant: normal;
-    font-weight: normal;
-    font-stretch: normal;
-    font-size: 11.0pt;
-    line-height: normal;
-    font-family: "Arial", "sans-serif";
-    font: normal normal bold normal 11.0pt "Arial", "sans-serif";
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-    text-decoration-color: black;
-    text-decoration-thickness: 1px;
-    text-decoration: underline solid black 1px;
-    text-transform: uppercase;
-} */
+.classBotãoDeLimpeza{background: #AAAAAA;}
+.classBotãoDeLimpeza:hover{background: #999999;}
+.classBotãoDeLimpeza:active{background: #FF0000;}

@@ -444,48 +444,48 @@ let mês = [
 ]
 
 let cores = [
-    {cor:"Branco", valor:"#FFFFFF"},
-    {cor:"Cinza Claro", valor:"#C0C0C0"},
-    {cor:"Cinza", valor:"#808080"},
-    {cor:"Cinza Escuro", valor:"#404040"},
-    {cor:"Cinza Muito Escuro", valor:"#202020"},
-    {cor:"Preto", valor:"#000000"},
-    {cor:"Azul Claro", valor:"#8080FF"},
-    {cor:"Azul", valor:"#0000FF"},
-    {cor:"Azul Escuro", valor:"#000080"},
-    {cor:"Verde Claro", valor:"#80FF80"},
-    {cor:"Verde", valor:"#00FF00"},
-    {cor:"Verde Escuro", valor:"#008000"},
-    {cor:"Vermelho Claro", valor:"#FF8080"},
-    {cor:"Vermelho", valor:"#FF0000"},
-    {cor:"Vermelho Escuro", valor:"#800000"},
-    {cor:"Amarelo Claro", valor:"#FFFF80"},
-    {cor:"Amarelo", valor:"#FFFF00"},
-    {cor:"Amarelo Escuro", valor:"#808000"},
-    {cor:"White Mode Botão Background Mouse Fora", valor:"#EFEFEF"},
-    {cor:"White Mode Botão Borda Mouse Fora", valor:"#767676"},
-    {cor:"White Mode Botão Background Mouse Sobre", valor:"#E5E5E5"},
-    {cor:"White Mode Botão Borda Mouse Sobre", valor:"#4F4F4F"},
-    {cor:"White Mode Botão Background Mouse Para Baixo", valor:"#F5F5F5"},
-    {cor:"White Mode Botão Borda Mouse Para Baixo", valor:"#8D8D8D"},
-    {cor:"White Mode Background", valor:"#FFFFFF"},
-    {cor:"White Mode Texto", valor:"#000000"},
-    {cor:"White Mode Inválido", valor:"#FFFF00"},
-    {cor:"White Mode Botão de Limpeza Mouse Fora", valor:"#AAAAAA"},
-    {cor:"White Mode Botão de Limpeza Mouse Sobre", valor:"#DD0000"},
-    {cor:"White Mode Botão de Limpeza Mouse Para Baixo", valor:"#FF0000"},
-    {cor:"Dark Mode Botão Background Mouse Fora", valor:"#222222"},
-    {cor:"Dark Mode Botão Borda Mouse Fora", valor:"#898989"},
-    {cor:"Dark Mode Botão Background Mouse Sobre", valor:"#1A1A1A"},
-    {cor:"Dark Mode Botão Borda Mouse Sobre", valor:"#B0B0B0"},
-    {cor:"Dark Mode Botão Background Mouse Para Baixo", valor:"#0A0A0A"},
-    {cor:"Dark Mode Botão Borda Mouse Para Baixo", valor:"#727272"},
-    {cor:"Dark Mode Background", valor:"#363636"},
-    {cor:"Dark Mode Texto", valor:"#FFFFFF"},
-    {cor:"Dark Mode Inválido", valor:"#616100"},
-    {cor:"Dark Mode Botão de Limpeza Mouse Fora", valor:"#101010"},
-    {cor:"Dark Mode Botão de Limpeza Mouse Sobre", valor:"#DD0000"},
-    {cor:"Dark Mode Botão de Limpeza Mouse Para Baixo", valor:"#FF0000"},
+    {padrão:"Exibição", cor:"Branco", valor:"#FFFFFF"},
+    {padrão:"Exibição", cor:"Cinza Claro", valor:"#C0C0C0"},
+    {padrão:"Exibição", cor:"Cinza", valor:"#808080"},
+    {padrão:"Exibição", cor:"Cinza Escuro", valor:"#404040"},
+    {padrão:"Exibição", cor:"Cinza Muito Escuro", valor:"#202020"},
+    {padrão:"Exibição", cor:"Preto", valor:"#000000"},
+    {padrão:"Exibição", cor:"Azul Claro", valor:"#8080FF"},
+    {padrão:"Exibição", cor:"Azul", valor:"#0000FF"},
+    {padrão:"Exibição", cor:"Azul Escuro", valor:"#000080"},
+    {padrão:"Exibição", cor:"Verde Claro", valor:"#80FF80"},
+    {padrão:"Exibição", cor:"Verde", valor:"#00FF00"},
+    {padrão:"Exibição", cor:"Verde Escuro", valor:"#008000"},
+    {padrão:"Exibição", cor:"Vermelho Claro", valor:"#FF8080"},
+    {padrão:"Exibição", cor:"Vermelho", valor:"#FF0000"},
+    {padrão:"Exibição", cor:"Vermelho Escuro", valor:"#800000"},
+    {padrão:"Exibição", cor:"Amarelo Claro", valor:"#FFFF80"},
+    {padrão:"Exibição", cor:"Amarelo", valor:"#FFFF00"},
+    {padrão:"Exibição", cor:"Amarelo Escuro", valor:"#808000"},
+    {padrão:"Funções", cor:"White Mode Botão Background Mouse Fora", valor:"#EFEFEF"},
+    {padrão:"Funções", cor:"White Mode Botão Borda Mouse Fora", valor:"#767676"},
+    {padrão:"Funções", cor:"White Mode Botão Background Mouse Sobre", valor:"#E5E5E5"},
+    {padrão:"Funções", cor:"White Mode Botão Borda Mouse Sobre", valor:"#4F4F4F"},
+    {padrão:"Funções", cor:"White Mode Botão Background Mouse Para Baixo", valor:"#F5F5F5"},
+    {padrão:"Funções", cor:"White Mode Botão Borda Mouse Para Baixo", valor:"#8D8D8D"},
+    {padrão:"Funções", cor:"White Mode Background", valor:"#FFFFFF"},
+    {padrão:"Funções", cor:"White Mode Texto", valor:"#000000"},
+    {padrão:"Funções", cor:"White Mode Inválido", valor:"#FFFF00"},
+    {padrão:"Funções", cor:"White Mode Botão de Limpeza Mouse Fora", valor:"#AAAAAA"},
+    {padrão:"Funções", cor:"White Mode Botão de Limpeza Mouse Sobre", valor:"#999999"},
+    {padrão:"Funções", cor:"White Mode Botão de Limpeza Mouse Para Baixo", valor:"#FF0000"},
+    {padrão:"Funções", cor:"Dark Mode Botão Background Mouse Fora", valor:"#222222"},
+    {padrão:"Funções", cor:"Dark Mode Botão Borda Mouse Fora", valor:"#898989"},
+    {padrão:"Funções", cor:"Dark Mode Botão Background Mouse Sobre", valor:"#1A1A1A"},
+    {padrão:"Funções", cor:"Dark Mode Botão Borda Mouse Sobre", valor:"#B0B0B0"},
+    {padrão:"Funções", cor:"Dark Mode Botão Background Mouse Para Baixo", valor:"#0A0A0A"},
+    {padrão:"Funções", cor:"Dark Mode Botão Borda Mouse Para Baixo", valor:"#727272"},
+    {padrão:"Funções", cor:"Dark Mode Background", valor:"#363636"},
+    {padrão:"Funções", cor:"Dark Mode Texto", valor:"#FFFFFF"},
+    {padrão:"Funções", cor:"Dark Mode Inválido", valor:"#616100"},
+    {padrão:"Funções", cor:"Dark Mode Botão de Limpeza Mouse Fora", valor:"#101010"},
+    {padrão:"Funções", cor:"Dark Mode Botão de Limpeza Mouse Sobre", valor:"#333333"},
+    {padrão:"Funções", cor:"Dark Mode Botão de Limpeza Mouse Para Baixo", valor:"#FF0000"},
 ]
 
 /* Organização dos Arrays */
@@ -1141,7 +1141,7 @@ function gerar() {
 
     if (idFunção.value == selectOption) {idResultadoCorpoDoEmail.innerHTML = `<mark>(TIPO DE E-MAIL - FUNÇÃO NÃO SELECIONADA)</mark>`}
     if (idTipo.value == selectOption) {idResultadoCorpoDoEmail.innerHTML = `<mark>(TIPO DE E-MAIL - TIPO NÃO SELECIONADO)</mark>`}
-    for (let index of inputTagSelector) {if (index.checkValidity() == false) {index.reportValidity(); break}} 
+    //for (let index of inputTagSelector) {if (index.checkValidity() == false) {index.reportValidity(); break}} 
     if (idFunção.value != selectOption && idTipo.value != selectOption) {
 
 /* - Gera e-mails para */
@@ -1163,36 +1163,36 @@ function gerar() {
 
 /* - Gera assunto */
 
-/* - Verifica e gera a assinatura carregada */
-
-    let assinatura
-
-    if (idAssinatura.files.length == 0) {
-        assinatura = document.createElement("span")
-        let textoAssinatura = document.createTextNode("Nenhuma assinatura selecionada.")
-        assinatura.appendChild(textoAssinatura)
-    }
-    else {
-        assinatura = document.createElement("img")
-        assinatura.setAttribute(srcAttribute, URL.createObjectURL(idAssinatura.files[0]))
-        assinatura.setAttribute(widthAttribute, larguraImagem)
-    }
-
 /* -- Verifica se tem dados não preenchidos e corrige a formatação */
 
         let verificaNúmeroRepresentante = ""
         let verificaNomeDoCliente = ""
         let verificaNomeFantasia = ""
-        let verificaTipo = `${subGrupo} - ${idTipo.value}`
+        let verificaTipo = `(${idFunção.value} - ${subGrupo} - ${idTipo.value})`
 
         if (idPedido.value != "") {verificaNúmeroRepresentante = `PED ${idNúmeroRepresentante.value}-${idPedido.value}/${idAno.value}`}
-        if (idTipo.value != "" && idPedido.value != "") {verificaTipo = ` - ${subGrupo} - ${idTipo.value}`}
+        if (idTipo.value != "" && idPedido.value != "") {verificaTipo = ` - (${idFunção.value} - ${subGrupo} - ${idTipo.value})`}
         if (idNomeDoCliente.value != "" && idTipo.value != "" && idPedido.value != "") {verificaNomeDoCliente = ` - ${idNomeDoCliente.value}`}
         if (idNomeFantasia.value != "") {verificaNomeFantasia = ` - ${idNomeFantasia.value}`}
 
         idResultadoAssunto.innerHTML = `${verificaNúmeroRepresentante}${verificaTipo}${verificaNomeDoCliente}${verificaNomeFantasia}`.toUpperCase()
 
 /* - Gera corpor do e-mail */
+
+/* -- Verifica e gera a assinatura carregada */
+
+let assinatura
+
+if (idAssinatura.files.length == 0) {
+    assinatura = document.createElement("span")
+    let textoAssinatura = document.createTextNode("")//Nenhuma assinatura selecionada.
+    assinatura.appendChild(textoAssinatura)
+}
+else {
+    assinatura = document.createElement("img")
+    assinatura.setAttribute(srcAttribute, URL.createObjectURL(idAssinatura.files[0]))
+    assinatura.setAttribute(widthAttribute, larguraImagem)
+}
 
 /* -- Variáveis Auxiliares */
 
@@ -1306,64 +1306,54 @@ function gerar() {
                 informação01 = `Por gentileza efetuar a compra conforme abaixo.`
                 informação02 = `Material já cadastrado na ordem de venda.`
                 informação03 = `<span ${spanMarkBackground}><mark>Puxador acoplado junto a porta;${br1}Acabamento alumínio anodizado sem pintura;${br1}Iluminação em LED;${br1}Incluir logomarca Eletrofrio em todas as portas;${br1}Identificar a Ordem de Compra (OC) nos volumes.</mark></span>`
-                informação04 = `Fornecedor - ${idFornecedor.value}.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${compraFunção}Porta Seccional`:
                 informação01 = `Por gentileza efetuar a compra conforme abaixo.`
                 informação02 = `Material já cadastrado na ordem de venda.`
                 informação03 = `<span ${spanMarkBackground}><mark>N UN - PORTA SECCIONAL LL;${br1}Vão de abertura: N,NN m de largura x N,NN m de altura;${br1}Porta seccional para ser fixada em painel de NN mm e alvenaria de NNN mm (total NNN mm);${br1}Pé direito livre: N,NN m;${br1}Com talha.</mark></span>`
-                informação04 = `Fornecedor - ${idFornecedor.value}.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${compraFunção}Portal de Selamento`:
                 informação01 = `Por gentileza efetuar a compra conforme abaixo.`
                 informação02 = `Material já cadastrado na ordem de venda.`
                 informação03 = `<span ${spanMarkBackground}><mark>N UN - PORTAL DE SELAMENTO;${br1}Vão de abertura: N,NN m de largura x N,NN m de altura;${br1}Porta de selamento para ser fixada em painel de NN mm e alvenaria de NNN mm (total NNN mm);${br1}Pé direito livre: N,NN m.</mark></span>`
-                informação04 = `Fornecedor - ${idFornecedor.value}.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
                 break  
             case `${planilhamentoFunção}${compraFunção}Porta Beer Cave`:
                 informação01 = `Por gentileza efetuar a compra conforme abaixo.`
                 informação02 = `Material já cadastrado na ordem de venda.`
-                informação03 = `Fornecedor - ${idFornecedor.value}.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${compraFunção}Visor Móvel`:
                 informação01 = `Por gentileza efetuar a compra conforme abaixo.`
                 informação02 = `Material já cadastrado na ordem de venda.`
                 informação03 = `<span ${spanMarkBackground}><mark>Para montagem em painel de 70 mm;${br1}Materiais: Estrutura em alumínio natural e vidro incolor temperado;${br1}Tipo: Flangeado - móvel.</mark></span>`
-                informação04 = `Fornecedor - ${idFornecedor.value}.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${compraFunção}Estrado de Borracha`:
                 informação01 = `Por gentileza efetuar a compra conforme abaixo.`
                 informação02 = `Material já cadastrado na ordem de venda.`
-                informação03 = `Fornecedor - ${idFornecedor.value}.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${compraFunção}Resistência`:
                 informação01 = `Por gentileza efetuar a compra conforme abaixo.`
                 informação02 = `Material já cadastrado na ordem de venda.`
-                informação03 = `Fornecedor - ${idFornecedor.value}.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${compraFunção}Termostato`:
                 informação01 = `Por gentileza efetuar a compra conforme abaixo.`
                 informação02 = `Material já cadastrado na ordem de venda.`
-                informação03 = `Fornecedor - ${idFornecedor.value}.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${cotaçãoSubGrupo}Visor Móvel`:
                 informação01 = `Por gentileza efetuar a cotação conforme abaixo.`
                 informação02 = `<span ${spanMarkBackground}><mark>Para montagem em painel de 70 mm;${br1}Materiais: Estrutura em alumínio natural e vidro incolor temperado;${br1}Tipo: Flangeado - móvel.</mark></span>`
-                informação03 = `Fornecedor - ${idFornecedor.value}.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${informação01}${br4}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${informação01}${br4}${informação02}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${cotaçãoSubGrupo}Resistência`:
                 informação01 = `Por gentileza efetuar a cotação conforme abaixo.`
-                informação02 = `Fornecedor - ${idFornecedor.value}.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${informação01}${br4}${informação02}${br2}${agradecimento}${br3}`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${informação01}${br4}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${dúvidaSubGrupo}Geral`:
                 informação01 = `Texto de dúvidas.`
@@ -1511,7 +1501,7 @@ function changeCorTexto() {document.body.style.color = idTextoColor.value}
 
 /* Cria as Opções de Cores padrão */
 
-cores.map((index)=>{
+cores.filter((index)=>index.padrão == "Exibição").map((index)=>{
     let optionCores = document.createElement(optionTag)
     let textoOptionCores = document.createTextNode(index.nome)
     optionCores.appendChild(textoOptionCores)
@@ -1544,6 +1534,8 @@ function WhiteMode() {
     buttonTagSelector.forEach(index => {index.style.color = cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)})
     buttonTagSelector.forEach(index => {index.style.border = `1px solid ${cores.filter((index)=>index.cor == "White Mode Botão Borda Mouse Fora").map((index)=>index.valor)}`})
     buttonTagSelector.forEach(index => {index.style.borderRadius = "2.5px"})
+
+    classBotãoDeLimpeza.forEach(index => {index.style.background = cores.filter((index)=>index.cor == "White Mode Botão de Limpeza Mouse Fora").map((index)=>index.valor)})
 
     selectTagSelector.forEach(index => {index.style.background = cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor)})
     selectTagSelector.forEach(index => {index.style.color = cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)})
@@ -1592,7 +1584,28 @@ function WhiteMode() {
         }
     }
 
-/*     for (let index of classBotãoDeLimpeza) {
+    for (let index of classTítuloInstruções) {
+        index.addEventListener("mouseover", mouseSobre)
+        function mouseSobre() {
+            index.style.background = cores.filter((index)=>index.cor == "White Mode Botão Background Mouse Sobre").map((index)=>index.valor)
+        }
+    }
+
+    for (let index of classTítuloInstruções) {
+        index.addEventListener("mouseout", mouseFora)
+        function mouseFora() {
+            index.style.background = cores.filter((index)=>index.cor == "White Mode Botão Background Mouse Fora").map((index)=>index.valor)
+        }
+    }
+
+    for (let index of classTítuloInstruções) {
+        index.addEventListener("mousedown", mouseParaBaixo)
+        function mouseParaBaixo() {
+            index.style.background = cores.filter((index)=>index.cor == "White Mode Botão Background Mouse Para Baixo").map((index)=>index.valor)
+        }
+    }
+
+    for (let index of classBotãoDeLimpeza) {
         index.addEventListener("mouseover", mouseSobre)
         function mouseSobre() {
             index.style.background = cores.filter((index)=>index.cor == "White Mode Botão de Limpeza Mouse Sobre").map((index)=>index.valor)
@@ -1611,7 +1624,7 @@ function WhiteMode() {
         function mouseParaBaixo() {
             index.style.background = cores.filter((index)=>index.cor == "White Mode Botão de Limpeza Mouse Para Baixo").map((index)=>index.valor)
         }
-    } */
+    }
 
     for (let index of inputTagSelector) {if(index.checkValidity() == false) {
         index.style.height = "15px"
@@ -1642,6 +1655,8 @@ function DarkMode() {
     buttonTagSelector.forEach(index => {index.style.color = cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor)})
     buttonTagSelector.forEach(index => {index.style.border = `1px solid ${cores.filter((index)=>index.cor == "Dark Mode Botão Borda Mouse Fora").map((index)=>index.valor)}`})
     buttonTagSelector.forEach(index => {index.style.borderRadius = "2.5px"})
+
+    classBotãoDeLimpeza.forEach(index => {index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão de Limpeza Mouse Fora").map((index)=>index.valor)})
 
     selectTagSelector.forEach(index => {index.style.background = cores.filter((index)=>index.cor == "Dark Mode Background").map((index)=>index.valor)})
     selectTagSelector.forEach(index => {index.style.color = cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor)})
@@ -1690,7 +1705,28 @@ function DarkMode() {
         }
     }
 
-/*     for (let index of classBotãoDeLimpeza) {
+    for (let index of classTítuloInstruções) {
+        index.addEventListener("mouseover", mouseSobre)
+        function mouseSobre() {
+            index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão Background Mouse Sobre").map((index)=>index.valor)
+        }
+    }
+
+    for (let index of classTítuloInstruções) {
+        index.addEventListener("mouseout", mouseFora)
+        function mouseFora() {
+            index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão Background Mouse Fora").map((index)=>index.valor)
+        }
+    }
+
+    for (let index of classTítuloInstruções) {
+        index.addEventListener("mousedown", mouseParaBaixo)
+        function mouseParaBaixo() {
+            index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão Background Mouse Para Baixo").map((index)=>index.valor)
+        }
+    }
+
+    for (let index of classBotãoDeLimpeza) {
         index.addEventListener("mouseover", mouseSobre)
         function mouseSobre() {
             index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão de Limpeza Mouse Sobre").map((index)=>index.valor)
@@ -1709,7 +1745,7 @@ function DarkMode() {
         function mouseParaBaixo() {
             index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão de Limpeza Mouse Para Baixo").map((index)=>index.valor)
         }
-    } */
+    }
 
     for (let index of inputTagSelector) {if(index.checkValidity() == false) {
         index.style.height = "15px"
