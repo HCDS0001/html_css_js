@@ -55,8 +55,6 @@ input{
     border-radius: 2.5px;
 }
 
-a{color: #000000;}
-
 /* Largura dos Itens */
 
 label, button, select, input, img{width: 100%;}

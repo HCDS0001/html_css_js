@@ -1201,7 +1201,8 @@ else {
         let roneyHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Roney")].emailComercial}>@Roney Florencio da Silva</a>`
         let simoneHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Simone")].emailComercial}>@Simone da Luz</a>`
         let comprasHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Compras")].emailComercial}>@Compras Eletrofrio</a>`
-        let spanMarkBackground = 'style="background-color: rgb(255, 255, 0)"'
+        let spanBackground = 'style="background-color: rgb(255, 255, 0); color: rgb(0, 0, 0)"'
+        let markBackground = 'style="background-color: rgb(255, 0, 0); color: rgb(0, 0, 0)"'
         let informação01
         let informação02
         let informação03
@@ -1212,6 +1213,7 @@ else {
         let informação08
         let informação09
         let informação10
+        let informação11
         let imagem01 = document.createElement("img")
         imagem01.setAttribute(widthAttribute, larguraImagem)
 
@@ -1221,21 +1223,25 @@ else {
             case `${analistaFunção}${liberaçãoSubGrupo}Completa`:
                 informação01 = `Segue liberação.`
                 informação02 = `Observações:`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${agradecimento}${br3}`
+                informação03 = `<mark ${markBackground}>Observações variadas.</mark>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${analistaFunção}${liberaçãoSubGrupo}Total`:
                 informação01 = `Segue liberação total.`
                 informação02 = `Observações:`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${agradecimento}${br3}`
+                informação03 = `<mark ${markBackground}>Observações variadas.</mark>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${analistaFunção}${liberaçãoSubGrupo}Parcial`:
                 informação01 = `Segue liberação parcial.`
                 informação02 = `Observações:`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${agradecimento}${br3}`
+                informação03 = `<mark ${markBackground}>Observações variadas.</mark>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${analistaFunção}${verificaçãoSubGrupo}Linhas Atualizadas`:
                 informação01 = `Linhas atualizadas.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br4}${agradecimento}${br3}`
+                informação02 = `<mark ${markBackground}>Imagem das linhas atualizadas.</mark>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
                 break
             case `${analistaFunção}${verificaçãoSubGrupo}Feito`:
                 informação01 = `Feito.`
@@ -1244,16 +1250,16 @@ else {
             case `${analistaFunção}${alteraçãoSubGrupo}Padrão`:
                 informação01 = `Novos arquivos salvos na rede.`
                 informação02 = `Alterações:`
-                informação03 = `01 - Informação do que foi alterado.`
+                informação03 = `<mark ${markBackground}>01 - Informação do que foi alterado.</mark>`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br1}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${ajusteFunção}${dúvidaSubGrupo}Geral`:
-                informação01 = `Texto de dúvidas.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
+                informação01 = `<mark ${markBackground}>Texto de dúvidas.</mark>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${arquivo}${idArquivo.value}${idRevisão.value}${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
             case `${ajusteFunção}${dúvidaSubGrupo}Aguardando Dúvidas`:
                 informação01 = `Seguimos arguardando as dúvidas e correções enviadas nos e-mails anteriores, a demora nas respostas afeta diretamente o prazo de entrega dos materiais.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${arquivo}${idArquivo.value}${idRevisão.value}${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
             case `${ajusteFunção}${ajusteSubGrupo}Arquivos para Produção`:
                 informação01 = `Analista, o pedido citado no título do e-mail foi ajustado e registrado para produção conforme os arquivos enviados pelo representante.`
@@ -1261,102 +1267,116 @@ else {
                 informação03 = `- Por gentileza conferir os arquivos de ajuste.`
                 informação04 = `- O pedido só será liberado para produção após sua autorização/ok.`
                 informação05 = `- Toda e qualquer alteração futura que seja necessária (desde que devidamente autorizada) deve ser feita utilizando este arquivo de layout em anexo.`
-                informação06 = `<span ${spanMarkBackground}><mark>- Informação especial.</mark></span>`
+                informação06 = `<span ${spanBackground}><mark ${markBackground}>- Informação especial.</mark></span>`
                 informação07 = `Lista de Orçamento: 211`
                 informação08 = `Lista de Ajuste: 211`
                 informação09 = `Os expositores serão cadastrados de acordo com a planilha abaixo:`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br1}${informação04}${br1}${informação05}${br2}${informação06}${br2}${informação07}${br1}${informação08}${br2}${informação09}${br4}${agradecimento}${br3}`
+                informação10 = `<mark ${markBackground}>Planilha dos expositores.</mark>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${arquivo}${idArquivo.value}${idRevisão.value}${br2}${informação01}${br2}${informação02}${br2}${informação03}${br1}${informação04}${br1}${informação05}${br2}${informação06}${br2}${informação07}${br1}${informação08}${br2}${informação09}${br2}${informação10}${br2}${agradecimento}${br3}`
                 break
             case `${ajusteFunção}${ajusteSubGrupo}Aguardando Conferência`:
                 informação01 = `Seguimos arguardando o OK informando que os arquivos foram conferidos e podem seguir para a produção, a demora nas respostas afeta diretamente o prazo de entrega dos materiais.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${arquivo}${idArquivo.value}${idRevisão.value}${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
             case `${ajusteFunção}${alteraçãoSubGrupo}Arquivos de Alteração`:
                 informação01 = `Analista, segue ajuste atualizado de acordo com os novos arquivos enviados pelo representante.`
                 informação02 = `Alterações:`
-                informação03 = `01 - Informação do que foi alterado.`
+                informação03 = `<mark ${markBackground}>01 - Informação do que foi alterado.</mark>`
                 informação04 = `Demais itens permanecem inalterados.`
                 informação05 = `Projetista/Representante`
                 informação06 = `- Por gentileza conferir os arquivos de ajuste.`
                 informação07 = `- O pedido só será liberado para produção após sua autorização/ok.`
                 informação08 = `- Toda e qualquer alteração futura que seja necessária (desde que devidamente autorizada) deve ser feita utilizando este arquivo de layout em anexo.`
-                informação09 = `<span ${spanMarkBackground}><mark>- Informação especial.</mark></span>`
+                informação09 = `<span ${spanBackground}><mark ${markBackground}>- Informação especial.</mark></span>`
                 informação10 = `Os expositores serão cadastrados de acordo com a planilha abaixo:`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br1}${informação03}${br2}${informação04}${br2}${informação05}${br1}${informação06}${br1}${informação07}${br1}${informação08}${br2}${informação09}${br2}${informação10}${br4}${agradecimento}${br3}`
+                informação11 = `<mark ${markBackground}>Planilha dos expositores.</mark>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${arquivo}${idArquivo.value}${idRevisão.value}${br2}${informação01}${br2}${informação02}${br1}${informação03}${br2}${informação04}${br2}${informação05}${br1}${informação06}${br1}${informação07}${br1}${informação08}${br2}${informação09}${br2}${informação10}${br2}${informação11}${br2}${agradecimento}${br3}`
                 break
             case `${ajusteFunção}${alteraçãoSubGrupo}Verificar Possibilidade de Alteração`:
                 informação01 = `Ainda é possível fazer alterações?`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${roneyHiperlink}${br2}${informação01}${br2}${agradecimento}${br3}`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${arquivo}${idArquivo.value}${idRevisão.value}${br2}${roneyHiperlink}${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
             case `${executivoFunção}${projetoSubGrupo}Antecipado`:
-                informação01 = `Segue antecipação de projeto executivo de OOOOOOOOOOOO.`
+                informação01 = `Segue antecipação de projeto executivo de <mark ${markBackground}>OOOOOOOOOOOO</mark>.`
                 informação02 = `Pedimos a gentileza de verificação e aprovação dos projetos em resposta a este e-mail.`
-                informação03 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
-                informação04 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
+                informação03 = `<mark ${markBackground}>Tabela de projetos executivos.</mark>`
+                informação04 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
+                informação05 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${informação04}${br2}${informação05}${br2}${agradecimento}${br3}`
                 break
             case `${executivoFunção}${projetoSubGrupo}Executivo`:
-                informação01 = `Segue projeto executivo de OOOOOOOOOOOO.`
+                informação01 = `Segue projeto executivo de <mark ${markBackground}>OOOOOOOOOOOO</mark>.`
                 informação02 = `Pedimos a gentileza de verificação e aprovação dos projetos em resposta a este e-mail.`
-                informação03 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
-                informação04 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br4}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
+                informação03 = `<mark ${markBackground}>Tabela de projetos executivos.</mark>`
+                informação04 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
+                informação05 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${informação04}${br2}${informação05}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${compraFunção}Porta Walk-In`:
                 informação01 = `Por gentileza efetuar a compra conforme abaixo.`
                 informação02 = `Material já cadastrado na ordem de venda.`
-                informação03 = `<span ${spanMarkBackground}><mark>Puxador acoplado junto a porta;${br1}Acabamento alumínio anodizado sem pintura;${br1}Iluminação em LED;${br1}Incluir logomarca Eletrofrio em todas as portas;${br1}Identificar a Ordem de Compra (OC) nos volumes.</mark></span>`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
+                informação03 = `<mark ${markBackground}>Print dos materiais com os códigos.</mark>`
+                informação04 = `<span ${spanBackground}>Puxador acoplado junto a porta;${br1}Acabamento alumínio anodizado sem pintura;${br1}Iluminação em LED;${br1}Incluir logomarca Eletrofrio em todas as portas;${br1}Identificar a Ordem de Compra (OC) nos volumes.</span>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br2}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${compraFunção}Porta Seccional`:
                 informação01 = `Por gentileza efetuar a compra conforme abaixo.`
                 informação02 = `Material já cadastrado na ordem de venda.`
-                informação03 = `<span ${spanMarkBackground}><mark>N UN - PORTA SECCIONAL LL;${br1}Vão de abertura: N,NN m de largura x N,NN m de altura;${br1}Porta seccional para ser fixada em painel de NN mm e alvenaria de NNN mm (total NNN mm);${br1}Pé direito livre: N,NN m;${br1}Com talha.</mark></span>`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
+                informação03 = `<mark ${markBackground}>Print dos materiais com os códigos.</mark>`
+                informação04 = `<span ${spanBackground}><mark ${markBackground}>N</mark> UN - PORTA SECCIONAL <mark ${markBackground}>LL</mark>;${br1}Vão de abertura: <mark ${markBackground}>N,NN</mark> m de largura x <mark ${markBackground}>N,NN</mark> m de altura;${br1}Porta seccional para ser fixada em painel de <mark ${markBackground}>NN</mark> mm e alvenaria de <mark ${markBackground}>NNN</mark> mm (total <mark ${markBackground}>NNN</mark> mm);${br1}Pé direito livre: <mark ${markBackground}>N,NN</mark> m;${br1}Com talha.</span>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br2}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${compraFunção}Portal de Selamento`:
                 informação01 = `Por gentileza efetuar a compra conforme abaixo.`
                 informação02 = `Material já cadastrado na ordem de venda.`
-                informação03 = `<span ${spanMarkBackground}><mark>N UN - PORTAL DE SELAMENTO;${br1}Vão de abertura: N,NN m de largura x N,NN m de altura;${br1}Porta de selamento para ser fixada em painel de NN mm e alvenaria de NNN mm (total NNN mm);${br1}Pé direito livre: N,NN m.</mark></span>`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
+                informação03 = `<mark ${markBackground}>Print dos materiais com os códigos.</mark>`
+                informação04 = `<span ${spanBackground}><mark ${markBackground}>N</mark> UN - PORTAL DE SELAMENTO;${br1}Vão de abertura: <mark ${markBackground}>N,NN</mark> m de largura x <mark ${markBackground}>N,NN</mark> m de altura;${br1}Porta de selamento para ser fixada em painel de <mark ${markBackground}>NN</mark> mm e alvenaria de <mark ${markBackground}>NNN</mark> mm (total <mark ${markBackground}>NNN</mark> mm);${br1}Pé direito livre: <mark ${markBackground}>N,NN</mark> m.</span>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br2}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
                 break  
             case `${planilhamentoFunção}${compraFunção}Porta Beer Cave`:
                 informação01 = `Por gentileza efetuar a compra conforme abaixo.`
                 informação02 = `Material já cadastrado na ordem de venda.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${agradecimento}${br3}`
+                informação03 = `<mark ${markBackground}>Print dos materiais com os códigos.</mark>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${compraFunção}Visor Móvel`:
                 informação01 = `Por gentileza efetuar a compra conforme abaixo.`
                 informação02 = `Material já cadastrado na ordem de venda.`
-                informação03 = `<span ${spanMarkBackground}><mark>Para montagem em painel de 70 mm;${br1}Materiais: Estrutura em alumínio natural e vidro incolor temperado;${br1}Tipo: Flangeado - móvel.</mark></span>`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${informação03}${br2}${agradecimento}${br3}`
+                informação03 = `<mark ${markBackground}>Print dos materiais com os códigos.</mark>`
+                informação04 = `<span ${spanBackground}>Para montagem em painel de <mark ${markBackground}>70</mark> mm;${br1}Materiais: Estrutura em alumínio natural e vidro incolor temperado;${br1}Tipo: Flangeado - móvel.</span>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br2}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${compraFunção}Estrado de Borracha`:
                 informação01 = `Por gentileza efetuar a compra conforme abaixo.`
                 informação02 = `Material já cadastrado na ordem de venda.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${agradecimento}${br3}`
+                informação03 = `<mark ${markBackground}>Print dos materiais com os códigos.</mark>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${compraFunção}Resistência`:
                 informação01 = `Por gentileza efetuar a compra conforme abaixo.`
                 informação02 = `Material já cadastrado na ordem de venda.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${agradecimento}${br3}`
+                informação03 = `<mark ${markBackground}>Print dos materiais com os códigos.</mark>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${compraFunção}Termostato`:
                 informação01 = `Por gentileza efetuar a compra conforme abaixo.`
                 informação02 = `Material já cadastrado na ordem de venda.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br4}${agradecimento}${br3}`
+                informação03 = `<mark ${markBackground}>Print dos materiais com os códigos.</mark>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${OV}${idOrdemDeVenda.value}${br2}${comprasHiperlink}${br2}${informação01}${br1}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${cotaçãoSubGrupo}Visor Móvel`:
                 informação01 = `Por gentileza efetuar a cotação conforme abaixo.`
-                informação02 = `<span ${spanMarkBackground}><mark>Para montagem em painel de 70 mm;${br1}Materiais: Estrutura em alumínio natural e vidro incolor temperado;${br1}Tipo: Flangeado - móvel.</mark></span>`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${informação01}${br4}${informação02}${br2}${agradecimento}${br3}`
+                informação02 = `<mark ${markBackground}>Print dos materiais com os códigos.</mark>`
+                informação03 = `<span ${spanBackground}>Para montagem em painel de <mark ${markBackground}>70</mark> mm;${br1}Materiais: Estrutura em alumínio natural e vidro incolor temperado;${br1}Tipo: Flangeado - móvel.</span>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${OV}${idOrdemDeVenda.value}${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${cotaçãoSubGrupo}Resistência`:
                 informação01 = `Por gentileza efetuar a cotação conforme abaixo.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br2}${informação01}${br4}${agradecimento}${br3}`
+                informação02 = `<mark ${markBackground}>Print dos materiais com os códigos.</mark>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${OV}${idOrdemDeVenda.value}${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${dúvidaSubGrupo}Geral`:
-                informação01 = `Texto de dúvidas.`
+                informação01 = `<mark ${markBackground}>Texto de dúvidas.</mark>`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${dúvidaSubGrupo}Porta Seccional VL Livre de Alvenaria`:
@@ -1400,50 +1420,46 @@ else {
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${planilhamentoSubGrupo}Total`:
-                informação01 = `<span ${spanMarkBackground}><mark>Informação especial.</mark></span>`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
+                informação01 = `<span ${spanBackground}><mark ${markBackground}>Informação especial.</mark></span>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${planilhamentoSubGrupo}Parcial`:
-                informação01 = `<span ${spanMarkBackground}><mark>Informação especial.</mark></span>`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${verificaNúmeroRepresentante}${verificaNomeDoCliente}${verificaNomeFantasia}${br1}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
+                informação01 = `<span ${spanBackground}><mark ${markBackground}>Informação especial.</mark></span>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${planilhamentoSubGrupo}Alteração`:
-                informação01 = `<span ${spanMarkBackground}><mark>Atualizado o alfa de OOOOOOOO.</mark></span>`
+                informação01 = `<span ${spanBackground}>Atualizado o alfa de <mark ${markBackground}>OOOOOOOO</mark>.</span>`
                 informação02 = `Por favor verificar a necessidade de atualização do projeto executivo.`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${marcioHiperlink} e ${christianHiperlink}${br2}${informação01}${br2}${simoneHiperlink}${br2}${informação02}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${suporteTiSubGrupo}Geral`:
-                informação01 = `Texto de dúvidas.`
+                informação01 = `<mark ${markBackground}>Texto de dúvidas.</mark>`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${suporteTiSubGrupo}Baan - Geral`:
-                informação01 = `Texto de dúvidas.`
+                informação01 = `<mark ${markBackground}>Texto de dúvidas.</mark>`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${suporteTiSubGrupo}Baan - Derrubar Usuário`:
                 informação01 = `Por favor derrubar o usuário conectado à ${OV}${idOrdemDeVenda.value}.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br4}${agradecimento}${br3}`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${suporteTiSubGrupo}Baan - Liberação de Tela`:
-                informação01 = `Gostaria de solicitar a liberação da seguinte tela: OOOOOOOO.`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br4}${agradecimento}${br3}`
+                informação01 = `Gostaria de solicitar a liberação da seguinte tela: <mark ${markBackground}>OOOOOOOO</mark>.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${suporteTiSubGrupo}SIP - Geral`:
-                informação01 = `Usuário - LLLLLLLL.LLLLLLLL.`
-                informação02 = `Texto de dúvidas.`
+                informação01 = `Usuário - <mark ${markBackground}>LLLLLLLL.LLLLLLLL</mark>.`
+                informação02 = `<mark ${markBackground}>Texto de dúvidas.</mark>`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${suporteTiSubGrupo}SIP - Liberação para Edição de Painéis Altos`:
-                informação01 = `Usuário - LLLLLLLL.LLLLLLLL.`
+                informação01 = `Usuário - <mark ${markBackground}>LLLLLLLL.LLLLLLLL</mark>.`
                 informação02 = `Gostaria de solicitar a liberação do meu SIP para editar câmaras frigoríficas com alturas maiores que o limite de padrão.`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
                 break
-            case selectOption:
-            informação01 = `<span ${spanMarkBackground}><mark>(OPÇÃO DE TIPO DE E-MAIL NÃO SELECIONADO)</mark></span>`
-            idResultadoCorpoDoEmail.innerHTML = `${informação01}${br3}`
-            break
             default:
-                informação01 = `<span ${spanMarkBackground}><mark>(OPÇÃO DE E-MAIL AINDA NÃO CONFIGURADA)</mark></span>`
+                informação01 = `<mark>(OPÇÃO DE E-MAIL AINDA NÃO CONFIGURADA)</mark>`
                 idResultadoCorpoDoEmail.innerHTML = `${informação01}${br3}`
                 break
         }
