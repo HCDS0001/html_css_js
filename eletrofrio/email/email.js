@@ -107,6 +107,7 @@ let gerenteFunção = "Gerente"
 let grupoFunção = "Grupo"
 let liderançaComercialFunção = "Liderança Comercial"
 let liderançaContinuumFunção = "Liderança Continuum"
+let outroFunção = "Outro"
 let planilhamentoFunção = "Planilhamento"
 let representanteFunção = "Representante"
 let supervisorDeObraFunção = "Supervisor de Obra"
@@ -119,6 +120,7 @@ let cotaçãoSubGrupo = "Cotação"
 let dúvidaSubGrupo = "Dúvida"
 let encaminharSubGrupo = "Encaminhar"
 let liberaçãoSubGrupo = "Liberação"
+let comprasSubGrupo = "Compras"
 let planilhamentoSubGrupo = "Planilhamento"
 let projetoSubGrupo = "Projeto"
 let suporteTiSubGrupo = "Suporte TI"
@@ -128,6 +130,8 @@ let verificaçãoSubGrupo = "Verificação"
 
 let cadastro = [
     //{função:"_ADM_", número:"_ADM_", nome:"Henrique Carvalho de Souza", emailComercial:"hcds.rick@gmail.com"},
+    {função:outroFunção, número:"106139", nome:"Ederson Wojcik", emailComercial:"ederson.wojcik@eletrofrio.com.br"},
+    {função:outroFunção, número:"30366", nome:"Michel Luis Antunes", emailComercial:"michel@eletrofrio.com.br"},
     {função:ajusteFunção, número:"106286", nome:"Cláudia", emailComercial:"claudia.carvalho@eletrofrio.com.br"},
     {função:ajusteFunção, número:"106078", nome:"Cleber Medeiros", emailComercial:"cleber.medeiros@eletrofrio.com.br"},
     {função:ajusteFunção, número:"32245", nome:"Ellen", emailComercial:"ellen@eletrofrio.com.br"},
@@ -173,6 +177,7 @@ let cadastro = [
     {função:fornecedorFunção, número:"nnn", nome:"Metalbras", emailComercial:"leticia@metalbrasvidros.com.br; wellington@metalbrasvidros.com.br; kathleen@metalbrasvidros.com.br; bianca@metalbrasvidros.com.br"},
     {função:fornecedorFunção, número:"nnn", nome:"Rohden", emailComercial:"julianatambosi@rohden.com.br; vendasrv02@rohden.com.br"},
     {função:fornecedorFunção, número:"nnn", nome:"Thermoson", emailComercial:"vendas2.sonia@termosom.com.br; vendas1.karoline@termosom.com.br"},
+    {função:fornecedorFunção, número:"nnn", nome:"Armacell", emailComercial:"vanuza.silva@armacell.com; natalia.schantz@armacell.com; arllon.brito@armacell.com; priscila.baioco@armacell.com; rodrigo.cavalheiro@armacell.com"},
     {função:gerenteFunção, número:"31141", nome:"Ana Paula", emailComercial:"anapaula@eletrofrio.com.br"},
     {função:gerenteFunção, número:"105882", nome:"André Francisco", emailComercial:"andre.francisco@eletrofrio.com.br"},
     {função:gerenteFunção, número:"32083", nome:"Cristiane", emailComercial:"cristiane@eletrofrio.com.br"},
@@ -346,6 +351,9 @@ let email = [
     {função:ajusteFunção, ordemSubgrupo:1, subGrupo:ajusteSubGrupo, ordemTipo:4, tipo:"Aguardando Conferência", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:ajusteFunção, ordemSubgrupo:3, subGrupo:alteraçãoSubGrupo, ordemTipo:5, tipo:"Arquivos de Alteração", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:ajusteFunção, ordemSubgrupo:3, subGrupo:alteraçãoSubGrupo, ordemTipo:6, tipo:"Verificar Possibilidade de Alteração", dadosDoPedido:sim, emailsPara: ["Roney"], emailsCc: ["Simone", "Bruno Garcia", "Carla"].concat(representante).concat(ajuste).concat(analista).concat(planilhamento), emailsBcc: []},
+    {função:compraFunção, ordemSubgrupo:1, subGrupo:comprasSubGrupo, ordemTipo:1, tipo:"Envio de Ordem de Compra", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    {função:compraFunção, ordemSubgrupo:1, subGrupo:comprasSubGrupo, ordemTipo:1, tipo:"Follow Up Materiais", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    {função:compraFunção, ordemSubgrupo:1, subGrupo:comprasSubGrupo, ordemTipo:1, tipo:"Lista de Prioridades", dadosDoPedido:sim, emailsPara: ["Armacell"], emailsCc: ["Ederson Wojcik", "Michel Luis Antunes"], emailsBcc: []},
     {função:executivoFunção, ordemSubgrupo:1, subGrupo:projetoSubGrupo, ordemTipo:1, tipo:"Antecipado", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: [].concat(liderançaContinuum).concat(executivo).concat(planilhamento), emailsBcc: []},
     {função:executivoFunção, ordemSubgrupo:1, subGrupo:projetoSubGrupo, ordemTipo:2, tipo:"Executivo", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: [].concat(liderançaContinuum).concat(executivo).concat(planilhamento), emailsBcc: []},
     {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:1, tipo:"Porta Walk-In", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: [], fornecedor: ["Rohden"]},
@@ -1295,6 +1303,22 @@ else {
             case `${ajusteFunção}${alteraçãoSubGrupo}Verificar Possibilidade de Alteração`:
                 informação01 = `Ainda é possível fazer alterações?`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${arquivo}${idArquivo.value}${idRevisão.value}${br2}${roneyHiperlink}${br2}${informação01}${br2}${agradecimento}${br3}`
+                break
+            case `${compraFunção}${comprasSubGrupo}Envio de Ordem de Compra`:
+                informação01 = `Segue em anexo ordem de compra <mark ${markBackground}>OOOOOOOOOOOO</mark>. Por favor validar o prazo de entrega e disponibilidade do material.`
+                informação02 = `Qualquer divergência ou dúvida entrar em contato.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
+                break
+            case `${compraFunção}${comprasSubGrupo}Follow Up Materiais`:
+                informação01 = `Por favor validar o prazo de entrega e disponibilidade dos materiais abaixo.`
+                informação02 = `<mark ${markBackground}>Planilha de materiais.</mark>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
+                break
+            case `${compraFunção}${comprasSubGrupo}Lista de Prioridades`:
+                informação01 = `Segue em anexo a lista de prioridades conforme falamos em reunião.`
+                informação02 = `<mark ${markBackground}>Lista de prioridades.</mark>`
+                informação03 = `<span ${spanBackground}><mark ${markBackground}>Observações:OOOOOOOOOOOO.</mark></span>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${executivoFunção}${projetoSubGrupo}Antecipado`:
                 informação01 = `Segue antecipação de projeto executivo de <mark ${markBackground}>OOOOOOOOOOOO</mark>.`
