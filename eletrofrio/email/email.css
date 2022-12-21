@@ -11,7 +11,6 @@ input:invalid{background-color: #ffff00ff;}
 
 body{
     margin: auto;
-    max-width: 350px;
     border: 1px solid #000000;
     border-bottom-width: 0px;
     border-top-width: 0px;
@@ -57,7 +56,13 @@ input{
 
 /* Largura dos Itens */
 
-label, button, select, input, img{width: 100%;}
+label, button, select, input{width: 100%;}
+.classImagemExterna{
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: auto;
+}
 input{width: calc(100% - 6px);}
 #idAssinatura{width: calc(100% - 2px);}
 #idBackgroundColor, #idTextoColor{width: calc(100% - 0px);}
@@ -86,7 +91,7 @@ footer span, footer a, .classTítuloInstruções, #idTítuloPágina{
 
 .classParágrafoInstruções{text-align: justify;}
 
-fieldset{border-radius: 5px;}
+fieldset{border-radius: 5px; margin: auto;}
 .classDetails{margin: 0px 0px 0px 20px;}
 .classInputEmail{margin: 0px 0px 0px 20px;}
 

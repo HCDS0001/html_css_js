@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <img src="./Eletrofrio_75_Anos.png" id="idImagemHeader" alt="Eletrofrio 75 Anos"><br>
+        <img src="./Eletrofrio_75_Anos.png" id="idImagemHeader" class="classImagemExterna" alt="Eletrofrio 75 Anos"><br>
         <h1 id="idTítuloPágina">GERADOR DE E-MAILS</h1>
     </header>
     <main>
@@ -132,6 +132,8 @@
                     <label for="idEstiloDeCor">Estilo de Cor:</label>
                     <button type="button" id="idEstiloDeCor" title="Muda o estilo de cores da página.">White Mode</button><br>
                     <datalist id="idOptionCores"></datalist>
+                    <label for="idLarguraDoFundo">Largura do Fundo:</label>
+                    <input type="range" name="nameLarguraDoFundo" id="idLarguraDoFundo" value="400" min="300" max="1000" step="50" list="" title="Selecione a largura do fundo."><br>
                     <button type="reset" id="idLimpaExtras" class="classBotãoDeLimpeza" title="Limpa os extras.">Limpar Extras</button>
                 </fieldset>
             </form>
@@ -143,7 +145,7 @@
         </button><br>
         <button id="idExibeÁreaDeTransferência">Exibe Área de Transferência</button>
         <span>Desenvolvido por Henrique Carvalho de Souza</span>
-        <img src="./Eletrofrio_75_Anos.png" id="idImagemFooter" alt="Eletrofrio 75 Anos"><br>
+        <img src="./Eletrofrio_75_Anos.png" id="idImagemFooter" class="classImagemExterna" alt="Eletrofrio 75 Anos"><br>
     </footer>
 <!--     <style style="display: block;" contenteditable>main, header, footer{color: #ffffff; background-color: #000000;}</style> -->
     <script src="email.js"></script>

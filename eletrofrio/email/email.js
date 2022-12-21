@@ -39,6 +39,7 @@ let idBackgroundColor = document.querySelector("#idBackgroundColor")
 let idTextoColor = document.querySelector("#idTextoColor")
 let idOptionCores = document.querySelector("#idOptionCores")
 let idEstiloDeCor = document.querySelector("#idEstiloDeCor")
+let idLarguraDoFundo = document.querySelector("#idLarguraDoFundo")
 let idLimpaExtras = document.querySelector("#idLimpaExtras")
 
 let buttonTagSelector = document.querySelectorAll("button")
@@ -66,6 +67,7 @@ let forAttribute = "for"
 let srcAttribute = "src"
 let altAttribute = "alt"
 let widthAttribute = "width"
+let styleAttribute = "style"
 let displayNone = "none"
 let displayInlineBlock = "inline-block"
 let displayBlock = "block"
@@ -92,7 +94,6 @@ let localização = "LOCALIZAÇÃO: "
 let arquivo = "ARQUIVO: "
 let agradecimento = "Atenciosamente,"
 let enter = "%0D"
-let larguraImagem = "300px"
 
 let ajusteFunção = "Ajuste"
 let ajusteSãoPauloFunção = "Ajuste São Paulo"
@@ -124,7 +125,7 @@ let dúvidaSubGrupo = "Dúvida"
 let encaminharSubGrupo = "Encaminhar"
 let envioDeOrdemDeCompraSubGrupo = "Envio de Ordem de Compra"
 let liberaçãoSubGrupo = "Liberação"
-let produçãoSubGrupo = "Produção"
+let câmarasSubGrupo = "Câmaras"
 let projetoSubGrupo = "Projeto"
 let suporteTiSubGrupo = "Suporte TI"
 let verificaçãoSubGrupo = "Verificação"
@@ -394,9 +395,9 @@ let email = [
     {função:planilhamentoFunção, ordemSubgrupo:2, subGrupo:dúvidaSubGrupo, ordemTipo:4, tipo:"Porta Seccional HL Encostada em Alvenaria", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:planilhamentoFunção, ordemSubgrupo:2, subGrupo:dúvidaSubGrupo, ordemTipo:5, tipo:"Aguardando", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:planilhamentoFunção, ordemSubgrupo:5, subGrupo:encaminharSubGrupo, ordemTipo:1, tipo:"Encaminhar", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:produçãoSubGrupo, ordemTipo:1, tipo:"Total", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:produçãoSubGrupo, ordemTipo:2, tipo:"Parcial", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:produçãoSubGrupo, ordemTipo:3, tipo:"Alteração", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:câmarasSubGrupo, ordemTipo:1, tipo:"Total", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:câmarasSubGrupo, ordemTipo:2, tipo:"Parcial", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:câmarasSubGrupo, ordemTipo:3, tipo:"Alteração", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
     {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:1, tipo:"Geral", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: [], emailsBcc: []},
     {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:2, tipo:"Baan - Geral", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: [], emailsBcc: []},
     //{função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:3, tipo:"Baan - Inclusão de Item", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
@@ -1205,7 +1206,8 @@ if (idAssinatura.files.length == 0) {
 else {
     assinatura = document.createElement("img")
     assinatura.setAttribute(srcAttribute, URL.createObjectURL(idAssinatura.files[0]))
-    assinatura.setAttribute(widthAttribute, larguraImagem)
+    assinatura.setAttribute(widthAttribute, "100%")
+    assinatura.setAttribute(styleAttribute, "max-width: 300px")
 }
 
 /* -- Variáveis Auxiliares */
@@ -1231,42 +1233,48 @@ else {
         let informação10
         let informação11
 
+/* -- Imagem */
+
         let imagem01 = document.createElement("img")
-        imagem01.setAttribute(widthAttribute, larguraImagem)
+        let imagemDados01
+        function funçãoImagem01(imagemDados01) {
+            imagem01.setAttribute(widthAttribute, imagemDados01.larguraImagem)
+            imagem01.setAttribute(altAttribute, imagemDados01.textoAlternativo)
+            imagem01.setAttribute(styleAttribute, imagemDados01.style)
+            imagem01.setAttribute(srcAttribute, imagemDados01.linkDaImagem)
+        }
+
+/* -- Tabela */
 
         let tabela01 = document.createElement("table")
-        let títulosLinha1
-        let títulosColuna1
-        let styleColunas
-        let styleTabela
-
-        function funçãoTabela01(títulosLinha1, títulosColuna1, styleTabela, styleColunas) {
-            tabela01.setAttribute(widthAttribute, larguraImagem)
-            tabela01.setAttribute("style", `${styleTabela}`)
+        let tabelaDados01
+        function funçãoTabela01(tabelaDados01) {
+            tabela01.setAttribute(widthAttribute, `${tabelaDados01.larguraTabela}`)
+            tabela01.setAttribute(styleAttribute, `${tabelaDados01.styleTabela}`)
 
             let thead01 = document.createElement("thead")
             tabela01.appendChild(thead01)
     
-            for (let index = 0; index < styleColunas.length; index++) {
+            for (let index = 0; index < tabelaDados01.styleColunas.length; index++) {
                 let colgroup01 = document.createElement("colgroup")
                 tabela01.appendChild(colgroup01)
                 let col01 = document.createElement("col")
                 col01.setAttribute("span", "1")
-                col01.setAttribute("style", `${styleColunas[index]}`)
+                col01.setAttribute(styleAttribute, `${tabelaDados01.styleColunas[index]}`)
                 colgroup01.appendChild(col01)
             }
 
             for (let index1 = 0; index1 < 1; index1++) {
                 let trThead01 = document.createElement("tr")
-                trThead01.setAttribute("style", "background-color: #d9e1f2; color: #000000; border: 1px solid #000000")
+                trThead01.setAttribute(styleAttribute, `${tabelaDados01.styleLinha1}`)
                 thead01.appendChild(trThead01)
-                for (let index2 = 0; index2 < títulosLinha1.length; index2++) {
+                for (let index2 = 0; index2 < tabelaDados01.títulosLinha1.length; index2++) {
                     let th01TrThead01 = document.createElement("th")
-                    let TextoTh01TrThead01 = document.createTextNode(`${títulosLinha1[index2]}`)
+                    let TextoTh01TrThead01 = document.createTextNode(`${tabelaDados01.títulosLinha1[index2]}`)
                     th01TrThead01.appendChild(TextoTh01TrThead01)
                     th01TrThead01.setAttribute("scope", "col")
                     th01TrThead01.setAttribute("colspan", "1")
-                    th01TrThead01.setAttribute("style", "border: 1px solid #000000")
+                    th01TrThead01.setAttribute(styleAttribute, `${tabelaDados01.stylecelulasLinha1}`)
                     trThead01.appendChild(th01TrThead01)
                 }
             }
@@ -1274,19 +1282,19 @@ else {
             let tbody01 = document.createElement("tbody")
             tabela01.appendChild(tbody01)
     
-            for (let index1 = 0; index1 < títulosColuna1.length; index1++) {
+            for (let index1 = 0; index1 < tabelaDados01.títulosColuna1.length; index1++) {
                 let tr01Tbody01 = document.createElement("tr")
                 tbody01.appendChild(tr01Tbody01)
-                for (let index2 = 0; index2 < títulosLinha1.length; index2++) {
+                for (let index2 = 0; index2 < tabelaDados01.títulosLinha1.length; index2++) {
                     let td01Tr01Tbody01 = document.createElement("td")
                     if (index2 == 0) {
-                        let TextoTd01Tr01Tbody01 = document.createTextNode(`${títulosColuna1[index1]}`)
+                        let TextoTd01Tr01Tbody01 = document.createTextNode(`${tabelaDados01.títulosColuna1[index1]}`)
                         td01Tr01Tbody01.appendChild(TextoTd01Tr01Tbody01)
-                        td01Tr01Tbody01.setAttribute("style", "border: 1px solid #000000; text-align: left")
+                        td01Tr01Tbody01.setAttribute(styleAttribute, `${tabelaDados01.styleColuna1}`)
                     } else {
-                        let TextoTd01Tr01Tbody01 = document.createTextNode(`X`)
+                        let TextoTd01Tr01Tbody01 = document.createTextNode(`${tabelaDados01.textosColunas2mais[index1]}`)
                         td01Tr01Tbody01.appendChild(TextoTd01Tr01Tbody01)
-                        td01Tr01Tbody01.setAttribute("style", "border: 1px solid #000000; text-align: center")
+                        td01Tr01Tbody01.setAttribute(styleAttribute, `${tabelaDados01.styleColunas2mais}`)
                     }
                     tr01Tbody01.appendChild(td01Tr01Tbody01)
                 }
@@ -1394,30 +1402,30 @@ else {
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${executivoFunção}${projetoSubGrupo}Antecipado`:
-                informação01 = `Segue antecipação de projeto executivo de <mark ${markBackground}>LLLLLLLLLL</mark>.`
+                informação01 = `Seguem projetos técnicos.`
                 informação02 = `Pedimos a gentileza de verificação e aprovação dos projetos em resposta a este e-mail.`
                 informação03 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
-                informação04 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
-                títulosLinha1 = ["Projetos Executados com Base no Layout", "Realizados"]
-                títulosColuna1 = ["CF 1 IMPLANT SUST TETOS", "CF 2 IMPLANT REBAIXO", "CF 3 ISOLAMENTO"]
-                styleTabela = "color: #000000; border: 1px solid #000000; border-collapse: collapse"
-                styleColunas = ["background-color: #e0e0e0", "background-color: #ffffff"]
-                funçãoTabela01(títulosLinha1, títulosColuna1, styleTabela, styleColunas)
+                informação04 = `<mark ${markBackground}>engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022\A\ATACADÃO\GUARULHOS - PED 114-085-22</mark>`
+                imagemDados01 = {larguraImagem: "150px", textoAlternativo: "Continnum", style: "width: 150px;", linkDaImagem: "https://lh3.googleusercontent.com/pw/AL9nZEXB-obUeshaR-liypADjfI0Hu7w11f3m3kho-_MMWoUfVMtQ1NR2YwmGZV23nHOX1SVMwrPOjo9dXLUwRfpHGta_nhHuVyw8FG34zZHQ_AhuQQqVtCUW9gp1YULUY3ZcqbqsgVx4wzBKVBoZlzEysjX=w365-h57-no?authuser=0"}
+                funçãoImagem01(imagemDados01)
+                tabelaDados01 = {larguraTabela: "auto", títulosLinha1: ["Projetos Executados com Base no Layout", `${idArquivo.value}${idRevisão.value}`], títulosColuna1: ["CF 1 IMPLANT SUST TETOS", "CF 2 IMPLANT REBAIXO", "CF 3 ISOLAMENTO"], textosColunas2mais:["X", "X", "X"], styleTabela: "color: #000000; border: 1px solid #000000; border-collapse: collapse", styleColunas: ["background-color: #e0e0e000", "background-color: #ffffff00"], styleLinha1: "background-color: #d9e1f2; color: #000000; border: 1px solid #000000", stylecelulasLinha1: "border: 1px solid #000000", styleColuna1: "border: 1px solid #000000; text-align: left", styleColunas2mais: "width: 70px; border: 1px solid #000000; text-align: center"}
+                funçãoTabela01(tabelaDados01)
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}`
+                idResultadoCorpoDoEmail.appendChild(imagem01)
                 idResultadoCorpoDoEmail.appendChild(tabela01)
                 idResultadoCorpoDoEmail.innerHTML += `${br2}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
                 break
             case `${executivoFunção}${projetoSubGrupo}Executivo`:
-                informação01 = `Segue projeto executivo de <mark ${markBackground}>LLLLLLLLLL</mark>.`
+                informação01 = `Seguem projetos técnicos.`
                 informação02 = `Pedimos a gentileza de verificação e aprovação dos projetos em resposta a este e-mail.`
                 informação03 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
-                informação04 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
-                títulosLinha1 = ["Projetos Executados com Base no Layout", "Realizados"]
-                títulosColuna1 = ["CF1 MONTAGEM REV00", "CF2 REBAIXO PISO REV00", "CF3 ISOLAMENTO PISO REV00", "CF4 CORTES REV00", "CF5 DET. MONTAGEM REV00", "CF6 AERAÇÃO PISO REV00", "CF7 MURETAS REV00", "CF8 PORTAS REV00"]
-                styleTabela = "color: #000000; border: 1px solid #000000; border-collapse: collapse"
-                styleColunas = ["background-color: #e0e0e0", "background-color: #ffffff"]
-                funçãoTabela01(títulosLinha1, títulosColuna1, styleTabela, styleColunas)
+                informação04 = `<mark ${markBackground}>engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022\A\ATACADÃO\GUARULHOS - PED 114-085-22</mark>`
+                imagemDados01 = {larguraImagem: "150px", textoAlternativo: "Continnum", style: "width: 150px;", linkDaImagem: "https://lh3.googleusercontent.com/pw/AL9nZEXB-obUeshaR-liypADjfI0Hu7w11f3m3kho-_MMWoUfVMtQ1NR2YwmGZV23nHOX1SVMwrPOjo9dXLUwRfpHGta_nhHuVyw8FG34zZHQ_AhuQQqVtCUW9gp1YULUY3ZcqbqsgVx4wzBKVBoZlzEysjX=w365-h57-no?authuser=0"}
+                funçãoImagem01(imagemDados01)
+                tabelaDados01 = {larguraTabela: "auto", títulosLinha1: ["Projetos Executados com Base no Layout", `${idArquivo.value}${idRevisão.value}`], títulosColuna1: ["CF1 MONTAGEM REV00", "CF2 REBAIXO PISO REV00", "CF3 ISOLAMENTO PISO REV00", "CF4 CORTES REV00", "CF5 DET. MONTAGEM REV00", "CF6 AERAÇÃO PISO REV00", "CF7 MURETAS REV00", "CF8 PORTAS REV00"], textosColunas2mais:["X", "X", "X", "X", "X", "X", "X", "X"], styleTabela: "color: #000000; border: 1px solid #000000; border-collapse: collapse", styleColunas: ["background-color: #e0e0e000", "background-color: #ffffff00"], styleLinha1: "background-color: #d9e1f2; color: #000000; border: 1px solid #000000", stylecelulasLinha1: "border: 1px solid #000000", styleColuna1: "border: 1px solid #000000; text-align: left", styleColunas2mais: "width: 70px; border: 1px solid #000000; text-align: center"}
+                funçãoTabela01(tabelaDados01)
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}`
+                idResultadoCorpoDoEmail.appendChild(imagem01)
                 idResultadoCorpoDoEmail.appendChild(tabela01)
                 idResultadoCorpoDoEmail.innerHTML += `${br2}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
                 break
@@ -1492,8 +1500,8 @@ else {
                 informação01 = `Gostaria de tirar algumas dúvidas a respeito de porta seccional e portal de selamento:`
                 informação02 = `1 - Qual o pé direito livre do início do vão da porta até a primeira obstrução do lado externo da porta (medida A)?`
                 informação03 = `2 - Qual a altura do patamar entre a parada dos caminhões e a base das portas seccionais (medida B)?`
-                imagem01.setAttribute(srcAttribute,"https://lh3.googleusercontent.com/pw/AL9nZEWflVFoAmOgMvuqxePbEp8YdqjILyV3u5AKaYDiPrPNHBmvBIp8sKsKu1eaQh17ENFCp8k4b7xSSUczdEXBGNoPcs3P68FkjB9BQ2ZDhRRdqKH9TY21KmA0FaYTMia5Rb6QcrfSJYVnQfV6J5hiVmlw=w768-h650-no?authuser=0")
-                imagem01.setAttribute(altAttribute,"Porta Seccional VL Livre de Alvenaria")
+                imagemDados01 = {larguraImagem: "500px", textoAlternativo: "Porta Seccional VL Livre de Alvenaria", style: "width: 100%;", linkDaImagem: "https://lh3.googleusercontent.com/pw/AL9nZEWflVFoAmOgMvuqxePbEp8YdqjILyV3u5AKaYDiPrPNHBmvBIp8sKsKu1eaQh17ENFCp8k4b7xSSUczdEXBGNoPcs3P68FkjB9BQ2ZDhRRdqKH9TY21KmA0FaYTMia5Rb6QcrfSJYVnQfV6J5hiVmlw=w768-h650-no?authuser=0"}
+                funçãoImagem01(imagemDados01)
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}`
                 idResultadoCorpoDoEmail.appendChild(imagem01)
                 idResultadoCorpoDoEmail.innerHTML += `${br2}${agradecimento}${br3}`
@@ -1502,8 +1510,8 @@ else {
                 informação01 = `Gostaria de tirar algumas dúvidas a respeito de porta seccional e portal de selamento:`
                 informação02 = `1 - Qual o pé direito livre do início do vão da porta até a primeira obstrução do lado externo da porta (medida A)?`
                 informação03 = `2 - Qual a altura do patamar entre a parada dos caminhões e a base das portas seccionais (medida B)?`
-                imagem01.setAttribute(srcAttribute,"https://lh3.googleusercontent.com/pw/AL9nZEWaLArI0jK99p9UJ24ZIV5q4DGt3lvY7xtJi-TOu7BrnJnt6lalmSNNL3tnD1wCDg_gU9fDk05Yhe06ZLov2d-CNCcPxGs3h8So23s9f8rS99PU4F7a5EuqjgNbHwmZoz6K9aLpgOvjOUNu3RDNRXvo=w735-h628-no?authuser=0")
-                imagem01.setAttribute(altAttribute,"Porta Seccional HL Livre de Alvenaria")
+                imagemDados01 = {larguraImagem: "500px", textoAlternativo: "Porta Seccional HL Livre de Alvenaria", style: "width: 100%;", linkDaImagem: "https://lh3.googleusercontent.com/pw/AL9nZEWaLArI0jK99p9UJ24ZIV5q4DGt3lvY7xtJi-TOu7BrnJnt6lalmSNNL3tnD1wCDg_gU9fDk05Yhe06ZLov2d-CNCcPxGs3h8So23s9f8rS99PU4F7a5EuqjgNbHwmZoz6K9aLpgOvjOUNu3RDNRXvo=w735-h628-no?authuser=0"}
+                funçãoImagem01(imagemDados01)
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}`
                 idResultadoCorpoDoEmail.appendChild(imagem01)
                 idResultadoCorpoDoEmail.innerHTML += `${br2}${agradecimento}${br3}`
@@ -1514,8 +1522,8 @@ else {
                 informação03 = `2 - Qual a altura do patamar entre a parada dos caminhões e a base das portas seccionais (medida B)?`
                 informação04 = `3 - Em frente aos painéis onde estão as portas seccionais existe uma representação de parede de alvenaria, essa alvenaria vai até o teto correto?`
                 informação05 = `4 - Por favor me confirme a espessura da alvenaria da pergunta anterior (medida C)?`
-                imagem01.setAttribute(srcAttribute,"https://lh3.googleusercontent.com/pw/AL9nZEVjUxN-l6wEZ0aqIvxcb7W4avXdABwwpCSNy_kTGZbjxP_O_TL_p3CzqdVLvyWBN9SYAnhG47_MYav2mxY7Yn4E-GvYykBTnYCJzSxsNLGwMYsLjxXIdEN29Z_Pfua-35B671GAZPlx_FLLmRhgz9-_=w786-h628-no?authuser=0")
-                imagem01.setAttribute(altAttribute,"Porta Seccional HL Encostada em Alvenaria")
+                imagemDados01 = {larguraImagem: "500px", textoAlternativo: "Porta Seccional HL Encostada em Alvenaria", style: "width: 100%;", linkDaImagem: "https://lh3.googleusercontent.com/pw/AL9nZEVjUxN-l6wEZ0aqIvxcb7W4avXdABwwpCSNy_kTGZbjxP_O_TL_p3CzqdVLvyWBN9SYAnhG47_MYav2mxY7Yn4E-GvYykBTnYCJzSxsNLGwMYsLjxXIdEN29Z_Pfua-35B671GAZPlx_FLLmRhgz9-_=w786-h628-no?authuser=0"}
+                funçãoImagem01(imagemDados01)
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${informação04}${br2}${informação05}${br2}`
                 idResultadoCorpoDoEmail.appendChild(imagem01)
                 idResultadoCorpoDoEmail.innerHTML += `${br2}${agradecimento}${br3}`
@@ -1528,15 +1536,15 @@ else {
                 informação01 = `Encaminhando e-mail.`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
-            case `${planilhamentoFunção}${produçãoSubGrupo}Total`:
+            case `${planilhamentoFunção}${câmarasSubGrupo}Total`:
                 informação01 = `<span ${spanBackground}><mark ${markBackground}>Informação especial.</mark></span>`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
-            case `${planilhamentoFunção}${produçãoSubGrupo}Parcial`:
+            case `${planilhamentoFunção}${câmarasSubGrupo}Parcial`:
                 informação01 = `<span ${spanBackground}><mark ${markBackground}>Informação especial.</mark></span>`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
-            case `${planilhamentoFunção}${produçãoSubGrupo}Alteração`:
+            case `${planilhamentoFunção}${câmarasSubGrupo}Alteração`:
                 informação01 = `<span ${spanBackground}>Atualizado o alfa de <mark ${markBackground}>LLLLLLLLLL</mark>.</span>`
                 informação02 = `Por favor verificar a necessidade de atualização do projeto executivo.`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${marcioHiperlink} e ${christianHiperlink}${br2}${informação01}${br2}${simoneHiperlink}${br2}${informação02}${br2}${agradecimento}${br3}`
@@ -1910,6 +1918,11 @@ function DarkMode() {
     idEstiloDeCor.innerHTML = "Dark Mode"
 }
 
+/* - Altera a largura do fundo */
+
+document.body.style.width = `${idLarguraDoFundo.value}px`
+function larguraDoFundo() {document.body.style.width = `${idLarguraDoFundo.value}px`}
+
 /* - Limpa os extras */
 
 function limpaExtras() {
@@ -1945,6 +1958,7 @@ idLimpaResultado.addEventListener("click", limpaResultado)
 idBackgroundColor.addEventListener("change", changeCorBackground)
 idTextoColor.addEventListener("change", changeCorTexto)
 idEstiloDeCor.addEventListener("click", changeEstiloDeCor)
+idLarguraDoFundo.addEventListener("change", larguraDoFundo)
 idLimpaExtras.addEventListener("click", limpaExtras)
 
 /* Mostra o que está na área de transferência */
