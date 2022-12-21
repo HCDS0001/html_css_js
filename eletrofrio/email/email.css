@@ -1,6 +1,6 @@
 /* Estilizações necessárias ao funcionamento */
 
-input:invalid{background-color: rgba(255, 255, 0, 1);}
+input:invalid{background-color: #ffff00ff;}
 #idFieldsetDadosDoPedido{display: none;}
 #idFieldsetDadosDeCompra{display: none;}
 .classTipo{display: none;}
@@ -21,7 +21,7 @@ body{
 /* White Mode */
 
 body{
-    background: #FFFFFF; 
+    background: #ffffff; 
     color: #000000;
 }
 
@@ -32,24 +32,24 @@ body{
 
 button{
     height: 19px;
-    background: #EFEFEF; 
+    background: #efefef; 
     color: #000000;
     border: 1px solid #767676;
     border-radius: 2.5px;
 }
 
-button:hover{background: #E5E5E5;}
-button:active{background: #F5F5F5;}
+button:hover{background: #e5e5e5;}
+button:active{background: #f5f5f5;}
 
 select{
-    background: #FFFFFF; 
+    background: #ffffff; 
     color: #000000;
     border: 1px solid #767676;
     border-radius: 2.5px;
 }
 
 input{
-    background: #FFFFFF; 
+    background: #ffffff; 
     color: #000000;
     border: 1px solid #767676;
     border-radius: 2.5px;
@@ -71,11 +71,11 @@ h2{font: normal normal normal normal 11.0pt "Arial", "sans-serif";}
 legend{font: normal normal bold normal 11.0pt "Arial", "sans-serif";}
 
 button a{
-    color: rgb(0, 0, 0);
+    color: #000000;
     text-decoration: none;
 }
 
-#idTítuloPágina{text-shadow: 1px 1px 3px black;}
+#idTítuloPágina{text-shadow: 1px 1px 3px #000000;}
 
 /* Posição na tela */
 
@@ -91,15 +91,15 @@ fieldset{border-radius: 5px;}
 .classInputEmail{margin: 0px 0px 0px 20px;}
 
 .classTítuloInstruções{
-    background: #EFEFEF; 
+    background: #efefef; 
     color: #000000;
     border: 1px solid #767676;
     border-radius: 2.5px;
 }
 
-.classTítuloInstruções:hover{background: #E5E5E5;}
-.classTítuloInstruções:active{background: #F5F5F5;}
+.classTítuloInstruções:hover{background: #e5e5e5;}
+.classTítuloInstruções:active{background: #f5f5f5;}
 
-.classBotãoDeLimpeza{background: #AAAAAA;}
+.classBotãoDeLimpeza{background: #aaaaaa;}
 .classBotãoDeLimpeza:hover{background: #999999;}
-.classBotãoDeLimpeza:active{background: #FF0000;}
+.classBotãoDeLimpeza:active{background: #ff0000;}

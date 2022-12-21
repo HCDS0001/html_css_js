@@ -106,6 +106,7 @@ let fornecedorFunção = "Fornecedor"
 let gerenteFunção = "Gerente"
 let grupoFunção = "Grupo"
 let liderançaComercialFunção = "Liderança Comercial"
+let liderançaCompraFunção = "Liderança Compra"
 let liderançaContinuumFunção = "Liderança Continuum"
 let outroFunção = "Outro"
 let planilhamentoFunção = "Planilhamento"
@@ -113,15 +114,17 @@ let representanteFunção = "Representante"
 let supervisorDeObraFunção = "Supervisor de Obra"
 let tiFunção = "TI"
 
+let acompanhamentoSubGrupo = "Acompanhamento"
 let ajusteSubGrupo = "Ajuste"
+let alinhamentoDePrioridadesSubGrupo = "Alinhamento de Prioridades"
 let alteraçãoSubGrupo = "Alteração"
 let compraSubGrupo = "Compra"
 let cotaçãoSubGrupo = "Cotação"
 let dúvidaSubGrupo = "Dúvida"
 let encaminharSubGrupo = "Encaminhar"
+let envioDeOrdemDeCompraSubGrupo = "Envio de Ordem de Compra"
 let liberaçãoSubGrupo = "Liberação"
-let comprasSubGrupo = "Compras"
-let planilhamentoSubGrupo = "Planilhamento"
+let produçãoSubGrupo = "Produção"
 let projetoSubGrupo = "Projeto"
 let suporteTiSubGrupo = "Suporte TI"
 let verificaçãoSubGrupo = "Verificação"
@@ -130,8 +133,6 @@ let verificaçãoSubGrupo = "Verificação"
 
 let cadastro = [
     //{função:"_ADM_", número:"_ADM_", nome:"Henrique Carvalho de Souza", emailComercial:"hcds.rick@gmail.com"},
-    {função:outroFunção, número:"106139", nome:"Ederson Wojcik", emailComercial:"ederson.wojcik@eletrofrio.com.br"},
-    {função:outroFunção, número:"30366", nome:"Michel Luis Antunes", emailComercial:"michel@eletrofrio.com.br"},
     {função:ajusteFunção, número:"106286", nome:"Cláudia", emailComercial:"claudia.carvalho@eletrofrio.com.br"},
     {função:ajusteFunção, número:"106078", nome:"Cleber Medeiros", emailComercial:"cleber.medeiros@eletrofrio.com.br"},
     {função:ajusteFunção, número:"32245", nome:"Ellen", emailComercial:"ellen@eletrofrio.com.br"},
@@ -196,6 +197,8 @@ let cadastro = [
     {função:grupoFunção, número:"Group06", nome:"Liberação", emailComercial:"liberacao@eletrofrio.com.br"},
     {função:liderançaComercialFunção, número:"31273", nome:"Carla", emailComercial:"carlaadriana@eletrofrio.com.br"},
     {função:liderançaComercialFunção, número:"33071", nome:"Roney", emailComercial:"roney@eletrofrio.com.br"},
+    {função:liderançaCompraFunção, número:"106139", nome:"Ederson Wojcik", emailComercial:"ederson.wojcik@eletrofrio.com.br"},
+    {função:liderançaCompraFunção, número:"30366", nome:"Michel Luis Antunes", emailComercial:"michel@eletrofrio.com.br"},
     {função:liderançaContinuumFunção, número:"nnn", nome:"Alexandre Cavagnoli", emailComercial:"alexandre.cavagnoli@eletrofrio.com.br"},
     {função:liderançaContinuumFunção, número:"nnn", nome:"Leandro Vianna", emailComercial:"leandro.vianna@eletrofrio.com.br"},
     {função:liderançaContinuumFunção, número:"34540", nome:"Simone", emailComercial:"simone@eletrofrio.com.br"},
@@ -322,6 +325,8 @@ let analista = []
 cadastro.filter((index)=>index.função == analistaFunção).map((index)=>analista.push(index.nome))
 let liderançaComercial = []
 cadastro.filter((index)=>index.função == liderançaComercialFunção).map((index)=>liderançaComercial.push(index.nome))
+let liderançaCompra = []
+cadastro.filter((index)=>index.função == liderançaCompraFunção).map((index)=>liderançaCompra.push(index.nome))
 let liderançaContinuum = []
 cadastro.filter((index)=>index.função == liderançaContinuumFunção).map((index)=>liderançaContinuum.push(index.nome))
 let planilhamento = []
@@ -351,9 +356,10 @@ let email = [
     {função:ajusteFunção, ordemSubgrupo:1, subGrupo:ajusteSubGrupo, ordemTipo:4, tipo:"Aguardando Conferência", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:ajusteFunção, ordemSubgrupo:3, subGrupo:alteraçãoSubGrupo, ordemTipo:5, tipo:"Arquivos de Alteração", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:ajusteFunção, ordemSubgrupo:3, subGrupo:alteraçãoSubGrupo, ordemTipo:6, tipo:"Verificar Possibilidade de Alteração", dadosDoPedido:sim, emailsPara: ["Roney"], emailsCc: ["Simone", "Bruno Garcia", "Carla"].concat(representante).concat(ajuste).concat(analista).concat(planilhamento), emailsBcc: []},
-    {função:compraFunção, ordemSubgrupo:1, subGrupo:comprasSubGrupo, ordemTipo:1, tipo:"Envio de Ordem de Compra", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    {função:compraFunção, ordemSubgrupo:1, subGrupo:comprasSubGrupo, ordemTipo:1, tipo:"Follow Up Materiais", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    {função:compraFunção, ordemSubgrupo:1, subGrupo:comprasSubGrupo, ordemTipo:1, tipo:"Lista de Prioridades", dadosDoPedido:sim, emailsPara: ["Armacell"], emailsCc: ["Ederson Wojcik", "Michel Luis Antunes"], emailsBcc: []},
+    {função:compraFunção, ordemSubgrupo:1, subGrupo:envioDeOrdemDeCompraSubGrupo, ordemTipo:1, tipo:"Geral", dadosDoPedido:não, emailsPara: [], emailsCc: [], emailsBcc: []},
+    {função:compraFunção, ordemSubgrupo:1, subGrupo:envioDeOrdemDeCompraSubGrupo, ordemTipo:2, tipo:"Dedicada", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    {função:compraFunção, ordemSubgrupo:2, subGrupo:acompanhamentoSubGrupo, ordemTipo:3, tipo:"Materiais", dadosDoPedido:não, emailsPara: [], emailsCc: [], emailsBcc: []},
+    {função:compraFunção, ordemSubgrupo:3, subGrupo:alinhamentoDePrioridadesSubGrupo, ordemTipo:4, tipo:"Materiais Dedicados", dadosDoPedido:não, emailsPara: ["Armacell"], emailsCc: [].concat(liderançaCompra), emailsBcc: []},
     {função:executivoFunção, ordemSubgrupo:1, subGrupo:projetoSubGrupo, ordemTipo:1, tipo:"Antecipado", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: [].concat(liderançaContinuum).concat(executivo).concat(planilhamento), emailsBcc: []},
     {função:executivoFunção, ordemSubgrupo:1, subGrupo:projetoSubGrupo, ordemTipo:2, tipo:"Executivo", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: [].concat(liderançaContinuum).concat(executivo).concat(planilhamento), emailsBcc: []},
     {função:planilhamentoFunção, ordemSubgrupo:4, subGrupo:compraSubGrupo, ordemTipo:1, tipo:"Porta Walk-In", dadosDoPedido:sim, emailsPara: ["Compras", "Reinaldo"], emailsCc: ["Robson", "Roney", "Bruno Garcia"].concat(liderançaContinuum).concat(planilhamento), emailsBcc: [], fornecedor: ["Rohden"]},
@@ -388,9 +394,9 @@ let email = [
     {função:planilhamentoFunção, ordemSubgrupo:2, subGrupo:dúvidaSubGrupo, ordemTipo:4, tipo:"Porta Seccional HL Encostada em Alvenaria", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:planilhamentoFunção, ordemSubgrupo:2, subGrupo:dúvidaSubGrupo, ordemTipo:5, tipo:"Aguardando", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:planilhamentoFunção, ordemSubgrupo:5, subGrupo:encaminharSubGrupo, ordemTipo:1, tipo:"Encaminhar", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:planilhamentoSubGrupo, ordemTipo:1, tipo:"Total", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:planilhamentoSubGrupo, ordemTipo:2, tipo:"Parcial", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
-    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:planilhamentoSubGrupo, ordemTipo:3, tipo:"Alteração", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:produçãoSubGrupo, ordemTipo:1, tipo:"Total", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:produçãoSubGrupo, ordemTipo:2, tipo:"Parcial", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
+    {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:produçãoSubGrupo, ordemTipo:3, tipo:"Alteração", dadosDoPedido:sim, emailsPara: ["Continuum - Planilhamento para Produção"], emailsCc: [], emailsBcc: []},
     {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:1, tipo:"Geral", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: [], emailsBcc: []},
     {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:2, tipo:"Baan - Geral", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: [], emailsBcc: []},
     //{função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:3, tipo:"Baan - Inclusão de Item", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
@@ -452,48 +458,48 @@ let mês = [
 ]
 
 let cores = [
-    {padrão:"Exibição", cor:"Branco", valor:"#FFFFFF"},
-    {padrão:"Exibição", cor:"Cinza Claro", valor:"#C0C0C0"},
+    {padrão:"Exibição", cor:"Branco", valor:"#ffffff"},
+    {padrão:"Exibição", cor:"Cinza Claro", valor:"#c0c0c0"},
     {padrão:"Exibição", cor:"Cinza", valor:"#808080"},
     {padrão:"Exibição", cor:"Cinza Escuro", valor:"#404040"},
     {padrão:"Exibição", cor:"Cinza Muito Escuro", valor:"#202020"},
     {padrão:"Exibição", cor:"Preto", valor:"#000000"},
-    {padrão:"Exibição", cor:"Azul Claro", valor:"#8080FF"},
-    {padrão:"Exibição", cor:"Azul", valor:"#0000FF"},
+    {padrão:"Exibição", cor:"Azul Claro", valor:"#8080ff"},
+    {padrão:"Exibição", cor:"Azul", valor:"#0000ff"},
     {padrão:"Exibição", cor:"Azul Escuro", valor:"#000080"},
-    {padrão:"Exibição", cor:"Verde Claro", valor:"#80FF80"},
-    {padrão:"Exibição", cor:"Verde", valor:"#00FF00"},
+    {padrão:"Exibição", cor:"Verde Claro", valor:"#80ff80"},
+    {padrão:"Exibição", cor:"Verde", valor:"#00ff00"},
     {padrão:"Exibição", cor:"Verde Escuro", valor:"#008000"},
-    {padrão:"Exibição", cor:"Vermelho Claro", valor:"#FF8080"},
-    {padrão:"Exibição", cor:"Vermelho", valor:"#FF0000"},
+    {padrão:"Exibição", cor:"Vermelho Claro", valor:"#ff8080"},
+    {padrão:"Exibição", cor:"Vermelho", valor:"#ff0000"},
     {padrão:"Exibição", cor:"Vermelho Escuro", valor:"#800000"},
-    {padrão:"Exibição", cor:"Amarelo Claro", valor:"#FFFF80"},
-    {padrão:"Exibição", cor:"Amarelo", valor:"#FFFF00"},
+    {padrão:"Exibição", cor:"Amarelo Claro", valor:"#ffff80"},
+    {padrão:"Exibição", cor:"Amarelo", valor:"#ffff00"},
     {padrão:"Exibição", cor:"Amarelo Escuro", valor:"#808000"},
-    {padrão:"Funções", cor:"White Mode Botão Background Mouse Fora", valor:"#EFEFEF"},
+    {padrão:"Funções", cor:"White Mode Botão Background Mouse Fora", valor:"#efefef"},
     {padrão:"Funções", cor:"White Mode Botão Borda Mouse Fora", valor:"#767676"},
-    {padrão:"Funções", cor:"White Mode Botão Background Mouse Sobre", valor:"#E5E5E5"},
+    {padrão:"Funções", cor:"White Mode Botão Background Mouse Sobre", valor:"#e5e5e5"},
     {padrão:"Funções", cor:"White Mode Botão Borda Mouse Sobre", valor:"#4F4F4F"},
-    {padrão:"Funções", cor:"White Mode Botão Background Mouse Para Baixo", valor:"#F5F5F5"},
-    {padrão:"Funções", cor:"White Mode Botão Borda Mouse Para Baixo", valor:"#8D8D8D"},
-    {padrão:"Funções", cor:"White Mode Background", valor:"#FFFFFF"},
+    {padrão:"Funções", cor:"White Mode Botão Background Mouse Para Baixo", valor:"#f5f5f5"},
+    {padrão:"Funções", cor:"White Mode Botão Borda Mouse Para Baixo", valor:"#8d8d8d"},
+    {padrão:"Funções", cor:"White Mode Background", valor:"#ffffff"},
     {padrão:"Funções", cor:"White Mode Texto", valor:"#000000"},
-    {padrão:"Funções", cor:"White Mode Inválido", valor:"#FFFF00"},
-    {padrão:"Funções", cor:"White Mode Botão de Limpeza Mouse Fora", valor:"#AAAAAA"},
+    {padrão:"Funções", cor:"White Mode Inválido", valor:"#ffff00"},
+    {padrão:"Funções", cor:"White Mode Botão de Limpeza Mouse Fora", valor:"#aaaaaa"},
     {padrão:"Funções", cor:"White Mode Botão de Limpeza Mouse Sobre", valor:"#999999"},
-    {padrão:"Funções", cor:"White Mode Botão de Limpeza Mouse Para Baixo", valor:"#FF0000"},
+    {padrão:"Funções", cor:"White Mode Botão de Limpeza Mouse Para Baixo", valor:"#ff0000"},
     {padrão:"Funções", cor:"Dark Mode Botão Background Mouse Fora", valor:"#222222"},
     {padrão:"Funções", cor:"Dark Mode Botão Borda Mouse Fora", valor:"#898989"},
-    {padrão:"Funções", cor:"Dark Mode Botão Background Mouse Sobre", valor:"#1A1A1A"},
+    {padrão:"Funções", cor:"Dark Mode Botão Background Mouse Sobre", valor:"#1a1a1a"},
     {padrão:"Funções", cor:"Dark Mode Botão Borda Mouse Sobre", valor:"#B0B0B0"},
-    {padrão:"Funções", cor:"Dark Mode Botão Background Mouse Para Baixo", valor:"#0A0A0A"},
+    {padrão:"Funções", cor:"Dark Mode Botão Background Mouse Para Baixo", valor:"#0a0a0a"},
     {padrão:"Funções", cor:"Dark Mode Botão Borda Mouse Para Baixo", valor:"#727272"},
     {padrão:"Funções", cor:"Dark Mode Background", valor:"#363636"},
-    {padrão:"Funções", cor:"Dark Mode Texto", valor:"#FFFFFF"},
+    {padrão:"Funções", cor:"Dark Mode Texto", valor:"#ffffff"},
     {padrão:"Funções", cor:"Dark Mode Inválido", valor:"#616100"},
     {padrão:"Funções", cor:"Dark Mode Botão de Limpeza Mouse Fora", valor:"#101010"},
     {padrão:"Funções", cor:"Dark Mode Botão de Limpeza Mouse Sobre", valor:"#333333"},
-    {padrão:"Funções", cor:"Dark Mode Botão de Limpeza Mouse Para Baixo", valor:"#FF0000"},
+    {padrão:"Funções", cor:"Dark Mode Botão de Limpeza Mouse Para Baixo", valor:"#ff0000"},
 ]
 
 /* Organização dos Arrays */
@@ -1209,8 +1215,10 @@ else {
         let roneyHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Roney")].emailComercial}>@Roney Florencio da Silva</a>`
         let simoneHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Simone")].emailComercial}>@Simone da Luz</a>`
         let comprasHiperlink = `<a href=${mailTo}${cadastro[cadastro.map((index) => index.nome).indexOf("Compras")].emailComercial}>@Compras Eletrofrio</a>`
-        let spanBackground = 'style="background-color: rgb(255, 255, 0); color: rgb(0, 0, 0)"'
-        let markBackground = 'style="background-color: rgb(255, 0, 0); color: rgb(0, 0, 0)"'
+
+        let spanBackground = 'style="background-color: #ffff00; color: #000000"'
+        let markBackground = 'style="background-color: #ff0000; color: #000000"'
+
         let informação01
         let informação02
         let informação03
@@ -1222,8 +1230,68 @@ else {
         let informação09
         let informação10
         let informação11
+
         let imagem01 = document.createElement("img")
         imagem01.setAttribute(widthAttribute, larguraImagem)
+
+        let tabela01 = document.createElement("table")
+        let títulosLinha1
+        let títulosColuna1
+        let styleColunas
+        let styleTabela
+
+        function funçãoTabela01(títulosLinha1, títulosColuna1, styleTabela, styleColunas) {
+            tabela01.setAttribute(widthAttribute, larguraImagem)
+            tabela01.setAttribute("style", `${styleTabela}`)
+
+            let thead01 = document.createElement("thead")
+            tabela01.appendChild(thead01)
+    
+            for (let index = 0; index < styleColunas.length; index++) {
+                let colgroup01 = document.createElement("colgroup")
+                tabela01.appendChild(colgroup01)
+                let col01 = document.createElement("col")
+                col01.setAttribute("span", "1")
+                col01.setAttribute("style", `${styleColunas[index]}`)
+                colgroup01.appendChild(col01)
+            }
+
+            for (let index1 = 0; index1 < 1; index1++) {
+                let trThead01 = document.createElement("tr")
+                trThead01.setAttribute("style", "background-color: #d9e1f2; color: #000000; border: 1px solid #000000")
+                thead01.appendChild(trThead01)
+                for (let index2 = 0; index2 < títulosLinha1.length; index2++) {
+                    let th01TrThead01 = document.createElement("th")
+                    let TextoTh01TrThead01 = document.createTextNode(`${títulosLinha1[index2]}`)
+                    th01TrThead01.appendChild(TextoTh01TrThead01)
+                    th01TrThead01.setAttribute("scope", "col")
+                    th01TrThead01.setAttribute("colspan", "1")
+                    th01TrThead01.setAttribute("style", "border: 1px solid #000000")
+                    trThead01.appendChild(th01TrThead01)
+                }
+            }
+            
+            let tbody01 = document.createElement("tbody")
+            tabela01.appendChild(tbody01)
+    
+            for (let index1 = 0; index1 < títulosColuna1.length; index1++) {
+                let tr01Tbody01 = document.createElement("tr")
+                tbody01.appendChild(tr01Tbody01)
+                for (let index2 = 0; index2 < títulosLinha1.length; index2++) {
+                    let td01Tr01Tbody01 = document.createElement("td")
+                    if (index2 == 0) {
+                        let TextoTd01Tr01Tbody01 = document.createTextNode(`${títulosColuna1[index1]}`)
+                        td01Tr01Tbody01.appendChild(TextoTd01Tr01Tbody01)
+                        td01Tr01Tbody01.setAttribute("style", "border: 1px solid #000000; text-align: left")
+                    } else {
+                        let TextoTd01Tr01Tbody01 = document.createTextNode(`X`)
+                        td01Tr01Tbody01.appendChild(TextoTd01Tr01Tbody01)
+                        td01Tr01Tbody01.setAttribute("style", "border: 1px solid #000000; text-align: center")
+                    }
+                    tr01Tbody01.appendChild(td01Tr01Tbody01)
+                }
+            }
+        }
 
 /* -- Gera modelos de e-mails de acordo com o tipo */
 
@@ -1232,19 +1300,19 @@ else {
                 informação01 = `Segue liberação.`
                 informação02 = `Observações:`
                 informação03 = `<mark ${markBackground}>Observações variadas.</mark>`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${localização}${idMês.value} / ${idNomeRepresentante.value}${br2}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${analistaFunção}${liberaçãoSubGrupo}Total`:
                 informação01 = `Segue liberação total.`
                 informação02 = `Observações:`
                 informação03 = `<mark ${markBackground}>Observações variadas.</mark>`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${localização}${idMês.value} / ${idNomeRepresentante.value}${br2}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${analistaFunção}${liberaçãoSubGrupo}Parcial`:
                 informação01 = `Segue liberação parcial.`
                 informação02 = `Observações:`
                 informação03 = `<mark ${markBackground}>Observações variadas.</mark>`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${localização}${idMês.value} / ${idNomeRepresentante.value}${br2}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${analistaFunção}${verificaçãoSubGrupo}Linhas Atualizadas`:
                 informação01 = `Linhas atualizadas.`
@@ -1304,37 +1372,54 @@ else {
                 informação01 = `Ainda é possível fazer alterações?`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${arquivo}${idArquivo.value}${idRevisão.value}${br2}${roneyHiperlink}${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
-            case `${compraFunção}${comprasSubGrupo}Envio de Ordem de Compra`:
-                informação01 = `Segue em anexo ordem de compra <mark ${markBackground}>OOOOOOOOOOOO</mark>. Por favor validar o prazo de entrega e disponibilidade do material.`
+            case `${compraFunção}${envioDeOrdemDeCompraSubGrupo}Geral`:
+                informação01 = `Segue em anexo ordem de compra <mark ${markBackground}>000000</mark>. Por favor validar o prazo de entrega e disponibilidade do material.`
                 informação02 = `Qualquer divergência ou dúvida entrar em contato.`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
                 break
-            case `${compraFunção}${comprasSubGrupo}Follow Up Materiais`:
+            case `${compraFunção}${envioDeOrdemDeCompraSubGrupo}Dedicada`:
+                informação01 = `Segue em anexo ordem de compra <mark ${markBackground}>000000</mark>. Por favor validar o prazo de entrega e disponibilidade do material.`
+                informação02 = `Qualquer divergência ou dúvida entrar em contato.`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
+                break
+            case `${compraFunção}${acompanhamentoSubGrupo}Materiais`:
                 informação01 = `Por favor validar o prazo de entrega e disponibilidade dos materiais abaixo.`
                 informação02 = `<mark ${markBackground}>Planilha de materiais.</mark>`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
                 break
-            case `${compraFunção}${comprasSubGrupo}Lista de Prioridades`:
+            case `${compraFunção}${alinhamentoDePrioridadesSubGrupo}Materiais Dedicados`:
                 informação01 = `Segue em anexo a lista de prioridades conforme falamos em reunião.`
                 informação02 = `<mark ${markBackground}>Lista de prioridades.</mark>`
-                informação03 = `<span ${spanBackground}><mark ${markBackground}>Observações:OOOOOOOOOOOO.</mark></span>`
+                informação03 = `<span ${spanBackground}><mark ${markBackground}>Observações: LLLLLLLLLL.</mark></span>`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${agradecimento}${br3}`
                 break
             case `${executivoFunção}${projetoSubGrupo}Antecipado`:
-                informação01 = `Segue antecipação de projeto executivo de <mark ${markBackground}>OOOOOOOOOOOO</mark>.`
+                informação01 = `Segue antecipação de projeto executivo de <mark ${markBackground}>LLLLLLLLLL</mark>.`
                 informação02 = `Pedimos a gentileza de verificação e aprovação dos projetos em resposta a este e-mail.`
-                informação03 = `<mark ${markBackground}>Tabela de projetos executivos.</mark>`
-                informação04 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
-                informação05 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${informação04}${br2}${informação05}${br2}${agradecimento}${br3}`
+                informação03 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
+                informação04 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
+                títulosLinha1 = ["Projetos Executados com Base no Layout", "Realizados"]
+                títulosColuna1 = ["CF 1 IMPLANT SUST TETOS", "CF 2 IMPLANT REBAIXO", "CF 3 ISOLAMENTO"]
+                styleTabela = "color: #000000; border: 1px solid #000000; border-collapse: collapse"
+                styleColunas = ["background-color: #e0e0e0", "background-color: #ffffff"]
+                funçãoTabela01(títulosLinha1, títulosColuna1, styleTabela, styleColunas)
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}`
+                idResultadoCorpoDoEmail.appendChild(tabela01)
+                idResultadoCorpoDoEmail.innerHTML += `${br2}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
                 break
             case `${executivoFunção}${projetoSubGrupo}Executivo`:
-                informação01 = `Segue projeto executivo de <mark ${markBackground}>OOOOOOOOOOOO</mark>.`
+                informação01 = `Segue projeto executivo de <mark ${markBackground}>LLLLLLLLLL</mark>.`
                 informação02 = `Pedimos a gentileza de verificação e aprovação dos projetos em resposta a este e-mail.`
-                informação03 = `<mark ${markBackground}>Tabela de projetos executivos.</mark>`
-                informação04 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
-                informação05 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
-                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${informação03}${br2}${informação04}${br2}${informação05}${br2}${agradecimento}${br3}`
+                informação03 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
+                informação04 = `engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022`
+                títulosLinha1 = ["Projetos Executados com Base no Layout", "Realizados"]
+                títulosColuna1 = ["CF1 MONTAGEM REV00", "CF2 REBAIXO PISO REV00", "CF3 ISOLAMENTO PISO REV00", "CF4 CORTES REV00", "CF5 DET. MONTAGEM REV00", "CF6 AERAÇÃO PISO REV00", "CF7 MURETAS REV00", "CF8 PORTAS REV00"]
+                styleTabela = "color: #000000; border: 1px solid #000000; border-collapse: collapse"
+                styleColunas = ["background-color: #e0e0e0", "background-color: #ffffff"]
+                funçãoTabela01(títulosLinha1, títulosColuna1, styleTabela, styleColunas)
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}`
+                idResultadoCorpoDoEmail.appendChild(tabela01)
+                idResultadoCorpoDoEmail.innerHTML += `${br2}${informação03}${br2}${informação04}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${compraFunção}Porta Walk-In`:
                 informação01 = `Por gentileza efetuar a compra conforme abaixo.`
@@ -1443,16 +1528,16 @@ else {
                 informação01 = `Encaminhando e-mail.`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
-            case `${planilhamentoFunção}${planilhamentoSubGrupo}Total`:
+            case `${planilhamentoFunção}${produçãoSubGrupo}Total`:
                 informação01 = `<span ${spanBackground}><mark ${markBackground}>Informação especial.</mark></span>`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
-            case `${planilhamentoFunção}${planilhamentoSubGrupo}Parcial`:
+            case `${planilhamentoFunção}${produçãoSubGrupo}Parcial`:
                 informação01 = `<span ${spanBackground}><mark ${markBackground}>Informação especial.</mark></span>`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${OV}${idOrdemDeVenda.value}${br1}${localização}${idMês.value} / ${idNomeRepresentante.value}${br1}${arquivo}${idArquivo.value}${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
-            case `${planilhamentoFunção}${planilhamentoSubGrupo}Alteração`:
-                informação01 = `<span ${spanBackground}>Atualizado o alfa de <mark ${markBackground}>OOOOOOOO</mark>.</span>`
+            case `${planilhamentoFunção}${produçãoSubGrupo}Alteração`:
+                informação01 = `<span ${spanBackground}>Atualizado o alfa de <mark ${markBackground}>LLLLLLLLLL</mark>.</span>`
                 informação02 = `Por favor verificar a necessidade de atualização do projeto executivo.`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${marcioHiperlink} e ${christianHiperlink}${br2}${informação01}${br2}${simoneHiperlink}${br2}${informação02}${br2}${agradecimento}${br3}`
                 break
@@ -1469,7 +1554,7 @@ else {
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${suporteTiSubGrupo}Baan - Liberação de Tela`:
-                informação01 = `Gostaria de solicitar a liberação da seguinte tela: <mark ${markBackground}>OOOOOOOO</mark>.`
+                informação01 = `Gostaria de solicitar a liberação da seguinte tela: <mark ${markBackground}>LLLLLLLLLL</mark>.`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
             case `${planilhamentoFunção}${suporteTiSubGrupo}SIP - Geral`:
@@ -1533,11 +1618,40 @@ function limpaResultado() {
 
 /* - Muda a cor do Background */
 
-function changeCorBackground() {document.body.style.background = idBackgroundColor.value}
+function changeCorBackground() {
+    if (idBackgroundColor.value == idTextoColor.value && idTextoColor.value == cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)) {
+        document.body.style.background = idBackgroundColor.value
+        idTextoColor.value = cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor)
+        document.body.style.color = idTextoColor.value
+        classLabelResultado.forEach(index => {index.style.textDecoration = `underline solid ${cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor)} 1px`})
+    } if (idBackgroundColor.value == idTextoColor.value && idTextoColor.value != cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)) {
+        document.body.style.background = idBackgroundColor.value
+        idTextoColor.value = cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)
+        document.body.style.color = idTextoColor.value
+        classLabelResultado.forEach(index => {index.style.textDecoration = `underline solid ${cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)} 1px`})
+    } else {
+        document.body.style.background = idBackgroundColor.value
+    }
+}
 
 /* - Muda a cor do Texto */
 
-function changeCorTexto() {document.body.style.color = idTextoColor.value}
+function changeCorTexto() {
+    if (idTextoColor.value == idBackgroundColor.value && idBackgroundColor.value == cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor)) {
+        document.body.style.color = idTextoColor.value
+        idBackgroundColor.value = cores.filter((index)=>index.cor == "Dark Mode Background").map((index)=>index.valor)
+        document.body.style.background = idBackgroundColor.value
+        classLabelResultado.forEach(index => {index.style.textDecoration = `underline solid ${idTextoColor.value} 1px`})
+    } if (idTextoColor.value == idBackgroundColor.value && idBackgroundColor.value != cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor)) {
+        document.body.style.color = idTextoColor.value
+        idBackgroundColor.value = cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor)
+        document.body.style.background = idBackgroundColor.value
+        classLabelResultado.forEach(index => {index.style.textDecoration = `underline solid ${idTextoColor.value} 1px`})
+    } else {
+        document.body.style.color = idTextoColor.value
+        classLabelResultado.forEach(index => {index.style.textDecoration = `underline solid ${idTextoColor.value} 1px`})
+    }
+}
 
 /* Cria as Opções de Cores padrão */
 
@@ -1558,12 +1672,12 @@ function changeEstiloDeCor() {
 
 function WhiteMode() {
     
-    if((idBackgroundColor.value.toUpperCase() == cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor) || idBackgroundColor.value.toUpperCase() == cores.filter((index)=>index.cor == "Dark Mode Background").map((index)=>index.valor))){
+    if((idBackgroundColor.value == cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor) || idBackgroundColor.value == cores.filter((index)=>index.cor == "Dark Mode Background").map((index)=>index.valor))){
         document.body.style.background = cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor)
         idBackgroundColor.value = cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor)
     }
 
-    if((idTextoColor.value.toUpperCase() == cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor) || idTextoColor.value.toUpperCase() == cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor))){
+    if((idTextoColor.value == cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor) || idTextoColor.value == cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor))){
         document.body.style.color = cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)
         idTextoColor.value = cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)
     }
@@ -1679,12 +1793,12 @@ function WhiteMode() {
 
 function DarkMode() {
     
-    if((idBackgroundColor.value.toUpperCase() == cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor) || idBackgroundColor.value.toUpperCase() == cores.filter((index)=>index.cor == "Dark Mode Background").map((index)=>index.valor))){
+    if((idBackgroundColor.value == cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor) || idBackgroundColor.value == cores.filter((index)=>index.cor == "Dark Mode Background").map((index)=>index.valor))){
         document.body.style.background = cores.filter((index)=>index.cor == "Dark Mode Background").map((index)=>index.valor)
         idBackgroundColor.value = cores.filter((index)=>index.cor == "Dark Mode Background").map((index)=>index.valor)
     }
 
-    if((idTextoColor.value.toUpperCase() == cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor) || idTextoColor.value.toUpperCase() == cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor))){
+    if((idTextoColor.value == cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor) || idTextoColor.value == cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor))){
         document.body.style.color = cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor)
         idTextoColor.value = cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor)
     }
