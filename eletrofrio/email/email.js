@@ -116,7 +116,7 @@ let supervisorDeObraFunção = "Supervisor de Obra"
 let tiFunção = "TI"
 
 let acompanhamentoSubGrupo = "Acompanhamento"
-let ajusteSubGrupo = "Ajuste"
+let correçãoSubGrupo = "Correção"
 let alinhamentoDePrioridadesSubGrupo = "Alinhamento de Prioridades"
 let alteraçãoSubGrupo = "Alteração"
 let compraSubGrupo = "Compra"
@@ -353,8 +353,8 @@ let email = [
     {função:analistaFunção, ordemSubgrupo:3, subGrupo:alteraçãoSubGrupo, ordemTipo:1, tipo:"Padrão", dadosDoPedido:sim, emailsPara: ["Liberação"], emailsCc: [], emailsBcc: []},
     {função:ajusteFunção, ordemSubgrupo:2, subGrupo:dúvidaSubGrupo, ordemTipo:1, tipo:"Geral", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:ajusteFunção, ordemSubgrupo:2, subGrupo:dúvidaSubGrupo, ordemTipo:2, tipo:"Aguardando Dúvidas", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
-    {função:ajusteFunção, ordemSubgrupo:1, subGrupo:ajusteSubGrupo, ordemTipo:3, tipo:"Arquivos para Produção", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
-    {função:ajusteFunção, ordemSubgrupo:1, subGrupo:ajusteSubGrupo, ordemTipo:4, tipo:"Aguardando Conferência", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
+    {função:ajusteFunção, ordemSubgrupo:1, subGrupo:correçãoSubGrupo, ordemTipo:3, tipo:"Arquivos para Produção", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
+    {função:ajusteFunção, ordemSubgrupo:1, subGrupo:correçãoSubGrupo, ordemTipo:4, tipo:"Aguardando Conferência", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:ajusteFunção, ordemSubgrupo:3, subGrupo:alteraçãoSubGrupo, ordemTipo:5, tipo:"Arquivos de Alteração", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:ajusteFunção, ordemSubgrupo:3, subGrupo:alteraçãoSubGrupo, ordemTipo:6, tipo:"Verificar Possibilidade de Alteração", dadosDoPedido:sim, emailsPara: ["Roney"], emailsCc: ["Simone", "Bruno Garcia", "Carla"].concat(representante).concat(ajuste).concat(analista).concat(planilhamento), emailsBcc: []},
     {função:compraFunção, ordemSubgrupo:1, subGrupo:envioDeOrdemDeCompraSubGrupo, ordemTipo:1, tipo:"Geral", dadosDoPedido:não, emailsPara: [], emailsCc: [], emailsBcc: []},
@@ -1345,20 +1345,20 @@ else {
                 informação01 = `Seguimos arguardando as dúvidas e correções enviadas nos e-mails anteriores, a demora nas respostas afeta diretamente o prazo de entrega dos materiais.`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${arquivo}${idArquivo.value}${idRevisão.value}${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
-            case `${ajusteFunção}${ajusteSubGrupo}Arquivos para Produção`:
+            case `${ajusteFunção}${correçãoSubGrupo}Arquivos para Produção`:
                 informação01 = `Analista, o pedido citado no título do e-mail foi ajustado e registrado para produção conforme os arquivos enviados pelo representante.`
                 informação02 = `Projetista/Representante`
                 informação03 = `- Por gentileza conferir os arquivos de ajuste.`
                 informação04 = `- O pedido só será liberado para produção após sua autorização/ok.`
                 informação05 = `- Toda e qualquer alteração futura que seja necessária (desde que devidamente autorizada) deve ser feita utilizando este arquivo de layout em anexo.`
                 informação06 = `<span ${spanBackground}><mark ${markBackground}>- Informação especial.</mark></span>`
-                informação07 = `Lista de Orçamento: 211`
-                informação08 = `Lista de Ajuste: 211`
+                informação07 = `Lista de Orçamento: <mark ${markBackground}>211</mark>`
+                informação08 = `Lista de Ajuste: <mark ${markBackground}>211</mark>`
                 informação09 = `Os expositores serão cadastrados de acordo com a planilha abaixo:`
                 informação10 = `<mark ${markBackground}>Planilha dos expositores.</mark>`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${arquivo}${idArquivo.value}${idRevisão.value}${br2}${informação01}${br2}${informação02}${br2}${informação03}${br1}${informação04}${br1}${informação05}${br2}${informação06}${br2}${informação07}${br1}${informação08}${br2}${informação09}${br2}${informação10}${br2}${agradecimento}${br3}`
                 break
-            case `${ajusteFunção}${ajusteSubGrupo}Aguardando Conferência`:
+            case `${ajusteFunção}${correçãoSubGrupo}Aguardando Conferência`:
                 informação01 = `Seguimos arguardando o OK informando que os arquivos foram conferidos e podem seguir para a produção, a demora nas respostas afeta diretamente o prazo de entrega dos materiais.`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${arquivo}${idArquivo.value}${idRevisão.value}${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
@@ -1405,7 +1405,7 @@ else {
                 informação01 = `Seguem projetos técnicos.`
                 informação02 = `Pedimos a gentileza de verificação e aprovação dos projetos em resposta a este e-mail.`
                 informação03 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
-                informação04 = `<mark ${markBackground}>engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022\A\ATACADÃO\GUARULHOS - PED 114-085-22</mark>`
+                informação04 = `<mark ${markBackground}>engenharia (\\\\srv23) (Z:)\\Instalacao\\Clientes 2022\\A\\ATACADÃO\\GUARULHOS - PED 114-085-22</mark>`
                 imagemDados01 = {larguraImagem: "150px", textoAlternativo: "Continnum", style: "width: 150px;", linkDaImagem: "https://lh3.googleusercontent.com/pw/AL9nZEXaNtUaDuox7IkIUsgUj38bnO_nU3WrHMpxitK4-4GQjCSewO1A-OUM0M5r6FPJpQ79Sx7nswtW4aifeLmHKrnBsCIieaYKnCa_dRx1D4mFY9SqMcfBscu_Oxzc5pPTQlIyjPU4IDDg2Sx_5LajeCxH=w150-h23-no?authuser=0"}
                 funçãoImagem01(imagemDados01)
                 tabelaDados01 = {larguraTabela: "auto", títulosLinha1: ["Projetos Executados com Base no Layout", `${idArquivo.value}${idRevisão.value}`], títulosColuna1: ["CF 1 IMPLANT SUST TETOS", "CF 2 IMPLANT REBAIXO", "CF 3 ISOLAMENTO"], textosColunas2mais:["X", "X", "X"], styleTabela: "color: #000000; border: 1px solid #000000; border-collapse: collapse", styleColunas: ["background-color: #e0e0e000", "background-color: #ffffff00"], styleLinha1: "background-color: #d9e1f2; color: #000000; border: 1px solid #000000", stylecelulasLinha1: "border: 1px solid #000000", styleColuna1: "border: 1px solid #000000; text-align: left", styleColunas2mais: "width: 70px; border: 1px solid #000000; text-align: center"}
@@ -1419,7 +1419,7 @@ else {
                 informação01 = `Seguem projetos técnicos.`
                 informação02 = `Pedimos a gentileza de verificação e aprovação dos projetos em resposta a este e-mail.`
                 informação03 = `Os arquivos encontram-se salvos na pasta informada abaixo:`
-                informação04 = `<mark ${markBackground}>engenharia (\\srv23) (Z:)\Instalacao\Clientes 2022\A\ATACADÃO\GUARULHOS - PED 114-085-22</mark>`
+                informação04 = `<mark ${markBackground}>engenharia (\\\\srv23) (Z:)\\Instalacao\\Clientes 2022\\A\\ATACADÃO\\GUARULHOS - PED 114-085-22</mark>`
                 imagemDados01 = {larguraImagem: "150px", textoAlternativo: "Continnum", style: "width: 150px;", linkDaImagem: "https://lh3.googleusercontent.com/pw/AL9nZEXaNtUaDuox7IkIUsgUj38bnO_nU3WrHMpxitK4-4GQjCSewO1A-OUM0M5r6FPJpQ79Sx7nswtW4aifeLmHKrnBsCIieaYKnCa_dRx1D4mFY9SqMcfBscu_Oxzc5pPTQlIyjPU4IDDg2Sx_5LajeCxH=w150-h23-no?authuser=0"}
                 funçãoImagem01(imagemDados01)
                 tabelaDados01 = {larguraTabela: "auto", títulosLinha1: ["Projetos Executados com Base no Layout", `${idArquivo.value}${idRevisão.value}`], títulosColuna1: ["CF1 MONTAGEM REV00", "CF2 REBAIXO PISO REV00", "CF3 ISOLAMENTO PISO REV00", "CF4 CORTES REV00", "CF5 DET. MONTAGEM REV00", "CF6 AERAÇÃO PISO REV00", "CF7 MURETAS REV00", "CF8 PORTAS REV00"], textosColunas2mais:["X", "X", "X", "X", "X", "X", "X", "X"], styleTabela: "color: #000000; border: 1px solid #000000; border-collapse: collapse", styleColunas: ["background-color: #e0e0e000", "background-color: #ffffff00"], styleLinha1: "background-color: #d9e1f2; color: #000000; border: 1px solid #000000", stylecelulasLinha1: "border: 1px solid #000000", styleColuna1: "border: 1px solid #000000; text-align: left", styleColunas2mais: "width: 70px; border: 1px solid #000000; text-align: center"}
