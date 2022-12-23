@@ -11,7 +11,7 @@
 <body>
     <header>
         <img src="./Eletrofrio_75_Anos.png" id="idImagemHeader" class="classImagemExterna" alt="Eletrofrio 75 Anos"><br>
-        <h1 id="idTítuloPágina">GERADOR DE E-MAILS</h1>
+        <h1 id="idTítuloPágina">Gerador de E-mails</h1>
     </header>
     <main>
         <section>
@@ -32,9 +32,10 @@
                     </details>
             </article>
             <article>
+                <p id="idTítuloFieldsetTipoDeEmail" class="classTítuloFieldset">Tipo de E-mail</p>
                 <form action="">
-                    <fieldset id="idFieldsetDadosPessoais">
-                        <legend>Tipo de E-mail</legend>
+                    <fieldset id="idFieldsetTipoDeEmail">
+                        <legend id="idLegendTipoDeEmail">Tipo de E-mail</legend>
                         <label for="idFunção">Função</label>
                         <select name="nameFunção" id="idFunção" title="Selecione a sua função."></select><br>
                         <label for="idTipo" class="classTipo">Tipo</label>
@@ -42,9 +43,10 @@
                         <button type="reset" id="idLimpaTipoDeEmail" class="classBotãoDeLimpeza" title="Limpa as seleções de função e de tipo.">Limpar Tipo de E-mail</button>
                     </fieldset>
                 </form>
+                <p id="idTítuloFieldsetDadosDoPedido" class="classTítuloFieldset">Dados do Pedido</p>
                 <form action="">
                     <fieldset id="idFieldsetDadosDoPedido">
-                        <legend>Dados do Pedido</legend>
+                        <legend id="idLegendDadosDoPedido">Dados do Pedido</legend>
                         <label for="idNomeRepresentante">Nome do Representante</label>
                         <input type="text" name="nameNomeRepresentante" id="idNomeRepresentante" size="15" placeholder="Representante" title="Muda ao selecionar o número do representante." readonly><br>
                         <label for="idNúmeroRepresentante">Número do Representante</label>
@@ -68,24 +70,27 @@
                         <button type="reset" id="idLimpaDadosDePedido" class="classBotãoDeLimpeza" title="Limpa os dados preenchidos do pedido.">Limpar Dados do Pedido</button>
                     </fieldset>
                 </form>
+                <p id="idTítuloFieldsetDadosDeCompra" class="classTítuloFieldset">Dados de Compra</p>
                 <form action="">
                     <fieldset id="idFieldsetDadosDeCompra">
-                        <legend>Dados de Compra</legend>
+                        <legend id="idLegendDadosDeCompra">Dados de Compra</legend>
                         <label for="idFornecedor">Fornecedor:</label>
                         <select name="nameFornecedor" id="idFornecedor" title="Selecione o fornecedor do material."></select><br>
                     </fieldset>
                 </form>
+                <p id="idTítuloFieldsetDadosPessoais" class="classTítuloFieldset">Dados Pessoais</p>
                 <form action="">
                     <fieldset id="idFieldsetDadosPessoais">
-                        <legend>Dados Pessoais</legend>
+                        <legend id="idLegendDadosPessoais">Dados Pessoais</legend>
                         <label for="idAssinatura">Assinatura de E-mail:</label>
                         <input type="file" name="nameAssinatura" accept="image/png" name="nameAssinatura" id="idAssinatura" title="Selecione a assinatura de e-mail nos seus arquivos."><br><hr>
                         <button type="reset" id="idLimpaDadosPessoais" class="classBotãoDeLimpeza" title="Limpa os dados pessoais.">Limpar Dados Pessoais</button>
                     </fieldset>
                 </form>
+                <p id="idTítuloFieldsetEmailsSelecionados" class="classTítuloFieldset">E-mails Selecionados</p>
                 <form action="">
                     <fieldset id="idFieldsetEmailsSelecionados">
-                        <legend>E-mails Selecionados</legend>
+                        <legend id="idLegendEmailsSelecionados">E-mails Selecionados</legend>
                         <details id="idEmailsPara">
                             <summary title='Clique para expandir e visualizar as opções de checbox para inserir no campo "Para".'>E-mails Para:</summary>
                         </details>
@@ -101,9 +106,10 @@
             </article>
         </section>
         <section>
+            <p id="idTítuloFieldsetResultado" class="classTítuloFieldset">Resultado</p>
             <form action="">
                 <fieldset id="idFieldsetResultado">
-                    <legend>Resultado</legend>
+                    <legend id="idLegendResultado">Resultado</legend>
                     <label for="idResultadoPara" title='Apresenta os e-mails para o campo "Para".' class="classLabelResultado">Para:</label><br>
                     <span id="idResultadoPara"></span><br>
                     <label for="idResultadoCc" title='Apresenta os e-mails para o campo "Cc".' class="classLabelResultado">Cc:</label><br>
@@ -122,9 +128,10 @@
                     <button type="reset" id="idLimpaResultado" class="classBotãoDeLimpeza" title="Limpa os resultados gerados.">Limpar Resultados</button>
                 </fieldset>
             </form>
+            <p id="idTítuloFieldsetExtras" class="classTítuloFieldset">Extras</p>
             <form action="">
                 <fieldset id="idFieldsetExtras">
-                    <legend>Extras</legend>
+                    <legend id="idLegendExtras">Extras</legend>
                     <label for="idBackgroundColor">Cor do Background:</label>
                     <input type="color" name="nameBackgroundColor" id="idBackgroundColor" value="#ffffff" list="idOptionCores" title="Selecione a cor do background."><br>
                     <label for="idTextoColor">Cor do Texto:</label>
@@ -134,16 +141,16 @@
                     <datalist id="idOptionCores"></datalist>
                     <label for="idLarguraDoFundo">Largura do Fundo:</label>
                     <input type="range" name="nameLarguraDoFundo" id="idLarguraDoFundo" value="400" min="300" max="1000" step="50" list="" title="Selecione a largura do fundo."><br>
+                    <button type="button" formtarget="_blank">
+                        <a id="idDúvidasDesenvolvedor" target="_blank" title="Clique para enviar um e-mail para o desenvolvedor da página.">Sugestões e Correções ao Desenvolvedor</a>
+                    </button><br>
+                    <button id="idExibeÁreaDeTransferência">Exibe Área de Transferência</button>
                     <button type="reset" id="idLimpaExtras" class="classBotãoDeLimpeza" title="Limpa os extras.">Limpar Extras</button>
                 </fieldset>
             </form>
         </section>
     </main>
     <footer>
-        <button type="button" formtarget="_blank">
-            <a id="idDúvidasDesenvolvedor" target="_blank" title="Clique para enviar um e-mail de dúvidas para o desenvolvedor da página.">Dúvidas Para o Desenvolvedor</a>
-        </button><br>
-        <button id="idExibeÁreaDeTransferência">Exibe Área de Transferência</button>
         <span>Desenvolvido por Henrique Carvalho de Souza</span>
         <img src="./Eletrofrio_75_Anos.png" id="idImagemFooter" class="classImagemExterna" alt="Eletrofrio 75 Anos"><br>
     </footer>

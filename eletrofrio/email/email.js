@@ -1,10 +1,15 @@
 /* Chamada de dados do HTML */
 
 let classTítuloInstruções = document.querySelectorAll(".classTítuloInstruções")
+let idTítuloFieldsetTipoDeEmail = document.querySelector("#idTítuloFieldsetTipoDeEmail")
+let idLegendTipoDeEmail = document.querySelector("#idLegendTipoDeEmail")
+let idFieldsetTipoDeEmail = document.querySelector("#idFieldsetTipoDeEmail")
 let idFunção = document.querySelector("#idFunção")
 let idTipo = document.querySelector("#idTipo")
 let classTipo = document.querySelectorAll(".classTipo")
 let idLimpaTipoDeEmail = document.querySelector("#idLimpaTipoDeEmail")
+let idTítuloFieldsetDadosDoPedido = document.querySelector("#idTítuloFieldsetDadosDoPedido")
+let idLegendDadosDoPedido = document.querySelector("#idLegendDadosDoPedido")
 let idFieldsetDadosDoPedido = document.querySelector("#idFieldsetDadosDoPedido")
 let idNomeRepresentante = document.querySelector("#idNomeRepresentante")
 let idNúmeroRepresentante = document.querySelector("#idNúmeroRepresentante")
@@ -18,11 +23,22 @@ let idFornecedor = document.querySelector("#idFornecedor")
 let idArquivo = document.querySelector("#idArquivo")
 let idRevisão = document.querySelector("#idRevisão")
 let idLimpaDadosDePedido = document.querySelector("#idLimpaDadosDePedido")
+let idTítuloFieldsetDadosDeCompra = document.querySelector("#idTítuloFieldsetDadosDeCompra")
+let idLegendDadosDeCompra = document.querySelector("#idLegendDadosDeCompra")
+let idFieldsetDadosDeCompra = document.querySelector("#idFieldsetDadosDeCompra")
+let idTítuloFieldsetDadosPessoais = document.querySelector("#idTítuloFieldsetDadosPessoais")
+let idLegendDadosPessoais = document.querySelector("#idLegendDadosPessoais")
+let idFieldsetDadosPessoais = document.querySelector("#idFieldsetDadosPessoais")
 let idLimpaDadosPessoais = document.querySelector("#idLimpaDadosPessoais")
+let idTítuloFieldsetEmailsSelecionados = document.querySelector("#idTítuloFieldsetEmailsSelecionados")
+let idLegendEmailsSelecionados = document.querySelector("#idLegendEmailsSelecionados")
+let idFieldsetEmailsSelecionados = document.querySelector("#idFieldsetEmailsSelecionados")
 let idEmailsPara = document.querySelector("#idEmailsPara")
 let idEmailsCc = document.querySelector("#idEmailsCc")
 let idEmailsBcc = document.querySelector("#idEmailsBcc")
 let idLimpaEmailSelecionado = document.querySelector("#idLimpaEmailSelecionado")
+let idTítuloFieldsetResultado = document.querySelector("#idTítuloFieldsetResultado")
+let idLegendResultado = document.querySelector("#idLegendResultado")
 let idFieldsetResultado = document.querySelector("#idFieldsetResultado")
 let idResultadoPara = document.querySelector("#idResultadoPara")
 let idResultadoCc = document.querySelector("#idResultadoCc")
@@ -33,6 +49,9 @@ let idApresentaEmail = document.querySelector("#idApresentaEmail")
 let idCopiaCorpoDoEmail = document.querySelector("#idCopiaCorpoDoEmail")
 let idGeraEmail = document.querySelector("#idGeraEmail")
 let idLimpaResultado = document.querySelector("#idLimpaResultado")
+let idTítuloFieldsetExtras = document.querySelector("#idTítuloFieldsetExtras")
+let idLegendExtras = document.querySelector("#idLegendExtras")
+let idFieldsetExtras = document.querySelector("#idFieldsetExtras")
 let idAssinatura = document.querySelector("#idAssinatura")
 let idDúvidasDesenvolvedor = document.querySelector("#idDúvidasDesenvolvedor")
 let idBackgroundColor = document.querySelector("#idBackgroundColor")
@@ -48,6 +67,7 @@ let inputTagSelector = document.querySelectorAll("input")
 let aTagSelector = document.querySelectorAll("a")
 let classLabelResultado = document.querySelectorAll(".classLabelResultado")
 let classBotãoDeLimpeza = document.querySelectorAll(".classBotãoDeLimpeza")
+let classTítuloFieldset = document.querySelectorAll(".classTítuloFieldset")
 
 /* Variáveis para facilitar a escrita de funções  */
 
@@ -71,6 +91,7 @@ let styleAttribute = "style"
 let displayNone = "none"
 let displayInlineBlock = "inline-block"
 let displayBlock = "block"
+let displayFlex = "flex"
 
 /* Variáveis para facilitar a troca de textos repetitivos  */
 
@@ -116,6 +137,7 @@ let supervisorDeObraFunção = "Supervisor de Obra"
 let tiFunção = "TI"
 
 let acompanhamentoSubGrupo = "Acompanhamento"
+let solicitaçãoSubGrupo = "Solicitação"
 let correçãoSubGrupo = "Correção"
 let alinhamentoDePrioridadesSubGrupo = "Alinhamento de Prioridades"
 let alteraçãoSubGrupo = "Alteração"
@@ -123,7 +145,7 @@ let compraSubGrupo = "Compra"
 let cotaçãoSubGrupo = "Cotação"
 let dúvidaSubGrupo = "Dúvida"
 let encaminharSubGrupo = "Encaminhar"
-let envioDeOrdemDeCompraSubGrupo = "Envio de Ordem de Compra"
+let ordemDeCompraSubGrupo = "Ordem de Compra"
 let liberaçãoSubGrupo = "Liberação"
 let câmarasSubGrupo = "Câmaras"
 let projetoSubGrupo = "Projeto"
@@ -157,9 +179,11 @@ let cadastro = [
     {função:coordenadorRegionalFunção, número:"32709", nome:"Wagner Rangel", emailComercial:"wagner@eletrofrio.com.br"},
     {função:engenheiroFunção, número:"41236", nome:"Cassio", emailComercial:"cassio@eletrofrio.com.br"},
     {função:engenheiroFunção, número:"52048", nome:"Danielly Fabem", emailComercial:"danielly.fabem@eletrofrio.com.br"},
+    {função:engenheiroFunção, número:"31419", nome:"Fabiano de Mello", emailComercial:"mello@eletrofrio.com.br"},
     {função:engenheiroFunção, número:"40833", nome:"Juliano", emailComercial:"juliano@eletrofrio.com.br"},
     {função:engenheiroFunção, número:"36445", nome:"Leandro Dornelas", emailComercial:"dornelas@eletrofrio.com.br"},
     {função:engenheiroFunção, número:"570", nome:"Luiz Fernando Alves", emailComercial:"luiz.alves@eletrofrio.com.br"},
+    {função:engenheiroFunção, número:"105816", nome:"Rafael Ribeiro", emailComercial:"rafael.ribeiro@eletrofrio.com.br"},
     {função:executivoFunção, número:"56690", nome:"Bruno Garcia", emailComercial:"bruno.garcia@eletrofrio.com.br"},
     {função:executivoFunção, número:"41597", nome:"Carlos Margon", emailComercial:"carlos.margon@eletrofrio.com.br"},
     {função:executivoFunção, número:"31745", nome:"Rubens", emailComercial:"rubens@eletrofrio.com.br"},
@@ -182,12 +206,15 @@ let cadastro = [
     {função:fornecedorFunção, número:"nnn", nome:"Armacell", emailComercial:"vanuza.silva@armacell.com; natalia.schantz@armacell.com; arllon.brito@armacell.com; priscila.baioco@armacell.com; rodrigo.cavalheiro@armacell.com"},
     {função:gerenteFunção, número:"31141", nome:"Ana Paula", emailComercial:"anapaula@eletrofrio.com.br"},
     {função:gerenteFunção, número:"105882", nome:"André Francisco", emailComercial:"andre.francisco@eletrofrio.com.br"},
+    {função:gerenteFunção, número:"45975", nome:"Clecio", emailComercial:"clecio.salviano@eletrofrio.com.br"},
     {função:gerenteFunção, número:"32083", nome:"Cristiane", emailComercial:"cristiane@eletrofrio.com.br"},
     {função:gerenteFunção, número:"31796", nome:"Edison", emailComercial:"edison@eletrofrio.com.br"},
     {função:gerenteFunção, número:"37140", nome:"Gabriel Antonio Marques", emailComercial:"gabriel@eletrofrio.com.br"},
     {função:gerenteFunção, número:"23542", nome:"Hugo Pons", emailComercial:"hugo@eletrofrio.com.br"},
     {função:gerenteFunção, número:"51149", nome:"Ivan Vieira", emailComercial:"ivan.vieira@eletrofrio.com.br"},
     {função:gerenteFunção, número:"51734", nome:"Joaquim Rosa", emailComercial:"joaquim.rosa@eletrofrio.com.br"},
+    {função:gerenteFunção, número:"36364", nome:"Luiz Nachbar", emailComercial:"luiz_nachbar@eletrofrio.com.br"},
+    {função:gerenteFunção, número:"nnn", nome:"José Scallet", emailComercial:"scallet@eletrofrio.com.br"},
     {função:gerenteFunção, número:"nnn", nome:"Mitidieri", emailComercial:"mitidieri@eletrofrio.com.br"},
     {função:gerenteFunção, número:"31443", nome:"Vanderlei", emailComercial:"vanderlei@eletrofrio.com.br"},
     {função:grupoFunção, número:"Group01", nome:"Continuum - Planilhamento para Produção", emailComercial:"PLANIC.F@uhygb1yu6fxo7a.onmicrosoft.com"},
@@ -206,63 +233,63 @@ let cadastro = [
     {função:planilhamentoFunção, número:"105962", nome:"Amarildo", emailComercial:"amarildo.cruz@eletrofrio.com.br"},
     {função:planilhamentoFunção, número:"52899", nome:"Gabriel Castilho de Aguiar", emailComercial:"gabriel.aguiar@eletrofrio.com.br"},
     {função:planilhamentoFunção, número:"500016", nome:"Henrique", emailComercial:"henrique.souza@eletrofrio.com.br"},
-    {função:representanteFunção, número:"001", nome:"Venda Direta Curitiba", emailComercial:"(VERIFICAR O RESPONSÁVEL)", gerente1:"Cristiane", gerente2:"", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Paulo Silva", supervisorDeObra2:""},
-    {função:representanteFunção, número:"004", nome:"Tecnimet", emailComercial:"angel.gallagher@tecnimet.com; electromecanica@tecnimet.com; rodney.roman@tecnimet.com, marcosm@tecnimet.com; javier.escobar@tecnimet.com; div.comercial@tecnimet.com", gerente1:"Gabriel Antonio Marques", gerente2:"", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Luiz Fernando Alves", coordenadorRegional2:"", supervisorDeObra1:"Luiz Fernando Alves", supervisorDeObra2:""},
-    {função:representanteFunção, número:"011", nome:"FG", emailComercial:"larissa@fgrefrigeracao.com.br; projetos@fgrefrigeracao.com.br; projetos01@fgrefrigeracao.com.br; projetos02@fgrefrigeracao.com.br; projetos03@fgrefrigeracao.com.br; projetos04@fgrefrigeracao.com.br; nathan@fgrefrigeracao.com.br", gerente1:"Ana Paula", gerente2:"", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Cláudio José", coordenadorRegional2:"", supervisorDeObra1:"Cláudio José", supervisorDeObra2:""},
-    {função:representanteFunção, número:"016", nome:"Lobo", emailComercial:"loboinstalacoescomerciais@yahoo.com.br; waldircf2@gmail.com", gerente1:"André Francisco", gerente2:"", engenheiro1:"Leandro Dornelas", engenheiro2:"", coordenadorRegional1:"Leandro Vargas", coordenadorRegional2:"", supervisorDeObra1:"Damião Conceição", supervisorDeObra2:""},
-    {função:representanteFunção, número:"018", nome:"Silva Filho", emailComercial:"silva.filho@ymail.com; crystianno.silva@gmail.com", gerente1:"Vanderlei", gerente2:"", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Araujo", supervisorDeObra2:"Hugo Pons"},
-    {função:representanteFunção, número:"024", nome:"Mallet", emailComercial:"silvio@mallet.net.br; helcio@mallet.net.br; adm@mallet.net.br; leonardo@mallet.net.br", gerente1:"Vanderlei", gerente2:"", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Julio Cesar", supervisorDeObra2:""},
-    {função:representanteFunção, número:"035", nome:"Clecio", emailComercial:"clecio.salviano@eletrofrio.com.br", gerente1:"Mitidieri", gerente2:"", engenheiro1:"Danielly Fabem", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"José Antonio", supervisorDeObra2:""},
-    {função:representanteFunção, número:"057", nome:"Refripan", emailComercial:"rafernandomenezes@yahoo.com.br; nidia.roza@hotmail.com; projetos@refripan.com", gerente1:"André Francisco", gerente2:"", engenheiro1:"Leandro Dornelas", engenheiro2:"", coordenadorRegional1:"Leandro Vargas", coordenadorRegional2:"", supervisorDeObra1:"Eder Cavalcante", supervisorDeObra2:""},
-    {função:representanteFunção, número:"062", nome:"M Weidner", emailComercial:"marceloeletrofrio@gmail.com; marceloweidner@globo.com", gerente1:"Joaquim Rosa", gerente2:"Edison", engenheiro1:"Danielly Fabem", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"José Antonio", supervisorDeObra2:""},
-    {função:representanteFunção, número:"067", nome:"Tortelli", emailComercial:"projetos1@torteli.com.br; vendas@torteli.com.br; torteli@torteli.com.br", gerente1:"Hugo Pons", gerente2:"", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"André Martini", supervisorDeObra2:""},
-    {função:representanteFunção, número:"070", nome:"Venda Direta São Paulo", emailComercial:"(VERIFICAR O RESPONSÁVEL)", gerente1:"", gerente2:"", engenheiro1:"", engenheiro2:"", coordenadorRegional1:"", coordenadorRegional2:"", supervisorDeObra1:"", supervisorDeObra2:""},
-    {função:representanteFunção, número:"077", nome:"Llampe Frio PR", emailComercial:"kaua@llampefrio.com.br; contato@llampefrio.com.br; projetos2@llampefrio.com.br; projetos3@llampefrio.com.br; projetos4@llampefrio.com.br; samantha@llampefrio.com.br; depro@llampefrio.com.br; ernesto@llampefrio.com.br; lfandre@llampefrio.com.br; llampefrio@llampefrio.com.br; marcos@llampefrio.com.br", gerente1:"Hugo Pons", gerente2:"", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Vitor Batista", supervisorDeObra2:""},
-    {função:representanteFunção, número:"082", nome:"HB", emailComercial:"hb-bene@uol.com.br", gerente1:"Joaquim Rosa", gerente2:"Edison", engenheiro1:"Danielly Fabem", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"Fabio Ribeiro", supervisorDeObra2:""},
-    {função:representanteFunção, número:"087", nome:"Baldissera", emailComercial:"baldissera@redesul.com.br; gilmar_west@hotmail.com", gerente1:"Hugo Pons", gerente2:"", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Rafael Povoa", supervisorDeObra2:""},
-    {função:representanteFunção, número:"093", nome:"Gurgel", emailComercial:"gurgeldf@gmail.com; gurgelrepresentacoes@hotmail.com; gurgel61@terra.com.br", gerente1:"Vanderlei", gerente2:"", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Julio Cesar", supervisorDeObra2:""},
-    {função:representanteFunção, número:"094", nome:"Luiz Nachbar", emailComercial:"luiz_nachbar@eletrofrio.com.br", gerente1:"Mitidieri", gerente2:"", engenheiro1:"Danielly Fabem", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"José Antonio", supervisorDeObra2:""},
-    {função:representanteFunção, número:"096", nome:"Kalliel", emailComercial:"kallielprojetos@gmail.com", gerente1:"Ivan Vieira", gerente2:"", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Ivan Vieira", coordenadorRegional2:"", supervisorDeObra1:"Eduardo Gandos", supervisorDeObra2:"Adriano Franco"},
-    {função:representanteFunção, número:"097", nome:"DE", emailComercial:"vendas@deequipamentos.com.br; daniel@deequipamentos.com.br; projetos@deequipamentos.com.br; projetos2@deequipamentos.com.br; projetos3@deequipamentos.com.br", gerente1:"André Francisco", gerente2:"", engenheiro1:"Leandro Dornelas", engenheiro2:"", coordenadorRegional1:"Leandro Vargas", coordenadorRegional2:"", supervisorDeObra1:"Eder Cavalcante", supervisorDeObra2:""},
-    {função:representanteFunção, número:"101", nome:"Da Roz", emailComercial:"renatabartel@darozrepresentacoes.com.br; douglas@darozrepresentacoes.com.br; darozrep@terra.com.br; darozrep@gmail.com", gerente1:"Joaquim Rosa", gerente2:"Edison", engenheiro1:"Danielly Fabem", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"José Antonio", supervisorDeObra2:""},
-    {função:representanteFunção, número:"102", nome:"Superbrasil", emailComercial:"comercial2@superb.com.br; luiz@superb.com.br; comercial@superb.com.br; sac@superb.com.br", gerente1:"Hugo Pons", gerente2:"", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Paulo Silva", supervisorDeObra2:""},
-    {função:representanteFunção, número:"106", nome:"Vitoria", emailComercial:"jeffersondsrf@uol.com.br; rafael.lnery@gmail.com; jucelito@msn.com", gerente1:"André Francisco", gerente2:"", engenheiro1:"Leandro Dornelas", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"Vlamir", supervisorDeObra2:""},
-    {função:representanteFunção, número:"112", nome:"Ronald", emailComercial:"ronaldioliveira@ronaldmaquinas.com.br; mariacardoso@ronaldmaquinas.com.br; anaoliveira@ronaldmaquinas.com.br; yasmimoliveira@ronaldmaquinas.com.br; orlandomazoni@ronaldmaquinas.com.br; leo.brandao.arq@gmail.com; ronaldioliveira@ronaldmaquinas.com.br", gerente1:"Vanderlei", gerente2:"", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Araujo", supervisorDeObra2:"Hugo Pons"},
-    {função:representanteFunção, número:"114", nome:"Scallet", emailComercial:"scallet@eletrofrio.com.br; carla.sp@eletrofrio.com.br", gerente1:"", gerente2:"", engenheiro1:"", engenheiro2:"", coordenadorRegional1:"", coordenadorRegional2:"", supervisorDeObra1:"", supervisorDeObra2:""},
-    {função:representanteFunção, número:"115", nome:"Guide", emailComercial:"cirilo@guidisc.com.br; projetos@guidisc.com.br; rinaldo@guidisc.com.br; guidi@guidisc.com.br", gerente1:"Hugo Pons", gerente2:"", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Luiz Petri", supervisorDeObra2:""},
-    {função:representanteFunção, número:"118", nome:"Fast Sul", emailComercial:"mbariano@fastsul.com; contato@fastsul.com; antonio.bariano@fastsul.com", gerente1:"André Francisco", gerente2:"", engenheiro1:"Leandro Dornelas", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"Vlamir", supervisorDeObra2:""},
-    {função:representanteFunção, número:"120", nome:"Rio Fast", emailComercial:"riofasteletro@yahoo.com.br; gabriel@amorimequipamentosrj.com; fausto@amorimequipamentosrj.com; riofasteletro@yahoo.com.br", gerente1:"Ana Paula", gerente2:"", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Cláudio José", coordenadorRegional2:"", supervisorDeObra1:"Cláudio José", supervisorDeObra2:""},
-    {função:representanteFunção, número:"121", nome:"Eletrofast", emailComercial:"vinicius@eletrofastrj.com; vilmar@eletrofastrj.com; diego@eletrofastrj.com; pedro@eletrofastrj.com; eletrofast@yahoo.com.br; luizamorimp@yahoo.com.br", gerente1:"Ana Paula", gerente2:"", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Cláudio José", coordenadorRegional2:"", supervisorDeObra1:"Cláudio José", supervisorDeObra2:""},
-    {função:representanteFunção, número:"182", nome:"Afonso Araujo", emailComercial:"afonsovargasaraujo@gmail.com", gerente1:"Vanderlei", gerente2:"", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Araujo", supervisorDeObra2:"Hugo Pons"},
-    {função:representanteFunção, número:"187", nome:"ETCO", emailComercial:"etcorep@terra.com.br; edseu@terra.com.br", gerente1:"Vanderlei", gerente2:"", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Julio Cesar", supervisorDeObra2:""},
-    {função:representanteFunção, número:"189", nome:"Refriged", emailComercial:"ednilson.santos@uol.com.br; ednilson.eletrofrio@gmail.com", gerente1:"Joaquim Rosa", gerente2:"Edison", engenheiro1:"Danielly Fabem", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"José Antonio", supervisorDeObra2:""},
-    {função:representanteFunção, número:"190", nome:"A&F", emailComercial:"renan@aefbolsadenegocios.com.br; renato@aefbolsadenegocios.com.br; fernando@aefbolsadenegocios.com.br; victor@aefbolsadenegocios.com.br; wilian@aefbolsadenegocios.com.br; roni@aefbolsadenegocios.com.br; victor@aefbolsadenegocios.com.br", gerente1:"Vanderlei", gerente2:"", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Julio Cesar", supervisorDeObra2:""},
-    {função:representanteFunção, número:"191", nome:"Produtiva", emailComercial:"suporte@produtivarepresentacoes.com.br; michel@produtivarepresentacoes.com.br", gerente1:"Hugo Pons", gerente2:"", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"André Martini", supervisorDeObra2:""},
-    {função:representanteFunção, número:"193", nome:"Llampe Frio SC", emailComercial:"kaua@llampefrio.com.br; contato@llampefrio.com.br; projetos2@llampefrio.com.br; projetos3@llampefrio.com.br; projetos4@llampefrio.com.br; samantha@llampefrio.com.br; depro@llampefrio.com.br; ernesto@llampefrio.com.br; lfandre@llampefrio.com.br; llampefrio@llampefrio.com.br; marcos@llampefrio.com.br", gerente1:"Hugo Pons", gerente2:"", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Luiz Petri", supervisorDeObra2:""},
-    {função:representanteFunção, número:"195", nome:"DNC Dealer", emailComercial:"projetos@dealerrs.com.br; dinar@dealerrs.com.br", gerente1:"Hugo Pons", gerente2:"", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Rafael Povoa", supervisorDeObra2:""},
-    {função:representanteFunção, número:"196", nome:"Brites", emailComercial:"vendas@brites.srv.br", gerente1:"André Francisco", gerente2:"", engenheiro1:"Leandro Dornelas", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"Paulo Silva", supervisorDeObra2:""},
-    {função:representanteFunção, número:"198", nome:"Euro", emailComercial:"equipamentoseuro@gmail.com; jacksonkiatkoski@gmail.com", gerente1:"Hugo Pons", gerente2:"", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Luiz Petri", supervisorDeObra2:""},
-    {função:representanteFunção, número:"199", nome:"Erco", emailComercial:"mario.erco1@gmail.com", gerente1:"Ivan Vieira", gerente2:"", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Ivan Vieira", coordenadorRegional2:"", supervisorDeObra1:"Eduardo Gandos", supervisorDeObra2:"Adriano Franco"},
-    {função:representanteFunção, número:"202", nome:"Eder Mathias", emailComercial:"eder.mathias@uol.com.br", gerente1:"Joaquim Rosa", gerente2:"Edison", engenheiro1:"Danielly Fabem", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"Fabio Ribeiro", supervisorDeObra2:""},
-    {função:representanteFunção, número:"203", nome:"HCM", emailComercial:"anderson@hcm.com.br; hcm@hcm.com.br; hamilton@hcm.com.br", gerente1:"Vanderlei", gerente2:"", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Julio Cesar", supervisorDeObra2:""},
-    {função:representanteFunção, número:"207", nome:"Brava", emailComercial:"eac_cunha@yahoo.com.br; joaogabriel_p@hotmail.com; eac_cunha@yahoo.com.br", gerente1:"Ana Paula", gerente2:"", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Cláudio José", coordenadorRegional2:"", supervisorDeObra1:"Cláudio José", supervisorDeObra2:""},
-    {função:representanteFunção, número:"213", nome:"Mercato", emailComercial:"mercato.projeto@gmail.com; denis@mercatorepresentacoes.com.br", gerente1:"Hugo Pons", gerente2:"", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Rafael Povoa", supervisorDeObra2:""},
-    {função:representanteFunção, número:"217", nome:"Cold Import", emailComercial:"jlescano@coldimport.com.pe; hguanillo@coldimport.com.pe; gpucuhuayla@coldimport.com.pe; fvejarano@coldimport.com.pe", gerente1:"Gabriel Antonio Marques", gerente2:"", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Luiz Fernando Alves", coordenadorRegional2:"", supervisorDeObra1:"Luiz Fernando Alves", supervisorDeObra2:""},
-    {função:representanteFunção, número:"218", nome:"Cencosud", emailComercial:"", gerente1:"Gabriel Antonio Marques", gerente2:"", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Luiz Fernando Alves", coordenadorRegional2:"", supervisorDeObra1:"Luiz Fernando Alves", supervisorDeObra2:""},
-    {função:representanteFunção, número:"223", nome:"Hercold", emailComercial:"fastlest@uol.com.br; fastlest@icloud.com", gerente1:"Joaquim Rosa", gerente2:"Edison", engenheiro1:"Danielly Fabem", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"José Antonio", supervisorDeObra2:""},
-    {função:representanteFunção, número:"226", nome:"EC", emailComercial:"record@record-maq.com.br; projetos@record-maq.com.br; leonardomoura@record-maq.com.br; silviogoncales@record-maq.com.br; diegoreis@record-maq.com.br; evanildo@record-maq.com.br", gerente1:"André Francisco", gerente2:"", engenheiro1:"Leandro Dornelas", engenheiro2:"", coordenadorRegional1:"Leandro Vargas", coordenadorRegional2:"", supervisorDeObra1:"Fabio Ribeiro", supervisorDeObra2:""},
-    {função:representanteFunção, número:"227", nome:"Edeval (MIL)", emailComercial:"edevalvendas@gmail.com", gerente1:"Vanderlei", gerente2:"", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Julio Cesar", supervisorDeObra2:""},
-    {função:representanteFunção, número:"228", nome:"JPC", emailComercial:"alexandre@acequipamentos.com.br; jp-candido@hotmail.com; projetos.acequipamentos@gmail.com; alexandre@pontodarefrigeracao.com.br", gerente1:"André Francisco", gerente2:"", engenheiro1:"Leandro Dornelas", engenheiro2:"", coordenadorRegional1:"Leandro Vargas", coordenadorRegional2:"", supervisorDeObra1:"Eder Cavalcante", supervisorDeObra2:""},
-    {função:representanteFunção, número:"229", nome:"Wesley Dal Pozzo", emailComercial:"engenharia_dlpz@outlook.com; dlpz@onda.com.br; walace_dlpz@hotmail.com ", gerente1:"Hugo Pons", gerente2:"", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Vitor Batista", supervisorDeObra2:""},
-    {função:representanteFunção, número:"230", nome:"Ergosystem", emailComercial: "ergosystem.comercial@outlook.com; ergosystem.comercial1@outlook.com", gerente1:"Joaquim Rosa", gerente2:"Edison", engenheiro1:"Danielly Fabem", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"Fabio Ribeiro", supervisorDeObra2:""},
-    {função:representanteFunção, número:"231", nome:"SM", emailComercial:"representacoesbelz@gmail.com", gerente1:"Vanderlei", gerente2:"", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Araujo", supervisorDeObra2:"Hugo Pons"},
-    {função:representanteFunção, número:"232", nome:"S&I", emailComercial:"carol@siautomacao.com.br; geraldo@siautomacao.com.br; silvia@siautomacao.com.br; alexandre@siautomacao.com.br", gerente1:"Ivan Vieira", gerente2:"", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Ivan Vieira", coordenadorRegional2:"", supervisorDeObra1:"Eduardo Gandos", supervisorDeObra2:"Adriano Franco"},
-    {função:representanteFunção, número:"233", nome:"Control y Sostenibilidad", emailComercial:"", gerente1:"Gabriel Antonio Marques", gerente2:"", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Luiz Fernando Alves", coordenadorRegional2:"", supervisorDeObra1:"Luiz Fernando Alves", supervisorDeObra2:""},
-    {função:representanteFunção, número:"234", nome:"Aarci", emailComercial:"juan.avila@aarci.co; info@aarci.co; elkin.arrieta@aarci.co", gerente1:"Gabriel Antonio Marques", gerente2:"", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Luiz Fernando Alves", coordenadorRegional2:"", supervisorDeObra1:"Luiz Fernando Alves", supervisorDeObra2:""},
-    {função:representanteFunção, número:"236", nome:"T&G", emailComercial:"filipe.lisbooa@yahoo.com.br; ed_wanderson@yahoo.com.br", gerente1:"Ana Paula", gerente2:"", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Cláudio José", coordenadorRegional2:"", supervisorDeObra1:"Cláudio José", supervisorDeObra2:""},
-    {função:representanteFunção, número:"237", nome:"Rematec", emailComercial:"roger@rematecvarejo.com.br; alessandra@rematecvarejo.com.br; ariele@rematecvarejo.com.br; orcamentos@rematecvarejo.com.br; projetos@rematecvarejo.com.br; alessandra@remaqbh.com.br; admprojetos@remaqbh.com.br", gerente1:"Ivan Vieira", gerente2:"", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Ivan Vieira", coordenadorRegional2:"", supervisorDeObra1:"Eduardo Gandos", supervisorDeObra2:"Adriano Franco"},
-    {função:representanteFunção, número:"238", nome:"FMG", emailComercial:"projetos.fmg@hotmail.com; fmg_representacoes@hotmail.com", gerente1:"Hugo Pons", gerente2:"", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Paulo Silva", supervisorDeObra2:""},
-    {função:representanteFunção, número:"239", nome:"PSK", emailComercial:"", gerente1:"", gerente2:"", engenheiro1:"", engenheiro2:"", coordenadorRegional1:"", coordenadorRegional2:"", supervisorDeObra1:"", supervisorDeObra2:""},
+    {função:representanteFunção, número:"001", nome:"Venda Direta Curitiba", emailComercial:"(VERIFICAR O RESPONSÁVEL)", analista:"", gerente:"Cristiane", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Paulo Silva", supervisorDeObra2:""},
+    {função:representanteFunção, número:"004", nome:"Tecnimet", emailComercial:"angel.gallagher@tecnimet.com; electromecanica@tecnimet.com; rodney.roman@tecnimet.com, marcosm@tecnimet.com; javier.escobar@tecnimet.com; div.comercial@tecnimet.com", analista:"Luiz Eduardo", gerente:"Gabriel Antonio Marques", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Luiz Fernando Alves", coordenadorRegional2:"", supervisorDeObra1:"Luiz Fernando Alves", supervisorDeObra2:""},
+    {função:representanteFunção, número:"011", nome:"FG", emailComercial:"larissa@fgrefrigeracao.com.br; projetos@fgrefrigeracao.com.br; projetos01@fgrefrigeracao.com.br; projetos02@fgrefrigeracao.com.br; projetos03@fgrefrigeracao.com.br; projetos04@fgrefrigeracao.com.br; nathan@fgrefrigeracao.com.br", analista:"Alexandre Ribeiro", gerente:"Ana Paula", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Cláudio José", coordenadorRegional2:"", supervisorDeObra1:"Cláudio José", supervisorDeObra2:""},
+    {função:representanteFunção, número:"016", nome:"Lobo", emailComercial:"loboinstalacoescomerciais@yahoo.com.br; waldircf2@gmail.com", analista:"Suelen", gerente:"André Francisco", engenheiro1:"Leandro Dornelas", engenheiro2:"", coordenadorRegional1:"Leandro Vargas", coordenadorRegional2:"", supervisorDeObra1:"Damião Conceição", supervisorDeObra2:""},
+    {função:representanteFunção, número:"018", nome:"Silva Filho", emailComercial:"silva.filho@ymail.com; crystianno.silva@gmail.com", analista:"Luiz Eduardo", gerente:"Vanderlei", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Araujo", supervisorDeObra2:"Hugo Pons"},
+    {função:representanteFunção, número:"024", nome:"Mallet", emailComercial:"silvio@mallet.net.br; helcio@mallet.net.br; adm@mallet.net.br; leonardo@mallet.net.br", analista:"Luiz Eduardo", gerente:"Vanderlei", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Julio Cesar", supervisorDeObra2:""},
+    {função:representanteFunção, número:"035", nome:"Clecio", emailComercial:"clecio.salviano@eletrofrio.com.br", analista:"Nilson", gerente:"Clecio", engenheiro1:"Danielly Fabem", engenheiro2:"Mitidieri", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"José Antonio", supervisorDeObra2:""},
+    {função:representanteFunção, número:"057", nome:"Refripan", emailComercial:"rafernandomenezes@yahoo.com.br; nidia.roza@hotmail.com; projetos@refripan.com", analista:"Suelen", gerente:"André Francisco", engenheiro1:"Leandro Dornelas", engenheiro2:"", coordenadorRegional1:"Leandro Vargas", coordenadorRegional2:"", supervisorDeObra1:"Eder Cavalcante", supervisorDeObra2:""},
+    {função:representanteFunção, número:"062", nome:"M Weidner", emailComercial:"marceloeletrofrio@gmail.com; marceloweidner@globo.com", analista:"Nilson", gerente:"Joaquim Rosa", engenheiro1:"Danielly Fabem", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"José Antonio", supervisorDeObra2:""},
+    {função:representanteFunção, número:"067", nome:"Tortelli", emailComercial:"projetos1@torteli.com.br; vendas@torteli.com.br; torteli@torteli.com.br", analista:"João Cláudio", gerente:"Hugo Pons", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"André Martini", supervisorDeObra2:""},
+    {função:representanteFunção, número:"070", nome:"Venda Direta São Paulo", emailComercial:"(VERIFICAR O RESPONSÁVEL)", analista:"", gerente:"", engenheiro1:"", engenheiro2:"", coordenadorRegional1:"", coordenadorRegional2:"", supervisorDeObra1:"", supervisorDeObra2:""},
+    {função:representanteFunção, número:"077", nome:"Llampe Frio PR", emailComercial:"kaua@llampefrio.com.br; contato@llampefrio.com.br; projetos2@llampefrio.com.br; projetos3@llampefrio.com.br; projetos4@llampefrio.com.br; samantha@llampefrio.com.br; depro@llampefrio.com.br; ernesto@llampefrio.com.br; lfandre@llampefrio.com.br; llampefrio@llampefrio.com.br; marcos@llampefrio.com.br", analista:"João Cláudio", gerente:"Hugo Pons", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Vitor Batista", supervisorDeObra2:""},
+    {função:representanteFunção, número:"082", nome:"HB", emailComercial:"hb-bene@uol.com.br", analista:"Nilson", gerente:"Edison", engenheiro1:"Danielly Fabem", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"Fabio Ribeiro", supervisorDeObra2:""},
+    {função:representanteFunção, número:"087", nome:"Baldissera", emailComercial:"baldissera@redesul.com.br; gilmar_west@hotmail.com", analista:"João Cláudio", gerente:"Hugo Pons", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Rafael Povoa", supervisorDeObra2:""},
+    {função:representanteFunção, número:"093", nome:"Gurgel", emailComercial:"gurgeldf@gmail.com; gurgelrepresentacoes@hotmail.com; gurgel61@terra.com.br", analista:"Luiz Eduardo", gerente:"Vanderlei", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Julio Cesar", supervisorDeObra2:""},
+    {função:representanteFunção, número:"094", nome:"Luiz Nachbar", emailComercial:"luiz_nachbar@eletrofrio.com.br", analista:"Nilson", gerente:"Luiz Nachbar", engenheiro1:"Danielly Fabem", engenheiro2:"Mitidieri", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"José Antonio", supervisorDeObra2:""},
+    {função:representanteFunção, número:"096", nome:"Kalliel", emailComercial:"kallielprojetos@gmail.com", analista:"Alexandre Ribeiro", gerente:"Ivan Vieira", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Ivan Vieira", coordenadorRegional2:"", supervisorDeObra1:"Eduardo Gandos", supervisorDeObra2:"Adriano Franco"},
+    {função:representanteFunção, número:"097", nome:"DE", emailComercial:"vendas@deequipamentos.com.br; daniel@deequipamentos.com.br; projetos@deequipamentos.com.br; projetos2@deequipamentos.com.br; projetos3@deequipamentos.com.br", analista:"Suelen", gerente:"André Francisco", engenheiro1:"Leandro Dornelas", engenheiro2:"", coordenadorRegional1:"Leandro Vargas", coordenadorRegional2:"", supervisorDeObra1:"Eder Cavalcante", supervisorDeObra2:""},
+    {função:representanteFunção, número:"101", nome:"Da Roz", emailComercial:"renatabartel@darozrepresentacoes.com.br; douglas@darozrepresentacoes.com.br; darozrep@terra.com.br; darozrep@gmail.com", analista:"Nilson", gerente:"Joaquim Rosa", engenheiro1:"Danielly Fabem", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"José Antonio", supervisorDeObra2:""},
+    {função:representanteFunção, número:"102", nome:"Superbrasil", emailComercial:"comercial2@superb.com.br; luiz@superb.com.br; comercial@superb.com.br; sac@superb.com.br", analista:"João Cláudio", gerente:"Hugo Pons", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Paulo Silva", supervisorDeObra2:""},
+    {função:representanteFunção, número:"106", nome:"Vitoria", emailComercial:"jeffersondsrf@uol.com.br; rafael.lnery@gmail.com; jucelito@msn.com", analista:"Suelen", gerente:"André Francisco", engenheiro1:"Leandro Dornelas", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"Vlamir", supervisorDeObra2:""},
+    {função:representanteFunção, número:"112", nome:"Ronald", emailComercial:"ronaldioliveira@ronaldmaquinas.com.br; mariacardoso@ronaldmaquinas.com.br; anaoliveira@ronaldmaquinas.com.br; yasmimoliveira@ronaldmaquinas.com.br; orlandomazoni@ronaldmaquinas.com.br; leo.brandao.arq@gmail.com; ronaldioliveira@ronaldmaquinas.com.br", analista:"Luiz Eduardo", gerente:"Vanderlei", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Araujo", supervisorDeObra2:"Hugo Pons"},
+    {função:representanteFunção, número:"114", nome:"Scallet", emailComercial:"scallet@eletrofrio.com.br; carla.sp@eletrofrio.com.br", analista:"Nilson", gerente:"José Scallet", engenheiro1:"Rafael Ribeiro", engenheiro2:"Danielly Fabem", coordenadorRegional1:"", coordenadorRegional2:"", supervisorDeObra1:"", supervisorDeObra2:""},
+    {função:representanteFunção, número:"115", nome:"Guide", emailComercial:"cirilo@guidisc.com.br; projetos@guidisc.com.br; rinaldo@guidisc.com.br; guidi@guidisc.com.br", analista:"João Cláudio", gerente:"Hugo Pons", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Luiz Petri", supervisorDeObra2:""},
+    {função:representanteFunção, número:"118", nome:"Fast Sul", emailComercial:"mbariano@fastsul.com; contato@fastsul.com; antonio.bariano@fastsul.com", analista:"Suelen", gerente:"André Francisco", engenheiro1:"Leandro Dornelas", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"Vlamir", supervisorDeObra2:""},
+    {função:representanteFunção, número:"120", nome:"Rio Fast", emailComercial:"riofasteletro@yahoo.com.br; gabriel@amorimequipamentosrj.com; fausto@amorimequipamentosrj.com; riofasteletro@yahoo.com.br", analista:"Alexandre Ribeiro", gerente:"Ana Paula", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Cláudio José", coordenadorRegional2:"", supervisorDeObra1:"Cláudio José", supervisorDeObra2:""},
+    {função:representanteFunção, número:"121", nome:"Eletrofast", emailComercial:"vinicius@eletrofastrj.com; vilmar@eletrofastrj.com; diego@eletrofastrj.com; pedro@eletrofastrj.com; eletrofast@yahoo.com.br; luizamorimp@yahoo.com.br", analista:"Alexandre Ribeiro", gerente:"Ana Paula", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Cláudio José", coordenadorRegional2:"", supervisorDeObra1:"Cláudio José", supervisorDeObra2:""},
+    {função:representanteFunção, número:"182", nome:"Afonso Araujo", emailComercial:"afonsovargasaraujo@gmail.com", analista:"Luiz Eduardo", gerente:"Vanderlei", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Araujo", supervisorDeObra2:"Hugo Pons"},
+    {função:representanteFunção, número:"187", nome:"ETCO", emailComercial:"etcorep@terra.com.br; edseu@terra.com.br; edseu@etcorep.com.br; etcorep@etcorep.com.br", analista:"João Cláudio", gerente:"Vanderlei", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Julio Cesar", supervisorDeObra2:""},
+    {função:representanteFunção, número:"189", nome:"Refriged", emailComercial:"ednilson.santos@uol.com.br; ednilson.eletrofrio@gmail.com", analista:"Nilson", gerente:"Edison", engenheiro1:"Danielly Fabem", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"José Antonio", supervisorDeObra2:""},
+    {função:representanteFunção, número:"190", nome:"A&F", emailComercial:"renan@aefbolsadenegocios.com.br; renato@aefbolsadenegocios.com.br; fernando@aefbolsadenegocios.com.br; victor@aefbolsadenegocios.com.br; wilian@aefbolsadenegocios.com.br; roni@aefbolsadenegocios.com.br; victor@aefbolsadenegocios.com.br", analista:"Luiz Eduardo", gerente:"Vanderlei", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Julio Cesar", supervisorDeObra2:""},
+    {função:representanteFunção, número:"191", nome:"Produtiva", emailComercial:"suporte@produtivarepresentacoes.com.br; michel@produtivarepresentacoes.com.br", analista:"João Cláudio", gerente:"Hugo Pons", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"André Martini", supervisorDeObra2:""},
+    {função:representanteFunção, número:"193", nome:"Llampe Frio SC", emailComercial:"kaua@llampefrio.com.br; contato@llampefrio.com.br; projetos2@llampefrio.com.br; projetos3@llampefrio.com.br; projetos4@llampefrio.com.br; samantha@llampefrio.com.br; depro@llampefrio.com.br; ernesto@llampefrio.com.br; lfandre@llampefrio.com.br; llampefrio@llampefrio.com.br; marcos@llampefrio.com.br", analista:"João Cláudio", gerente:"Hugo Pons", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Luiz Petri", supervisorDeObra2:""},
+    {função:representanteFunção, número:"195", nome:"DNC Dealer", emailComercial:"projetos@dealerrs.com.br; dinar@dealerrs.com.br", analista:"João Cláudio", gerente:"Hugo Pons", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Rafael Povoa", supervisorDeObra2:""},
+    {função:representanteFunção, número:"196", nome:"Brites", emailComercial:"vendas@brites.srv.br", analista:"Suelen", gerente:"André Francisco", engenheiro1:"Leandro Dornelas", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"Paulo Silva", supervisorDeObra2:""},
+    {função:representanteFunção, número:"198", nome:"Euro", emailComercial:"equipamentoseuro@gmail.com; jacksonkiatkoski@gmail.com", analista:"João Cláudio", gerente:"Hugo Pons", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Luiz Petri", supervisorDeObra2:""},
+    {função:representanteFunção, número:"199", nome:"Erco", emailComercial:"mario.erco1@gmail.com", analista:"Alexandre Ribeiro", gerente:"Ivan Vieira", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Ivan Vieira", coordenadorRegional2:"", supervisorDeObra1:"Eduardo Gandos", supervisorDeObra2:"Adriano Franco"},
+    {função:representanteFunção, número:"202", nome:"Eder Mathias", emailComercial:"eder.mathias@uol.com.br", analista:"Nilson", gerente:"Joaquim Rosa", engenheiro1:"Danielly Fabem", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"Fabio Ribeiro", supervisorDeObra2:""},
+    {função:representanteFunção, número:"203", nome:"HCM", emailComercial:"anderson@hcm.com.br; hcm@hcm.com.br; hamilton@hcm.com.br", analista:"Luiz Eduardo", gerente:"Vanderlei", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Julio Cesar", supervisorDeObra2:""},
+    {função:representanteFunção, número:"207", nome:"Brava", emailComercial:"eac_cunha@yahoo.com.br; joaogabriel_p@hotmail.com; eac_cunha@yahoo.com.br", analista:"Alexandre Ribeiro", gerente:"Ana Paula", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Cláudio José", coordenadorRegional2:"", supervisorDeObra1:"Cláudio José", supervisorDeObra2:""},
+    {função:representanteFunção, número:"213", nome:"Mercato", emailComercial:"mercato.projeto@gmail.com; denis@mercatorepresentacoes.com.br", analista:"João Cláudio", gerente:"Hugo Pons", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Rafael Povoa", supervisorDeObra2:""},
+    {função:representanteFunção, número:"217", nome:"Cold Import", emailComercial:"jlescano@coldimport.com.pe; hguanillo@coldimport.com.pe; gpucuhuayla@coldimport.com.pe; fvejarano@coldimport.com.pe; correo@coldimport.com.pe", analista:"Luiz Eduardo", gerente:"Gabriel Antonio Marques", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Luiz Fernando Alves", coordenadorRegional2:"", supervisorDeObra1:"Luiz Fernando Alves", supervisorDeObra2:""},
+    {função:representanteFunção, número:"218", nome:"Cencosud", emailComercial:"", analista:"Luiz Eduardo", gerente:"Gabriel Antonio Marques", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Luiz Fernando Alves", coordenadorRegional2:"", supervisorDeObra1:"Luiz Fernando Alves", supervisorDeObra2:""},
+    {função:representanteFunção, número:"223", nome:"Hercold", emailComercial:"fastlest@uol.com.br; fastlest@icloud.com", analista:"Nilson", gerente:"Edison", engenheiro1:"Fabiano de Mello", engenheiro2:"Danielly Fabem", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"José Antonio", supervisorDeObra2:""},
+    {função:representanteFunção, número:"226", nome:"EC", emailComercial:"record@record-maq.com.br; edilmocunha@record-maq.com.br; projetos@record-maq.com.br; leonardomoura@record-maq.com.br; silviogoncales@record-maq.com.br; diegoreis@record-maq.com.br; evanildo@record-maq.com.br", analista:"Suelen", gerente:"André Francisco", engenheiro1:"Leandro Dornelas", engenheiro2:"", coordenadorRegional1:"Leandro Vargas", coordenadorRegional2:"", supervisorDeObra1:"Fabio Ribeiro", supervisorDeObra2:""},
+    {função:representanteFunção, número:"227", nome:"Edeval (MIL)", emailComercial:"edevalvendas@gmail.com", analista:"Luiz Eduardo", gerente:"Vanderlei", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Julio Cesar", supervisorDeObra2:""},
+    {função:representanteFunção, número:"228", nome:"JPC", emailComercial:"alexandre@acequipamentos.com.br; jp-candido@hotmail.com; projetos.acequipamentos@gmail.com; alexandre@pontodarefrigeracao.com.br", analista:"Suelen", gerente:"André Francisco", engenheiro1:"Leandro Dornelas", engenheiro2:"", coordenadorRegional1:"Leandro Vargas", coordenadorRegional2:"", supervisorDeObra1:"Eder Cavalcante", supervisorDeObra2:""},
+    {função:representanteFunção, número:"229", nome:"Wesley Dal Pozzo", emailComercial:"engenharia_dlpz@outlook.com; dlpz@onda.com.br; walace_dlpz@hotmail.com ", analista:"João Cláudio", gerente:"Hugo Pons", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Vitor Batista", supervisorDeObra2:""},
+    {função:representanteFunção, número:"230", nome:"Ergosystem", emailComercial: "ergosystem.comercial@outlook.com; ergosystem.comercial1@outlook.com", analista:"Nilson", gerente:"Joaquim Rosa", engenheiro1:"Danielly Fabem", engenheiro2:"", coordenadorRegional1:"Leandro Miela", coordenadorRegional2:"", supervisorDeObra1:"Fabio Ribeiro", supervisorDeObra2:""},
+    {função:representanteFunção, número:"231", nome:"SM", emailComercial:"representacoesbelz@gmail.com", analista:"Luiz Eduardo", gerente:"Vanderlei", engenheiro1:"Juliano", engenheiro2:"", coordenadorRegional1:"Acacio", coordenadorRegional2:"", supervisorDeObra1:"Araujo", supervisorDeObra2:"Hugo Pons"},
+    {função:representanteFunção, número:"232", nome:"S&I", emailComercial:"carol@siautomacao.com.br; geraldo@siautomacao.com.br; silvia@siautomacao.com.br; alexandre@siautomacao.com.br", analista:"Alexandre Ribeiro", gerente:"Ivan Vieira", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Ivan Vieira", coordenadorRegional2:"", supervisorDeObra1:"Eduardo Gandos", supervisorDeObra2:"Adriano Franco"},
+    {função:representanteFunção, número:"233", nome:"Control y Sostenibilidad", emailComercial:"", analista:"Luiz Eduardo", gerente:"Gabriel Antonio Marques", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Luiz Fernando Alves", coordenadorRegional2:"", supervisorDeObra1:"Luiz Fernando Alves", supervisorDeObra2:""},
+    {função:representanteFunção, número:"234", nome:"Aarci", emailComercial:"juan.avila@aarci.co; info@aarci.co; elkin.arrieta@aarci.co", analista:"Luiz Eduardo", gerente:"Gabriel Antonio Marques", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Luiz Fernando Alves", coordenadorRegional2:"", supervisorDeObra1:"Luiz Fernando Alves", supervisorDeObra2:""},
+    {função:representanteFunção, número:"236", nome:"T&G", emailComercial:"filipe.lisbooa@yahoo.com.br; ed_wanderson@yahoo.com.br", analista:"Alexandre Ribeiro", gerente:"Ana Paula", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Cláudio José", coordenadorRegional2:"", supervisorDeObra1:"Cláudio José", supervisorDeObra2:""},
+    {função:representanteFunção, número:"237", nome:"Rematec", emailComercial:"roger@rematecvarejo.com.br; alessandra@rematecvarejo.com.br; ariele@rematecvarejo.com.br; orcamentos@rematecvarejo.com.br; projetos@rematecvarejo.com.br; alessandra@remaqbh.com.br; admprojetos@remaqbh.com.br", analista:"Alexandre Ribeiro", gerente:"Ivan Vieira", engenheiro1:"Luiz Fernando Alves", engenheiro2:"", coordenadorRegional1:"Ivan Vieira", coordenadorRegional2:"", supervisorDeObra1:"Eduardo Gandos", supervisorDeObra2:"Adriano Franco"},
+    {função:representanteFunção, número:"238", nome:"FMG", emailComercial:"projetos.fmg@hotmail.com; fmg_representacoes@hotmail.com", analista:"João Cláudio", gerente:"Hugo Pons", engenheiro1:"Cassio", engenheiro2:"", coordenadorRegional1:"Marcelo Godoy", coordenadorRegional2:"Wagner Rangel", supervisorDeObra1:"Paulo Silva", supervisorDeObra2:""},
+    {função:representanteFunção, número:"239", nome:"PSK", emailComercial:"fernando.fastlest@gmail.com", analista:"", gerente:"Edison", engenheiro1:"Danielly Fabem", engenheiro2:"", coordenadorRegional1:"", coordenadorRegional2:"", supervisorDeObra1:"", supervisorDeObra2:""},
     {função:supervisorDeObraFunção, número:"300084", nome:"Adriano Franco", emailComercial:"adriano.franco@eletrofrio.com.br"},
     {função:supervisorDeObraFunção, número:"300088", nome:"André Martini", emailComercial:"andre.martini@eletrofrio.com.br"},
     {função:supervisorDeObraFunção, número:"nnn", nome:"Araujo", emailComercial:"araujo@eletrofrio.com.br"},
@@ -292,19 +319,15 @@ for (const index1 in cadastro) {
             cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Bruna Nahkur").map((index2)=>`${index2.emailComercial}`)
             cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Diego Paula").map((index2)=>`; ${index2.emailComercial}`)
             cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Felipe Santos").map((index2)=>`; ${index2.emailComercial}`)
-            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Danielly Fabem").map((index2)=>`; ${index2.emailComercial}`)
-            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Edison").map((index2)=>`; ${index2.emailComercial}`)
         }
         else {
             cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Bruna Nahkur").map((index2)=>`; ${index2.emailComercial}`)
-            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Diego Paula").map((index2)=>`; ${index2.emailComercial}`) 
-            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Felipe Santos").map((index2)=>`; ${index2.emailComercial}`) 
-            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Danielly Fabem").map((index2)=>`; ${index2.emailComercial}`) 
-            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Edison").map((index2)=>`; ${index2.emailComercial}`) 
+            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Diego Paula").map((index2)=>`; ${index2.emailComercial}`)
+            cadastro[index1].emailComercial += cadastro.filter((index2)=>index2.nome == "Felipe Santos").map((index2)=>`; ${index2.emailComercial}`)
         }
     }
 }
-grupoExterior = ["217", "218", "231", "233", "234"]
+grupoExterior = ["217", "218", "233", "234"]
 for (const index1 in cadastro) {
     if (grupoExterior.includes(cadastro[index1].número)) {
         if (cadastro[index1].emailComercial == "") {
@@ -357,8 +380,8 @@ let email = [
     {função:ajusteFunção, ordemSubgrupo:1, subGrupo:correçãoSubGrupo, ordemTipo:4, tipo:"Aguardando Conferência", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:ajusteFunção, ordemSubgrupo:3, subGrupo:alteraçãoSubGrupo, ordemTipo:5, tipo:"Arquivos de Alteração", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: ["Simone", "Bruno Garcia"].concat(ajuste).concat(analista).concat(liderançaComercial).concat(planilhamento), emailsBcc: []},
     {função:ajusteFunção, ordemSubgrupo:3, subGrupo:alteraçãoSubGrupo, ordemTipo:6, tipo:"Verificar Possibilidade de Alteração", dadosDoPedido:sim, emailsPara: ["Roney"], emailsCc: ["Simone", "Bruno Garcia", "Carla"].concat(representante).concat(ajuste).concat(analista).concat(planilhamento), emailsBcc: []},
-    {função:compraFunção, ordemSubgrupo:1, subGrupo:envioDeOrdemDeCompraSubGrupo, ordemTipo:1, tipo:"Geral", dadosDoPedido:não, emailsPara: [], emailsCc: [], emailsBcc: []},
-    {função:compraFunção, ordemSubgrupo:1, subGrupo:envioDeOrdemDeCompraSubGrupo, ordemTipo:2, tipo:"Dedicada", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    {função:compraFunção, ordemSubgrupo:1, subGrupo:ordemDeCompraSubGrupo, ordemTipo:1, tipo:"Geral", dadosDoPedido:não, emailsPara: [], emailsCc: [], emailsBcc: []},
+    {função:compraFunção, ordemSubgrupo:1, subGrupo:ordemDeCompraSubGrupo, ordemTipo:2, tipo:"Dedicada", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
     {função:compraFunção, ordemSubgrupo:2, subGrupo:acompanhamentoSubGrupo, ordemTipo:3, tipo:"Materiais", dadosDoPedido:não, emailsPara: [], emailsCc: [], emailsBcc: []},
     {função:compraFunção, ordemSubgrupo:3, subGrupo:alinhamentoDePrioridadesSubGrupo, ordemTipo:4, tipo:"Materiais Dedicados", dadosDoPedido:não, emailsPara: ["Armacell"], emailsCc: [].concat(liderançaCompra), emailsBcc: []},
     {função:executivoFunção, ordemSubgrupo:1, subGrupo:projetoSubGrupo, ordemTipo:1, tipo:"Antecipado", dadosDoPedido:sim, emailsPara: [].concat(representante), emailsCc: [].concat(liderançaContinuum).concat(executivo).concat(planilhamento), emailsBcc: []},
@@ -410,7 +433,7 @@ let email = [
     {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:10, tipo:"Baan - Liberação de Tela", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: [], emailsBcc: []},
     {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:11, tipo:"SIP - Geral", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: ["Gilson", "Willian"], emailsBcc: []},
     {função:planilhamentoFunção, ordemSubgrupo:1, subGrupo:suporteTiSubGrupo, ordemTipo:12, tipo:"SIP - Liberação para Edição de Painéis Altos", dadosDoPedido:não, emailsPara: ["Suporte TI"], emailsCc: ["Gilson", "Willian"], emailsBcc: []},
-    //{função:representanteFunção, ordemSubgrupo:1, subGrupo:"Representante", ordemTipo:1, tipo:"Representante", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
+    {função:representanteFunção, ordemSubgrupo:1, subGrupo:solicitaçãoSubGrupo, ordemTipo:1, tipo:"Abertura de Pedido", dadosDoPedido:sim, emailsPara: [], emailsCc: [], emailsBcc: []},
 ]
 
 let ano = [
@@ -581,6 +604,7 @@ function hideTipo() {
     classTipo[0].style.display = displayNone
     classTipo[1].style.display = displayNone
     idFieldsetDadosDoPedido.style.display = displayNone
+    idLegendDadosDoPedido.style.display = displayNone
 }
 
 /* Verifica período do dia */
@@ -592,6 +616,18 @@ if (hora >= 6 && hora < 12) {período = "Bom dia"}
 if (hora >= 12 && hora < 18) {período = "Boa tarde"}
 
 /* Tipo de E-mail */
+
+/* - Botão de minimizar e expandir o fielset Tipo de E-mail */
+
+function títuloFieldsetTipoDeEmail() {
+    idTítuloFieldsetTipoDeEmail.style.display = displayNone
+    idFieldsetTipoDeEmail.style.display = displayBlock
+}
+
+function legendTipoDeEmail() {
+    idTítuloFieldsetTipoDeEmail.style.display = displayFlex
+    idFieldsetTipoDeEmail.style.display = displayNone
+}
 
 /* - Cria as opções de função */
 
@@ -614,6 +650,7 @@ function changeFunção() {
         classTipo[0].style.display = displayInlineBlock
         classTipo[1].style.display = displayInlineBlock
         idFieldsetDadosDoPedido.style.display = displayNone
+        idLegendDadosDoPedido.style.display = displayNone
     }
     while (idTipo.hasChildNodes()) {idTipo.removeChild(idTipo.firstChild)}
 
@@ -667,6 +704,18 @@ function limpaTipoDeEmail() {
 
 /* Dados do Pedido */
 
+/* - Botão de minimizar e expandir o fielset Dados do Pedido */
+
+function títuloFieldsetDadosDoPedido() {
+    idTítuloFieldsetDadosDoPedido.style.display = displayNone
+    idFieldsetDadosDoPedido.style.display = displayBlock
+}
+
+function legendDadosDoPedido() {
+    idTítuloFieldsetDadosDoPedido.style.display = displayFlex
+    idFieldsetDadosDoPedido.style.display = displayNone
+}
+
 function changeTipo() {
     limpaResultado()
 
@@ -684,15 +733,27 @@ function changeTipo() {
 /* - Oculta e limpa os dados do pedido caso seja da classe sem pedido ou exibe caso não seja */
 
     if (idTipo.selectedOptions[0].className == classSemPedido) {
+        idTítuloFieldsetDadosDoPedido.style.display = displayNone
+        idLegendDadosDoPedido.style.display = displayNone
         idFieldsetDadosDoPedido.style.display = displayNone
         idLimpaDadosDePedido.click()
     }
-    else {idFieldsetDadosDoPedido.style.display = displayBlock}
+    else {
+        idTítuloFieldsetDadosDoPedido.style.display = displayNone
+        idFieldsetDadosDoPedido.style.display = displayBlock
+        idLegendDadosDoPedido.style.display = displayBlock
+    }
 
 /* - Oculta os dados de compra caso seja não seja do tipo compra e exibe caso seja */
 
-    if (email.filter((index)=>index.tipo == idTipo.selectedOptions[0].value && index.subGrupo == subGrupo).map((index)=>index.subGrupo) == compraSubGrupo || email.filter((index)=>index.tipo == idTipo.selectedOptions[0].value && index.subGrupo == subGrupo).map((index)=>index.subGrupo) == cotaçãoSubGrupo) {idFieldsetDadosDeCompra.style.display = displayBlock}
-    else {idFieldsetDadosDeCompra.style.display = displayNone}
+    if (email.filter((index)=>index.tipo == idTipo.selectedOptions[0].value && index.subGrupo == subGrupo).map((index)=>index.subGrupo) == compraSubGrupo || email.filter((index)=>index.tipo == idTipo.selectedOptions[0].value && index.subGrupo == subGrupo).map((index)=>index.subGrupo) == cotaçãoSubGrupo) {
+        idFieldsetDadosDeCompra.style.display = displayBlock
+        idTítuloFieldsetDadosDeCompra.style.display = displayNone
+    }
+    else {
+        idFieldsetDadosDeCompra.style.display = displayNone
+        idTítuloFieldsetDadosDeCompra.style.display = displayNone
+    }
 
 /* Dados de Compra */
 
@@ -757,14 +818,46 @@ function emailsSelecionados () {
         }
     }
 
-/* - Seleciona as checkbox dos e-mails do tipo executivo de acordo com os responsáveis */
+/* - Seleciona as checkbox Para dos e-mails do tipo executivo de acordo com os responsáveis */
 
     if (email.filter((index1)=>index1.tipo == idTipo.value && index1.subGrupo == subGrupo).map((index1)=>`${index1.função}`) == executivoFunção) {
         for (let index2 in email) {
             if (idTipo.value == email[index2].tipo && email[index2].subGrupo == subGrupo) {
-                for (let index = 4; index < Object.keys(representanteCadastro[0]).length; index++) {
+                for (let index = 5; index < Object.keys(representanteCadastro[0]).length; index++) {
                     if (cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>Object.values(index3)[index]) != "") {
                         let capitalizeIdParaGerente1 = `idPara${(cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>Object.values(index3)[index]).toString().replace(/ /g, "")).charAt(0).toLowerCase() + (cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>Object.values(index3)[index]).toString().replace(/ /g, "")).slice(1)}`
+                        let idCheckboxParaGerente1 = document.querySelector(`#${capitalizeIdParaGerente1}`)
+                        idCheckboxParaGerente1.checked = true
+                    }
+                }
+            }
+        }
+    }
+
+/* - Seleciona as checkbox Para dos e-mails do tipo representante de acordo com o analísta responsáveis */
+
+    if (email.filter((index1)=>index1.tipo == idTipo.value && index1.subGrupo == subGrupo).map((index1)=>`${index1.função}`) == representanteFunção) {
+        for (let index2 in email) {
+            if (idTipo.value == email[index2].tipo && email[index2].subGrupo == subGrupo) {
+                for (let index = 4; index < 5; index++) {
+                    if (cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>Object.values(index3)[index]) != "") {
+                        let capitalizeIdParaGerente1 = `idPara${(cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>Object.values(index3)[index]).toString().replace(/ /g, "")).charAt(0).toLowerCase() + (cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>Object.values(index3)[index]).toString().replace(/ /g, "")).slice(1)}`
+                        let idCheckboxParaGerente1 = document.querySelector(`#${capitalizeIdParaGerente1}`)
+                        idCheckboxParaGerente1.checked = true
+                    }
+                }
+            }
+        }
+    }
+
+/* - Seleciona as checkbox Cc dos e-mails do tipo representante de acordo com os responsáveis */
+
+    if (email.filter((index1)=>index1.tipo == idTipo.value && index1.subGrupo == subGrupo).map((index1)=>`${index1.função}`) == representanteFunção) {
+        for (let index2 in email) {
+            if (idTipo.value == email[index2].tipo && email[index2].subGrupo == subGrupo) {
+                for (let index = 5; index < Object.keys(representanteCadastro[0]).length; index++) {
+                    if (cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>Object.values(index3)[index]) != "") {
+                        let capitalizeIdParaGerente1 = `idCc${(cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>Object.values(index3)[index]).toString().replace(/ /g, "")).charAt(0).toLowerCase() + (cadastro.filter((index3)=>index3.número == idNúmeroRepresentante.value).map((index3)=>Object.values(index3)[index]).toString().replace(/ /g, "")).slice(1)}`
                         let idCheckboxParaGerente1 = document.querySelector(`#${capitalizeIdParaGerente1}`)
                         idCheckboxParaGerente1.checked = true
                     }
@@ -839,9 +932,45 @@ function limpaDadosDoPedido() {
     changeNúmeroRepresentante()
 }
 
+/* - Botão de minimizar e expandir o fielset Resultado */
+
+function títuloFieldsetDadosDeCompra() {
+    idTítuloFieldsetDadosDeCompra.style.display = displayNone
+    idFieldsetDadosDeCompra.style.display = displayBlock
+}
+
+function legendDadosDeCompra() {
+    idTítuloFieldsetDadosDeCompra.style.display = displayFlex
+    idFieldsetDadosDeCompra.style.display = displayNone
+}
+
+/* - Botão de minimizar e expandir o fielset Dados Pessoais */
+
+function títuloFieldsetDadosPessoais() {
+    idTítuloFieldsetDadosPessoais.style.display = displayNone
+    idFieldsetDadosPessoais.style.display = displayBlock
+}
+
+function legendDadosPessoais() {
+    idTítuloFieldsetDadosPessoais.style.display = displayFlex
+    idFieldsetDadosPessoais.style.display = displayNone
+}
+
 function limpaDadosPessoais() {limpaResultado()}
 
 /* E-mails Selecionados */
+
+/* - Botão de minimizar e expandir o fielset E-mails Selecionados */
+
+function títuloFieldsetEmailsSelecionados() {
+    idTítuloFieldsetEmailsSelecionados.style.display = displayNone
+    idFieldsetEmailsSelecionados.style.display = displayBlock
+}
+
+function legendEmailsSelecionados() {
+    idTítuloFieldsetEmailsSelecionados.style.display = displayFlex
+    idFieldsetEmailsSelecionados.style.display = displayNone
+}
 
 /* - Cria e-mails para */
 
@@ -1146,6 +1275,18 @@ function conferir() {
     else {DarkMode()}
 }
 
+/* - Botão de minimizar e expandir o fielset Resultado */
+
+function títuloFieldsetResultado() {
+    idTítuloFieldsetResultado.style.display = displayNone
+    idFieldsetResultado.style.display = displayBlock
+}
+
+function legendResultado() {
+    idTítuloFieldsetResultado.style.display = displayFlex
+    idFieldsetResultado.style.display = displayNone
+}
+
 /* Gera resultados */
 
 function gerar() {
@@ -1183,10 +1324,10 @@ function gerar() {
         let verificaNúmeroRepresentante = ""
         let verificaNomeDoCliente = ""
         let verificaNomeFantasia = ""
-        let verificaTipo = `(${idFunção.value} - ${subGrupo} - ${idTipo.value})`
+        let verificaTipo = `(${idFunção.value} - ${subGrupo}: ${idTipo.value})`
 
         if (idPedido.value != "") {verificaNúmeroRepresentante = `PED ${idNúmeroRepresentante.value}-${idPedido.value}/${idAno.value}`}
-        if (idTipo.value != "" && idPedido.value != "") {verificaTipo = ` - (${idFunção.value} - ${subGrupo} - ${idTipo.value})`}
+        if (idTipo.value != "" && idPedido.value != "") {verificaTipo = ` - (${idFunção.value} - ${subGrupo}: ${idTipo.value})`}
         if (idNomeDoCliente.value != "" && idTipo.value != "" && idPedido.value != "") {verificaNomeDoCliente = ` - ${idNomeDoCliente.value}`}
         if (idNomeFantasia.value != "") {verificaNomeFantasia = ` - ${idNomeFantasia.value}`}
 
@@ -1380,12 +1521,12 @@ else {
                 informação01 = `Ainda é possível fazer alterações?`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${arquivo}${idArquivo.value}${idRevisão.value}${br2}${roneyHiperlink}${br2}${informação01}${br2}${agradecimento}${br3}`
                 break
-            case `${compraFunção}${envioDeOrdemDeCompraSubGrupo}Geral`:
+            case `${compraFunção}${ordemDeCompraSubGrupo}Geral`:
                 informação01 = `Segue em anexo ordem de compra <mark ${markBackground}>000000</mark>. Por favor validar o prazo de entrega e disponibilidade do material.`
                 informação02 = `Qualquer divergência ou dúvida entrar em contato.`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
                 break
-            case `${compraFunção}${envioDeOrdemDeCompraSubGrupo}Dedicada`:
+            case `${compraFunção}${ordemDeCompraSubGrupo}Dedicada`:
                 informação01 = `Segue em anexo ordem de compra <mark ${markBackground}>000000</mark>. Por favor validar o prazo de entrega e disponibilidade do material.`
                 informação02 = `Qualquer divergência ou dúvida entrar em contato.`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
@@ -1575,6 +1716,11 @@ else {
                 informação02 = `Gostaria de solicitar a liberação do meu SIP para editar câmaras frigoríficas com alturas maiores que o limite de padrão.`
                 idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
                 break
+            case `${representanteFunção}${solicitaçãoSubGrupo}Abertura de Pedido`:
+                informação01 = `Seguem os arquivos para abertura do pedido.`
+                informação02 = `<mark ${markBackground}>Informação especial.</mark>`
+                idResultadoCorpoDoEmail.innerHTML = `${período},${br2}${informação01}${br2}${informação02}${br2}${agradecimento}${br3}`
+                break
             default:
                 informação01 = `<mark>(OPÇÃO DE E-MAIL AINDA NÃO CONFIGURADA)</mark>`
                 idResultadoCorpoDoEmail.innerHTML = `${informação01}${br3}`
@@ -1623,6 +1769,18 @@ function limpaResultado() {
 }
 
 /* Opções Extras */
+
+/* - Botão de minimizar e expandir o fielset Extras */
+
+function títuloFieldsetExtras() {
+    idTítuloFieldsetExtras.style.display = displayNone
+    idFieldsetExtras.style.display = displayBlock
+}
+
+function legendExtras() {
+    idTítuloFieldsetExtras.style.display = displayFlex
+    idFieldsetExtras.style.display = displayNone
+}
 
 /* - Muda a cor do Background */
 
@@ -1716,6 +1874,11 @@ function WhiteMode() {
     classTítuloInstruções.forEach(index => {index.style.border = `1px solid ${cores.filter((index)=>index.cor == "White Mode Botão Borda Mouse Fora").map((index)=>index.valor)}`})
     classTítuloInstruções.forEach(index => {index.style.borderRadius = "2.5px"})
 
+    classTítuloFieldset.forEach(index => {index.style.background = cores.filter((index)=>index.cor == "White Mode Botão Background Mouse Fora").map((index)=>index.valor)})
+    classTítuloFieldset.forEach(index => {index.style.color = cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)})
+    classTítuloFieldset.forEach(index => {index.style.border = `1px solid ${cores.filter((index)=>index.cor == "White Mode Botão Borda Mouse Fora").map((index)=>index.valor)}`})
+    classTítuloFieldset.forEach(index => {index.style.borderRadius = "2.5px"})
+
     for (let index of buttonTagSelector) {
         index.addEventListener("mouseover", mouseSobre)
         function mouseSobre() {
@@ -1761,6 +1924,27 @@ function WhiteMode() {
     }
 
     for (let index of classTítuloInstruções) {
+        index.addEventListener("mousedown", mouseParaBaixo)
+        function mouseParaBaixo() {
+            index.style.background = cores.filter((index)=>index.cor == "White Mode Botão Background Mouse Para Baixo").map((index)=>index.valor)
+        }
+    }
+
+    for (let index of classTítuloFieldset) {
+        index.addEventListener("mouseover", mouseSobre)
+        function mouseSobre() {
+            index.style.background = cores.filter((index)=>index.cor == "White Mode Botão Background Mouse Sobre").map((index)=>index.valor)
+        }
+    }
+
+    for (let index of classTítuloFieldset) {
+        index.addEventListener("mouseout", mouseFora)
+        function mouseFora() {
+            index.style.background = cores.filter((index)=>index.cor == "White Mode Botão Background Mouse Fora").map((index)=>index.valor)
+        }
+    }
+
+    for (let index of classTítuloFieldset) {
         index.addEventListener("mousedown", mouseParaBaixo)
         function mouseParaBaixo() {
             index.style.background = cores.filter((index)=>index.cor == "White Mode Botão Background Mouse Para Baixo").map((index)=>index.valor)
@@ -1837,6 +2021,11 @@ function DarkMode() {
     classTítuloInstruções.forEach(index => {index.style.border = `1px solid ${cores.filter((index)=>index.cor == "Dark Mode Botão Borda Mouse Fora").map((index)=>index.valor)}`})
     classTítuloInstruções.forEach(index => {index.style.borderRadius = "2.5px"})
 
+    classTítuloFieldset.forEach(index => {index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão Background Mouse Fora").map((index)=>index.valor)})
+    classTítuloFieldset.forEach(index => {index.style.color = cores.filter((index)=>index.cor == "Dark Mode Texto").map((index)=>index.valor)})
+    classTítuloFieldset.forEach(index => {index.style.border = `1px solid ${cores.filter((index)=>index.cor == "Dark Mode Botão Borda Mouse Fora").map((index)=>index.valor)}`})
+    classTítuloFieldset.forEach(index => {index.style.borderRadius = "2.5px"})
+
     for (let index of buttonTagSelector) {
         index.addEventListener("mouseover", mouseSobre)
         function mouseSobre() {
@@ -1888,6 +2077,27 @@ function DarkMode() {
         }
     }
 
+    for (let index of classTítuloFieldset) {
+        index.addEventListener("mouseover", mouseSobre)
+        function mouseSobre() {
+            index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão Background Mouse Sobre").map((index)=>index.valor)
+        }
+    }
+
+    for (let index of classTítuloFieldset) {
+        index.addEventListener("mouseout", mouseFora)
+        function mouseFora() {
+            index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão Background Mouse Fora").map((index)=>index.valor)
+        }
+    }
+
+    for (let index of classTítuloFieldset) {
+        index.addEventListener("mousedown", mouseParaBaixo)
+        function mouseParaBaixo() {
+            index.style.background = cores.filter((index)=>index.cor == "Dark Mode Botão Background Mouse Para Baixo").map((index)=>index.valor)
+        }
+    }
+
     for (let index of classBotãoDeLimpeza) {
         index.addEventListener("mouseover", mouseSobre)
         function mouseSobre() {
@@ -1928,6 +2138,7 @@ function larguraDoFundo() {document.body.style.width = `${idLarguraDoFundo.value
 function limpaExtras() {
     idBackgroundColor.value = cores.filter((index)=>index.cor == "White Mode Background").map((index)=>index.valor)
     idTextoColor.value = cores.filter((index)=>index.cor == "White Mode Texto").map((index)=>index.valor)
+    document.body.style.width = `400px`
     WhiteMode()
 }
 
@@ -1938,10 +2149,14 @@ idDúvidasDesenvolvedor.setAttribute(hrefAttribute, hrefDúvidasDesenvolvedor)
 
 /* Eventos do HTML*/
 
+idTítuloFieldsetTipoDeEmail.addEventListener("click", títuloFieldsetTipoDeEmail)
+idLegendTipoDeEmail.addEventListener("click", legendTipoDeEmail)
 idFunção.addEventListener("change", changeFunção)
-idLimpaTipoDeEmail.addEventListener("click", limpaTipoDeEmail)
 idTipo.addEventListener("change", changeTipo)
+idLimpaTipoDeEmail.addEventListener("click", limpaTipoDeEmail)
 idFornecedor.addEventListener("change", changeFornecedor)
+idTítuloFieldsetDadosDoPedido.addEventListener("click", títuloFieldsetDadosDoPedido)
+idLegendDadosDoPedido.addEventListener("click", legendDadosDoPedido)
 idNúmeroRepresentante.addEventListener("change", changeNúmeroRepresentante)
 idPedido.addEventListener("change", conferir)
 idAno.addEventListener("change", conferir)
@@ -1952,9 +2167,19 @@ idMês.addEventListener("change", conferir)
 idArquivo.addEventListener("change", conferir)
 idRevisão.addEventListener("change", conferir)
 idLimpaDadosDePedido.addEventListener("click", limpaDadosDoPedido)
+idTítuloFieldsetDadosDeCompra.addEventListener("click", títuloFieldsetDadosDeCompra)
+idLegendDadosDeCompra.addEventListener("click", legendDadosDeCompra)
+idTítuloFieldsetDadosPessoais.addEventListener("click", títuloFieldsetDadosPessoais)
+idLegendDadosPessoais.addEventListener("click", legendDadosPessoais)
 idLimpaDadosPessoais.addEventListener("click", limpaDadosPessoais)
+idTítuloFieldsetEmailsSelecionados.addEventListener("click", títuloFieldsetEmailsSelecionados)
+idLegendEmailsSelecionados.addEventListener("click", legendEmailsSelecionados)
+idTítuloFieldsetResultado.addEventListener("click", títuloFieldsetResultado)
+idLegendResultado.addEventListener("click", legendResultado)
 idApresentaEmail.addEventListener("click", gerar)
 idLimpaResultado.addEventListener("click", limpaResultado)
+idTítuloFieldsetExtras.addEventListener("click", títuloFieldsetExtras)
+idLegendExtras.addEventListener("click", legendExtras)
 idBackgroundColor.addEventListener("change", changeCorBackground)
 idTextoColor.addEventListener("change", changeCorTexto)
 idEstiloDeCor.addEventListener("click", changeEstiloDeCor)

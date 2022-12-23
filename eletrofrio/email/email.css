@@ -80,22 +80,45 @@ button a{
     text-decoration: none;
 }
 
-#idTítuloPágina{text-shadow: 1px 1px 3px #000000;}
+#idTítuloPágina{
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px #000000;
+}
 
 /* Posição na tela */
 
-footer span, footer a, .classTítuloInstruções, #idTítuloPágina{
+footer span, footer a, .classTítuloInstruções, #idTítuloPágina, .classTítuloFieldset{
     display: flex;
     justify-content: center;
 }
 
+#idTítuloFieldsetTipoDeEmail{display: none;}
+#idTítuloFieldsetDadosDoPedido{display: none;}
+#idTítuloFieldsetDadosDeCompra{display: none;}
+#idFieldsetDadosPessoais{display: none;}
+#idFieldsetEmailsSelecionados{display: none;}
+#idTítuloFieldsetResultado{display: none;}
+#idFieldsetExtras{display: none;}
+
+.classTítuloFieldset, .classTítuloInstruções{font: normal normal bold normal 11.0pt "Arial", "sans-serif";}
+
 .classParágrafoInstruções{text-align: justify;}
 
-fieldset{border-radius: 5px; margin: auto;}
+fieldset{border-radius: 0px; margin: auto;}
 .classDetails{margin: 0px 0px 0px 20px;}
 .classInputEmail{margin: 0px 0px 0px 20px;}
 
 .classTítuloInstruções{
+    height: 17px;
+    background: #efefef; 
+    color: #000000;
+    border: 1px solid #767676;
+    border-radius: 2.5px;
+}
+
+.classTítuloFieldset{
+    height: 17px;
+    margin: 0px;
     background: #efefef; 
     color: #000000;
     border: 1px solid #767676;
@@ -104,6 +127,9 @@ fieldset{border-radius: 5px; margin: auto;}
 
 .classTítuloInstruções:hover{background: #e5e5e5;}
 .classTítuloInstruções:active{background: #f5f5f5;}
+
+.classTítuloFieldset:hover{background: #e5e5e5;}
+.classTítuloFieldset:active{background: #f5f5f5;}
 
 .classBotãoDeLimpeza{background: #aaaaaa;}
 .classBotãoDeLimpeza:hover{background: #999999;}
