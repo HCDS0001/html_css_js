@@ -1,136 +1,151 @@
-/* Estilizações necessárias ao funcionamento */
-
-input:invalid{background-color: #ffff00ff;}
-#idFieldsetDadosDoPedido{display: none;}
-#idFieldsetDadosDeCompra{display: none;}
-.classTipo{display: none;}
-
-/* Estilizações Geral */
-
-*{font: normal normal normal normal 10.0pt "Arial", "sans-serif";}
-
-body{
-    margin: auto;
-    border: 1px solid #000000;
-    border-bottom-width: 0px;
-    border-top-width: 0px;
-    padding: 0px 4px;
-}
-
-/* White Mode */
-
-body{
-    background: #ffffff; 
-    color: #000000;
-}
-
-#idFieldsetResultado label{
-        font: normal normal bold normal 11.0pt "Arial", "sans-serif";
-        text-decoration: underline solid black 1px;
-    }
-
-button{
-    height: 19px;
-    background: #efefef; 
-    color: #000000;
-    border: 1px solid #767676;
-    border-radius: 2.5px;
-}
-
-button:hover{background: #e5e5e5;}
-button:active{background: #f5f5f5;}
-
-select{
-    background: #ffffff; 
-    color: #000000;
-    border: 1px solid #767676;
-    border-radius: 2.5px;
-}
-
-input{
-    background: #ffffff; 
-    color: #000000;
-    border: 1px solid #767676;
-    border-radius: 2.5px;
-}
-
-/* Largura dos Itens */
-
-label, button, select, input{width: 100%;}
-.classImagemExterna{
-    width: 100%;
-    max-width: 400px;
-    display: block;
-    margin: auto;
-}
-input{width: calc(100% - 6px);}
-#idAssinatura{width: calc(100% - 2px);}
-#idBackgroundColor, #idTextoColor{width: calc(100% - 0px);}
-#idFieldsetEmailsSelecionados input{width: 13px;}
-
-/* Texto */
-
-h1{font: normal normal bold normal 12.0pt "Arial", "sans-serif";}
-h2{font: normal normal normal normal 11.0pt "Arial", "sans-serif";}
-#idFieldsetResultado span{font: normal normal normal normal 11.0pt "calibri", "sans-serif";}
-legend{font: normal normal bold normal 11.0pt "Arial", "sans-serif";}
-
-button a{
-    color: #000000;
-    text-decoration: none;
-}
-
-#idTítuloPágina{
-    text-transform: uppercase;
-    text-shadow: 1px 1px 3px #000000;
-}
-
-/* Posição na tela */
-
-footer span, footer a, .classTítuloInstruções, #idTítuloPágina, .classTítuloFieldset{
-    display: flex;
-    justify-content: center;
-}
-
-#idTítuloFieldsetTipoDeEmail{display: none;}
-#idTítuloFieldsetDadosDoPedido{display: none;}
-#idTítuloFieldsetDadosDeCompra{display: none;}
-#idFieldsetDadosPessoais{display: none;}
-#idFieldsetEmailsSelecionados{display: none;}
-#idTítuloFieldsetResultado{display: none;}
-#idFieldsetExtras{display: none;}
-
-.classTítuloFieldset, .classTítuloInstruções{font: normal normal bold normal 11.0pt "Arial", "sans-serif";}
-
-.classParágrafoInstruções{text-align: justify;}
-
-fieldset{border-radius: 0px; margin: auto;}
-.classDetails{margin: 0px 0px 0px 20px;}
-.classInputEmail{margin: 0px 0px 0px 20px;}
-
-.classTítuloInstruções{
-    height: 17px;
-    background: #efefef; 
-    color: #000000;
-    border: 1px solid #767676;
-    border-radius: 2.5px;
-}
-
-.classTítuloFieldset{
-    height: 17px;
+*{
     margin: 0px;
-    background: #efefef; 
+    padding: 0px;
+    font: normal normal normal normal 9.0pt "Arial", "sans-serif";
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    min-width: calc(500px - 17);
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    flex: 2 2 max-content;
+}
+
+header, footer{
+    flex: 0 1 content;
+    text-align: center;
+    border: 1px solid black;
+    padding: 0px;
+    background: scroll padding-box #ccccff url("") border-box center/contain no-repeat;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    flex: 1 2 max-content;
+    text-align: left;
+    align-items: center;
+}
+
+aside{
+    flex: 2 1 content;
+/*     max-width: 400px; */
+    min-width: 122px;
+    text-align: center;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    background: scroll padding-box #eeeeff url("") border-box center/contain no-repeat;
+}
+
+article{
+    max-width: 600px;
+    min-width: 235px;
+    width: 100%;
+}
+
+fieldset{
+    margin: 0px 3px;
+    padding: 2px;
+}
+
+h1{
+    font: normal normal bold normal 14.0pt "Arial", "sans-serif";
+    text-transform: uppercase;
+    text-shadow: 1px 1px 10px #000000;
+}
+
+h2{font: normal normal bold normal 13.0pt "Arial", "sans-serif";}
+
+h3{
+    font: normal normal bold normal 11.0pt "Arial", "sans-serif";
+    text-align: center;
+}
+
+h4{font: normal normal bold normal 10.0pt "Arial", "sans-serif";}
+
+legend{
+    font: normal normal bold normal 11.0pt "Arial", "sans-serif";
+    text-align: center;
+}
+
+li{list-style: disc none inside;}
+
+hr{margin: 5px 0px;}
+
+div{display: flex;}
+
+div label{flex: 0 1 content;}
+
+div input, div select, div button{flex: 1 2 content;}
+
+#id_Form_Emails_Selecionados div input{flex: 0 2 content;}
+
+button>a{
+    text-decoration: none solid black 1px;
     color: #000000;
-    border: 1px solid #767676;
+}
+
+h4~span{font: normal normal normal normal 11.0pt "calibri", "sans-serif";}
+
+[type=color]{height: 18px;}
+
+input[type="color"]::-webkit-color-swatch-wrapper {padding: 1px;}
+
+input[type="color"]::-webkit-color-swatch {border: 1px solid black;}
+
+select:hover{
+    background-color: #efefef;
     border-radius: 2.5px;
 }
 
-.classTítuloInstruções:hover{background: #e5e5e5;}
-.classTítuloInstruções:active{background: #f5f5f5;}
+input[type=text]:hover{
+    background-color: #efefef;
+    border-radius: 2.5px;
+    border: 1px solid #767676;
+    padding: 1px;
+}
 
-.classTítuloFieldset:hover{background: #e5e5e5;}
-.classTítuloFieldset:active{background: #f5f5f5;}
+[type=color]:hover{
+    background-color: #efefef;
+    border-radius: 2.5px;
+    border: 1px solid #767676;
+}
 
-.classBotãoDeLimpeza{background: #aaaaaa;}
-.classBotãoDeLimpeza:hover{background: #999999;}
-.classBotãoDeLimpeza:active{background: #ff0000;}
+input:invalid{background-color: #ff0000;}
+
+[type=file]{display: none;}
+
+fieldset div:last-child button:active {
+    background-color: #ff0000;
+    border-radius: 2.5px;
+    border: 1px solid #767676;
+    padding: 1px;
+}
+
+#id_Div_Tipo{display: none;}
+
+#id_H3_Tipo_De_Email, #id_H3_Dados_Do_Pedido, #id_H3_Dados_De_Compra, #id_H3_Resultado{display: none;}
+
+#id_Form_Dados_Pessoais, #id_Form_Dados_Do_Pedido, #id_Form_Dados_De_Compra, #id_Form_Emails_Selecionados, #id_Form_Extras{display: none;}
+
+
+/* body::-webkit-scrollbar {
+    width: 17px;
+    height: 17px;
+  } */
+  
+/*   body::-webkit-scrollbar-track {
+    background: transparent;
+    padding: 2px;
+  } */
+  
+/*   body::-webkit-scrollbar-thumb {
+    background-color: rgb(204, 0, 0);
+  } */

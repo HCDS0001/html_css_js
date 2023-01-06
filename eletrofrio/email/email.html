@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -10,151 +10,81 @@
 </head>
 <body>
     <header>
-        <img src="./Eletrofrio_75_Anos.png" id="idImagemHeader" class="classImagemExterna" alt="Eletrofrio 75 Anos"><br>
-        <h1 id="idTítuloPágina">Gerador de E-mails</h1>
+        <img src="./Eletrofrio_75_Anos.png" alt=""><br>
+        <h1>Gerador de E-mails</h1>
     </header>
     <main>
+        <aside><!-- <h2>Navegação</h2><br><nav>
+            <a href="#">Topo da Página</a><br>
+        </nav><br> --></aside>
         <section>
-            <article>
-                    <details>
-                        <summary title='Instruções de como usar o gerador de e-mails.' class="classTítuloInstruções">Instruções</summary>
-                        <p class="classParágrafoInstruções">Para gerar o e-mail desejado selecione o tipo de e-mail, preencha as informações do pedido e clique em "Exibir resultado".</p>
-                        <p class="classParágrafoInstruções">Clique em "Copiar Corpo do E-mail", isso fará uma cópia do corpo do e-mail na sua "Área de Transferência".</p>
-                        <p class="classParágrafoInstruções">Em seguida clique em "Gerar E-mail", será aberta uma janela com um novo.</p>
-                        <p class="classParágrafoInstruções">Por fim cole o corpo do texto na área do e-mail.</p>
-                    </details>
-                    <details>
-                        <summary title='Instruções de como usar o gerador de e-mails.' class="classTítuloInstruções">Dicas</summary>
-                        <p class="classParágrafoInstruções">Caso queira visualizar a assinatura insira ela nos dados pessoais.</p>
-                        <p class="classParágrafoInstruções">Os e-mails de envio são selecionados de forma automática, mas é possível incluir e excluir manualmente clicando nas checkbox.</p>
-                        <p class="classParágrafoInstruções">É possível clicar no corpo do e-mail antes de gerar e editar ali mesmo.</p>
-                        <p class="classParágrafoInstruções">Lembre-se sempre de verificar se o que foi preenchido é suficiente, em alguns casos é necessário preencher e editar com informações específicas de cada situação.</p>
-                    </details>
-            </article>
-            <article>
-                <p id="idTítuloFieldsetTipoDeEmail" class="classTítuloFieldset">Tipo de E-mail</p>
-                <form>
-                    <fieldset id="idFieldsetTipoDeEmail">
-                        <legend id="idLegendTipoDeEmail">Tipo de E-mail</legend>
-                        <label for="idFunção">Função</label>
-                        <select name="nameFunção" id="idFunção" title="Selecione a sua função."></select><br>
-                        <label for="idTipo" class="classTipo">Tipo</label>
-                        <select name="nameTipo" id="idTipo" class="classTipo" title="Selecione o tipo de e-mail que deseja gerar."></select><hr>
-                        <button type="reset" id="idLimpaTipoDeEmail" class="classBotãoDeLimpeza" title="Limpa as seleções de função e de tipo.">Limpar Tipo de E-mail</button>
-                    </fieldset>
-                </form>
-                <p id="idTítuloFieldsetDadosDoPedido" class="classTítuloFieldset">Dados do Pedido</p>
-                <form>
-                    <fieldset id="idFieldsetDadosDoPedido">
-                        <legend id="idLegendDadosDoPedido">Dados do Pedido</legend>
-                        <label for="idNomeRepresentante">Nome do Representante</label>
-                        <input type="text" name="nameNomeRepresentante" id="idNomeRepresentante" size="15" placeholder="Representante" title="Muda ao selecionar o número do representante." readonly><br>
-                        <label for="idNúmeroRepresentante">Número do Representante</label>
-                        <select name="nameNúmeroRepresentante" id="idNúmeroRepresentante" title="Selecione o número do representante."></select><br>
-                        <label for="idPedido">Pedido</label>
-                        <input type="text" name="namePedido" id="idPedido" size="3" minlength="3" maxlength="3" pattern="[0-9]{3}" placeholder="001" inputmode="numeric" title="Digite o número do pedido, precisam ser 3 números." required><br>
-                        <label for="idAno">Ano</label>
-                        <select name="nameAno" id="idAno" title="Selecione o ano do pedido."></select><br>
-                        <label for="idOrdemDeVenda">Ordem de Venda</label>
-                        <input type="text" name="nameOrdemDeVenda" id="idOrdemDeVenda" size="6" minlength="6" maxlength="6" min="000001" max="999999" pattern="[0-9]{6}"placeholder="609000" title="Preencha com o número da ordem de venda, precisam ser 6 números." inputmode="numeric" required><br>
-                        <label for="idNomeDoCliente">Nome do Cliente</label>
-                        <input type="text" name="nameNomeDoCliente" id="idNomeDoCliente" size="15" minlength="1" placeholder="Nome do Cliente" title="Preencha com o nome do cliente." required><br>
-                        <label for="idNomeFantasia">Nome Fantasia</label>
-                        <input type="text" name="nameNomeFantasia" id="idNomeFantasia" size="15" minlength="1" placeholder="Nome Fantasia" title="Preencha com o nome fantasia." required><br>
-                        <label for="idMês">Mês de Cadastro</label>
-                        <select name="nameMês" id="idMês" title="Selecione o mês de cadastro do pedido."></select><br>
-                        <label for="idArquivo">Arquivo</label>
-                        <input type="text" name="nameAnexarAssinatura" id="idArquivo" size="8" minlength="8" maxlength="8" pattern="[A-Z]{2}[0-9]{6}" placeholder="AA000000" title="Preencha com o número do arquivo, precisam ser 2 letras maiúsculas e 6 números." required><br>
-                        <label for="idRevisão">Revisão</label>
-                        <input type="text" name="nameRevisão" id="idRevisão" size="1" minlength="1" maxlength="1" pattern="[A-Z]{1}" placeholder="A" title="Preencha com a letra da revisão, precisa ser 1 letra maiúscula." required><hr>
-                        <button type="reset" id="idLimpaDadosDePedido" class="classBotãoDeLimpeza" title="Limpa os dados preenchidos do pedido.">Limpar Dados do Pedido</button>
-                    </fieldset>
-                </form>
-                <p id="idTítuloFieldsetDadosDeCompra" class="classTítuloFieldset">Dados de Compra</p>
-                <form>
-                    <fieldset id="idFieldsetDadosDeCompra">
-                        <legend id="idLegendDadosDeCompra">Dados de Compra</legend>
-                        <label for="idFornecedor">Fornecedor:</label>
-                        <select name="nameFornecedor" id="idFornecedor" title="Selecione o fornecedor do material."></select><br>
-                    </fieldset>
-                </form>
-                <p id="idTítuloFieldsetDadosPessoais" class="classTítuloFieldset">Dados Pessoais</p>
-                <form>
-                    <fieldset id="idFieldsetDadosPessoais">
-                        <legend id="idLegendDadosPessoais">Dados Pessoais</legend>
-                        <label for="idAssinatura">Assinatura de E-mail:</label>
-                        <input type="file" name="nameAssinatura" accept="image/png" name="nameAssinatura" id="idAssinatura" title="Selecione a assinatura de e-mail nos seus arquivos."><br><hr>
-                        <button type="reset" id="idLimpaDadosPessoais" class="classBotãoDeLimpeza" title="Limpa os dados pessoais.">Limpar Dados Pessoais</button>
-                    </fieldset>
-                </form>
-                <p id="idTítuloFieldsetEmailsSelecionados" class="classTítuloFieldset">E-mails Selecionados</p>
-                <form>
-                    <fieldset id="idFieldsetEmailsSelecionados">
-                        <legend id="idLegendEmailsSelecionados">E-mails Selecionados</legend>
-                        <details id="idEmailsPara">
-                            <summary title='Clique para expandir e visualizar as opções de checbox para inserir no campo "Para".'>E-mails Para:</summary>
-                        </details>
-                        <details id="idEmailsCc">
-                            <summary title='Clique para expandir e visualizar as opções de checbox para inserir no campo "Cc".'>E-mails Cc:</summary>
-                        </details>
-                        <details id="idEmailsBcc">
-                            <summary title='Clique para expandir e visualizar as opções de checbox para inserir no campo "Bcc".'>E-mails Bcc:</summary>
-                        </details><hr>
-                        <button type="reset" id="idLimpaEmailSelecionado" class="classBotãoDeLimpeza" title='Limpa as checkbox selecionadas para os campos "Para", "Cc" e "Bcc".'>Limpar E-mails</button>
-                    </fieldset>
-                </form>
-            </article>
+            <article><h3>Dados Pessoais</h3><form><fieldset><legend>Dados Pessoais</legend>
+                <div><label for="">Assinatura</label><input type="file" accept="image/png"><button type="button">Escolher arquivo</button></div><hr>
+                <div><button type="reset">Limpar Dados Pessoais</button></div>
+            </fieldset></form></article>
+            <article><h3>Tipo de E-mail</h3><form><fieldset><legend>Tipo de E-mail</legend>
+                <div><label for="">Grupo</label><select></select></div>
+                <div><label for="">Tipo</label><select></select></div><hr>
+                <div><button type="reset">Limpar Tipo de E-mail</button></div>
+            </fieldset></form></article>
+            <article><h3>Dados do Pedido</h3><form><fieldset><legend>Dados do Pedido</legend>
+                <div><label for="">Número do Representante</label><select></select></div>
+                <div><label for="">Nome do Representante</label><input type="text" size="1" placeholder="Representante" readonly></div>
+                <div><label for="">Pedido</label><input type="text" size="1" placeholder="001" inputmode="numeric" minlength="3" maxlength="3" pattern="[0-9]{3}" list=""><datalist></datalist></div>
+                <div><label for="">Ano</label><select></select></div>
+                <div><label for="">Ordem de Venda</label><input type="text" size="1" placeholder="609000" inputmode="numeric" minlength="6" maxlength="6" pattern="[0-9]{6}" list=""><datalist></datalist></div>
+                <div><label for="">Nome do Cliente</label><input type="text" size="1" placeholder="Nome do Cliente" minlength="1" maxlength="50" list=""><datalist></datalist></div>
+                <div><label for="">Nome Fantasia</label><input type="text" size="1" placeholder="Nome Fantasia" minlength="1" maxlength="50" list=""><datalist></datalist></div>
+                <div><label for="">Mês de Cadastro</label><select></select></div>
+                <div><label for="">Arquivo</label><input type="text" size="1" placeholder="AA000000" minlength="8" maxlength="8" pattern="[A-Z]{2}[0-9]{6}"><datalist></datalist></div>
+                <div><label for="">Revisão</label><input type="text" size="1" placeholder="A" minlength="1" maxlength="1" pattern="[A-Z]{1}" list=""><datalist></datalist></div><hr>
+                <div><button type="reset">Limpar Dados do Pedido</button></div>
+            </fieldset></form></article>
+            <article><h3>Dados de Compra</h3><form><fieldset><legend>Dados de Compra</legend>
+                <div><label for="">Fornecedor</label><select></select></div>
+            </fieldset></form></article>
+            <article><h3>E-mails Selecionados</h3><form><fieldset><legend>E-mails Selecionados</legend>
+                <details><summary>Para</summary></details>
+                <details><summary>Cc</summary></details>
+                <details><summary>Bcc</summary></details><hr>
+                <div><button type="reset">Limpar E-mails Selecionados</button></div>
+            </fieldset></form></article>
+            <article><h3>Resultado</h3><form><fieldset><legend>Resultado</legend>
+                <div><button type="button">Exibir Resultado</button></div>
+                <div><button type="button">Copiar Corpo</button></div>
+                <div><button type="button" formtarget="_blank"><a target="_blank">Gerar E-mail</a></button></div><hr>
+                <h4>Para</h4><span></span>
+                <h4>Cc</h4><span></span>
+                <h4>Bcc</h4><span></span>
+                <h4>Assunto</h4><span></span>
+                <h4>Corpo</h4><span spellcheck="true" contenteditable></span><hr>
+                <div><button type="reset">Limpar Resultado</button></div>
+            </fieldset></form></article>
+            <article><h3>Extras</h3><form><fieldset><legend>Extras</legend>
+<!--                 <div><label for="">Cor de Fundo</label><input type="color" list="" value="#ffffff"><datalist></datalist></div> -->
+<!--                 <div><label for="">Cor de Texto</label><input type="color" list="" value="#000000"><datalist></datalist></div> -->
+<!--                 <div><label for="">Estilo de Cor</label><select></select></div> -->
+<!--                 <div><label for="">Fundo</label><input type="range" list="" min="300" max="800" step="50" value="400"><datalist></datalist></div> -->
+<!--                 <div><label for="">Tamanho de Texto</label><input type="range" list="" min="9" max="20" step="1" value="12"><datalist></datalist></div> -->
+                <div><button type="button"><a href="">Sugestões ao Desenvolvedor</a></button></div>
+                <div><button type="button">Exibir Área de Transferência</button></div><hr>
+                <div><button type="reset">Limpar Extras</button></div>
+            </fieldset></form></article>    
         </section>
-        <section>
-            <p id="idTítuloFieldsetResultado" class="classTítuloFieldset">Resultado</p>
-            <form>
-                <fieldset id="idFieldsetResultado">
-                    <legend id="idLegendResultado">Resultado</legend>
-                    <label for="idResultadoPara" title='Apresenta os e-mails para o campo "Para".' class="classLabelResultado">Para:</label><br>
-                    <span id="idResultadoPara"></span><br>
-                    <label for="idResultadoCc" title='Apresenta os e-mails para o campo "Cc".' class="classLabelResultado">Cc:</label><br>
-                    <span id="idResultadoCc"></span><br>
-                    <label for="idResultadoBcc" title='Apresenta os e-mails para o campo "Bcc".' class="classLabelResultado">Bcc:</label><br>
-                    <span id="idResultadoBcc"></span><br>
-                    <label for="idResultadoAssunto" title="Apresenta o assunto do e-mail." class="classLabelResultado">Assunto:</label><br>
-                    <span id="idResultadoAssunto"></span><br>
-                    <label for="idResultadoCorpoDoEmail" title="Apresenta o corpo do e-mail." class="classLabelResultado">Corpo do E-mail:</label><br>
-                    <span id="idResultadoCorpoDoEmail" spellcheck="true" contenteditable></span><hr>
-                    <button type="button" id="idApresentaEmail" title="Gera os resultados com base nos itens preenchidos e selecionados nos campos acima.">Exibir Resultado</button><br>
-                    <button type="button" id="idCopiaCorpoDoEmail" title="Copia o corpo do e-mail.">Copia Corpo do E-mail</button><br>
-                    <button type="button" formtarget="_blank">
-                        <a id="idGeraEmail" target="_blank" title="Clique para gerar o e-mail.">Gerar E-mail</a>
-                    </button>
-                    <button type="reset" id="idLimpaResultado" class="classBotãoDeLimpeza" title="Limpa os resultados gerados.">Limpar Resultados</button>
-                </fieldset>
-            </form>
-            <p id="idTítuloFieldsetExtras" class="classTítuloFieldset">Extras</p>
-            <form>
-                <fieldset id="idFieldsetExtras">
-                    <legend id="idLegendExtras">Extras</legend>
-                    <label for="idBackgroundColor">Cor do Background:</label>
-                    <input type="color" name="nameBackgroundColor" id="idBackgroundColor" value="#ffffff" list="idOptionCores" title="Selecione a cor do background."><br>
-                    <label for="idTextoColor">Cor do Texto:</label>
-                    <input type="color" name="nameTextoColor" id="idTextoColor" value="#000000" list="idOptionCores" title="Selecione a cor do texto."><br>
-                    <label for="idEstiloDeCor">Estilo de Cor:</label>
-                    <button type="button" id="idEstiloDeCor" title="Muda o estilo de cores da página.">White Mode</button><br>
-                    <datalist id="idOptionCores"></datalist>
-                    <label for="idLarguraDoFundo">Largura do Fundo:</label>
-                    <input type="range" name="nameLarguraDoFundo" id="idLarguraDoFundo" value="400" min="300" max="1000" step="50" list="" title="Selecione a largura do fundo."><br>
-                    <button type="button" formtarget="_blank">
-                        <a id="idDúvidasDesenvolvedor" target="_blank" title="Clique para enviar um e-mail para o desenvolvedor da página.">Sugestões e Correções ao Desenvolvedor</a>
-                    </button><br>
-                    <button id="idExibeÁreaDeTransferência">Exibe Área de Transferência</button>
-                    <button type="reset" id="idLimpaExtras" class="classBotãoDeLimpeza" title="Limpa os extras.">Limpar Extras</button>
-                </fieldset>
-            </form>
-        </section>
+        <aside>
+<!--             <h2>Instruções</h2><br>
+            <details><summary>Básicas</summary><ul></ul></details>
+            <details><summary>Avançadas</summary><ul></ul></details>
+            <details><summary>Dicas</summary><ul></ul></details><hr>
+            <h2>Atualizações</h2><br><ul>
+                <li>Versão Teste</li>
+            </ul > -->
+        </aside>
     </main>
     <footer>
-        <span>Desenvolvido por Henrique Carvalho de Souza</span>
-        <img src="./Eletrofrio_75_Anos.png" id="idImagemFooter" class="classImagemExterna" alt="Eletrofrio 75 Anos"><br>
+        <p>Desenvolvido por Henrique Carvalho de Souza</p><br>
+        <img src="" alt="">
     </footer>
-<!--     <style style="display: block;" contenteditable>main, header, footer{color: #ffffff; background-color: #000000;}</style> -->
     <script src="email.js"></script>
 </body>
 </html>
